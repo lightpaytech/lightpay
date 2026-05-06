@@ -1,0 +1,99 @@
+.filter
+  position relative
+  width 100%
+  box-sizing border-box
+  height 34px
+  margin 32px 0px 32px 0px
+
+  .filterWrap
+    background rgb(10,14,35)
+    position absolute
+    left 0px
+    top 0
+    bottom 0
+    right 105px
+    border-radius 8px
+    border 1px solid rgba(14,165,233,0.2)
+    transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) border-color
+
+    .filterInput
+      background transparent
+      border 0
+      outline 0
+      color rgb(224,242,254)
+      font-family 'CodeFont'
+      position absolute
+      left 36px
+      top 0
+      bottom 0
+      right 0px
+      font-size 16px
+      font-weight 300
+
+    .filterInput:focus
+      outline none
+
+  .filterWrap:focus-within
+    border-color rgba(14,165,233,0.4)
+    background rgb(6,9,22)
+
+  .filterIcon
+    position absolute
+    left 0
+    top 2px
+    bottom 0
+    width 40px
+    display flex
+    justify-content center
+    align-items center
+    color rgba(14,165,233,0.6)
+    z-index 1
+
+.filterWrap:hover
+  background rgb(6,9,22)
+
+.filterButton
+  background rgb(10,14,35)
+  text-transform uppercase
+  font-size 16px
+  font-weight 300
+  width 60px
+  border-radius 8px
+  position absolute
+  top 0px
+  right 0px
+  bottom 0px
+  cursor pointer
+  box-sizing border-box
+  border 1px solid rgba(14,165,233,0.2)
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+  .filterButtonInner
+    display flex
+    justify-content center
+    align-items center
+    cursor pointer
+    position relative
+
+  *
+    pointer-events none
+
+.filterButton:hover
+  background rgb(6,9,22)
+  border-color rgba(14,165,233,0.4)
+  color rgb(224,242,254)
+
+// Filter tag pills
+.filterTag
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 20px
+  padding 3px 10px
+  font-size 11px
+  color rgba(186,230,253,0.7)
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.filterTagActive
+  background rgba(14,165,233,0.12)
+  border-color rgba(14,165,233,0.4)
+  color rgb(14,165,233)

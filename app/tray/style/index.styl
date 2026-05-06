@@ -1,0 +1,1221 @@
+// LightPay VAULT — Tray Style Index
+
+.panel
+  #panelPush
+    right 0
+
+#panelPush
+  position absolute
+  right -365px
+  bottom 0
+  top 0
+  width 360px
+  transition var(--standard)
+
+#panel
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  -webkit-app-region no-drag
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  transition var(--standardFast)
+  transform translate3d(0, 0, 0)
+
+.traySwoop
+  position absolute
+  display flex
+  align-items flex-end
+  top -1930px
+  right -50px
+  left -50px
+  height 1500px
+  opacity 0.15
+  color var(--good03)
+  pointer-events none
+
+.traySwoopBottom
+  position absolute
+  display flex
+  align-items flex-end
+  bottom 750px
+  right -50px
+  left -50px
+  height 1200px
+  opacity 0.08
+  color var(--good02)
+  pointer-events none
+
+.trayRequestArea
+  width 100%
+  padding 10px
+  display flex
+  justify-content center
+  align-items center
+  flex-direction column
+
+  .trayRequestBlock
+    padding 10px 15px
+    margin 15px
+    border-radius 12px
+    background rgb(6, 9, 22)
+    border 1px solid rgba(14, 165, 233, 0.18)
+    font-size 14px
+    font-weight 300
+
+.trayGrantSection
+  margin-top 40px
+  padding-top 0
+  width 100%
+
+.trayGrantOption
+  margin 15px
+  padding 0
+  height 40px
+  border-radius 20px
+  display flex
+  justify-content center
+  align-items center
+  background rgba(14, 165, 233, 0.05)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  -webkit-app-region no-drag
+
+  &:hover
+    background rgba(14, 165, 233, 0.05)
+    border-color rgba(14, 165, 233, 0.4)
+
+#trayTop
+  position absolute
+  top 0
+  right 0
+  left 0
+  height 0
+
+.trayBottom
+  padding 10px 10px 60px 10px
+  display flex
+  justify-content center
+  margin-left 5px
+
+  svg
+    color rgba(14, 165, 233, 0.08)
+
+.trayNavMenu
+  position absolute
+  left 24px
+  right 24px
+  top 10px
+  height 63px
+  box-sizing border-box
+  display flex
+  justify-content space-between
+  -webkit-app-region no-drag
+  z-index 1000000000
+  opacity 1
+  transform translate3d(0, 0, 0)
+
+  .trayNavItem
+    height 38px
+    width 48px
+    top 9px
+    border-radius 16px
+    display flex
+    justify-content center
+    align-items center
+    -webkit-app-region no-drag
+    transition var(--standardFast)
+    pointer-events auto
+    transform translate3d(0, 0, 0)
+    background var(--ghostB)
+    position absolute
+    cursor pointer
+    border 1px solid rgba(14, 165, 233, 0.18)
+
+    *
+      pointer-events none
+
+  .trayNavItem:hover
+    background rgba(14, 165, 233, 0.05)
+    border-color rgba(14, 165, 233, 0.4)
+
+  .trayNavItem:active
+    background rgba(14, 165, 233, 0.12)
+    border-color rgba(14, 165, 233, 0.5)
+
+  .trayNavItemOpen
+    left 0
+
+  .trayNavItemSend
+    right 0
+
+  .trayTitle
+    position absolute
+    left 60px
+    right 170px
+    top 24px
+    bottom 10px
+    display flex
+    align-items center
+    justify-content center
+    font-family 'MainFont'
+    font-size 18px
+    font-weight 300
+    display none
+
+  .trayWindowMarker
+    position absolute
+    left 9px
+    top 10px
+    height 3px
+    background var(--ghostA)
+    border-radius 2px
+    z-index 20000
+    cursor pointer
+    width 50px
+
+  .trayNavMarker
+    position absolute
+    right 9px
+    top 10px
+    height 3px
+    background var(--ghostA)
+    border-radius 2px
+    z-index 20000
+    cursor pointer
+    width 165px
+
+  .trayNavMark
+    position relative
+    width 36px
+    height 3px
+    background var(--outerspace)
+    transform translateX(14px)
+    border-radius 2px
+    transition var(--standard)
+    margin-left -1px
+    z-index 20002
+
+  .trayNavMarkActive
+    background var(--good)
+
+  .trayDetail
+    display flex
+    align-items center
+    margin-left 0%
+    transition var(--standardSlow)
+
+  .trayDetailText
+    transition var(--standard)
+    text-transform uppercase
+    font-size 10px
+    letter-spacing 1px
+    font-weight 400
+    color var(--outerspace08)
+    display flex
+    justify-content center
+    align-items center
+    padding-right 8px
+    margin-right 8px
+
+  .trayNavData
+    position absolute
+    top 23px
+    right 75px
+    left 176px
+    transition var(--standard)
+    letter-spacing 0
+    text-transform uppercase
+    color var(--outerspace08)
+    display flex
+    justify-content center
+    align-items center
+    font-weight 300
+    font-size 11px
+    height 25px
+
+    .trayNavDataDivide
+      height 100%
+      width 1px
+      background var(--ghostY)
+
+    .trayNavDataItem
+      display flex
+      justify-content center
+      padding 0 5px 1px 5px
+
+      .svg
+        position relative
+        margin-left 4px
+        margin-top 4px
+        margin-right 3px
+
+      .usd
+        position relative
+        margin-top 3px
+        margin-right 1px
+
+  .walletStatus
+    height 3px
+    width 23px
+    margin 10px 8px
+    border-radius 5px
+    display flex
+    align-items center
+    justify-content center
+
+    .walletStatusDot
+      height 3px
+      width 23px
+      border-radius 2px
+
+    .walletStatusGood
+      background var(--good)
+
+    .walletStatusPending
+      background var(--bad)
+
+    .walletStatusBad
+      background var(--bad)
+
+    .walletStatusPending
+      transition var(--standardSlow)
+      background var(--pending)
+
+// ─── Account layout — VAULT overrides ─────────
+
+.walletMain
+  position absolute
+  top 140px
+  right 7px
+  bottom 40px
+  left 7px
+  z-index 3
+  display flex
+  justify-content center
+  align-items center
+  border-radius 20px
+  transition var(--standard)
+  overflow hidden
+  background transparent
+  border-top 1px solid rgba(14, 165, 233, 0.18)
+
+  .walletMainScroll
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    overflow-y scroll
+    overflow-x hidden
+    transform translate3d(0, 0, 0)
+    border-radius 20px
+
+    &::-webkit-scrollbar
+      width 4px
+      background transparent
+
+    &::-webkit-scrollbar-thumb
+      background rgba(14, 165, 233, 0.25)
+      border-radius 4px
+
+    &::-webkit-scrollbar-thumb:hover
+      background rgba(14, 165, 233, 0.45)
+
+  .walletMainSlide
+    position relative
+    width 100%
+    transform translate3d(0, 0, 0)
+    transition var(--standardSlow)
+    transition-delay 0.32s
+    padding-bottom 90px
+    pointer-events none
+    z-index 999
+
+  .walletModulesExpand
+    background var(--ghostA)
+    z-index 2001
+    margin-bottom 30px
+    height 100%
+
+    .moduleExpanded
+      z-index 20000
+
+      .walletModuleInner
+        position relative
+
+    .walletModule
+      position relative !important
+
+.walletModule
+  position absolute
+  top 0
+  left 2px
+  right 2px
+  transform translate3d(0, 0, 0)
+  transition var(--standard)
+  pointer-events auto
+  padding-bottom 7px
+
+.walletModuleCard
+  position relative
+  border-radius 16px
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.15)
+
+.walletModuleInner
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 7px
+  transform translate3d(0, 0, 0)
+  padding 0 14px 14px
+  border-radius 16px
+
+  .walletModuleCard
+    position relative
+    border-radius 16px
+    background rgb(6, 9, 22)
+    border 1px solid rgba(14, 165, 233, 0.15)
+
+  .sectionTitle:before
+    content ''
+    position absolute
+    bottom -2px
+    right 16px
+    left 16px
+    height 1px
+    background rgba(14, 165, 233, 0.18)
+
+  .moduleHeaderBlank
+    height 6px
+
+  .sectionTitle
+    position relative
+    font-size 11px
+    text-transform uppercase
+    letter-spacing 2px
+    padding 16px 90px 10px 20px
+    height 42px
+    font-family 'MainFont'
+    font-weight 500
+    box-sizing border-box
+    display flex
+    align-items center
+
+    span
+      margin-right 8px
+
+    .moduleHeaderClose
+      background var(--bad)
+      color var(--moonOver)
+      width 20px
+      height 20px
+      border-radius 10px
+      position absolute
+      right 11px
+      top 9px
+      bottom 0
+      display flex
+      justify-content center
+      align-items center
+      cursor pointer
+
+      *
+        pointer-events none
+
+    .moduleHeaderLoading
+      position absolute
+      left 6px
+      top 1px
+      bottom 0
+      display flex
+      justify-content center
+      align-items center
+
+    .moduleHeaderLoadingLoader
+      border-radius 50%
+      width 12px
+      height 12px
+      margin 12px auto
+      font-size 10px
+      position relative
+      text-indent -9999em
+      border-top 3px solid var(--ghostA)
+      border-right 3px solid var(--ghostA)
+      border-bottom 3px solid var(--ghostA)
+      border-left 3px solid var(--good)
+      transform translateZ(0)
+      animation load 0.5s infinite linear
+      will-change transform
+
+  .sectionTitle:before
+    background none
+
+  .moduleHeaderBorderless
+    border-bottom none
+
+  .moduleComingSoon
+    padding 14px 0 20px 0
+    display flex
+    justify-content center
+    color var(--ghostA)
+    font-weight 300
+    font-size 24px
+
+  .sectionContent
+    padding 16px
+
+  .sectionFooter
+    padding 16px
+
+  .moduleMainSettings
+    font-size 11px
+    text-transform uppercase
+    font-weight 400
+
+  .sectionFooterBtn
+    position absolute
+    bottom 0
+    width 100%
+    cursor pointer
+    text-align center
+    font-size 12px
+    text-transform uppercase
+    border-top 1px solid rgba(14, 165, 233, 0.18)
+    box-sizing border-box
+    font-weight 300
+    letter-spacing 1px
+    padding 12px
+    height 42px
+    background rgb(10, 14, 35)
+    border-radius 0 0 16px 16px
+    z-index 400000
+
+  .sectionFooterBtn:hover
+    background rgba(14, 165, 233, 0.05)
+    color var(--good)
+
+// ─── Panel filter (account selector search) ───
+
+.walletSearchBar
+  position sticky
+  top 0
+  left 0
+  right 0
+  height 48px
+  width 100%
+  z-index 99
+  overflow hidden
+  background var(--ghostC)
+  border-radius 12px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  margin 14px 14px 6px
+  animation appear 0.8s cubic-bezier(0.4, 0, 0.2, 1)
+  box-sizing border-box
+
+// ─── Account view ─────────────────────────────
+
+.walletView
+  position absolute
+  top 140px
+  right 8px
+  bottom 40px
+  left 8px
+  border-radius 16px
+  z-index 4
+  display flex
+  justify-content center
+  align-items center
+  transition var(--standard)
+  overflow hidden
+
+  .walletViewMenu
+    position absolute
+    top 6px
+    right 6px
+    left 6px
+    height 53px
+    border-radius 16px 16px 0 0
+    z-index 59999999
+    background rgb(10, 14, 35)
+    border-bottom 1px solid rgba(14, 165, 233, 0.18)
+    box-sizing border-box
+
+    .walletViewTitle
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0
+      display flex
+      justify-content center
+      align-items center
+      text-transform uppercase
+      letter-spacing 2px
+      font-weight 400
+      pointer-events none
+      font-family 'MainFont'
+
+      .accountViewIcon
+        pointer-events none
+        transform translate3d(0, 0, 0)
+        position relative
+        top 2px
+
+      .accountViewText
+        font-size 12px
+
+    .walletViewBack
+      position absolute
+      top 5px
+      left 5px
+      height 42px
+      width 54px
+      border-radius 10px
+      display flex
+      justify-content center
+      align-items center
+      -webkit-app-region no-drag
+      transition none
+      pointer-events auto
+      transform translate3d(0, 0, 0)
+      background var(--ghostC)
+      cursor pointer
+      border 1px solid rgba(14, 165, 233, 0.18)
+      box-sizing border-box
+
+      *
+        pointer-events none
+
+    .walletViewBack:hover
+      background rgba(14, 165, 233, 0.05)
+      color var(--good)
+      border-color rgba(14, 165, 233, 0.4)
+
+  .walletViewMain
+    position absolute
+    top 0
+    right 0
+    left 0
+    bottom 0
+    animation-delay 0.08s
+    z-index 3
+    padding-top 30px
+
+.walletView::before
+  content ''
+  position absolute
+  top 0
+  left 0
+  right 0
+  height 40px
+  background linear-gradient(var(--ghostA) 30%, var(--ghostZ0))
+  z-index 90
+
+// ─── App bottom menu ──────────────────────────
+
+.lpAppMenu
+  position absolute
+  left 0
+  right 0
+  bottom 0
+  height 48px
+  display flex
+  justify-content space-between
+  align-items center
+  -webkit-app-region no-drag
+  z-index 100000000000
+  opacity 1
+  transform translate3d(0, 0, 0)
+  transition var(--standardFast)
+  background rgb(6, 9, 22)
+  border-top 1px solid rgba(14, 165, 233, 0.18)
+  display none
+
+  .appMenuItem
+    cursor pointer
+    height 67px
+    min-width 40px
+    display flex
+    align-items center
+    border-right 1px solid rgba(14, 165, 233, 0.18)
+
+    .appMenuItemButton
+      height 27px
+      width 28px
+      border-radius 14px
+      display flex
+      justify-content center
+      align-items center
+      -webkit-app-region no-drag
+      transition var(--standard)
+      pointer-events auto
+      transform translate3d(0, 0, 0)
+      background var(--ghostD)
+      position absolute
+      border 1px solid rgba(14, 165, 233, 0.18)
+      cursor pointer
+      padding-top 1px
+      margin 10px
+
+      *
+        pointer-events none
+
+@import './card.styl'
+@import '../Notify/style'
+@import '../StatusBar/style'
+@import '../Veil/style'
+@import '../Account/style'
+@import '../WalletPicker/style'
+@import '../Footer/style'
+@import '../PortfolioHeader/style'
+@import '../TxHistory/style'
+@import '../NetworkHealth/style'
+@import '../Watchlist/style'
+
+// ─── Missing top-level classes (global tray scope) ──────────────────────────
+
+.transactionToAddress
+  font-family 'CodeFont'
+  font-size 12px
+  color var(--outerspace07)
+  letter-spacing 0.04em
+
+.transactionToAddressENS
+  font-size 14px
+  font-weight 400
+  color rgb(224, 242, 254)
+
+.transactionToAddressLarge
+  font-family 'CodeFont'
+  font-size 13px
+  color var(--outerspace08)
+  letter-spacing 0.04em
+
+.transactionToAddressLargeWrap
+  display flex
+  align-items center
+  gap 6px
+  cursor pointer
+
+.transactionToAddressLargeEllipsis
+  color var(--outerspace04)
+
+.transactionToAddressFullCopied
+  color var(--good)
+
+.footerWrap
+  width 100%
+  display flex
+  flex-direction column
+
+.network
+  display flex
+  align-items center
+  gap 6px
+
+.chainModules
+  display flex
+  flex-direction column
+  gap 4px
+
+.badgeInner
+  display flex
+  align-items center
+  gap 4px
+
+.badgeInput
+  background rgba(14, 165, 233, 0.05)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 10px
+  display flex
+  align-items center
+  overflow hidden
+
+.badgeInputButton
+  height 28px
+  padding 0 10px
+  font-size 11px
+  color rgba(186, 230, 253, 0.7)
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.badgeInputButton:hover
+  background rgba(14, 165, 233, 0.05)
+  color var(--good)
+
+.badgeMessage
+  font-size 11px
+  color var(--outerspace05)
+  padding 4px 8px
+
+.clearOriginsButton
+  height 32px
+  padding 0 12px
+  border-radius 8px
+  border 1px solid rgba(244, 63, 94, 0.2)
+  background transparent
+  color var(--bad)
+  font-size 11px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.clearOriginsButton:hover
+  background rgba(244, 63, 94, 0.06)
+  border-color rgba(244, 63, 94, 0.45)
+
+.clusterFocusHighlight
+  background rgba(14, 165, 233, 0.12)
+  border-color rgba(14, 165, 233, 0.5)
+
+.requestTokenAddress
+  font-family 'CodeFont'
+  font-size 11px
+  color var(--outerspace05)
+  letter-spacing 0.04em
+  word-break break-all
+
+.requestTokenInfo
+  display flex
+  flex-direction column
+  gap 4px
+
+.requestTokenInner
+  display flex
+  align-items center
+  gap 10px
+
+.requestTokenName
+  font-size 15px
+  font-weight 500
+  color rgb(224, 242, 254)
+
+.requestTokenSymbol
+  font-family 'CodeFont'
+  font-size 12px
+  color var(--outerspace05)
+  letter-spacing 0.06em
+
+.gasRateLabel
+  font-size 10px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color var(--outerspace04)
+  margin-bottom 6px
+
+.priceAlertItemLeft
+  display flex
+  flex-direction column
+  gap 3px
+
+.statusInputSmall
+  height 24px
+  padding 0 8px
+  border-radius 6px
+  font-size 11px
+
+// Transaction progress (top-level)
+.txProgress
+  padding 10px 14px
+
+.txProgressSlide
+  position relative
+  overflow hidden
+  border-radius 12px
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  padding 14px
+
+.txProgressLine
+  height 2px
+  background var(--ghostD)
+  border-radius 1px
+  overflow hidden
+  margin-bottom 12px
+
+.txProgressBack
+  height 100%
+  background linear-gradient(90deg, var(--goodShade), var(--good))
+  border-radius 1px
+  transition 0.6s cubic-bezier(0.4, 0, 0.2, 1) width
+
+.txProgressFront
+  height 100%
+  background var(--ghostD)
+
+.txProgressSteps
+  display flex
+  gap 6px
+  margin-bottom 10px
+
+.txProgressStep
+  flex 1
+  display flex
+  flex-direction column
+  align-items center
+  gap 4px
+
+.txProgressStepMarker
+  width 8px
+  height 8px
+  border-radius 50%
+  background var(--ghostD)
+  transition 0.3s all
+
+.txProgressTail
+  font-size 11px
+  color var(--outerspace04)
+  text-align center
+
+.txProgressLoading
+  display flex
+  flex-direction column
+  align-items center
+  gap 12px
+  padding 4px 0
+
+.txProgressLoadingBox
+  width 100%
+  height 40px
+  border-radius 10px
+  background var(--ghostD)
+
+.txProgressLoadingCenter
+  display flex
+  align-items center
+  justify-content center
+  gap 8px
+  font-size 13px
+  color var(--outerspace06)
+
+.txProgressLoadingDot
+  width 6px
+  height 6px
+  border-radius 50%
+  background var(--good)
+
+.txProgressSuccessItem
+  display flex
+  align-items center
+  gap 10px
+  padding 8px 0
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+
+.txProgressSuccessItem:last-child
+  border-bottom none
+
+.txProgressSuccessItemLeft
+  flex-shrink 0
+
+.txProgressSuccessItemCenter
+  flex 1
+
+.txProgressSuccessItemRight
+  text-align right
+  flex-shrink 0
+
+.txProgressSuccessItemLabel
+  font-size 11px
+  color var(--outerspace04)
+
+.txProgressSuccessItemValue
+  font-family 'CodeFont'
+  font-size 12px
+  color var(--outerspace08)
+
+.txActionButtonsRow
+  display flex
+  gap 8px
+  padding 10px 14px
+
+.txActionButton
+  flex 1
+  height 44px
+  border-radius 12px
+  display flex
+  align-items center
+  justify-content center
+  font-size 14px
+  font-weight 500
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.txActionButtonGood
+  background rgb(14, 165, 233)
+  color rgb(3, 5, 15)
+  border 1px solid rgba(14, 165, 233, 0.4)
+
+.txActionButtonGood:hover
+  background rgb(56, 189, 248)
+  border-color rgba(14, 165, 233, 0.4)
+
+.txActionButtonBad
+  background transparent
+  border 1px solid rgba(244,63,94,0.3)
+  color var(--bad)
+
+.txActionButtonBad:hover
+  background rgba(244,63,94,0.07)
+  border-color rgba(244,63,94,0.55)
+
+.txActionText
+  font-size 12px
+  color var(--outerspace06)
+  text-align center
+  padding 6px 14px
+
+// Fee overlay inputs (top-level)
+.txFeeOverlayInput
+  background rgba(14, 165, 233, 0.04)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 10px
+  padding 9px 12px
+  font-family 'CodeFont'
+  font-size 12px
+  color rgb(224, 242, 254)
+  width 100%
+  outline none
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  box-sizing border-box
+  -webkit-app-region no-drag
+
+.txFeeOverlayInput:focus
+  border-color rgba(14, 165, 233, 0.4)
+  border 1px solid rgba(14, 165, 233, 0.4)
+
+.txFeeOverlayBaseFee
+  display flex
+  flex-direction column
+  gap 4px
+
+.txFeeOverlayGasPrice
+  display flex
+  flex-direction column
+  gap 4px
+
+.txFeeOverlayLimit
+  display flex
+  flex-direction column
+  gap 4px
+
+.txFeeOverlayPriorityFee
+  display flex
+  flex-direction column
+  gap 4px
+
+.txNonceButtonReset
+  height 30px
+  padding 0 10px
+  border-radius 8px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  color var(--good)
+  font-size 11px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.txNonceButtonReset:hover
+  background rgba(14, 165, 233, 0.05)
+  border-color rgba(14, 165, 233, 0.4)
+
+// Decoded data
+.decodedDataContractName
+  font-size 14px
+  font-weight 500
+  color rgb(224, 242, 254)
+
+.decodedDataContractMethod
+  font-family 'CodeFont'
+  font-size 12px
+  color var(--good)
+  margin-top 2px
+
+.decodedDataSync
+  display flex
+  align-items center
+  gap 8px
+  padding 6px 14px
+  font-size 11px
+  color var(--outerspace05)
+
+.decodedDataSyncLeft, .decodedDataSyncRight
+  flex 1
+
+.simpleJsonChild
+  padding-left 14px
+  border-left 1px solid rgba(14, 165, 233, 0.18)
+  margin-left 6px
+
+.simpleJsonKey
+  font-family 'CodeFont'
+  font-size 11px
+  color var(--outerspace05)
+  letter-spacing 0.04em
+  margin-right 6px
+
+.simpleJsonKeyTx
+  color var(--good)
+
+.simpleJsonValue
+  font-family 'CodeFont'
+  font-size 11px
+  color var(--outerspace08)
+
+.txDescriptionSummaryStandaloneWrap
+  padding 10px 14px
+  background rgb(6, 9, 22)
+  border-radius 10px
+  margin 8px 14px
+
+.txViewDataHeader
+  padding 12px 14px
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+  display flex
+  align-items center
+  gap 10px
+
+.signerBottomPageBack, .signerBottomPageNext
+  height 32px
+  padding 0 14px
+  border-radius 8px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  color rgba(186, 230, 253, 0.7)
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.signerBottomPageBack:hover, .signerBottomPageNext:hover
+  border-color rgba(14, 165, 233, 0.4)
+  color var(--good)
+
+.deviceMenuItem
+  display flex
+  align-items center
+  gap 8px
+  padding 10px 14px
+  cursor pointer
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) background
+
+.deviceMenuItem:hover
+  background rgba(14, 165, 233, 0.05)
+
+.deviceMenuItemLeft
+  display flex
+  align-items center
+  gap 10px
+  flex 1
+
+.deviceMenuItemRight
+  display flex
+  align-items center
+  gap 6px
+
+.connectionOptionStatus
+  display flex
+  align-items center
+  gap 8px
+  padding 8px 0
+
+.panelBlockItem
+  padding 10px 14px
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+  font-size 13px
+  color rgba(186, 230, 253, 0.7)
+
+.originChainItemCheck
+  width 14px
+  height 14px
+  border-radius 50%
+  background rgba(14, 165, 233, 0.12)
+  border 1px solid rgba(14, 165, 233, 0.4)
+  display flex
+  align-items center
+  justify-content center
+  flex-shrink 0
+
+.originSwapOriginText
+  font-size 12px
+  color rgba(186, 230, 253, 0.7)
+
+// ─── Final 7 missing class aliases ───────────────────────────────────────────
+
+.addAccountItemOptionSetup
+  display flex
+  flex-direction column
+  gap 8px
+
+.addAccountItemOptionSetupLightPay
+  display flex
+  flex-direction column
+  gap 8px
+  border-left 2px solid rgb(14, 165, 233)
+  padding-left 8px
+
+.addAccountItemOptionSetupLightPays
+  display flex
+  flex-direction column
+  gap 8px
+  border-left 2px solid rgb(14, 165, 233)
+  padding-left 8px
+
+.decodedDataSyncLeft
+  flex 1
+
+.decodedDataSyncRight
+  flex 1
+
+.signerBottomPageBack
+  height 32px
+  padding 0 14px
+  border-radius 8px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  color rgba(186, 230, 253, 0.7)
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.signerBottomPageBack:hover
+  border-color rgba(14, 165, 233, 0.4)
+  color var(--good)
+
+.signerBottomPageNext
+  height 32px
+  padding 0 14px
+  border-radius 8px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  color rgba(186, 230, 253, 0.7)
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.signerBottomPageNext:hover
+  border-color rgba(14, 165, 233, 0.4)
+  color var(--good)

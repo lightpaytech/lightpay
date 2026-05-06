@@ -1,0 +1,349 @@
+// LightPay VAULT — dApp Window
+@import '../../resources/base'
+
+html, body
+  margin 0
+  border 0
+  font-family 'MainFont'
+  font-weight 300
+  -webkit-app-region drag
+  overflow hidden
+  color var(--outerspace)
+  background var(--ghostA)
+
+div
+  user-select none
+  cursor default
+
+input
+  user-select text
+  cursor text
+
+::-webkit-scrollbar
+  display none
+
+.dark
+  --ghostA rgb(3, 5, 15)
+  --ghostB rgb(6, 9, 22)
+  --ghostC rgb(10, 14, 35)
+  --ghostD rgb(10, 14, 35)
+  --good rgb(14, 165, 233)
+  --goodUp rgb(56, 189, 248)
+  --goodShade rgb(2, 132, 199)
+  --good01 rgba(14, 165, 233, 0.1)
+  --good02 rgba(14, 165, 233, 0.2)
+  --good04 rgba(14, 165, 233, 0.4)
+  --bad rgb(244, 63, 94)
+  --warning rgb(251, 146, 60)
+
+// ─── Main window shell ──────────────────────────────────────────────────────
+
+.lpDappWindow
+  position fixed
+  inset 0
+  display flex
+  flex-direction column
+  background var(--ghostA)
+  overflow hidden
+
+.lpDappWindow::before
+  content ''
+  position absolute
+  inset 0
+  pointer-events none
+  z-index 0
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 0%, rgba(14,165,233,0.07), transparent 65%),
+    radial-gradient(ellipse 70% 45% at 90% 8%, rgba(14,165,233,0.05), transparent 65%),
+    radial-gradient(ellipse 90% 60% at 85% 95%, rgba(14,165,233,0.06), transparent 70%),
+    radial-gradient(ellipse 80% 50% at 8% 92%, rgba(14,165,233,0.05), transparent 65%)
+
+.lpDappWindowContent
+  position relative
+  z-index 1
+  flex 1
+  display flex
+  align-items center
+  justify-content center
+  padding 48px 32px 32px
+  -webkit-app-region no-drag
+
+// ─── No Account State ────────────────────────────────────────────────────────
+
+.lpDappNoAccount
+  display flex
+  flex-direction column
+  align-items center
+  gap 16px
+  text-align center
+  max-width 320px
+
+.lpDappNoAccountIcon
+  width 72px
+  height 72px
+  border-radius 22px
+  background rgba(14, 165, 233, 0.08)
+  border 1px solid rgba(14, 165, 233, 0.25)
+  display flex
+  align-items center
+  justify-content center
+  color var(--good)
+  animation lpDappIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) both
+
+.lpDappNoAccountTitle
+  font-size 22px
+  font-weight 500
+  color rgb(224, 242, 254)
+  letter-spacing -0.01em
+
+.lpDappNoAccountSubtitle
+  font-size 14px
+  color rgba(186, 230, 253, 0.7)
+  line-height 1.6
+  max-width 260px
+
+.lpDappNoAccountBtn
+  height 48px
+  padding 0 28px
+  background rgb(14, 165, 233)
+  border 1px solid rgba(14, 165, 233, 0.4)
+  border-radius 14px
+  display flex
+  align-items center
+  justify-content center
+  color rgb(3, 5, 15)
+  font-size 15px
+  font-weight 500
+  cursor pointer
+  letter-spacing 0.02em
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  margin-top 8px
+
+.lpDappNoAccountBtn:hover
+  background rgb(56, 189, 248)
+  border-color rgba(56, 189, 248, 0.5)
+
+// ─── Quick Send Form ─────────────────────────────────────────────────────────
+
+.lpDappSend
+  width 100%
+  max-width 420px
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 20px
+  overflow hidden
+  animation lpDappIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) both
+
+.lpDappSendHeader
+  padding 20px 22px 16px
+  border-bottom 1px solid rgba(14, 165, 233, 0.1)
+  display flex
+  align-items center
+  justify-content space-between
+
+.lpDappSendTitle
+  font-size 18px
+  font-weight 500
+  color rgb(224, 242, 254)
+  letter-spacing -0.01em
+
+.lpDappSendFrom
+  display flex
+  align-items center
+  gap 6px
+
+.lpDappSendFromDot
+  width 7px
+  height 7px
+  border-radius 50%
+  background var(--good)
+  flex-shrink 0
+
+.lpDappSendFromName
+  font-size 12px
+  color rgba(186, 230, 253, 0.7)
+  max-width 120px
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+.lpDappSendBody
+  padding 20px 22px
+  display flex
+  flex-direction column
+  gap 14px
+
+.lpDappSendField
+  display flex
+  flex-direction column
+  gap 6px
+
+.lpDappSendLabel
+  font-size 10px
+  font-weight 500
+  letter-spacing 0.1em
+  text-transform uppercase
+  color rgba(186, 230, 253, 0.4)
+
+.lpDappSendInput
+  background rgba(14, 165, 233, 0.04)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 12px
+  padding 12px 14px
+  font-family 'MainFont'
+  font-size 14px
+  font-weight 300
+  color rgb(224, 242, 254)
+  width 100%
+  outline none
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  box-sizing border-box
+  -webkit-app-region no-drag
+
+.lpDappSendInput:focus
+  border-color rgba(14, 165, 233, 0.45)
+
+.lpDappSendInput::placeholder
+  color rgba(186, 230, 253, 0.3)
+
+.lpDappSendInputMono
+  font-family 'CodeFont'
+  font-size 12px
+  letter-spacing 0.03em
+
+.lpDappSendAmountRow
+  display flex
+  gap 10px
+  align-items center
+
+.lpDappSendInputAmount
+  flex 1
+
+.lpDappSendCurrency
+  font-size 14px
+  font-weight 500
+  color rgba(186, 230, 253, 0.7)
+  font-family 'CodeFont'
+  min-width 36px
+  text-align right
+
+.lpDappSendError
+  font-size 12px
+  color var(--bad)
+  padding 0 2px
+
+.lpDappSendBtn
+  height 50px
+  border-radius 14px
+  display flex
+  align-items center
+  justify-content center
+  font-size 15px
+  font-weight 500
+  letter-spacing 0.02em
+  color rgba(186, 230, 253, 0.4)
+  background rgb(10, 14, 35)
+  border 1px solid rgba(14, 165, 233, 0.1)
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  cursor not-allowed
+  margin-top 4px
+
+.lpDappSendBtnReady
+  background rgb(14, 165, 233)
+  border 1px solid rgba(14, 165, 233, 0.4)
+  color rgb(3, 5, 15)
+  cursor pointer
+
+.lpDappSendBtnReady:hover
+  background rgb(56, 189, 248)
+  border-color rgba(56, 189, 248, 0.5)
+
+.lpDappSendNetwork
+  padding 12px 22px 16px
+  border-top 1px solid rgba(14, 165, 233, 0.1)
+  display flex
+  align-items center
+  gap 6px
+
+.lpDappSendNetworkDot
+  width 6px
+  height 6px
+  border-radius 50%
+  background var(--good)
+  flex-shrink 0
+
+.lpDappSendNetworkName
+  font-size 11px
+  color rgba(186, 230, 253, 0.4)
+  letter-spacing 0.03em
+
+// ─── Legacy classes ───────────────────────────────────────────────────────────
+
+.mainDappLoading
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  gap 14px
+  padding 40px 20px
+
+.mainDappLoadingText
+  font-size 14px
+  color rgba(186, 230, 253, 0.7)
+  text-align center
+  line-height 1.6
+
+.mainDappEnableChains
+  height 44px
+  padding 0 22px
+  border-radius 12px
+  background rgb(14, 165, 233)
+  border 1px solid rgba(14, 165, 233, 0.4)
+  color rgb(3, 5, 15)
+  font-size 14px
+  font-weight 500
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+
+.loader
+  width 36px
+  height 36px
+  border-radius 50%
+  border 3px solid rgba(14, 165, 233, 0.15)
+  border-top-color rgb(14, 165, 233)
+  animation lpSpin 0.8s linear infinite
+
+.splash
+  position fixed
+  inset 0
+
+.main
+  position absolute
+  inset 0
+  display flex
+  align-items center
+  justify-content center
+
+.mainTop
+  position absolute
+  top 0
+  left 0
+  right 0
+  height 40px
+  -webkit-app-region drag
+
+@keyframes lpDappIn
+  0%
+    opacity 0
+    transform translateY(10px)
+  100%
+    opacity 1
+    transform translateY(0)
+
+@keyframes lpSpin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)

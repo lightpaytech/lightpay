@@ -1,0 +1,228 @@
+// VAULT Signer Status
+
+@keyframes headShake
+  0%
+    transform translateX(0)
+  6.5%
+    transform translateX(-6px) rotateY(-9deg)
+  18.5%
+    transform translateX(5px) rotateY(7deg)
+  31.5%
+    transform translateX(-3px) rotateY(-5deg)
+  43.5%
+    transform translateX(2px) rotateY(3deg)
+  50%
+    transform translateX(0)
+
+@keyframes fadeInDown
+  0%
+    opacity 0
+    transform translate3d(0, -20px, 0)
+  100%
+    opacity 1
+    transform translate3d(0, 0, 0)
+
+// Root signer status block
+.signerStatus
+  position relative
+
+  .signerStatusWrap
+    position relative
+
+  .signerStatusTop
+    position relative
+    height 7px
+    display none
+
+    .signerStatusTopArrow
+      background rgb(6,9,22)
+      width 20px
+      height 20px
+      border-top-left-radius 3px
+      transform rotate(45deg)
+      position absolute
+      top 6px
+      left 26px
+
+  // Status statusIndicator container
+  .signerStatusMain
+    border-radius 16px
+    padding 4px
+    margin 12px 6px 21px 6px
+
+  // Ready statusIndicator
+  .deviceStatusReady
+    display inline-flex
+    align-items center
+    gap 6px
+    border-radius 20px
+    padding 5px 12px
+    font-size 12px
+    font-weight 500
+    letter-spacing 0.3px
+    background rgba(14,165,233,0.1)
+    color rgb(34,197,94)
+    border 1px solid rgba(14,165,233,0.3)
+
+    &::before
+      content ''
+      width 6px
+      height 6px
+      border-radius 50%
+      background rgb(34,197,94)
+      flex-shrink 0
+
+  // Locked statusIndicator
+  .deviceStatusLocked
+    display inline-flex
+    align-items center
+    gap 6px
+    border-radius 20px
+    padding 5px 12px
+    font-size 12px
+    font-weight 500
+    letter-spacing 0.3px
+    background rgba(239,68,68,0.08)
+    color rgb(239,68,68)
+    border 1px solid rgba(239,68,68,0.25)
+
+    &::before
+      content ''
+      width 6px
+      height 6px
+      border-radius 50%
+      background rgb(239,68,68)
+      flex-shrink 0
+
+  // Connecting statusIndicator
+  .deviceStatusConnecting
+    display inline-flex
+    align-items center
+    gap 6px
+    border-radius 20px
+    padding 5px 12px
+    font-size 12px
+    font-weight 500
+    letter-spacing 0.3px
+    background rgba(14,165,233,0.08)
+    color rgb(14,165,233)
+    border 1px solid rgba(14,165,233,0.25)
+
+    &::before
+      content ''
+      width 6px
+      height 6px
+      border-radius 50%
+      background rgb(14,165,233)
+      flex-shrink 0
+
+.signerStatusHidden
+  transform translateY(-40px)
+  opacity 0
+  pointer-events none
+
+// Unlock flow
+.signerUnlockWrap
+  display flex
+  align-items center
+  flex-direction column
+  transform translateY(0px)
+  width 100%
+
+  .signerUnlockHeader
+    padding-bottom 24px
+    text-transform uppercase
+    font-size 13px
+    font-weight 400
+    letter-spacing 1px
+    color rgba(186,230,253,0.7)
+
+  .signerUnlockInput
+    position relative
+    height 61px
+    width 100%
+    border 0
+    outline 0
+    background rgba(14,165,233,0.04)
+    border 1px solid rgba(14,165,233,0.18)
+    font-size 26px
+    letter-spacing 6px
+    display flex
+    justify-content center
+    align-items center
+    text-align center
+    color rgb(224,242,254)
+    box-sizing border-box
+    border-radius 14px
+    border-top-right-radius 14px
+    border-top-left-radius 14px
+    border-bottom-right-radius 0
+    border-bottom-left-radius 0
+    border-bottom none
+    z-index 4
+    padding-bottom 10px
+    transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+    &:focus-within
+      border-color rgba(14,165,233,0.4)
+      background rgba(14,165,233,0.06)
+
+  .signerUnlockInputLabel
+    position absolute
+    top 46px
+    font-size 9px
+    border-radius 8px
+    border-bottom-left-radius 14px
+    border-bottom-right-radius 14px
+    display flex
+    justify-content center
+    align-items center
+    text-transform uppercase
+    margin-top 4px
+    font-weight 400
+    z-index 40000
+    letter-spacing 1px
+    margin-left -1px
+    color rgba(186,230,253,0.4)
+
+  .signerUnlockSubmit
+    height 38px
+    background rgba(14,165,233,0.08)
+    border 1px solid rgba(14,165,233,0.18)
+    border-top none
+    color rgb(14,165,233)
+    font-size 12px
+    box-sizing border-box
+    padding-top 1px
+    margin 0
+    width 100%
+    border-radius 0
+    border-bottom-left-radius 14px
+    border-bottom-right-radius 14px
+    display flex
+    justify-content center
+    align-items center
+    font-weight 500
+    cursor pointer
+    text-transform uppercase
+    letter-spacing 1px
+    transition all 0.15s cubic-bezier(0.4, 0, 0.2, 1)
+
+    *
+      pointer-events none
+
+  .signerUnlockSubmit:hover
+    background rgba(14,165,233,0.14)
+    border-color rgba(14,165,233,0.4)
+
+  .signerUnlockSubmit:active
+    transform translateY(0px)
+    background rgba(14,165,233,0.2)
+
+// Head-shake animation class (error feedback)
+.headShake
+  animation-duration 1s
+  animation-fill-mode both
+  animation-timing-function ease-in-out
+  animation-name headShake
+  transform translateZ(0)

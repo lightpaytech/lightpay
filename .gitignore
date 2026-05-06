@@ -1,0 +1,66 @@
+# ── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Build outputs (generated, do not commit) ─────────────────────────────────
+compiled/
+bundle/
+dist/
+release/
+
+# ── Parcel bundler cache ──────────────────────────────────────────────────────
+.parcel-cache/
+.cache/
+
+# ── Old source code (original Frame reference, not part of LightPay) ─────────
+oldcode/
+frame-develop-clean/
+
+# ── macOS system files ────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# ── TypeScript incremental build info ─────────────────────────────────────────
+*.tsbuildinfo
+
+# ── Electron builder output ───────────────────────────────────────────────────
+*.dmg
+*.pkg
+*.snap
+*.AppImage
+*.exe
+*.deb
+*.rpm
+
+# ── Code signing / certificates ──────────────────────────────────────────────
+*.p12
+*.mobileprovision
+*.cer
+*.certSigningRequest
+build/embedded.provisionprofile
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+hot.json
+nohot.json
+config.json
+
+# ── Editor / IDE ──────────────────────────────────────────────────────────────
+.vscode/
+*.code-workspace
+.idea/
+
+# ── Test data / user data ─────────────────────────────────────────────────────
+test/.userData/
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+nohup.out
+
+# ── npm ───────────────────────────────────────────────────────────────────────
+npm-debug.log*
+.npm/

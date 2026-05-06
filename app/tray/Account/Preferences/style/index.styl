@@ -1,0 +1,254 @@
+// VAULT design — Settings module
+
+// ── Module header ─────────────────────────────────────────────────────────────
+.settingsModuleHeader
+  font-size 11px
+  letter-spacing 0.1em
+  text-transform uppercase
+  color var(--outerspace05)
+  padding 14px 14px 8px
+  font-weight 400
+
+// ── Expanded module padding ───────────────────────────────────────────────────
+.expandedModule
+  padding-top 16px
+
+// ── Preview button ────────────────────────────────────────────────────────────
+.previewButton
+  border-radius 12px
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  padding 6px
+
+// ── Panel block ───────────────────────────────────────────────────────────────
+.panelBlock
+  border-radius 12px
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  padding 6px
+  margin 0px 4px 8px 4px
+
+// ── Input ─────────────────────────────────────────────────────────────────────
+input
+  z-index 200
+  user-select auto
+  background var(--ghostA)
+  outline none
+  border 1px solid rgba(14, 165, 233, 0.18)
+  width 100%
+  color var(--outerspace)
+  border-radius 10px
+  text-align center
+  font-size 16px
+  font-weight 300
+  padding 14px
+  font-family 'MainFont'
+
+input:hover
+  background var(--ghostB)
+  border-color rgba(14, 165, 233, 0.4)
+
+input:focus
+  background var(--ghostC)
+  border-color rgba(14, 165, 233, 0.6)
+
+// ── Panel block title ─────────────────────────────────────────────────────────
+.panelBlockTitle
+  font-weight 400
+  font-size 11px
+  letter-spacing 0.1em
+  text-transform uppercase
+  color var(--outerspace05)
+  font-family 'MainFont'
+  padding 2px 0px 10px 10px
+
+.panelBlockItem:not(:first-child)
+  margin-top 3px
+
+// ── Panel block values ────────────────────────────────────────────────────────
+.panelBlockValues
+  font-size 13px
+  font-weight 300
+  border-radius 10px
+  -webkit-app-region no-drag
+  pointer-events auto
+  transform translate3d(0, 0, 0)
+  font-family 'MainFont'
+  padding 3px
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+
+  .panelBlockValue
+    font-size 11px
+    font-weight 400
+    letter-spacing 0.05em
+    display flex
+    justify-content center
+    align-items center
+    -webkit-app-region no-drag
+    pointer-events auto
+    transform translate3d(0, 0, 0)
+    padding 18px 16px 16px 16px
+    border-radius 10px
+    text-transform uppercase
+    background var(--ghostA)
+    color var(--outerspace07)
+
+    svg
+      position relative
+      top 0px
+      padding 0px 3px 0px 4px
+
+  .walletBlockBtn
+    font-size 13px
+    font-weight 400
+    display flex
+    justify-content center
+    align-items center
+    border-radius 10px
+    -webkit-app-region no-drag
+    pointer-events auto
+    transform translate3d(0, 0, 0)
+    font-family 'MainFont'
+    padding 18px 16px 16px 16px
+    background var(--ghostA)
+    color var(--outerspace07)
+    cursor pointer
+    text-transform uppercase
+    letter-spacing 0.05em
+
+  .walletBlockBtn:hover
+    background rgba(14, 165, 233, 0.06)
+    color rgb(14, 165, 233)
+
+  .walletBlockBtn:active
+    transform translateY(1px)
+    background rgba(14, 165, 233, 0.08)
+
+  .panelBlockTag
+    position relative
+    z-index 100001
+    overflow hidden
+    font-size 11px
+    font-weight 300
+    letter-spacing 0.1em
+    text-transform uppercase
+    text-align center
+    padding 5px 0px 5px 0px
+    margin-top 5px
+    border-radius 10px
+    background var(--ghostA)
+    color var(--outerspace05)
+
+// ── Setting row ───────────────────────────────────────────────────────────────
+// label left, toggle right, 12px 14px padding
+.settingRow
+  padding 12px 14px
+  border-bottom 1px solid rgba(14, 165, 233, 0.06)
+  display flex
+  align-items center
+  justify-content space-between
+  box-sizing border-box
+
+.settingRow:last-child
+  border-bottom none
+
+.settingRow:hover
+  background rgba(14, 165, 233, 0.06)
+
+// ── Setting label ─────────────────────────────────────────────────────────────
+.settingRowLabel
+  font-size 13px
+  font-weight 300
+  color var(--outerspace07)
+  flex 1
+
+// ── Setting description ───────────────────────────────────────────────────────
+.settingRowDescription
+  font-size 11px
+  color var(--outerspace05)
+  margin-top 2px
+
+// ── Toggle switch ─────────────────────────────────────────────────────────────
+.settingToggle
+  position relative
+  background var(--ghostD)
+  height 20px
+  width 40px
+  border-radius 12px
+  transform translateZ(0)
+  cursor pointer
+  flex-shrink 0
+
+  .settingToggleThumb
+    position absolute
+    top 2px
+    left 2px
+    bottom 2px
+    width 16px
+    border-radius 50%
+    background var(--outerspace05)
+    transform translateZ(0)
+    pointer-events none
+
+.settingToggleOn
+  background rgb(14, 165, 233)
+
+  .settingToggleThumb
+    transform translateX(20px)
+    background rgb(3, 5, 15)
+
+// ── Inset rows ────────────────────────────────────────────────────────────────
+.settingsRowInset
+  padding 8px
+  margin-top 8px
+  background var(--ghostA)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 10px
+
+.settingsRowInsetConnected
+  color rgb(14, 165, 233)
+
+// ── Settings action button ────────────────────────────────────────────────────
+.settingsButton
+  width 100%
+  height 40px
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 10px
+  color var(--outerspace07)
+  display flex
+  justify-content center
+  align-items center
+  font-weight 400
+  font-size 13px
+  letter-spacing 0.05em
+  box-sizing border-box
+  text-transform uppercase
+  cursor pointer
+
+.settingsButton:hover
+  background rgba(14, 165, 233, 0.06)
+  color rgb(14, 165, 233)
+  border-color rgba(14, 165, 233, 0.4)
+
+// ── Verify response ───────────────────────────────────────────────────────────
+.deviceVerifyResp
+  background rgba(244, 63, 94, 0.08)
+  border 1px solid rgba(244, 63, 94, 0.3)
+  border-radius 10px
+  color var(--bad)
+  font-size 13px
+  padding 20px
+  font-weight 300
+  display flex
+  justify-content center
+  text-align center
+  position relative
+  box-sizing border-box
+  margin-top 4px
+
+.signerVerifyResponseSuccess
+  background rgba(14, 165, 233, 0.07)
+  border 1px solid rgba(14, 165, 233, 0.3)
+  color rgb(14, 165, 233)

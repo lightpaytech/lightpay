@@ -1,0 +1,153 @@
+// VAULT: Add ERC-20 Token Request card
+// Token icon centered at top, name + symbol, details table, unverified statusIndicator
+.requestToken
+  display flex
+  justify-content center
+  align-items center
+  flex-direction column
+  transform translateZ(0px)
+  margin 16px 4px
+  // VAULT: flat left edge for accent bar, rounded right
+  border-radius 0 16px 16px 0
+  width calc(100% - 16px)
+  box-sizing border-box
+  // VAULT: dark card background
+  background var(--ghostB)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-left 4px solid var(--good)
+  font-family 'MainFont'
+  padding-bottom 20px
+
+  // VAULT: origin dapp name — small, muted, uppercase
+  .requestTokenOrigin
+    font-size 12px
+    font-weight 300
+    color var(--outerspace06)
+    letter-spacing 0.05em
+    width 100%
+    text-align center
+    transform translateZ(0px)
+    direction rtl
+    text-overflow ellipsis
+    white-space nowrap
+    overflow hidden
+    margin 20px 0px 5px 0px
+    text-transform uppercase
+
+  .requestTokenOrigin18
+    font-size 18px
+
+  .requestTokenOrigin12
+    font-size 12px
+
+  // VAULT: "Adding token" sub-label — emerald
+  .requestTokenOriginSub
+    width 100%
+    font-size 12px
+    font-weight 300
+    text-transform uppercase
+    letter-spacing 0.05em
+    width 100%
+    text-align center
+    margin 0px 0px 20px 0px
+    color var(--good)
+
+  // VAULT: token icon — 64x64 circle with electric blue ring, centered
+  .requestTokenIcon
+    width 64px
+    height 64px
+    border-radius 50%
+    border 3px solid rgba(14, 165, 233, 0.4)
+    display flex
+    justify-content center
+    align-items center
+    margin 0px auto 16px auto
+    overflow hidden
+    background var(--ghostA)
+
+    img
+      max-width 100%
+      max-height 100%
+      border-radius 50%
+
+  // VAULT: token info block — name, symbol, address
+  .requestTokenInfo
+    width calc(100% - 10px)
+    margin 0px 0px 20px 0px
+    box-sizing border-box
+    border-radius 12px
+    text-align center
+    background rgba(14, 165, 233, 0.04)
+    border 1px solid rgba(14, 165, 233, 0.18)
+    font-weight 300
+    font-size 26px
+    padding 14px 0px
+
+  // VAULT: token name — large, centered
+  .requestTokenName
+    font-size 20px
+    font-weight 500
+    color var(--outerspace)
+    text-align center
+    padding-bottom 4px
+
+  // VAULT: token symbol — CodeFont, muted
+  .requestTokenSymbol
+    font-family 'CodeFont'
+    font-size 13px
+    color var(--outerspace06)
+    text-align center
+    letter-spacing 0.05em
+    text-transform uppercase
+    padding-bottom 8px
+
+  // VAULT: contract address — CodeFont, small
+  .requestTokenAddress
+    font-size 12px
+    font-family 'CodeFont'
+    color var(--outerspace05)
+    text-align center
+    word-break break-all
+    padding 0px 16px
+
+  // VAULT: key-value detail rows for token metadata
+  .requestTokenDetail
+    width calc(100% - 32px)
+    display flex
+    justify-content space-between
+    align-items center
+    padding 6px 0px
+    border-bottom 1px solid rgba(14, 165, 233, 0.18)
+    box-sizing border-box
+    margin 0px 16px
+
+    &:last-of-type
+      border-bottom none
+
+    .requestTokenDetailKey
+      font-size 11px
+      font-weight 400
+      color var(--outerspace05)
+      text-transform uppercase
+      letter-spacing 0.05em
+
+    .requestTokenDetailValue
+      font-size 12px
+      font-family 'CodeFont'
+      color var(--outerspace08)
+
+  // VAULT: unverified token statusIndicator — amber warning
+  .requestTokenUnverified
+    display inline-flex
+    align-items center
+    gap 6px
+    background rgba(251, 191, 36, 0.08)
+    border 1px solid rgb(251, 191, 36)
+    border-radius 20px
+    padding 4px 12px
+    font-size 11px
+    font-weight 400
+    color var(--warning)
+    text-transform uppercase
+    letter-spacing 0.05em
+    margin-top 12px

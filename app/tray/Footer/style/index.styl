@@ -1,0 +1,32 @@
+@import '../RequestCommand/style'
+@import '../QuickSend/style'
+
+// ─── Electric Blue Design: Footer ─────────────────────────────────────────────
+// Fixed bottom bar with electric blue border
+// Transition: 0.28s cubic-bezier(0.4,0,0.2,1)
+
+.footer
+  position fixed
+  bottom 0
+  left 0
+  right 0
+  background rgb(6, 9, 22)
+  border-top 1px solid rgba(14, 165, 233, 0.12)
+  min-height 44px
+  z-index 99999999
+  display flex
+  align-items center
+  justify-content center
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.footerInner
+  width 100%
+  padding 0 14px
+  display flex
+  align-items center
+  justify-content space-between
+  gap 10px
+  box-sizing border-box
+@import '../Time/style'
+@import '../RequestCommand/TxBar/style'
+@import '../RequestCommand/TxConfirmations/style'

@@ -1,0 +1,254 @@
+// VAULT design — Signer module
+// All original class names preserved; VAULT properties added/updated.
+
+// ── Commented-out legacy rows (preserved as-is) ───────────────────────────────
+// .moduleItemRow
+//   display flex
+//   margin-bottom -3px
+
+// .moduleItemRow:last-child
+//   margin-bottom 0px
+
+// .sectionItem:first-child
+//   border-top-left-radius 17px
+//   border-top-right-radius 17px
+//   margin-top 3px
+
+// .sectionItem:last-child
+//   border-bottom-left-radius 17px
+//   border-bottom-right-radius 17px
+
+// .sectionItem:first-child:last-child
+//   border-radius 17px
+
+// .moduleItemRow
+//   .sectionItem
+//     margin-right 0px
+//     border-radius 8px
+//     margin-top 3px
+
+//   .sectionItem:first-child
+//     border-top-left-radius 17px
+//     border-bottom-left-radius 17px
+
+//   .sectionItem:last-child
+//     border-top-right-radius 17px
+//     border-bottom-right-radius 17px
+//     margin-right 3px
+
+//   .sectionItem:first-child:last-child
+//     border-radius 17px
+//     margin-left 3px
+
+//   .moduleItemSpace
+//     justify-content center
+//     padding 20px
+
+// ── Signer card ───────────────────────────────────────────────────────────────
+.deviceCard
+  border-radius 14px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background var(--ghostC)
+  overflow hidden
+  margin 0px 6px 8px 6px
+
+// ── Module item (row) ─────────────────────────────────────────────────────────
+.sectionItem
+  position relative
+  justify-content center
+  padding 12px 14px
+  font-size 13px
+  font-weight 300
+  color var(--outerspace07)
+  transform translateZ(0)
+  z-index 2000
+  display flex
+  align-items center
+  min-height 40px
+  box-sizing border-box
+  text-transform uppercase
+  letter-spacing 0.05em
+  flex 1
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+  transition background 0.12s ease-out
+
+  &:last-child
+    border-bottom none
+
+  // .moduleSubItem
+  //   background blue
+
+// ── Signer type label ─────────────────────────────────────────────────────────
+.moduleItemSignerType
+  display flex
+  justify-content center
+  align-items center
+  font-weight 300
+  font-size 14px
+  color var(--outerspace07)
+  text-transform none
+
+// ── Icon ──────────────────────────────────────────────────────────────────────
+.sectionItemIcon
+  margin-right 8px
+  width 28px
+  height 28px
+  border-radius 50%
+  border 1px solid rgba(14, 165, 233, 0.18)
+  display flex
+  align-items center
+  justify-content center
+  overflow hidden
+  flex-shrink 0
+
+// ── Input wrapper ─────────────────────────────────────────────────────────────
+.moduleItemInput
+  padding 8px
+  overflow hidden
+
+// ── Button item ───────────────────────────────────────────────────────────────
+.moduleItemButton
+  cursor pointer
+  border-radius 10px
+  transition all 0.12s ease-out
+  *
+    pointer-events none
+
+.moduleItemButton:hover
+  background rgba(14, 165, 233, 0.18)
+  transform translateY(-1px)
+
+.moduleItemButton:active
+  background rgba(14, 165, 233, 0.08)
+  transform translateY(0px)
+
+// ── Edit name ─────────────────────────────────────────────────────────────────
+.moduleItemEditNameTitle
+  position absolute
+  top 28px
+  left 30px
+  right 0px
+  font-size 8px
+  color var(--outerspace05)
+  text-transform uppercase
+  letter-spacing 0.1em
+
+.moduleItemEditName
+  display flex
+  width 100%
+  overflow hidden
+
+  input
+    border-radius 10px
+    transition var(--standardFast)
+    font-size 18px
+    background var(--ghostA)
+    border none
+    outline none
+
+  input:hover, input:focus
+    background var(--ghostB)
+
+  .moduleItemInputSubmit
+    padding 16px
+    border-radius 10px
+    margin-left 3px
+    background var(--ghostC)
+    border 1px solid rgba(14, 165, 233, 0.18)
+    transition var(--standardFast)
+    box-sizing border-box
+    cursor pointer
+    margin 8px
+    *
+      pointer-events none
+
+.moduleItemInputSubmit:hover
+  transform translateY(-1px)
+  background rgba(14, 165, 233, 0.18)
+  border-color rgba(14, 165, 233, 0.4)
+
+.moduleItemInputSubmit:active
+  transform translateY(0px)
+  background rgba(14, 165, 233, 0.08)
+  color var(--good)
+
+// ── Signer status line ────────────────────────────────────────────────────────
+.moduleItemSignerStatus
+  display flex
+  align-items center
+  position relative
+  top 1px
+
+  svg
+    position relative
+    top -1px
+
+  span
+    padding-left 12px
+    font-size 13px
+    font-weight 300
+    color var(--outerspace07)
+
+// ── Status statusIndicator ──────────────────────────────────────────────────────────────
+.deviceStatusBadge
+  border-radius 20px
+  padding 4px 10px
+  font-size 11px
+  font-weight 400
+  letter-spacing 0.05em
+  display inline-flex
+  align-items center
+
+.deviceStatusLocked
+  border 1px solid rgba(244, 63, 94, 0.4)
+  color var(--bad)
+  background rgba(244, 63, 94, 0.05)
+
+.deviceStatusReady
+  border 1px solid rgba(14, 165, 233, 0.4)
+  color var(--good)
+  background rgba(14, 165, 233, 0.18)
+
+.signerStatusBadgeWaiting
+  border 1px solid rgba(255, 200, 0, 0.4)
+  color var(--outerspace07)
+  background rgba(255, 200, 0, 0.04)
+
+// ── Connection dot (status) ───────────────────────────────────────────────────
+.deviceConnGood
+  background var(--good)
+  width 7px
+  height 7px
+  border-radius 50%
+  flex-shrink 0
+  margin-right 6px
+
+.deviceConnBad
+  background var(--bad)
+  width 7px
+  height 7px
+  border-radius 50%
+  flex-shrink 0
+  margin-right 6px
+
+// ── Module header ─────────────────────────────────────────────────────────────
+.signerModuleHeader
+  font-size 11px
+  letter-spacing 0.1em
+  text-transform uppercase
+  color var(--outerspace05)
+  padding 14px 14px 8px
+  font-weight 400
+
+// ── Value text (CodeFont) ─────────────────────────────────────────────────────
+.signerValueText
+  font-family 'CodeFont'
+  font-weight 200
+  font-size 13px
+  color var(--outerspace09)
+
+// ── Label text ────────────────────────────────────────────────────────────────
+.signerLabelText
+  font-size 13px
+  font-weight 300
+  color var(--outerspace07)

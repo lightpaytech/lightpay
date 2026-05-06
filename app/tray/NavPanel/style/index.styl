@@ -1,0 +1,97 @@
+// NavPanel — Tray Menu Tab Bar
+// Electric Blue dark theme
+
+.lpAppTile
+  height 36px
+  width 92px
+  display flex
+  justify-content center
+  align-items center
+  cursor pointer
+  box-sizing border-box
+  border-radius 10px
+  background transparent
+  margin 3px 6px 3px 3px
+  color rgba(186, 230, 253, 0.4)
+  padding 5px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  border 1px solid transparent
+  position relative
+
+  *
+    pointer-events none
+
+  svg
+    position relative
+
+  img
+    position relative
+    height 100%
+    border-radius 8px
+
+// ─── Tray container strip ────────────────────────────────────────────────────
+
+.trayMenu
+  background rgb(3, 5, 15)
+  border-bottom 1px solid rgba(14, 165, 233, 0.12)
+  height 48px
+  display flex
+  align-items center
+
+// ─── Individual menu items ────────────────────────────────────────────────────
+
+.trayMenuItem
+  flex 1
+  height 100%
+  display flex
+  align-items center
+  justify-content center
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  font-size 12px
+  color rgba(186, 230, 253, 0.4)
+  letter-spacing 0.04em
+  border-bottom 2px solid transparent
+  user-select none
+  -webkit-user-select none
+
+.trayMenuItem:hover
+  color rgba(186, 230, 253, 0.7)
+  background rgba(14, 165, 233, 0.04)
+
+.trayMenuItem.trayMenuItemActive,
+.trayMenuItem[data-active='true']
+  color rgb(14, 165, 233)
+  border-bottom 2px solid rgb(14, 165, 233)
+  background rgba(14, 165, 233, 0.06)
+
+// ─── Logo / brand slot ───────────────────────────────────────────────────────
+
+.trayMenuLogo
+  border-right 1px solid rgba(14, 165, 233, 0.12)
+  padding 0 14px
+  height 100%
+  display flex
+  align-items center
+  flex-shrink 0
+
+// ─── Vertical separator ──────────────────────────────────────────────────────
+
+.trayMenuSeparator
+  width 1px
+  height 20px
+  background rgba(14, 165, 233, 0.12)
+  flex-shrink 0
+
+// ─── Hover / selected state for dapp tile in menu strip ──────────────────────
+
+.lpAppTile:hover
+  background rgba(14, 165, 233, 0.06)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  color rgba(186, 230, 253, 0.7)
+
+.lpAppTile.lpAppActive,
+.lpAppTile[data-active='true']
+  background rgba(14, 165, 233, 0.08)
+  border 1px solid rgba(14, 165, 233, 0.4)
+  color rgb(14, 165, 233)

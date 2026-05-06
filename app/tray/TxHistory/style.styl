@@ -1,0 +1,141 @@
+// LightPay — Transaction History
+
+.txHistory
+  padding 12px 0
+
+.txHistoryHeader
+  padding 0 16px 10px
+  display flex
+  flex-direction column
+  gap 8px
+
+.txHistoryTitle
+  font-size 12px
+  font-weight 600
+  color rgb(14,165,233)
+  text-transform uppercase
+  letter-spacing 0.06em
+  border-bottom 1px solid rgba(14,165,233,0.1)
+  padding-bottom 8px
+
+.txHistoryFilters
+  display flex
+  gap 4px
+
+.txFilter
+  font-size 10px
+  padding 3px 8px
+  border-radius 4px
+  border 1px solid rgba(14,165,233,0.15)
+  background none
+  color rgba(186,230,253,0.4)
+  cursor pointer
+  transition all 0.1s ease
+  &:hover
+    color rgba(186,230,253,0.7)
+    border-color rgba(14,165,233,0.35)
+
+.txFilterActive
+  color rgb(56,189,248)
+  border-bottom 2px solid rgb(14,165,233)
+  border-left-color rgba(14,165,233,0.15)
+  border-right-color rgba(14,165,233,0.15)
+  border-top-color rgba(14,165,233,0.15)
+  background none
+
+.txList
+  max-height 240px
+  overflow-y auto
+  padding 0 8px
+
+.txItem
+  display flex
+  align-items center
+  gap 10px
+  padding 8px
+  border-radius 6px
+  margin-bottom 2px
+  border-bottom 1px solid rgba(14,165,233,0.07)
+  transition background 0.1s ease
+  &:hover
+    background rgba(14,165,233,0.04)
+
+.txItem:last-child
+  border-bottom none
+
+.txItemStatus
+  font-size 14px
+  width 20px
+  text-align center
+  flex-shrink 0
+
+.txStatusConfirmed
+  color rgb(34,197,94)
+
+.txStatusPending
+  color rgb(251,191,36)
+
+.txStatusFailed
+  color rgb(239,68,68)
+
+.txItemInfo
+  flex 1
+  min-width 0
+
+.txItemTo
+  font-size 12px
+  color rgba(186,230,253,0.7)
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+
+.txItemMeta
+  display flex
+  gap 8px
+  margin-top 2px
+
+.txItemAge
+  font-size 10px
+  color rgba(186,230,253,0.4)
+
+.txItemValue
+  font-size 10px
+  color rgba(14,165,233,0.6)
+
+.txItemActions
+  display flex
+  gap 2px
+
+.txAction
+  background none
+  border none
+  cursor pointer
+  color rgba(186,230,253,0.3)
+  font-size 12px
+  padding 3px 5px
+  border-radius 3px
+  transition color 0.1s ease
+  &:hover
+    color rgb(14,165,233)
+
+.txEmpty
+  padding 16px
+  text-align center
+  font-size 12px
+  color rgba(186,230,253,0.3)
+
+.txHistoryFooter
+  padding 6px 16px 0
+  border-top 1px solid rgba(14,165,233,0.08)
+  margin-top 8px
+
+.txClearAll
+  background none
+  border none
+  cursor pointer
+  font-size 11px
+  color rgba(239,68,68,0.5)
+  padding 4px 0
+  transition color 0.1s ease
+  &:hover
+    color rgba(239,68,68,0.85)

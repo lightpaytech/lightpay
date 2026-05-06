@@ -1,0 +1,126 @@
+.dropdownWrap
+  position relative
+  display flex
+  align-items flex-start
+  height 26px
+  z-index 99999999999
+  color rgb(224,242,254)
+
+.dropdown
+  position relative
+  display inline-block
+  letter-spacing 1px
+  height 28px
+  border-radius 24px
+  font-weight 300
+  width 130px
+  font-size 13px
+  font-family 'MainFont'
+  text-transform uppercase
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.2)
+  border-radius 10px
+  overflow hidden
+  padding 0px 0px 0px 0px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  transform translateZ(0)
+  z-index 99999999999999999
+  pointer-events auto
+  cursor pointer
+
+.dropdown:hover
+  border-color rgba(14,165,233,0.4)
+  color rgb(224,242,254)
+
+.darkerDrop
+  background rgb(3,5,15)
+
+  .dropdownItem
+    .dropdownItemIndicator
+      background rgb(3,5,15)
+
+.dropdownExpanded
+  padding 18px 0px 18px 0px
+
+.dropdownTrigger
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.2)
+  border-radius 10px
+  padding 8px 14px
+  cursor pointer
+  display flex
+  align-items center
+  gap 8px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  font-size 13px
+  color rgba(186,230,253,0.7)
+
+.dropdownTrigger:hover
+  border-color rgba(14,165,233,0.4)
+  color rgb(224,242,254)
+
+.dropdownMenu
+  position absolute
+  top calc(100% + 6px)
+  left 0
+  min-width 100%
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.2)
+  border-radius 12px
+  z-index 9999
+  overflow hidden
+  animation vaultFadeIn 0.15s cubic-bezier(0.4, 0, 0.2, 1)
+
+.dropdownItems
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  transform translateZ(0)
+
+.dropdownItem
+  display flex
+  align-items center
+  height 28px
+  min-height 28px
+  width calc(100% - 20px)
+  box-sizing border-box
+  transform translateZ(0)
+  margin 0px 9px 0px 12px
+  font-weight 400
+  font-size 13px
+  overflow hidden
+  position relative
+  z-index 99999999999999
+  cursor pointer
+  padding 10px 14px
+  color rgba(186,230,253,0.7)
+  transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) background
+
+  *
+    pointer-events none
+
+  &::before, &::after
+    pointer-events none
+    content ''
+    flex 1
+
+  .dropdownItemIndicator
+    position absolute
+    left 0px
+    top 11px
+    height 7px
+    width 7px
+    border-radius 3.5px
+    background rgb(3,5,15)
+
+  .dropdownItemIndicatorBad
+    background rgb(255, 75, 100)
+
+  .dropdownItemIndicatorGood
+    background rgb(0, 230, 180)
+
+.dropdownItem:hover
+  background rgba(14,165,233,0.08)
+  color rgb(224,242,254)
+
+.dropdownItemSelected
+  color rgb(0, 230, 180)
+  background rgba(14,165,233,0.06)

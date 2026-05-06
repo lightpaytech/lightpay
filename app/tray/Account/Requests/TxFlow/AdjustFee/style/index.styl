@@ -1,0 +1,225 @@
+// ─── AdjustFee — VAULT design ────────────────────────────────────────────────
+
+.txAdjustFee
+  padding-top 64px
+
+  // Custom fee input — CodeFont, emerald-tinted
+  input
+    outline 0
+    border 1px solid rgba(14, 165, 233, 0.18)
+    background rgba(14, 165, 233, 0.05)
+    color var(--outerspace)
+    text-align center
+    width 200px
+    font-size 21px
+    font-family 'CodeFont'
+    margin 5px 25px
+    height 36px
+    border-radius 8px
+    transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+  input:focus
+    background rgba(14, 165, 233, 0.08)
+    border-color rgba(14, 165, 233, 0.4)
+    transform scale(1.04) translateY(-2px)
+
+  .txFeeOverlayInset
+    max-height 100%
+    width 100%
+    overflow-x hidden
+    overflow-y scroll
+
+  .txFeeOverlayType
+    width 100%
+    display none
+
+  .txFeeOverlayEstimate
+    width 100%
+    display none
+
+  .txFeeOverlayBaseFee
+    width 100%
+
+  .txFeeOverlayPriorityFee
+    width 100%
+
+  .txFeeOverlayLimit
+    width 100%
+
+  .txFeeOverlayInput
+    display flex
+    justify-content center
+
+  .gasRateLabel
+    font-size 11px
+    padding 0px 5px 25px 5px
+    display flex
+    justify-content center
+    text-transform uppercase
+    letter-spacing 0.08em
+    font-weight 400
+    color var(--outerspace05)
+    font-family 'MainFont'
+
+// ─── Slider track ────────────────────────────────────────────────────────────
+
+.txAdjustFeeSlider
+  position relative
+  width 100%
+  padding 0px 14px
+
+.txAdjustFeeTrack
+  width 100%
+  height 4px
+  background var(--ghostD)
+  border-radius 4px
+  position relative
+  overflow visible
+
+.txAdjustFeeTrackFill
+  height 4px
+  border-radius 4px
+  background linear-gradient(90deg, var(--goodShade), var(--good))
+  position absolute
+  top 0
+  left 0
+  transition width 0.12s ease
+
+.txAdjustFeeThumb
+  width 18px
+  height 18px
+  border-radius 50%
+  background var(--good)
+  position absolute
+  top 50%
+  transform translate(-50%, -50%)
+  cursor pointer
+  transition 0.15s ease
+
+.txAdjustFeeThumb:hover,
+.txAdjustFeeThumb:active
+
+// ─── Decoded data labels ──────────────────────────────────────────────────────
+
+.dataUnverified
+  position absolute
+  color var(--bad)
+  top 9px
+  right 15px
+  font-size 11px
+  font-weight 500
+  font-family 'MainFont'
+  text-transform uppercase
+  letter-spacing 0.06em
+
+.dataSource
+  position absolute
+  top 9px
+  left 15px
+  font-size 11px
+  font-weight 500
+  font-family 'MainFont'
+  text-transform uppercase
+  letter-spacing 0.06em
+  color var(--outerspace05)
+
+.decodedDataContractTarget
+  position relative
+  height 70px
+  padding 0px
+  box-sizing border-box
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+
+  .decodedDataSync
+    position absolute
+    svg
+      transform rotate(90deg)
+
+  .decodedDataSyncLeft
+    left 14px
+    top 28px
+    width 8px
+    overflow hidden
+    transform rotate(-10deg)
+    svg
+      transform rotate(90deg) scaleX(-1)
+
+  .decodedDataSyncRight
+    right 14px
+    top 28px
+    width 8px
+    overflow hidden
+    transform rotate(190deg)
+    svg
+      transform rotate(90deg)
+
+  .decodedDataContractName
+    text-align center
+    font-size 17px
+    font-family 'MainFont'
+    font-weight 400
+    color var(--outerspace)
+
+  .decodedDataContractMethod
+    text-align center
+    font-family 'MainFont'
+    font-weight 300
+    font-size 15px
+    color var(--good)
+
+.decodedDataContractArgHeader
+  font-size 11px
+  font-family 'MainFont'
+  text-transform uppercase
+  letter-spacing 0.08em
+  font-weight 500
+  text-align center
+  height 30px
+  display flex
+  align-items center
+  justify-content center
+  color var(--outerspace)
+  background var(--ghostD)
+  border-radius 8px
+
+.decodedDataContractArg
+  position relative
+  text-align center
+  padding 10px 10px 25px 10px
+  font-size 17px
+
+.decodedDataSubtitle
+  position absolute
+  left 0
+  bottom 0
+  right 0
+  height 30px
+  font-size 12px
+  font-weight 400
+  font-family 'MainFont'
+  display flex
+  align-items center
+  justify-content center
+  color var(--outerspace05)
+
+.overflowBox
+  width 100%
+  height auto
+  overflow-x scroll
+  overflow-y hidden
+  word-wrap normal
+  margin-bottom -15px
+
+.rawDataHeader
+  font-family 'MainFont'
+  text-align center
+  font-size 16px
+  margin-top 20px
+  margin-bottom 5px
+  color var(--outerspace)
+
+.txDataOverlayRaw
+  margin-top 30px

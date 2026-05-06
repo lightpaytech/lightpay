@@ -1,0 +1,147 @@
+.deviceMenu
+  position absolute
+  left 0
+  top 0
+  right 0
+  display flex
+  align-items center
+  justify-content center
+  height 90px
+  z-index 3004
+  pointer-events none
+
+  .deviceMenuItemRight
+    opacity 0
+    right 70px
+    transition var(--standard)
+    transition-delay 0.16s
+
+  .deviceMenuItemLeft
+    opacity 0
+    left 70px
+    transition var(--standard)
+    transition-delay 0.16s
+
+  .deviceMenuItem
+    position absolute
+    top -5px
+    width 90px
+    height 70px
+    display flex
+    align-items center
+    justify-content center
+    flex-direction column
+    text-align center
+    -webkit-app-region no-drag
+    overflow hidden
+    pointer-events none
+    z-index 3010
+
+    .deviceMenuItemIcon
+      height 44px
+      width 24px
+      display flex
+      align-items center
+      justify-content center
+      transition var(--standard)
+      flex-direction column
+      opacity 0
+      position relative
+
+      .iconUnderline
+        height 2px
+        opacity 0
+        border-radius 2px
+        background var(--good)
+        transition var(--standard)
+        position absolute
+        bottom 0
+        left 0
+        right 0
+
+      svg
+        color var(--outerspace)
+        margin-bottom 7px
+        margin-top 14px
+
+// ─── Account nav menu bar ─────────────────────────────────────────────────────
+
+.walletNavBar
+  background var(--ghostA)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+  height 48px
+
+.walletNavItem
+  padding 0 16px
+  height 100%
+  display flex
+  align-items center
+  border-radius 0
+  cursor pointer
+  transition var(--standardFast)
+  color var(--outerspace08)
+  font-size 13px
+  box-sizing border-box
+
+  div, svg
+    pointer-events none
+
+.walletNavItem:hover
+  color var(--good)
+  opacity 1
+
+.walletNavItemActive
+  color var(--good)
+  border-bottom 2px solid var(--good)
+
+// ─── Signer menu open states ──────────────────────────────────────────────────
+
+.deviceMenuOpen
+  .deviceMenuItem
+    pointer-events auto
+    .deviceMenuItemIcon
+      opacity 0.6
+      transition none
+      .iconUnderline
+        transition var(--standard)
+  .deviceMenuItem:hover
+    .deviceMenuItemIcon
+      opacity 1
+      color var(--good)
+  .deviceMenuItemRight
+    opacity 1
+    right 0px
+  .deviceMenuItemLeft
+    opacity 1
+    left 0px
+
+.deviceMenuOpen.deviceMenuDefault
+  .deviceMenuItemLeft
+    .deviceMenuItemIcon
+      opacity 1
+      .iconUnderline
+        right 0px
+        opacity 1
+
+  .deviceMenuItemRight
+    .deviceMenuItemIcon
+      .iconUnderline
+        left -120px
+        opacity 0
+
+.deviceMenuOpen.deviceMenuSettings
+  .deviceMenuItemLeft
+    .deviceMenuItemIcon
+      .iconUnderline
+        margin-right -1px
+        margin-left -2px
+        right -120px
+        opacity 0
+
+  .deviceMenuItemRight
+    .deviceMenuItemIcon
+      opacity 1
+      .iconUnderline
+        margin-right -2px
+        margin-left 0px
+        opacity 1

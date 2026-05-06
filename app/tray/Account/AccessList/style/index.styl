@@ -1,0 +1,217 @@
+// VAULT design — Permissions module
+
+// ── Module header ─────────────────────────────────────────────────────────────
+.permissionsModuleHeader
+  font-size 11px
+  letter-spacing 0.1em
+  text-transform uppercase
+  color var(--outerspace05)
+  padding 14px 14px 8px
+  font-weight 400
+
+// ── Module section ────────────────────────────────────────────────────────────
+.moduleMainPermissions
+  border-radius 12px
+  background var(--ghostC)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  overflow hidden
+  margin-bottom 8px
+
+// ── Clear button ──────────────────────────────────────────────────────────────
+.clearPermsBtn
+  padding 6px
+
+// ── Dapp row ──────────────────────────────────────────────────────────────────
+// favicon 20px | dapp name (flex grow) | connection time right
+.devicePerm
+  position relative
+  justify-content space-between
+  padding 12px 14px
+  font-size 13px
+  font-weight 300
+  color var(--outerspace07)
+  transform translateZ(0)
+  z-index 2000
+  width 100%
+  display flex
+  align-items center
+  border-bottom 1px solid rgba(14, 165, 233, 0.08)
+  box-sizing border-box
+  transition background 0.12s ease-out
+
+  &:last-child
+    border-bottom none
+
+  &:hover
+    background rgba(14, 165, 233, 0.05)
+    cursor pointer
+
+  .signerPermissionControls
+    display flex
+    position relative
+    align-items center
+    justify-content space-between
+    transform translateZ(0)
+    z-index 40
+    width 100%
+
+  .signerPermissionDetails
+    display flex
+    position relative
+    justify-content space-between
+    align-items center
+    transform translateZ(0)
+    font-size 13px
+    padding 10px 0px 0px 1px
+    z-index 20
+    font-weight 300
+    color var(--outerspace07)
+
+// ── Favicon ───────────────────────────────────────────────────────────────────
+.signerPermissionFavicon
+  width 20px
+  height 20px
+  border-radius 4px
+  margin-right 10px
+  flex-shrink 0
+  overflow hidden
+  background var(--ghostA)
+
+  img
+    width 100%
+    height 100%
+    object-fit cover
+
+// ── Origin / dapp name ────────────────────────────────────────────────────────
+.signerPermissionOrigin
+  background transparent
+  width 250px
+  direction rtl
+  text-overflow ellipsis
+  overflow hidden
+  text-align left
+  white-space nowrap
+  font-size 13px
+  font-weight 300
+  color var(--outerspace07)
+  margin-top 4px
+  flex 1
+
+// ── Connection time ───────────────────────────────────────────────────────────
+.signerPermissionTime
+  font-family 'CodeFont'
+  font-size 11px
+  font-weight 200
+  color var(--outerspace05)
+  margin-left auto
+  padding-left 8px
+  white-space nowrap
+
+// ── Connected indicator — emerald dot ─────────────────────────────────────────
+.devicePermDotOn
+  background var(--good)
+  width 7px
+  height 7px
+  border-radius 50%
+  flex-shrink 0
+  margin-right 8px
+
+// ── Disconnected — gray dot ───────────────────────────────────────────────────
+.devicePermDotOff
+  background var(--outerspace05)
+  width 7px
+  height 7px
+  border-radius 50%
+  flex-shrink 0
+  margin-right 8px
+
+// ── Revoke button ─────────────────────────────────────────────────────────────
+.devicePermRevoke
+  border 1px solid rgba(244, 63, 94, 0.3)
+  border-radius 8px
+  color var(--bad)
+  font-size 11px
+  font-weight 400
+  padding 4px 10px
+  cursor pointer
+  transition all 0.12s ease-out
+  background transparent
+  white-space nowrap
+  flex-shrink 0
+
+.devicePermRevoke:hover
+  background rgba(244, 63, 94, 0.08)
+  border-color rgba(244, 63, 94, 0.5)
+
+// ── Permission toggle (full size) ─────────────────────────────────────────────
+.devicePermToggle
+  position relative
+  background var(--ghostD)
+  height 20px
+  width 40px
+  border-radius 12px
+  transition var(--standard)
+  transform translateZ(0)
+  margin-top 4px
+  cursor pointer
+
+  .signerPermissionToggleSwitch
+    position absolute
+    top 2px
+    left 2px
+    bottom 2px
+    width 16px
+    border-radius 50%
+    transition var(--standard)
+    background var(--ghostD)
+    transform translateZ(0)
+    pointer-events none
+
+.signerPermissionToggleOn
+  background var(--good)
+
+  .signerPermissionToggleSwitch
+    position absolute
+    transform translateX(20px)
+    background var(--outerspace)
+
+.devicePermToggle:hover
+  .signerPermissionToggleSwitch
+    background var(--ghostD)
+
+// ── Permission toggle (small) ─────────────────────────────────────────────────
+.devicePermToggleSmall
+  position relative
+  background var(--ghostD)
+  height 14px
+  width 30px
+  border-radius 12px
+  transition var(--standard)
+  transform translateZ(0)
+  margin-top 2px
+  margin-right 4px
+  cursor pointer
+
+  .signerPermissionToggleSwitch
+    position absolute
+    top 2px
+    left 2px
+    bottom 2px
+    width 10px
+    border-radius 50%
+    transition var(--standard)
+    background var(--ghostC)
+    transform translateZ(0)
+    pointer-events none
+
+.signerPermissionToggleSmallOn
+  background var(--good)
+
+  .signerPermissionToggleSwitch
+    position absolute
+    transform translateX(16px)
+    background var(--outerspace)
+
+.devicePermToggleSmall:hover
+  .signerPermissionToggleSwitch
+    background var(--ghostD)

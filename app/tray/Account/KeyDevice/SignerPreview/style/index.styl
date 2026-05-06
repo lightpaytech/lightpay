@@ -1,0 +1,47 @@
+// VAULT — Signer/Device Preview
+
+.devicePreview
+  padding 12px 14px
+  display flex
+  align-items center
+  gap 10px
+
+.devicePreviewIcon
+  width 34px
+  height 34px
+  border-radius 11px
+  overflow hidden
+  background rgba(14, 165, 233, 0.08)
+  border 1px solid rgba(14, 165, 233, 0.4)
+  flex-shrink 0
+  display flex
+  align-items center
+  justify-content center
+  padding 6px
+
+  img
+    width 100%
+    height 100%
+    object-fit contain
+    filter brightness(1.2)
+
+.devicePreviewInfo
+  flex 1
+
+.devicePreviewName
+  font-size 13px
+  font-weight 400
+  color var(--outerspace)
+
+.devicePreviewStatus
+  font-size 11px
+  margin-top 2px
+
+.devicePreviewStatusOk
+  color var(--good)
+
+.devicePreviewStatusLocked
+  color var(--outerspace05)
+
+.devicePreviewStatusError
+  color var(--bad)

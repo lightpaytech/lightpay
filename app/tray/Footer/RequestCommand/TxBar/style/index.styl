@@ -1,0 +1,19 @@
+// Electric Blue — Transaction Progress Bar
+
+.flowProgressBar
+  height 3px
+  background rgba(14, 165, 233, 0.15)
+  border-radius 2px
+  overflow hidden
+
+.flowProgressBarFill
+  height 100%
+  background rgb(14, 165, 233)
+  border-radius 2px
+  transition 0.4s cubic-bezier(0.4, 0, 0.2, 1) width
+
+.flowProgressBarPending
+  background rgb(56, 189, 248)
+
+.flowProgressBarError
+  background var(--bad)

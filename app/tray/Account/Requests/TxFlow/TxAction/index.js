@@ -1,0 +1,206 @@
+import React from 'react'
+import Restore from 'react-restore'
+import BigNumber from 'bignumber.js'
+
+import svg from '../../../../../../resources/svg'
+import link from '../../../../../../resources/link'
+import { ClusterBox, Cluster, ClusterRow, ClusterValue } from '../../../../../../resources/Components/Cluster'
+import { formatDisplayDecimal, isUnlimited } from '../../../../../../resources/utils/numbers'
+import { DisplayValue, DisplayCoinBalance } from '../../../../../../resources/Components/DisplayValue'
+import { getAddress } from '../../../../../../resources/utils'
+
+class TxSending extends React.Component {
+  constructor(...args) {
+    super(...args)
+    this.state = {
+      copied: false
+    }
+  }
+  copyAddress(data) {
+    link.send('tray:clipboardData', data)
+    this.setState({ copied: true })
+    setTimeout((_) => this.setState({ copied: false }), 1000)
+  }
+  render() {
+    const req = this.props.req
+    const contract = req.data.to.toLowerCase()
+    const networkId = parseInt(req.data.networkId, 16)
+    const networkName = this.store('main.networks.ethereum', networkId, 'name')
+
+    const { action } = this.props
+    const [actionClass, actionType] = action.id.split(':')
+
+    if (actionClass === 'erc20') {
+      if (actionType === 'transfer') {
+        const {
+          amount,
+          decimals,
+          name,
+          recipient: { address: recipientAddress, type: recipientType, ens: recipientEns },
+          symbol
+        } = action.data || {}
+        const address = getAddress(recipientAddress)
+        const ensName = recipientEns
+
+        const isTestnet = this.store('main.networks', this.props.chain.type, this.props.chain.id, 'isTestnet')
+        const rate = this.store('main.rates', contract)
+
+        return (
+          <ClusterBox title={`Sending ${symbol}`} subtitle={name} animationSlot={this.props.i}>
+            <Cluster>
+              <ClusterRow>
+                <ClusterValue grow={2}>
+                  <div className='sendAmount'>
+                    <DisplayCoinBalance amount={amount} decimals={decimals} symbol={symbol} />
+                  </div>
+                </ClusterValue>
+                <ClusterValue>
+                  <span className='_flowTransferEq'>{isTestnet ? '=' : '≈'}</span>
+                  <DisplayValue
+                    type='fiat'
+                    value={amount}
+                    valueDataParams={{ currencyRate: rate && rate.usd, isTestnet, decimals }}
+                    currencySymbol='$'
+                  />
+                </ClusterValue>
+              </ClusterRow>
+              {address && recipientType === 'contract' ? (
+                <ClusterRow>
+                  <ClusterValue>
+                    <div className='dataGroupTag'>{`to contract on ${networkName}`}</div>
+                  </ClusterValue>
+                </ClusterRow>
+              ) : address ? (
+                <ClusterRow>
+                  <ClusterValue>
+                    <div className='dataGroupTag'>{`to account on ${networkName}`}</div>
+                  </ClusterValue>
+                </ClusterRow>
+              ) : null}
+
+              {address && (
+                <ClusterRow>
+                  <ClusterValue
+                    pointerEvents={true}
+                    onClick={() => {
+                      this.copyAddress(address)
+                    }}
+                  >
+                    <div className='dataGroupAddr'>
+                      {ensName ? (
+                        <span className='dataGroupAddrTo'>{ensName}</span>
+                      ) : (
+                        <span className='dataGroupAddrTo'>
+                          {address.substring(0, 8)}
+                          {svg.octicon('kebab-horizontal', { height: 15 })}
+                          {address.substring(address.length - 6)}
+                        </span>
+                      )}
+                      <div className='dataGroupAddrFull'>
+                        {this.state.copied ? (
+                          <span>{'Address Copied'}</span>
+                        ) : (
+                          <span className='dataGroupCode'>{address}</span>
+                        )}
+                      </div>
+                    </div>
+                  </ClusterValue>
+                </ClusterRow>
+              )}
+            </Cluster>
+          </ClusterBox>
+        )
+      } else if (actionType === 'approve') {
+        const {
+          amount,
+          decimals,
+          spender: { address: recipientAddress, ens: spenderEns },
+          symbol
+        } = action.data || {}
+        const address = recipientAddress
+        const ensName = spenderEns
+        const value = new BigNumber(amount)
+        const revoke = value.eq(0)
+        const displayAmount = isUnlimited(this.state.amount)
+          ? 'unlimited'
+          : formatDisplayDecimal(amount, decimals)
+        const isSubmitted = req.status !== undefined
+
+        return (
+          <ClusterBox title={'Token Approval'} animationSlot={this.props.i}>
+            <Cluster>
+              {revoke ? (
+                <ClusterRow>
+                  <ClusterValue
+                    onClick={() => {
+                      if (!isSubmitted) {
+                        link.send('nav:update', 'panel', {
+                          data: { step: 'adjustApproval', actionId: action.id, requestedAmountHex: amount }
+                        })
+                      }
+                    }}
+                    style={isSubmitted ? { cursor: 'auto' } : {}}
+                  >
+                    <div className='dataGroupFocus'>
+                      <div>{`Revoking Approval To Spend `}</div>
+                      <div className='clusterFocusHighlight'>{`${symbol}`}</div>
+                    </div>
+                  </ClusterValue>
+                </ClusterRow>
+              ) : (
+                <ClusterRow>
+                  <ClusterValue
+                    onClick={() => {
+                      if (!isSubmitted) {
+                        link.send('nav:update', 'panel', {
+                          data: { step: 'adjustApproval', actionId: action.id, requestedAmountHex: amount }
+                        })
+                      }
+                    }}
+                    style={isSubmitted ? { cursor: 'auto' } : {}}
+                  >
+                    <div className='dataGroupFocus'>
+                      <div>{`Granting Approval To Spend`}</div>
+                      <div className='clusterFocusHighlight'>{`${displayAmount} ${symbol}`}</div>
+                    </div>
+                  </ClusterValue>
+                </ClusterRow>
+              )}
+              {address && (
+                <ClusterRow>
+                  <ClusterValue
+                    pointerEvents={true}
+                    onClick={() => {
+                      this.copyAddress(address)
+                    }}
+                  >
+                    <div className='dataGroupAddr'>
+                      {ensName ? (
+                        <span className='dataGroupAddrTo'>{ensName}</span>
+                      ) : (
+                        <span className='dataGroupAddrTo'>
+                          {address.substring(0, 8)}
+                          {svg.octicon('kebab-horizontal', { height: 15 })}
+                          {address.substring(address.length - 6)}
+                        </span>
+                      )}
+                      <div className='dataGroupAddrFull'>
+                        {this.state.copied ? (
+                          <span>{'Address Copied'}</span>
+                        ) : (
+                          <span className='dataGroupCode'>{address}</span>
+                        )}
+                      </div>
+                    </div>
+                  </ClusterValue>
+                </ClusterRow>
+              )}
+            </Cluster>
+          </ClusterBox>
+        )
+      }
+    }
+  }
+}
+
+export default Restore.connect(TxSending)

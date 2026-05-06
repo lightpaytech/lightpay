@@ -1,0 +1,64 @@
+// ─── Electric Blue Design: Backdrop ───────────────────────────────────────────
+// Deepest layer overlay with electric blue tinted glass effect
+// Transition: 0.28s cubic-bezier(0.4,0,0.2,1)
+
+.overlayBg
+  position absolute
+  top 80px
+  right 8px
+  left 8px
+  bottom 40px
+  z-index 1
+  pointer-events none
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+  background rgba(3, 5, 15, 0.92)
+  border-radius 16px
+  border 1px solid rgba(14, 165, 233, 0.08)
+
+.overlayBgOn
+  opacity 1
+  pointer-events auto
+
+// ─── Overlay (inset / monitor mode) ──────────────────────────────────────────
+
+.overlay
+  position absolute
+  top 80px
+  right 8px
+  left 8px
+  bottom 40px
+  z-index 1000
+  pointer-events none
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+  border-radius 16px
+  opacity 1
+  border-top 1px solid rgba(14, 165, 233, 0.12)
+
+.overlayMonitor
+  opacity 1
+
+// ─── Wave decoration (light / dark theme) ────────────────────────────────────
+
+.light
+  .overlayMonitor::before
+    content ''
+    position absolute
+    top 0px
+    right 0px
+    left 0px
+    bottom 0px
+    border-radius 16px
+    opacity 0.06
+    background-image url('./Account/Requests/style/wave.svg')
+
+.dark
+  .overlayMonitor::before
+    content ''
+    position absolute
+    top 0px
+    right 0px
+    left 0px
+    bottom 0px
+    border-radius 16px
+    opacity 0.06
+    background-image url('./Account/Requests/style/waveDark.svg')

@@ -1,0 +1,665 @@
+// Electric Blue — Tray Notification Overlay
+// Covers the full tray panel for alpha/beta/gas warnings, signing prompts, etc.
+
+.notify
+  position fixed
+  top 0px
+  right 0px
+  left 0px
+  bottom 0px
+  z-index 9999999999999999
+  pointer-events auto
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+  display flex
+  justify-content center
+  align-items center
+  text-align center
+  opacity 1
+  background rgba(3, 5, 15, 0.92)
+
+  ::selection
+    background var(--bad)
+
+  // ─── Dismiss / close pill ────────────────────────────────────────────────
+
+  .alertCloseBtn
+    position absolute
+    top 16px
+    width 100px
+    margin-left -50px
+    left 50%
+    height 28px
+    border-radius 10px
+    display flex
+    justify-content center
+    align-items center
+    text-transform uppercase
+    font-size 11px
+    font-weight 400
+    letter-spacing 0.06em
+    cursor pointer
+    background rgba(14, 165, 233, 0.08)
+    border 1px solid rgba(14, 165, 233, 0.18)
+    color rgba(186, 230, 253, 0.7)
+    transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+    *
+      pointer-events none
+
+  .alertCloseBtn:hover
+    background rgba(14, 165, 233, 0.12)
+    border-color rgba(14, 165, 233, 0.4)
+    color rgb(224, 242, 254)
+
+  // ─── Full-area wrap ───────────────────────────────────────────────────────
+
+  .alertWrap
+    border-radius 20px
+    box-sizing border-box
+    position absolute
+    top 0px
+    bottom 0px
+    left 0px
+    right 0px
+    padding 10px
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+    background rgb(6, 9, 22)
+    border 1px solid rgba(14, 165, 233, 0.18)
+    display flex
+    justify-content center
+    align-items center
+    text-align center
+    opacity 1
+    overflow-x hidden
+    z-index 4000000000
+
+    .alertBoxSlide
+      overflow-y scroll
+      overflow-x hidden
+      max-height 100%
+      width 100%
+
+      &::-webkit-scrollbar
+        width 3px
+
+      &::-webkit-scrollbar-track
+        background transparent
+
+      &::-webkit-scrollbar-thumb
+        background rgba(14, 165, 233, 0.2)
+        border-radius 2px
+
+    // ─── X close corner ────────────────────────────────────────────────────
+
+    .notifyClose
+      position absolute
+      top 0px
+      right 0px
+      color rgba(186, 230, 253, 0.7)
+      z-index 3
+      height 40px
+      width 40px
+      display flex
+      justify-content center
+      align-items center
+      border-radius 0 20px 0 12px
+      transition 0.18s cubic-bezier(0.4, 0, 0.2, 1) all
+      cursor pointer
+
+    .notifyClose:hover
+      color rgb(224, 242, 254)
+      background rgba(14, 165, 233, 0.06)
+
+    // ─── Content card ──────────────────────────────────────────────────────
+
+    .alertBox
+      width 100%
+      overflow hidden
+
+      .alertSection
+        margin 10px
+
+      // ─── Icon frame ──────────────────────────────────────────────────────
+
+      .alertAppLogo
+        height 80px
+        width 100%
+        position relative
+        z-index 4
+        display flex
+        justify-content center
+        align-items center
+        margin-bottom 8px
+
+        img
+          width 64px
+          height 64px
+          border-radius 18px
+          border 1px solid rgba(14, 165, 233, 0.18)
+
+      // Icon statusIndicator alternative (SVG / emoji icon inside a pill)
+      .notifyIconBadge
+        width 56px
+        height 56px
+        border-radius 16px
+        background rgba(14, 165, 233, 0.08)
+        border 1px solid rgba(14, 165, 233, 0.25)
+        margin 0 auto 16px
+        display flex
+        align-items center
+        justify-content center
+        color rgb(14, 165, 233)
+
+      // ─── Title ───────────────────────────────────────────────────────────
+
+      .alertTitle
+        font-size 18px
+        font-weight 500
+        position relative
+        z-index 3
+        margin-bottom 10px
+        color rgb(224, 242, 254)
+        text-align center
+        letter-spacing -0.01em
+
+      // ─── Subtitle ────────────────────────────────────────────────────────
+
+      .alertSubtitle
+        font-size 14px
+        font-weight 400
+        position relative
+        z-index 3
+        margin-bottom 16px
+        color rgba(186, 230, 253, 0.7)
+        text-align center
+        line-height 1.5
+
+      // ─── Body block ──────────────────────────────────────────────────────
+
+      .alertBody
+        font-size 13px
+        position relative
+        z-index 3
+        word-break break-word
+        width 100%
+        box-sizing border-box
+        padding 8px
+        color rgba(186, 230, 253, 0.7)
+        line-height 1.65
+
+        .alertBodyLine
+          padding 0px 16px
+          font-size 14px
+          font-weight 300
+          font-family 'MainFont'
+          line-height 1.6
+          color rgba(186, 230, 253, 0.7)
+          text-align center
+
+        .notifyBodyLineUrl
+          padding-bottom 40px
+          font-family 'CodeFont'
+          font-size 12px
+          word-break break-all
+          color rgba(186, 230, 253, 0.7)
+          letter-spacing 0.02em
+
+        // Update banner
+        .alertBodyUpdate
+          padding 10px 14px
+          margin-bottom 10px
+          margin-top 40px
+          background rgba(14, 165, 233, 0.08)
+          border 1px solid rgba(14, 165, 233, 0.25)
+          color rgb(14, 165, 233)
+          border-radius 10px
+          font-size 13px
+          font-weight 400
+          letter-spacing 0.02em
+
+        // Clickable link text
+        .alertLink
+          text-decoration underline
+          cursor pointer
+          color rgb(14, 165, 233)
+          transition 0.16s cubic-bezier(0.4, 0, 0.2, 1) color
+
+        .alertLink:hover
+          color rgb(56, 189, 248)
+
+        // Code hash / address display
+        .alertBodyHash
+          font-size 12px
+          font-family 'CodeFont'
+          background rgb(3, 5, 15)
+          border 1px solid rgba(14, 165, 233, 0.18)
+          line-height 20px
+          padding 14px 16px
+          border-radius 12px
+          margin-top 20px
+          color rgba(186, 230, 253, 0.7)
+          max-height 64px
+          overflow hidden
+          letter-spacing 0.04em
+          text-align left
+          word-break break-all
+
+        // Gas price / token amount
+        .alertBodyPrice
+          margin-top 6px
+          font-size 28px
+          font-weight 500
+          font-family 'CodeFont'
+          color rgb(14, 165, 233)
+          letter-spacing -0.02em
+
+        // Gas price variant — high amounts
+        .alertBodyPrice.notifyBodyPriceHigh
+          color var(--pending)
+
+        // Gas price variant — very high amounts
+        .alertBodyPrice.notifyBodyPriceVeryHigh
+          color var(--bad)
+
+        // Confirmation question prompt
+        .alertBodyQuestion
+          padding-top 32px
+          color rgba(186, 230, 253, 0.7)
+          font-size 13px
+          line-height 1.5
+
+      // ─── Checkbox row ────────────────────────────────────────────────────
+
+      .alertCheckRow
+        display flex
+        position relative
+        justify-content center
+        align-items center
+        font-weight 400
+        z-index 3
+        margin-top 16px
+        margin-left 8px
+        padding 0px 24px
+
+        .alertCheckbox
+          width 28px
+          height 28px
+          min-width 28px
+          min-height 28px
+          border-radius 8px
+          background rgb(6, 9, 22)
+          border 1px solid rgba(14, 165, 233, 0.18)
+          margin-right 10px
+          box-sizing border-box
+          display flex
+          position relative
+          justify-content center
+          align-items center
+          cursor pointer
+          transition 0.18s cubic-bezier(0.4, 0, 0.2, 1) all
+
+          *
+            pointer-events none
+
+          svg
+            height 16px
+            color rgb(14, 165, 233)
+
+        .alertCheckbox:hover
+          border-color rgba(14, 165, 233, 0.4)
+          background rgba(14, 165, 233, 0.06)
+
+        .alertCheckbox.notifyCheckBoxChecked
+          background rgba(14, 165, 233, 0.12)
+          border-color rgba(14, 165, 233, 0.45)
+
+        .alertCheckLabel
+          text-align left
+          font-size 12px
+          line-height 1.5
+          width 210px
+          color rgba(186, 230, 253, 0.7)
+
+      // ─── Action button row ───────────────────────────────────────────────
+
+      .alertActions
+        display flex
+        position relative
+        justify-content space-between
+        z-index 3
+        margin 32px 8px 0px 8px
+        gap 8px
+
+        .alertActionBtn
+          position relative
+          width calc(50% - 1px)
+          display flex
+          justify-content center
+          align-items center
+          box-sizing border-box
+          height 44px
+          font-weight 500
+          font-size 13px
+          letter-spacing 0.06em
+          text-transform uppercase
+          cursor pointer
+          border-radius 10px
+          transition 0.22s cubic-bezier(0.4, 0, 0.2, 1) all
+          overflow hidden
+
+          *
+            pointer-events none
+
+          .alertActionBtnText
+            position relative
+            z-index 200
+            padding-bottom 1px
+
+        // ── Deny / cancel — ghost variant ──
+
+        .alertActionDeny
+          background transparent
+          border 1px solid rgba(14, 165, 233, 0.18)
+          color rgba(186, 230, 253, 0.7)
+          border-radius 10px
+
+        .alertActionDeny:hover
+          background rgba(14, 165, 233, 0.06)
+          border-color rgba(14, 165, 233, 0.4)
+          color rgb(224, 242, 254)
+
+        // ── Proceed / confirm — electric blue primary ──
+
+        .alertActionProceed
+          background rgb(14, 165, 233)
+          border 1px solid rgba(14, 165, 233, 0.4)
+          color rgb(3, 5, 15)
+          border-radius 10px
+          font-weight 600
+
+        .alertActionProceed:hover
+          background rgb(56, 189, 248)
+          border-color rgba(56, 189, 248, 0.5)
+
+        // ── Beta confirm ──
+
+        .alertGoBtn
+          color rgb(14, 165, 233)
+
+        // ── Single centred button ──
+
+        .alertActionSingle
+          left 50%
+          transform translate(-50%, 0)
+          border-radius 10px
+          width auto
+          min-width 140px
+          padding 0 28px
+          background rgb(14, 165, 233)
+          border 1px solid rgba(14, 165, 233, 0.4)
+          color rgb(3, 5, 15)
+          font-weight 600
+
+        .alertActionSingle:hover
+          background rgb(56, 189, 248)
+          border-color rgba(56, 189, 248, 0.5)
+
+    // ─── Intro / onboarding instructions block ───────────────────────────────
+
+    .introInstructions
+      position relative
+      z-index 3
+      margin -10px
+      font-size 12px
+      font-weight 300
+      border-radius 12px
+      text-align left
+      line-height 18px
+      color rgba(186, 230, 253, 0.7)
+
+      .introInstructionItem
+        margin-bottom 18px
+        padding 0px 16px
+
+        span
+          color rgb(14, 165, 233)
+          text-decoration none
+
+      .introInstructionList
+        margin 16px 4px 28px 4px
+        border-radius 10px
+        padding 14px 16px
+        font-weight 400
+        background rgba(14, 165, 233, 0.06)
+        border 1px solid rgba(14, 165, 233, 0.18)
+        color rgb(224, 242, 254)
+
+        div
+          font-size 13px
+          line-height 26px
+@import '../ExtensionConnect/style'
+
+// ─── Alert/Notify classes ─────────────────────────────────────────────────
+
+.alertWrap
+  position fixed
+  inset 0
+  background rgba(3, 5, 15, 0.92)
+  backdrop-filter blur(6px)
+  z-index 9999999
+  display flex
+  align-items center
+  justify-content center
+  padding 20px
+
+.alertBoxSlide
+  display flex
+  flex-direction column
+  align-items center
+  width 100%
+
+.alertBox
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 20px
+  padding 24px
+  max-width 340px
+  width 100%
+
+.alertAppLogo
+  width 52px
+  height 52px
+  border-radius 18px
+  background rgba(14, 165, 233, 0.08)
+  border 1px solid rgba(14, 165, 233, 0.25)
+  display flex
+  align-items center
+  justify-content center
+  margin 0 auto 14px
+
+  img
+    width 36px
+    height 36px
+    object-fit contain
+
+.alertTitle
+  font-size 18px
+  font-weight 500
+  color rgb(224, 242, 254)
+  text-align center
+  margin-bottom 10px
+
+.alertSubtitle
+  font-size 13px
+  color rgba(186, 230, 253, 0.7)
+  text-align center
+  margin-bottom 6px
+
+.alertBody
+  font-size 13px
+  color rgba(186, 230, 253, 0.7)
+  line-height 1.65
+  text-align center
+  margin-bottom 16px
+
+.alertBodyLine
+  font-size 13px
+  color rgba(186, 230, 253, 0.7)
+  line-height 1.65
+  margin-bottom 8px
+
+.alertBodyLineUrl
+  font-family 'CodeFont'
+  font-size 11px
+  color rgb(14, 165, 233)
+  word-break break-all
+
+.alertBodyBlock
+  font-size 13px
+  color rgba(186, 230, 253, 0.7)
+  line-height 1.65
+  margin-bottom 10px
+
+.alertBodyBlockLarge
+  font-size 15px
+  color rgb(224, 242, 254)
+
+.alertBodyHash
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186, 230, 253, 0.7)
+  word-break break-all
+  padding 8px 12px
+  background rgb(3, 5, 15)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 8px
+  margin 6px 0
+
+.alertBodyPrice
+  font-family 'CodeFont'
+  font-size 18px
+  font-weight 500
+  color rgb(14, 165, 233)
+  text-align center
+
+.alertBodyQuestion
+  font-size 13px
+  color rgba(186, 230, 253, 0.7)
+  font-weight 400
+  text-align center
+  margin-top 8px
+
+.alertBodyUpdate
+  background rgba(14, 165, 233, 0.08)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 10px
+  padding 10px 14px
+  font-size 12px
+  color rgb(14, 165, 233)
+  text-align center
+  margin-top 8px
+
+.alertSection
+  font-size 13px
+  color rgba(186, 230, 253, 0.7)
+  line-height 1.6
+  margin-bottom 6px
+
+.alertActions
+  display flex
+  gap 8px
+  margin-top 4px
+
+.alertActionBtn
+  flex 1
+  height 44px
+  border-radius 12px
+  display flex
+  align-items center
+  justify-content center
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  font-size 14px
+  font-weight 400
+
+.alertActionBtnText
+  pointer-events none
+
+.alertActionSingle
+  width 100%
+
+.alertActionProceed
+  background rgb(14, 165, 233)
+  border 1px solid rgba(14, 165, 233, 0.4)
+  color rgb(3, 5, 15)
+
+.alertActionProceed:hover
+  background rgb(56, 189, 248)
+  border-color rgba(56, 189, 248, 0.5)
+
+.alertActionDeny
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  color rgba(186, 230, 253, 0.7)
+
+.alertActionDeny:hover
+  border-color rgba(14, 165, 233, 0.4)
+  color rgb(224, 242, 254)
+
+.alertCheckRow
+  display flex
+  align-items center
+  gap 8px
+  margin-top 12px
+  cursor pointer
+
+.alertCheckbox
+  width 18px
+  height 18px
+  border-radius 5px
+  border 1px solid rgba(14, 165, 233, 0.3)
+  background transparent
+  flex-shrink 0
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.alertCheckboxChecked
+  background rgb(14, 165, 233)
+  border-color rgb(14, 165, 233)
+
+.alertCheckLabel
+  font-size 12px
+  color rgba(186, 230, 253, 0.7)
+
+.alertCloseBtn
+  width 32px
+  height 32px
+  border-radius 10px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  display flex
+  align-items center
+  justify-content center
+  cursor pointer
+  color rgba(186, 230, 253, 0.7)
+  transition 0.15s all
+  position absolute
+  top 14px
+  right 14px
+
+.alertCloseBtn:hover
+  border-color rgba(244, 63, 94, 0.35)
+  color var(--bad)
+  background rgba(244, 63, 94, 0.06)
+
+.alertGoBtn
+  font-weight 500
+  letter-spacing 0.02em
+
+.notifyBodyLineUrl
+  font-family 'CodeFont'
+  font-size 11px
+  color rgb(14, 165, 233)
+  word-break break-all

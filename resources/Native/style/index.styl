@@ -1,0 +1,285 @@
+// VAULT — Native Window Chrome
+// Custom traffic-light controls + title bar for Electron windows (Mac / Linux / Windows)
+
+// ─── VAULT title bar strip ───────────────────────────────────────────────────
+
+.titleBar
+  height 40px
+  -webkit-app-region drag
+  display flex
+  align-items center
+  padding 0 12px
+
+.windowControls
+  display flex
+  gap 6px
+  -webkit-app-region no-drag
+
+// ─── Generic window control circle ───────────────────────────────────────────
+
+.windowControl
+  width 12px
+  height 12px
+  border-radius 50%
+  cursor pointer
+  border none
+  outline none
+  transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) all
+
+// ─── Traffic-light colours ───────────────────────────────────────────────────
+
+.windowControlClose
+  background rgba(255, 96, 92, 0.85)
+
+.windowControlClose:hover
+  background rgba(255, 96, 92, 1)
+
+.windowControlMin
+  background rgba(255, 189, 46, 0.85)
+
+.windowControlMin:hover
+  background rgba(255, 189, 46, 1)
+
+.windowControlMax
+  background rgba(39, 201, 63, 0.85)
+
+.windowControlMax:hover
+  background rgba(39, 201, 63, 1)
+
+// ─── System-level Electron native button (close / min / max) ─────────────────
+
+.nativeButton
+  display flex
+  align-items center
+  justify-content center
+  width 36px
+  height 36px
+  border-radius 10px
+  border 1px solid rgba(14,165,233,0.1)
+  background transparent
+  color var(--outerspace07)
+  cursor pointer
+  transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) all
+  -webkit-app-region no-drag
+
+.nativeButton:hover
+  background rgba(14,165,233,0.08)
+  border-color rgba(14,165,233,0.25)
+  color var(--outerspace)
+
+.nativeButton.nativeButtonClose:hover
+  background rgba(244, 63, 94, 0.08)
+  border-color rgba(244, 63, 94, 0.3)
+  color var(--bad)
+
+// ─── Outer native controls layer ─────────────────────────────────────────────
+
+.nativeControls
+  position absolute
+  top 0
+  left 0
+  right 0
+  height 32px
+  z-index 20000000000
+
+  // ─── macOS drag region ───────────────────────────────────────────────────
+
+  .macGrab
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    right 0
+    -webkit-app-region drag
+
+  .macControls
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    width 74px
+
+  // ─── Linux drag + controls ───────────────────────────────────────────────
+
+  .linuxGrab
+    position absolute
+    top 0
+    right 104px
+    bottom 0
+    left 0
+    -webkit-app-region drag
+
+  .linuxControls
+    position absolute
+    top 0px
+    right 8px
+    bottom 0
+    display flex
+    align-items center
+
+    .linuxControlsButton
+      width 22px
+      height 22px
+      margin 0px 0px 0px 10px
+      display flex
+      justify-content center
+      align-items center
+      color var(--outerspace06)
+      border-radius 50%
+      background rgba(255, 255, 255, 0.04)
+      border 1px solid rgba(14,165,233,0.08)
+      flex 1
+      flex-shrink 0
+      transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) all
+      cursor pointer
+
+      .linuxControlsClose
+        height 13px
+        width 13px
+
+      .linuxControlsMax
+        height 13px
+        width 13px
+
+      .linuxControlsMin
+        margin-top 5px
+        height 13px
+        width 13px
+
+      svg
+        position relative
+        fill currentColor
+        transform scale(0.7)
+
+      *
+        pointer-events none
+
+    .linuxControlsButton:hover
+      background rgba(14,165,233,0.08)
+      border-color rgba(14,165,233,0.22)
+      color var(--outerspace)
+
+    // Close button on Linux — rose tint
+    .linuxControlsButton.linuxControlsCloseBtn:hover
+      background rgba(244, 63, 94, 0.08)
+      border-color rgba(244, 63, 94, 0.28)
+      color var(--bad)
+
+  // ─── Windows drag + controls ─────────────────────────────────────────────
+
+  .windowsGrab
+    position absolute
+    top 0
+    left 0px
+    bottom 0
+    right 136px
+    -webkit-app-region drag
+
+  .windowsControls
+    position absolute
+    top 1px
+    right 1px
+    bottom 0
+    display flex
+    align-items center
+
+    .windowsControlsButton
+      width 46px
+      height 32px
+      display flex
+      justify-content center
+      align-items center
+      color var(--outerspace06)
+      border-radius 4px
+      cursor pointer
+      transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) all
+      -webkit-app-region no-drag
+
+      svg
+        position relative
+        fill currentColor
+
+      *
+        pointer-events none
+
+    .windowsControlsButton:hover
+      background rgba(14,165,233,0.06)
+      color var(--outerspace)
+
+    // Windows close — rose on hover
+    .windowsControlsButton.windowsControlsCloseBtn:hover
+      background rgba(196, 43, 28, 0.9)
+      color rgb(255, 255, 255)
+
+// ─── macOS title bar traffic lights ──────────────────────────────────────────
+
+.macTitle
+  height 30px
+  position absolute
+  top 0
+  left 0
+  padding 0px 5px 0px 5px
+  z-index 50000
+  display flex
+  justify-content center
+  align-items center
+  -webkit-app-region no-drag
+
+  // Reveal colours on hover of the entire title bar area
+  &:hover
+    .titleClose
+      background #fc615d
+
+    .titleMin
+      background #fdbd41
+
+    .titleFull
+      background #34c84a
+
+  .macTitleButton
+    height 30px
+    width 30px
+    position relative
+    display flex
+    justify-content center
+    align-items center
+
+  .titleClose
+    width 12px
+    height 12px
+    background rgba(0, 0, 50, 0.15)
+    border-radius 50%
+    pointer-events none
+    transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) background
+
+  .titleMin
+    width 12px
+    height 12px
+    background rgba(0, 0, 50, 0.15)
+    border-radius 50%
+    pointer-events none
+    transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) background
+
+  .titleFull
+    width 12px
+    height 12px
+    background rgba(0, 0, 50, 0.15)
+    border-radius 50%
+    pointer-events none
+    transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) background
+
+// ─── Native scrollbars ───────────────────────────────────────────────────────
+
+::-webkit-scrollbar
+  width 4px
+  height 4px
+
+::-webkit-scrollbar-track
+  background transparent
+
+::-webkit-scrollbar-thumb
+  background rgba(14, 165, 233, 0.4)
+  border-radius 2px
+
+::-webkit-scrollbar-thumb:hover
+  background rgba(14, 165, 233, 0.6)

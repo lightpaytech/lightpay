@@ -1,0 +1,220 @@
+.dataGroup
+  font-size 17px
+  font-weight 400
+  border-radius 20px
+  -webkit-app-region no-drag
+  transition none
+  transform translate3d(0, 0, 0)
+  font-family 'MainFont'
+  display flow-root
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.09)
+  border-radius 14px
+  margin 6px
+  padding 2px 0px 1px 0px
+  overflow hidden
+
+  .clusterRow
+    display flex
+    justify-content center
+    align-items stretch
+    font-weight 300
+    margin-left 3px
+    border-bottom 1px solid rgba(14,165,233,0.06)
+    transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) background
+
+  .clusterRow:last-child
+    border-bottom none
+
+  .clusterRow:hover
+    background rgba(14,165,233,0.04)
+
+  .clusterValue
+    flex-grow 1
+    display flex
+    justify-content center
+    align-items center
+    border-radius 8px
+    margin-right 3px
+    font-size 12px
+    font-family 'CodeFont'
+    color rgba(186,230,253,0.7)
+    letter-spacing 0.04em
+    -webkit-app-region no-drag
+    transition all linear 0.1s
+    transform translate3d(0, 0, 0)
+    background rgb(10,14,35)
+    border-bottom 1px solid rgba(14,165,233,0.08)
+    overflow hidden
+    margin-top 1px
+
+    *
+      pointer-events none
+
+    .clusterInputLabel
+      position absolute
+      top 0
+      left 0
+      right 0
+      width 60px
+      display flex
+      justify-content center
+      align-items center
+
+  .clusterLabel
+    font-size 12px
+    color rgba(186,230,253,0.4)
+    flex 1
+
+  .clusterValueClickable
+    cursor pointer
+    margin-bottom 0px
+    position relative
+
+  .clusterValueInteractable
+    *
+      pointer-events auto
+
+  .clusterValueClickable:hover
+    background rgb(6,9,22)
+    transform translateY(-1px)
+    border-bottom 1px solid rgba(14,165,233,0.15)
+    position relative
+    z-index 300000
+
+  .clusterValueClickable:active
+    background rgb(6,9,22)
+    transform translateY(0px)
+
+  .clusterValueTransparent
+    background transparent
+    border-bottom 2px solid transparent
+
+  .clusterRow:first-child
+    > .clusterValue
+      border-radius 8px
+    > .clusterValue:first-child
+      border-top-left-radius 18px
+    > .clusterValue:last-child
+      border-top-right-radius 18px
+
+  .clusterRow:last-child
+    > .clusterValue
+      border-radius 8px
+    > .clusterValue:first-child
+      border-bottom-left-radius 18px
+    > .clusterValue:last-child
+      border-bottom-right-radius 18px
+
+  .clusterColumn
+    display flex
+    flex-direction column
+    flex-grow 1
+    font-size 14px
+    align-items stretch
+
+    .clusterValue
+      border-radius 8px
+
+  .clusterColumn:first-child
+    > .clusterValue
+      border-radius 8px
+    > .clusterValue:first-child
+      border-top-left-radius 18px
+
+  .clusterColumn:last-child
+    > .clusterValue
+      border-radius 8px
+    > .clusterValue:first-child
+      border-top-right-radius 18px
+
+  .clusterRow:last-child
+    .clusterColumn:first-child
+      > .clusterValue
+        border-radius 8px
+      > .clusterValue:first-child
+        border-top-left-radius 18px
+      > .clusterValue:last-child
+        border-bottom-left-radius 18px
+      > .clusterValue:first-child:last-child
+        border-top-left-radius 18px
+        border-bottom-left-radius 18px
+
+    .clusterColumn:last-child
+      > .clusterValue
+        border-radius 8px
+      > .clusterValue:first-child
+        border-top-right-radius 18px
+      > .clusterValue:last-child
+        border-bottom-right-radius 18px
+      > .clusterValue:first-child:last-child
+        border-top-right-radius 18px
+        border-bottom-right-radius 18px
+
+.dataGroupTag
+  text-transform uppercase
+  font-size 11px
+  font-weight 500
+  padding 8px
+  text-align center
+
+.dataGroupFocus
+  text-transform uppercase
+  font-size 13px
+  line-height 20px
+  font-weight 500
+  padding 16px 8px
+  text-align center
+
+  .clusterFocusHighlight
+    font-size 16px
+    color var(--good)
+
+.dataGroupAddr
+  padding 12px
+  font-size 14px
+  font-weight 600
+  cursor pointer
+
+.dataGroupAddrTo
+  font-size 16px
+  font-weight 300
+  font-family 'CodeFont'
+  display flex
+  justify-content center
+  align-items center
+  pointer-events none
+
+  svg
+    padding 0px 4px !important
+
+.dataGroupAddrFull
+  position absolute
+  top 0
+  left 0
+  bottom 0px
+  right 0
+  padding-bottom 1px
+  display flex
+  justify-content center
+  align-items center
+  cursor pointer
+  z-index 40000
+  border-radius 8px
+  font-weight 500
+  background rgb(6,9,22)
+  opacity 0
+  z-index 4
+  transition 0.05s linear all
+
+.dataGroupCode
+  position relative
+  top 1.5px
+  left 1px
+  font-weight 300
+  font-size 13px
+  font-family 'CodeFont'
+
+.dataGroupAddrFull:hover
+  opacity 1
+  transform translateX(0px) scale(1)

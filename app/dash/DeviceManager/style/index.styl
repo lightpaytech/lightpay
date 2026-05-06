@@ -1,0 +1,1350 @@
+// VAULT Signer — Hardware Wallet Management
+
+// Expanded signer state
+.expandedSigner
+  position relative
+  overflow hidden
+  box-sizing border-box
+  margin 6px
+  padding-bottom 24px
+  border-radius 20px
+  background rgb(3,5,15)
+  transform translate3d(0, 0, 0)
+  padding-top 8px
+
+// Base signer card
+.signer
+  position relative
+  width 100%
+  overflow hidden
+  box-sizing border-box
+  margin 6px 0px 0px 0px
+  padding-bottom 24px
+  border-radius 16px
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.18)
+  transform translate3d(0, 0, 0)
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+.deviceMenuItems
+  display flex
+  justify-content center
+  align-items center
+
+// Card header row
+.signerTop
+  position relative
+  display flex
+  justify-content space-between
+  align-items center
+  padding 16px 16px 12px 16px
+
+.signerDetails
+  display flex
+  justify-content center
+  align-items center
+
+  .signerName
+    height 28px
+    padding-left 14px
+    border-radius 8px
+    font-size 18px
+    font-weight 400
+    padding-top 4px
+    box-sizing border-box
+    font-family 'MainFont'
+    text-transform capitalize
+    letter-spacing 0px
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+    width 190px
+
+    .signerNameUpdate
+      position absolute
+      width 28px
+      height 28px
+      right -34px
+      color rgb(14,165,233)
+      display flex
+      align-items center
+      cursor pointer
+      pointer-events none
+      opacity 0
+
+      *
+        pointer-events none
+
+// Device model statusIndicator
+.deviceType
+  position absolute
+  top 16px
+  right 54px
+  font-size 11px
+  font-family 'CodeFont'
+  font-weight 400
+  letter-spacing 0px
+  background rgba(14,165,233,0.1)
+  border-radius 8px
+  padding 4px 10px
+  color rgb(14,165,233)
+
+// Expand toggle button
+.signerExpand
+  height 28px
+  width 28px
+  border-radius 8px
+  box-sizing border-box
+  background rgb(3,5,15)
+  border 1px solid rgba(14,165,233,0.18)
+  cursor pointer
+  display flex
+  justify-content center
+  align-items center
+  transition all 0.15s ease
+
+  *
+    pointer-events none
+
+.signerExpand:hover
+  background rgba(14,165,233,0.06)
+  border-color rgba(14,165,233,0.4)
+
+.signerNameFocused
+  background rgb(3,5,15)
+
+  .signerNameUpdate
+    opacity 1
+
+// Status indicator dot (legacy compact)
+.signerStatusIndicator
+  position absolute
+  top 20px
+  right 18px
+  width 10px
+  height 10px
+  border-radius 50%
+  background rgb(3,5,15)
+
+.signerStatusIndicatorLocked
+  background rgb(239,68,68)
+
+.signerStatusIndicatorReady
+  background rgb(34,197,94)
+
+// Status text below header
+.signerStatusText
+  padding 0px 16px 12px 16px
+  font-size 12px
+  text-transform uppercase
+  text-align center
+  font-weight 500
+  letter-spacing 1px
+  color rgb(224,242,254)
+
+.signerStatusError
+  color rgb(239,68,68)
+
+.signerStatusIssue
+  color rgb(239,68,68)
+
+.signerStatusReady
+  color rgb(34,197,94)
+
+// Bottom pagination row
+.signerBottom
+  left 0
+  right 0
+  bottom 0
+  display flex
+  justify-content center
+  align-items center
+  font-size 14px
+  font-weight 300
+  padding 18px 16px 10px 16px
+
+  .signerBottomPages
+    border-radius 8px
+    font-size 13px
+    font-weight 400
+    width 66px
+    text-align center
+
+  .signerBottomPageBack
+    background rgb(3,5,15)
+    border 1px solid rgba(14,165,233,0.18)
+    padding 2px 1px 2px 2px
+    height 30px
+    width 45px
+    border-radius 15px
+    cursor pointer
+    box-sizing border-box
+    display flex
+    justify-content center
+    align-items center
+    transition all 0.15s ease
+
+    *
+      pointer-events none
+
+  .signerBottomPageNext
+    background rgb(3,5,15)
+    border 1px solid rgba(14,165,233,0.18)
+    transform rotate(180deg)
+    padding 2px 2px 2px 1px
+    height 30px
+    width 45px
+    border-radius 15px
+    cursor pointer
+    box-sizing border-box
+    display flex
+    justify-content center
+    align-items center
+    transition all 0.15s ease
+
+    *
+      pointer-events none
+
+  .signerBottomPageBack:hover, .signerBottomPageNext:hover
+    background rgba(14,165,233,0.06)
+    border-color rgba(14,165,233,0.4)
+
+// Controls reveal drawer
+.signerDrawer
+  position relative
+  height 60px
+
+  .showControls
+    position absolute
+    height 22px
+    border-radius 11px
+    border 1px solid rgba(14,165,233,0.18)
+    background rgb(3,5,15)
+    z-index 2
+    top 14px
+    left 50%
+    width 100px
+    margin-left -50px
+    padding-bottom 2px
+    letter-spacing 1px
+    font-size 11px
+    display flex
+    justify-content center
+    align-items center
+    text-transform uppercase
+    cursor pointer
+    color rgb(224,242,254)
+    transition all 0.15s ease
+    font-weight 400
+
+  .showControls:hover
+    background rgba(14,165,233,0.06)
+    border-color rgba(14,165,233,0.4)
+    color rgb(224,242,254)
+
+  .showControlsLine
+    height 1px
+    position absolute
+    top 50%
+    left 0
+    right 0
+    background rgba(14,165,233,0.18)
+    z-index 1
+    margin-top -1px
+
+// Signer controls panel
+.signerControls
+  padding-top 16px
+
+  .signerControlDetail
+    height 40px
+    margin 0px 10px 11px 10px
+    display flex
+    justify-content center
+    align-items center
+    box-sizing border-box
+    font-size 16px
+    font-weight 400
+    border 1px solid rgba(14,165,233,0.18)
+    border-radius 12px
+    background rgba(14,165,233,0.03)
+
+    .signerControlDetailKey
+      font-size 11px
+      margin 4px 4px 6px 4px
+      letter-spacing 1px
+      color rgba(186,230,253,0.4)
+
+    .signerControlDetailValue
+      margin 4px
+      font-family 'CodeFont'
+      font-size 12px
+
+  .signerControlOption
+    height 48px
+    margin 0px 10px 10px 10px
+    background rgb(3,5,15)
+    border-radius 14px
+    color rgb(224,242,254)
+    display flex
+    justify-content center
+    align-items center
+    font-weight 400
+    font-size 13px
+    cursor pointer
+    letter-spacing 0px
+    box-sizing border-box
+    text-transform uppercase
+    border 1px solid rgba(14,165,233,0.18)
+    transition all 0.15s cubic-bezier(0.4, 0, 0.2, 1)
+
+    *
+      pointer-events none
+
+  .signerControlOption:hover
+    background rgba(14,165,233,0.06)
+    border-color rgba(14,165,233,0.4)
+
+  .signerControlOptionImportant
+    color rgb(239,68,68)
+    border-color rgba(239,68,68,0.15)
+
+  .signerControlOptionEffect
+    color rgb(239,68,68)
+
+  .signerControlOptionSuccess
+    color rgb(34,197,94)
+
+// Lattice pairing flow
+.signerLatticePair
+  height 200px
+
+  .signerLatticePairTitle
+    height 40px
+    display flex
+    justify-content center
+    align-items center
+    font-size 14px
+    font-weight 300
+    text-transform none
+    color rgb(239,68,68)
+
+  .signerLatticePairInput
+    background rgba(14,165,233,0.04)
+    border 1px solid rgba(14,165,233,0.18)
+    height 60px
+    border-radius 12px
+    margin 10px 10px 20px 10px
+    transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+    &:focus-within
+      border-color rgba(14,165,233,0.4)
+
+    input
+      width 100%
+      height 100%
+      background transparent
+      border none
+      outline none
+      color rgb(224,242,254)
+      text-align center
+      font-size 22px
+      letter-spacing 6px
+      padding-left 6px
+      font-family 'MainFont'
+
+  .signerLatticePairSubmit
+    width 100px
+    height 32px
+    display flex
+    justify-content center
+    align-items center
+    background rgb(14,165,233)
+    border-radius 12px
+    position relative
+    left 50%
+    margin-left -50px
+    cursor pointer
+    letter-spacing 0.02em
+    font-size 13px
+    color rgb(3,5,15)
+    font-weight 500
+    transition all 0.15s ease
+
+    *
+      pointer-events none
+
+  .signerLatticePairSubmit:hover
+    background rgb(56,189,248)
+    transform translateY(-1px)
+
+// Accounts section title
+.signerAccountsTitle
+  font-size 12px
+  font-weight 300
+  display flex
+  justify-content center
+  align-items center
+  padding 0px 12px
+
+.signerAccountsTitleActive
+  text-transform uppercase
+  font-size 10px
+  font-weight 400
+  letter-spacing 1px
+  display flex
+  justify-content center
+  align-items center
+  color rgb(224,242,254)
+
+  .signerAccountsTitleActiveCount
+    font-size 13px
+    margin-left 6px
+    font-weight 500
+    margin-top -1px
+    height 24px
+    width 24px
+    border-radius 12px
+    box-sizing border-box
+    display flex
+    justify-content center
+    align-items center
+    padding-left 1px
+    background rgba(14,165,233,0.1)
+    color rgb(14,165,233)
+
+// Address list container
+.signerAccounts
+  margin 7px 6px
+  text-align center
+  font-size 11px
+  font-weight 400
+  overflow hidden
+  background rgb(3,5,15)
+  border-radius 16px
+
+  .signerAccount:first-child
+    border-top-right-radius 14px
+    border-top-left-radius 14px
+
+  .signerAccount:last-child
+    border-bottom-right-radius 14px
+    border-bottom-left-radius 14px
+
+  .signerAccount:first-child:last-child
+    border-radius 14px
+
+  .signerAccountsAdd
+    padding 16px
+    font-size 12px
+    cursor pointer
+    text-transform uppercase
+    font-weight 400
+    letter-spacing 1px
+    transition color 0.15s ease
+
+  .signerAccountsAdd:hover
+    color rgb(14,165,233)
+
+  .signerAccount
+    display flex
+    height 36px
+    margin 3px
+    width calc(100% - 6px)
+    position relative
+    background rgb(3,5,15)
+    color rgb(224,242,254)
+    border-radius 10px
+    box-sizing border-box
+    cursor pointer
+    transition background 0.15s ease
+
+    *
+      pointer-events none
+
+    .signerAccountIndex
+      position absolute
+      top 2px
+      left 3px
+      bottom 3px
+      width 30px
+      display flex
+      justify-content center
+      align-items center
+      font-weight 500
+
+    .signerAccountAddress
+      display flex
+      justify-content center
+      align-items center
+      position absolute
+      left 30px
+      bottom 7px
+      right 40px
+      font-size 12px
+      overflow hidden
+      font-family 'CodeFont'
+      font-weight 250
+      text-overflow ellipsis
+      white-space nowrap
+
+      svg
+        margin 2px 4px 0px 4px
+
+    .signerAccountCheck
+      position absolute
+      top 15px
+      right 16px
+      bottom 0
+      width 8px
+      height 8px
+      border-radius 4px
+      display flex
+      justify-content center
+      align-items center
+      background rgba(186,230,253,0.2)
+
+  .signerAccountAdded
+    background rgb(6,9,22)
+
+    .signerAccountCheck
+      background rgb(14,165,233)
+
+  .signerAccount:hover
+    background rgb(6,9,22)
+
+  .signerAccountAdded:hover
+    background rgb(10,14,35)
+
+  .signerAccountDisabled
+    background rgb(3,5,15)
+    cursor auto
+    opacity 0.5
+
+  .signerAccountDisabled:hover
+    background rgb(3,5,15)
+
+// Loading spinner
+.signerLoading
+  height 60px
+  display flex
+  justify-content center
+  align-items center
+  padding 20px
+
+.signerLoadingLoader, .signerLoadingLoaderafter
+  border-radius 50%
+  width 50px
+  height 50px
+
+.signerLoadingLoader
+  margin 60px auto
+  font-size 10px
+  position relative
+  text-indent -9999em
+  border-top 3px solid rgba(14,165,233,0.15)
+  border-right 3px solid rgba(14,165,233,0.15)
+  border-bottom 3px solid rgba(14,165,233,0.15)
+  border-left 3px solid rgb(14,165,233)
+  transform translateZ(0)
+  animation load8 0.5s infinite linear
+  will-change transform
+
+@keyframes load8
+  0%
+    -webkit-transform rotate(0deg)
+    transform rotate(0deg)
+
+  100%
+    -webkit-transform rotate(360deg)
+    transform rotate(360deg)
+
+// Signer interface (PIN / passphrase entry)
+.signerInterface
+  width 100%
+  position relative
+  display flex
+  text-align center
+  flex-direction column
+  overflow hidden
+  font-size 14px
+
+  .trezorPhraseInput
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    background rgba(14,165,233,0.04)
+    border 1px solid rgba(14,165,233,0.18)
+    height 40px
+    border-radius 10px
+    width calc(100% - 20px)
+    overflow hidden
+    margin-bottom 18px
+    transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+    &:focus-within
+      border-color rgba(14,165,233,0.4)
+
+    svg
+      margin 0px 5px
+      color rgba(186,230,253,0.4)
+
+    input
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0
+      width 100%
+      height 100%
+      text-align center
+      font-size 20px
+      outline 0
+      border 0
+      background transparent
+      color rgb(224,242,254)
+      letter-spacing 4px
+
+  .trezorPinWrap
+    width 100%
+    position relative
+    display flex
+    justify-content center
+    overflow hidden
+    flex-direction column
+    align-items center
+    z-index 20
+    padding-bottom 0.5em
+
+    .signerPinMessageOr
+      font-size 10px
+      text-transform uppercase
+      font-weight 300
+      padding 5px
+      color rgba(186,230,253,0.4)
+
+    .signerPinMessage
+      height 36px
+      width 140px
+      display flex
+      justify-content center
+      align-items center
+      overflow hidden
+      position relative
+      font-size 13px
+      padding-bottom 2px
+      background rgb(6,9,22)
+      border 1px solid rgba(14,165,233,0.18)
+      border-radius 10px
+
+      .signerPinDelete
+        position absolute
+        display flex
+        justify-content center
+        align-items center
+        top 0px
+        bottom 0px
+        width 40px
+        left -40px
+        border-radius 8px
+        background rgb(10,14,35)
+        cursor pointer
+        transition all 0.15s ease
+
+      .signerPinDelete:hover
+        background rgba(14,165,233,0.08)
+
+    .signerPinSubmit
+      width 250px
+      border-radius 10px
+      cursor pointer
+      font-size 12px
+      text-transform uppercase
+      text-align center
+      font-weight 400
+      display flex
+      justify-content center
+      padding 8px 16px
+      background rgba(14,165,233,0.08)
+      border 1px solid rgba(14,165,233,0.18)
+      transition all 0.15s ease
+
+      .signerPinDelete
+        left 0px
+
+    .signerPinSubmit:hover
+      background rgba(14,165,233,0.14)
+      border-color rgba(14,165,233,0.4)
+
+    .trezorPinInputWrap
+      width 100%
+      position relative
+      display flex
+      justify-content center
+      padding 10px 0px 25px 0px
+      height 100px
+
+      .trezorPinInput
+        display flex
+        width 120px
+        height 120px
+        flex-wrap wrap-reverse
+        z-index 1000
+
+        .trezorPinInputButton
+          min-width 40px
+          min-height 40px
+          display flex
+          justify-content center
+          align-items center
+
+        .trezorPinInputButton:hover
+          svg
+            transform scale(1.7)
+
+        .trezorPinInputButton:active
+          svg
+            transform scale(2.1)
+
+// Expanded signer title
+.expandedSignerTitle
+  display flex
+  justify-content center
+  align-items center
+  text-transform capitalize
+  font-family 'MainFont'
+  letter-spacing 0px
+  font-size 16px
+  font-weight 400
+  padding-right 2px
+
+  .expandedSignerIcon
+    margin-right 12px
+
+// Added account confirmation label
+.signerAddedAccountTitle
+  display flex
+  justify-content center
+  align-items center
+  text-transform uppercase
+  font-size 9px
+  margin 2px 0px 4px 0px
+  font-weight 500
+  letter-spacing 1px
+  padding-top 8px
+  color rgb(14,165,233)
+
+@import '../SignerStatus/style'
+@import '../ReloadSignerButton/style'
+
+// ─── DeviceManager account list ──────────────────────────────────────────────
+
+.signerWrap
+  padding 14px
+  display flex
+  flex-direction column
+  gap 8px
+
+.signers
+  display flex
+  flex-direction column
+  gap 8px
+
+.signersList
+  display flex
+  flex-direction column
+  gap 8px
+
+.signersMid
+  padding 0 6px
+
+.noDevices
+  padding 24px 14px
+  text-align center
+  font-size 13px
+  color rgba(186,230,253,0.4)
+
+.devicesHeader
+  padding 14px 14px 8px
+  font-size 11px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color rgba(186,230,253,0.4)
+
+// ─── Account rows in signer ──────────────────────────────────────────────────
+
+.signerAccounts
+  display flex
+  flex-direction column
+  gap 4px
+  padding 0 14px 12px
+
+.signerAccount
+  background rgb(10,14,35)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 10px
+  padding 10px 14px
+  display flex
+  align-items center
+  gap 10px
+  cursor pointer
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+.signerAccount:hover
+  border-color rgba(14,165,233,0.4)
+  background rgba(14,165,233,0.04)
+
+.signerAccountAdded
+  border-color rgba(14,165,233,0.4)
+  background rgba(14,165,233,0.06)
+
+.signerAccountDisabled
+  opacity 0.45
+  cursor not-allowed
+
+.signerAccountDisabled:hover
+  border-color rgba(14,165,233,0.18)
+  background rgb(10,14,35)
+
+.signerAccountIndex
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186,230,253,0.4)
+  min-width 20px
+  flex-shrink 0
+
+.signerAccountAddress
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186,230,253,0.7)
+  flex 1
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+  letter-spacing 0.04em
+
+.signerAccountCheck
+  width 16px
+  height 16px
+  border-radius 50%
+  background rgba(14,165,233,0.1)
+  border 1px solid rgba(14,165,233,0.4)
+  flex-shrink 0
+  position relative
+
+.signerAccountAdded .signerAccountCheck
+  background rgb(14,165,233)
+  border-color rgb(14,165,233)
+
+.signerAccountsAdd
+  height 38px
+  border-radius 10px
+  border 1px dashed rgba(14,165,233,0.25)
+  background transparent
+  color rgb(14,165,233)
+  font-size 12px
+  font-weight 500
+  display flex
+  align-items center
+  justify-content center
+  cursor pointer
+  margin 0 14px 12px
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+.signerAccountsAdd:hover
+  border-color rgba(14,165,233,0.5)
+  background rgba(14,165,233,0.06)
+
+.signerAddedAccountTitle
+  font-size 10px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color rgba(186,230,253,0.4)
+  padding 8px 14px 4px
+
+// ─── Signer icon ─────────────────────────────────────────────────────────────
+
+.signerIconWrap
+  width 38px
+  height 38px
+  border-radius 12px
+  background rgba(14,165,233,0.08)
+  border 1px solid rgba(14,165,233,0.18)
+  display flex
+  align-items center
+  justify-content center
+  color rgb(14,165,233)
+  flex-shrink 0
+
+.signerIconHardware
+  background rgba(56,189,248,0.08)
+  border-color rgba(56,189,248,0.2)
+  color rgb(56,189,248)
+
+.signerIconHot
+  background rgba(251,191,36,0.08)
+  border-color rgba(251,191,36,0.2)
+  color rgb(251,191,36)
+
+.signerIconSmart
+  background rgba(14,165,233,0.08)
+  border-color rgba(14,165,233,0.2)
+  color rgb(14,165,233)
+
+.signerIcon
+  display flex
+  align-items center
+  justify-content center
+
+// ─── Signer details & pagination ─────────────────────────────────────────────
+
+.signerDetails
+  padding 12px 14px
+  display flex
+  flex-direction column
+  gap 4px
+
+.signerInterface
+  display flex
+  flex-direction column
+
+.signerExpand
+  display flex
+  flex-direction column
+
+.signerControls
+  padding 10px 14px
+  border-top 1px solid rgba(14,165,233,0.18)
+  display flex
+  flex-direction column
+  gap 8px
+
+.signerControlDetail
+  display flex
+  align-items center
+  gap 8px
+
+.signerControlDetailKey
+  font-size 10px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color rgba(186,230,253,0.4)
+  min-width 80px
+
+.signerControlDetailValue
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186,230,253,0.7)
+
+.signerControlOption
+  display flex
+  align-items center
+  justify-content space-between
+  padding 6px 0
+
+.signerControlOptionImportant
+  color rgb(251,191,36)
+
+.signerBottomPages
+  display flex
+  align-items center
+  justify-content center
+  gap 10px
+  padding 10px 14px
+
+.signerBottom
+  border-top 1px solid rgba(14,165,233,0.18)
+  padding 10px 14px
+  display flex
+  align-items center
+  justify-content space-between
+
+.signerBottomPageBack, .signerBottomPageNext
+  height 32px
+  padding 0 14px
+  border-radius 8px
+  border 1px solid rgba(14,165,233,0.18)
+  background transparent
+  color rgba(186,230,253,0.7)
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition all 0.15s
+
+.signerBottomPageBack:hover, .signerBottomPageNext:hover
+  border-color rgba(14,165,233,0.4)
+  color rgb(14,165,233)
+  background rgba(14,165,233,0.06)
+
+// ─── Loading state ───────────────────────────────────────────────────────────
+
+.loadingLiveAddress
+  display flex
+  align-items center
+  justify-content center
+  gap 8px
+  padding 12px 14px
+  font-size 13px
+  color rgba(186,230,253,0.7)
+
+.loadingLiveAddresses
+  display flex
+  align-items center
+  justify-content center
+  gap 8px
+  padding 12px 14px
+  font-size 13px
+  color rgba(186,230,253,0.7)
+
+// ─── PIN / Passphrase entry ───────────────────────────────────────────────────
+
+.trezorPinWrap
+  padding 14px
+  display flex
+  flex-direction column
+  gap 12px
+
+.trezorPinInput
+  display grid
+  grid-template-columns repeat(3, 1fr)
+  gap 8px
+  padding 0 14px
+
+.trezorPinInputWrap
+  padding 14px
+  display flex
+  flex-direction column
+  gap 10px
+
+.trezorPinInputButton
+  height 48px
+  border-radius 12px
+  background rgb(10,14,35)
+  border 1px solid rgba(14,165,233,0.18)
+  display flex
+  align-items center
+  justify-content center
+  cursor pointer
+  font-size 20px
+  color rgba(186,230,253,0.7)
+  transition all 0.15s
+
+.trezorPinInputButton:hover
+  background rgba(14,165,233,0.08)
+  border-color rgba(14,165,233,0.4)
+  color rgb(224,242,254)
+
+.trezorPhraseInput
+  background rgba(14,165,233,0.04)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 12px
+  padding 11px 14px
+  font-size 14px
+  font-weight 300
+  color rgb(224,242,254)
+  width 100%
+  outline none
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  box-sizing border-box
+  -webkit-app-region no-drag
+  letter-spacing 0.08em
+
+.trezorPhraseInput:focus
+  border-color rgba(14,165,233,0.4)
+
+.signerPinMessage
+  text-align center
+  font-size 13px
+  color rgba(186,230,253,0.7)
+  padding 8px 14px
+
+.signerPinMessageOr
+  text-align center
+  font-size 11px
+  color rgba(186,230,253,0.4)
+  letter-spacing 0.06em
+  text-transform uppercase
+
+.signerPinDelete
+  height 38px
+  padding 0 14px
+  border-radius 10px
+  border 1px solid rgba(14,165,233,0.18)
+  background transparent
+  color rgba(186,230,253,0.7)
+  font-size 13px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition all 0.15s
+
+.signerPinDelete:hover
+  border-color rgba(14,165,233,0.4)
+  color rgb(224,242,254)
+
+.signerPinSubmit
+  background rgb(14,165,233)
+  color rgb(3,5,15)
+  border none
+
+.signerPinSubmit:hover
+  background rgb(56,189,248)
+
+// ─── Lattice pairing ─────────────────────────────────────────────────────────
+
+.signerLatticePairTitle
+  font-size 14px
+  font-weight 500
+  color rgb(224,242,254)
+  padding 14px 14px 8px
+
+.signerLatticePairInput
+  background rgba(14,165,233,0.04)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 12px
+  padding 11px 14px
+  font-family 'CodeFont'
+  font-size 13px
+  color rgb(224,242,254)
+  width 100%
+  outline none
+  box-sizing border-box
+  -webkit-app-region no-drag
+  margin 0 14px
+  width calc(100% - 28px)
+
+.signerLatticePairSubmit
+  height 42px
+  margin 8px 14px
+  border-radius 11px
+  background rgb(14,165,233)
+  color rgb(3,5,15)
+  font-size 13px
+  font-weight 500
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+
+.signerLatticePairSubmit:hover
+  background rgb(56,189,248)
+
+// ─── Unlock / status ─────────────────────────────────────────────────────────
+
+.signerUnlockInputLabel
+  font-size 11px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color rgba(186,230,253,0.4)
+  padding 12px 14px 6px
+
+.signerUnlockInput
+  background rgba(14,165,233,0.04)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 10px
+  padding 10px 14px
+  font-size 14px
+  font-weight 300
+  color rgb(224,242,254)
+  width calc(100% - 28px)
+  outline none
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  box-sizing border-box
+  -webkit-app-region no-drag
+  margin 0 14px
+  letter-spacing 0.08em
+
+.signerUnlockInput:focus
+  border-color rgba(14,165,233,0.4)
+
+.signerUnlockSubmit
+  height 40px
+  margin 8px 14px
+  border-radius 10px
+  background rgb(14,165,233)
+  color rgb(3,5,15)
+  font-size 13px
+  font-weight 500
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+
+.signerUnlockSubmit:hover
+  background rgb(56,189,248)
+
+.signerStatusWrap
+  padding 12px 14px
+  display flex
+  flex-direction column
+  gap 6px
+
+.signerStatusMain
+  font-size 14px
+  font-weight 400
+  color rgb(224,242,254)
+
+.signerStatusNotOk
+  font-size 12px
+  color rgb(239,68,68)
+
+.signerPermissionDetails
+  font-size 12px
+  color rgba(186,230,253,0.4)
+  line-height 1.5
+  padding 2px 14px 6px
+
+.signerPermissionNoPermissions
+  font-size 12px
+  color rgba(186,230,253,0.4)
+  padding 8px 14px
+  text-align center
+
+.signerPermissionToggleSwitch
+  width 40px
+  height 22px
+  border-radius 11px
+  position relative
+  cursor pointer
+  transition all 0.22s cubic-bezier(0.4, 0, 0.2, 1)
+  flex-shrink 0
+
+.signerPermissionToggleSwitch:after
+  content ''
+  position absolute
+  top 3px
+  left 3px
+  width 16px
+  height 16px
+  border-radius 50%
+  background white
+  transition all 0.22s cubic-bezier(0.4, 0, 0.2, 1)
+
+.signerPermissionToggleSwitchLocked
+  opacity 0.4
+  cursor not-allowed
+
+.signerBalanceButton
+  height 34px
+  padding 0 12px
+  border-radius 9px
+  border 1px solid rgba(14,165,233,0.18)
+  background transparent
+  color rgba(186,230,253,0.7)
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  gap 5px
+  transition all 0.15s
+
+.signerBalanceButton:hover
+  border-color rgba(14,165,233,0.4)
+  color rgb(14,165,233)
+
+.signerBalanceButtons
+  display flex
+  gap 6px
+  padding 10px 14px
+
+.signerBalanceChain
+  font-size 11px
+  font-family 'CodeFont'
+  color rgba(186,230,253,0.4)
+
+.signerBalanceCurrentPrice
+  font-family 'CodeFont'
+  font-size 12px
+  color rgba(186,230,253,0.7)
+
+.signerBalanceInner
+  padding 10px 14px
+
+.signerBalanceLoading
+  padding 12px 14px
+  display flex
+  align-items center
+  gap 8px
+  font-size 12px
+  color rgba(186,230,253,0.4)
+
+.signerBalanceOk
+  color rgb(34,197,94)
+
+.signerBalancePrice
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186,230,253,0.4)
+
+.signerBalanceShowAll
+  font-size 12px
+  color rgb(14,165,233)
+  cursor pointer
+  text-align center
+  padding 8px
+  border-top 1px solid rgba(14,165,233,0.18)
+
+.signerBalanceTotalLabel
+  font-size 10px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color rgba(186,230,253,0.4)
+  margin-bottom 4px
+
+.signerBalanceTotalText
+  font-size 22px
+  font-weight 600
+  font-family 'CodeFont'
+  color rgb(224,242,254)
+  letter-spacing -0.02em
+
+.signerName
+  font-size 15px
+  font-weight 400
+  color rgb(224,242,254)
+
+.signerNameText
+  font-size 15px
+  font-weight 400
+  color rgb(224,242,254)
+
+.signerNameTextENS
+  color rgb(14,165,233)
+
+.signerNameUpdate
+  display none
+
+.signerSelect
+  padding 12px 14px
+  display flex
+  flex-direction column
+  gap 8px
+
+.signerSelectButton
+  height 40px
+  border-radius 10px
+  border 1px solid rgba(14,165,233,0.18)
+  background transparent
+  color rgba(186,230,253,0.7)
+  font-size 13px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  gap 8px
+  transition all 0.15s
+
+.signerSelectButton:hover
+  border-color rgba(14,165,233,0.4)
+  color rgb(14,165,233)
+  background rgba(14,165,233,0.04)

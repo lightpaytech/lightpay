@@ -1,0 +1,80 @@
+// VAULT — Connected Dapps Expanded View
+
+.devicePermExpanded
+  padding 14px
+
+.devicePermExpandedList
+  display flex
+  flex-direction column
+  gap 6px
+
+.devicePermExpandedItem
+  background var(--ghostC)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 12px
+  padding 12px 14px
+  display flex
+  align-items center
+  gap 10px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.devicePermExpandedItem:hover
+  border-color rgba(14, 165, 233, 0.4)
+  background rgba(14, 165, 233, 0.06)
+
+.devicePermExpandedFavicon
+  width 22px
+  height 22px
+  border-radius 6px
+  overflow hidden
+  background var(--ghostD)
+  flex-shrink 0
+  display flex
+  align-items center
+  justify-content center
+
+  img
+    width 100%
+    height 100%
+    object-fit cover
+
+.devicePermExpandedOrigin
+  flex 1
+  font-size 12px
+  color var(--outerspace07)
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+.devicePermExpandedDot
+  width 7px
+  height 7px
+  border-radius 50%
+  flex-shrink 0
+
+.devicePermExpandedDotConnected
+  background var(--good)
+
+.devicePermExpandedDotDisconnected
+  background var(--outerspace03)
+
+.devicePermExpandedRevoke
+  width 22px
+  height 22px
+  border-radius 6px
+  display flex
+  align-items center
+  justify-content center
+  color var(--outerspace04)
+  cursor pointer
+0.15s all
+
+.devicePermExpandedRevoke:hover
+  background rgba(244,63,94,0.08)
+  color var(--bad)
+
+.devicePermEmpty
+  padding 24px 14px
+  text-align center
+  font-size 13px
+  color var(--outerspace05)

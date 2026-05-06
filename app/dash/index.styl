@@ -1,0 +1,838 @@
+// LightPay VAULT — Dashboard Panel
+@import '../../resources/base'
+
+html, body
+  margin 0
+  border 0
+  font-family 'MainFont'
+  font-weight 300
+  -webkit-app-region no-drag
+  overflow hidden
+  color var(--outerspace)
+  background-color var(--ghostA)
+
+div
+  user-select none
+  cursor default
+
+::-webkit-scrollbar
+  width 4px
+  background transparent
+
+::-webkit-scrollbar-thumb
+  background rgba(14, 165, 233, 0.2)
+  border-radius 4px
+
+::-webkit-scrollbar-thumb:hover
+  background rgba(14, 165, 233, 0.4)
+
+// ─── VAULT dark mode overrides ────────────────────────────────
+.dark
+  --ghostX rgb(3, 5, 15)
+  --ghostX04 rgba(3, 5, 15, 0.4)
+  --ghostX09 rgba(3, 5, 15, 0.9)
+  --ghostY rgb(6, 9, 22)
+  --ghostZ rgb(6, 9, 22)
+  --ghostZ0 rgba(6, 9, 22, 0)
+  --ghostZ05 rgba(6, 9, 22, 0.5)
+  --ghostZ08 rgba(6, 9, 22, 0.8)
+  --ghostAZ rgb(10, 14, 35)
+  --ghostA rgb(3, 5, 15)
+  --ghostA05 rgba(3, 5, 15, 0.5)
+  --ghostB rgb(6, 9, 22)
+  --ghostB0 rgba(6, 9, 22, 0)
+  --ghostB05 rgba(6, 9, 22, 0.2)
+  --ghostC rgb(10, 14, 35)
+  --ghostC0 rgba(10, 14, 35, 0)
+  --ghostD rgb(14, 20, 48)
+  --good rgb(14, 165, 233)
+  --goodUp rgb(56, 189, 248)
+  --goodShade rgb(2, 132, 199)
+  --goodDark rgb(6, 9, 22)
+  --goodOver rgb(224, 242, 254)
+  --good0 rgba(14, 165, 233, 0)
+  --good01 rgba(14, 165, 233, 0.1)
+  --good02 rgba(14, 165, 233, 0.2)
+  --good03 rgba(14, 165, 233, 0.3)
+  --good04 rgba(14, 165, 233, 0.4)
+  --good06 rgba(14, 165, 233, 0.6)
+  --bad rgb(255, 75, 100)
+  --bad01 rgba(255, 75, 100, 0.1)
+  --bad04 rgba(255, 75, 100, 0.4)
+  --overlayA rgba(3, 5, 15, 0.05)
+  --overlayB rgba(14, 165, 233, 0.04)
+
+@keyframes showFooter
+  0%
+    opacity 0
+    transform translateY(6px)
+  60%
+    opacity 0
+    transform translateY(6px)
+  100%
+    opacity 1
+    transform translateY(0px)
+
+// ─── VAULT Dashboard Shell ─────────────────────────────────────
+.dash
+  width 100%
+  height 100%
+  overflow-y scroll
+  overflow-x hidden
+  background var(--ghostA)
+  position relative
+
+  .dashMain
+    position absolute
+    top 80px
+    right 8px
+    bottom 48px
+    left 8px
+    z-index 1000
+    background var(--ghostA)
+    border-radius 28px
+    border 1px solid rgba(14, 165, 233, 0.06)
+    padding-bottom 20px
+    transition var(--standard)
+
+    .dashMainScroll
+      position absolute
+      top 0px
+      right 0px
+      bottom 0px
+      left 0px
+      z-index 2000
+      border-radius 28px
+      overflow-y scroll
+      overflow-x hidden
+
+    .dashMainOverlay
+      position absolute
+      top 0px
+      right 0px
+      bottom 0px
+      left 0px
+      border-radius 28px
+      z-index 40000000
+      border 1px solid rgba(14, 165, 233, 0.06)
+      pointer-events none
+
+    .originTitle
+      margin 28px 8px 6px 0px
+      font-size 17px
+      display flex
+      align-items center
+      font-weight 400
+      color var(--outerspace)
+      letter-spacing 0.01em
+
+      .originTitleIcon
+        margin 9px 16px
+        color var(--good)
+
+      .originTitleText
+        margin-top -2px
+
+    .clearOriginsButton
+      background var(--ghostB)
+      margin 74px 6px 7px 6px
+      height 40px
+      border-radius 12px
+      font-weight 500
+      box-sizing border-box
+      padding 18px 16px 16px 17px
+      text-align center
+      margin-bottom 5px
+      display flex
+      justify-content center
+      align-items center
+      font-size 13px
+      letter-spacing 0.08em
+      cursor pointer
+      border 1px solid rgba(14, 165, 233, 0.15)
+      color var(--outerspace08)
+      transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+      transform translateY(0px)
+
+      *
+        pointer-events none
+
+    .clearOriginsButton:hover
+      background var(--ghostC)
+      border-color rgba(14, 165, 233, 0.4)
+      color var(--good)
+      transform translateY(-1px)
+
+    .clearOriginsButton:active
+      background var(--ghostB)
+      transform translateY(0px)
+
+  // ─── Footer nav bar ─────────────────────────────────────────
+  .dashFooter
+    background var(--ghostA)
+    position absolute
+    bottom 8px
+    height 56px
+    left 8px
+    right 8px
+    border-radius 20px
+    padding 3px
+    animation showFooter 0.56s cubic-bezier(0.4, 0, 0.2, 1)
+    box-sizing border-box
+    border 1px solid rgba(14, 165, 233, 0.08)
+
+    .dashFooterButton
+      height 48px
+      position relative
+      background var(--ghostA)
+      border-radius 17px
+      display flex
+      justify-content center
+      align-items center
+      cursor pointer
+      font-size 15px
+      border 1px solid rgba(14, 165, 233, 0.06)
+      box-sizing border-box
+      letter-spacing 0.04em
+      color var(--outerspace)
+      font-family 'MainFont'
+      font-weight 400
+      z-index 5
+      transform translateY(0px)
+      transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+      *
+        pointer-events none
+
+      .newAccountIcon
+        position absolute
+        top 0
+        left 0
+        bottom 0px
+        width 60px
+        font-size 26px
+        display flex
+        justify-content center
+        align-items center
+        font-weight 300
+        color var(--good)
+
+    .newAccount:hover
+      background var(--ghostB)
+      border-color rgba(14, 165, 233, 0.18)
+
+  .dashFooterButton:hover
+    transform translateY(-1px)
+    background var(--ghostB)
+    border-color rgba(14, 165, 233, 0.18)
+
+  .dashFooterButton:active
+    transform translateY(0px)
+    background var(--ghostB)
+
+  .panelScrollOverlay
+    position absolute
+    top 0px
+    right 0px
+    bottom 0px
+    left 0px
+    border-radius 16px
+    z-index 40000000
+    border 1px solid rgba(14, 165, 233, 0.06)
+    pointer-events none
+
+  // ─── Add Accounts overlay ───────────────────────────────────
+  .addWallets
+    position absolute
+    top 0px
+    left 0
+    right 0
+    bottom 0
+    background transparent
+    z-index 4000
+    overflow-y scroll
+    overflow-x hidden
+    padding-bottom 60px
+    border-radius 28px
+
+    .addWalletsHeader
+      .addWalletsHeaderTitle
+        margin-top 20px
+        margin-bottom 20px
+        font-size 13px
+        font-weight 400
+        height 50px
+        display flex
+        justify-content center
+        align-items center
+        color var(--good)
+        letter-spacing 0.08em
+        text-transform uppercase
+
+      .addWalletCloseBtn
+        position absolute
+        top 18px
+        right 10px
+        border-radius 10px
+        cursor pointer
+        background var(--ghostB)
+        border 1px solid rgba(14, 165, 233, 0.15)
+        width 90px
+        height 30px
+        display flex
+        justify-content center
+        align-items center
+        text-transform uppercase
+        font-size 11px
+        letter-spacing 0.08em
+        font-weight 400
+        padding-bottom 1px
+        padding-left 1px
+        transition 0.18s ease all
+
+        *
+          pointer-events none
+
+      .addWalletCloseBtn:hover
+        background var(--ghostC)
+        border-color rgba(14, 165, 233, 0.4)
+        color var(--good)
+
+    .accountTypeSelect
+      height 88px
+      font-weight 400
+      border-radius 16px
+      margin 6px 6px 8px 6px
+      display flex
+      justify-content center
+      align-items center
+      cursor pointer
+      background var(--ghostB)
+      border 1px solid rgba(14, 165, 233, 0.1)
+      font-size 15px
+      transform translateY(0px)
+      transition 0.22s cubic-bezier(0.4, 0, 0.2, 1) all
+      position relative
+
+      *
+        pointer-event none
+
+      .accountTypeSelectIcon
+        margin-right 16px
+        color var(--good)
+        svg
+          fill var(--good)
+
+    .accountTypeSelect:hover
+      transform translateY(-1px)
+      background var(--ghostC)
+      border-color rgba(14, 165, 233, 0.4)
+      z-index 200
+
+    .accountTypeSelect:active
+      transform translateY(0px)
+      z-index 201
+
+  // ─── Signers section ────────────────────────────────────────
+  .signers
+    width 100%
+
+    .devicesHeader
+      width calc(100% - 32px)
+      display flex
+      justify-content center
+      align-items center
+      position relative
+      height 32px
+      margin 0px 16px 12px 16px
+      box-sizing border-box
+      font-size 11px
+      text-transform uppercase
+      letter-spacing 0.1em
+      font-weight 500
+      color var(--good)
+
+    .noDevices
+      position relative
+      width 100%
+      height 48px
+      overflow hidden
+      background var(--ghostB)
+      box-sizing border-box
+      margin 0px 0px 40px 0px
+      border-radius 12px
+      display flex
+      justify-content center
+      align-items center
+      font-size 11px
+      font-weight 400
+      letter-spacing 0.1em
+      text-transform uppercase
+      border 1px solid rgba(14, 165, 233, 0.1)
+      color var(--outerspace05)
+
+    .signersMid
+      padding 0px 6px 64px 6px
+
+    .signersList
+      display flex
+      flex-wrap wrap
+
+@import './Networks/style'
+@import './ConnectedApps/style'
+@import './Command/style'
+@import './Main/style'
+@import './Wallets/style'
+@import './Wallets/Add/style'
+@import './DeviceManager/style'
+@import './Notify/style'
+@import './AssetList/style'
+@import './PriceAlerts/style'
+@import './card.styl'
+@import './Settings/style'
+
+// ─── Global dash classes ──────────────────────────────────────────────────────
+
+.customTokensList
+  display flex
+  flex-direction column
+  gap 6px
+  padding 8px 14px
+
+.customTokensListNoTokens
+  font-size 12px
+  color var(--outerspace04)
+  text-align center
+  padding 16px 14px
+
+.customTokensListItemAddress
+  font-family 'CodeFont'
+  font-size 10px
+  color var(--outerspace04)
+  letter-spacing 0.04em
+  word-break break-all
+
+.customTokensListItemName
+  font-size 13px
+  font-weight 400
+  color var(--outerspace)
+
+.customTokensListItemSymbol
+  font-family 'CodeFont'
+  font-size 11px
+  color var(--outerspace05)
+  letter-spacing 0.06em
+
+.customTokensListItemButton
+  height 26px
+  padding 0 10px
+  border-radius 7px
+  border 1px solid rgba(255, 75, 100, 0.25)
+  background transparent
+  color var(--bad)
+  font-size 11px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.customTokensListItemButton:hover
+  background rgba(255, 75, 100, 0.06)
+  border-color rgba(255, 75, 100, 0.5)
+
+.customTokensListItemBottom
+  display flex
+  align-items center
+  justify-content space-between
+  margin-top 6px
+
+.customTokensListItemText
+  flex 1
+  min-width 0
+
+.phrase
+  font-family 'CodeFont'
+  font-size 13px
+  color var(--outerspace08)
+  line-height 1.8
+  letter-spacing 0.04em
+
+.networkBreakLayer
+  height 1px
+  background rgba(14, 165, 233, 0.06)
+  margin 6px 0
+
+.networkSwitchBtn
+  height 30px
+  padding 0 12px
+  border-radius 8px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  color var(--good)
+  font-size 11px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  gap 5px
+  transition 0.15s all
+
+.networkSwitchBtn:hover
+  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.4)
+
+.statusInputInner
+  display flex
+  align-items center
+  gap 6px
+
+.mainDappEnableChains
+  height 44px
+  padding 0 20px
+  border-radius 12px
+  background linear-gradient(135deg, rgb(2, 132, 199) 0%, rgb(14, 165, 233) 100%)
+  color white
+  font-size 14px
+  font-weight 500
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  gap 8px
+  border 1px solid rgba(14, 165, 233, 0.4)
+
+.mainDappLoading
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  gap 12px
+  padding 40px 20px
+
+.mainDappLoadingText
+  font-size 13px
+  color var(--outerspace06)
+
+.quitLightPay
+  height 38px
+  padding 0 16px
+  border-radius 10px
+  border 1px solid rgba(255, 75, 100, 0.2)
+  background transparent
+  color var(--bad)
+  font-size 13px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.quitLightPay:hover
+  background rgba(255, 75, 100, 0.07)
+  border-color rgba(255, 75, 100, 0.45)
+
+// ─── Missing top-level dash classes ─────────────────────────────────────────
+
+.appInfoLine
+  font-size 13px
+  color var(--outerspace07)
+  padding 4px 0
+
+.appInfoLineVersion
+  font-family 'CodeFont'
+  font-size 12px
+  color var(--outerspace05)
+
+.appInfoLineInstanceId
+  font-family 'CodeFont'
+  font-size 10px
+  color var(--outerspace04)
+  letter-spacing 0.06em
+  word-break break-all
+  cursor pointer
+  transition 0.15s all
+
+.appInfoLineInstanceId:hover
+  color var(--outerspace07)
+
+.instanceIdCopied
+  color var(--good)
+
+.appInfoViewLicense
+  font-size 12px
+  color var(--good)
+  cursor pointer
+  text-decoration underline
+  text-underline-offset 2px
+  margin-top 4px
+
+.appInfoLineReset
+  margin-top 8px
+
+.appInfoLineResetButton
+  height 38px
+  border-radius 10px
+  border 1px solid rgba(255, 75, 100, 0.25)
+  background transparent
+  color var(--bad)
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  gap 6px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.appInfoLineResetButton:hover
+  background rgba(255, 75, 100, 0.06)
+  border-color rgba(255, 75, 100, 0.5)
+
+.appInfoLineResetConfirm
+  font-size 12px
+  color var(--outerspace07)
+  padding 4px 0
+
+.appInfoLineResetConfirmButtons
+  display flex
+  gap 8px
+  margin-top 8px
+
+.appInfoLineResetConfirmButton
+  flex 1
+  height 36px
+  border-radius 9px
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.requestFeatureButton
+  height 38px
+  border-radius 10px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  color var(--good)
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  gap 6px
+  transition 0.15s all
+  margin-top 8px
+
+.requestFeatureButton:hover
+  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.4)
+
+.discordLink
+  display inline-flex
+  align-items center
+  gap 5px
+  color var(--good)
+  cursor pointer
+  font-size 12px
+  text-decoration underline
+  text-underline-offset 2px
+
+.discordInvite
+  font-size 12px
+  color var(--outerspace06)
+  margin-top 8px
+
+.splash
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  gap 12px
+  padding 24px 20px
+  text-align center
+
+.dashMain
+  position absolute
+  inset 0
+  display flex
+  flex-direction column
+
+.dashMainOverlay
+  position absolute
+  inset 0
+  background transparent
+  z-index 100
+  pointer-events none
+
+.dashMainScroll
+  flex 1
+  overflow-y auto
+  padding 14px
+
+.dashModules
+  display flex
+  flex-direction column
+  gap 8px
+
+.dashModuleTitle
+  font-size 11px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color var(--outerspace04)
+  padding 14px 16px 8px
+
+.dashFooter
+  padding 12px 14px
+  border-top 1px solid rgba(14, 165, 233, 0.07)
+  display flex
+  align-items center
+  gap 10px
+
+.dashFooterButton
+  flex 1
+  height 40px
+  border-radius 11px
+  border 1px solid rgba(14, 165, 233, 0.12)
+  background transparent
+  color var(--outerspace07)
+  font-size 13px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  gap 6px
+  transition 0.15s all
+
+.dashFooterButton:hover
+  border-color rgba(14, 165, 233, 0.4)
+  color var(--good)
+  background rgba(14, 165, 233, 0.06)
+
+.main
+  position absolute
+  inset 0
+
+.mainTop
+  position absolute
+  top 0
+  left 0
+  right 0
+  z-index 10
+
+.editButton
+  height 26px
+  padding 0 10px
+  border-radius 7px
+  border 1px solid rgba(14, 165, 233, 0.2)
+  background transparent
+  color var(--good)
+  font-size 11px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.editButton:hover
+  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.4)
+
+.commandTitle
+  font-size 14px
+  font-weight 500
+  color var(--outerspace)
+  padding 14px 16px 8px
+
+.commandItem
+  padding 10px 14px
+  display flex
+  align-items center
+  gap 10px
+  cursor pointer
+  border-bottom 1px solid rgba(14, 165, 233, 0.05)
+  transition 0.15s background
+
+.commandItem:hover
+  background rgba(14, 165, 233, 0.04)
+
+.commandItemBack
+  display flex
+  align-items center
+  gap 6px
+  color var(--good)
+  font-size 12px
+  cursor pointer
+  padding 10px 14px
+
+.commandItemClose
+  width 28px
+  height 28px
+  border-radius 8px
+  display flex
+  align-items center
+  justify-content center
+  color var(--outerspace06)
+  cursor pointer
+  transition 0.15s all
+
+.commandItemClose:hover
+  color var(--bad)
+  background rgba(255, 75, 100, 0.06)
+
+.customInput
+  background rgba(14, 165, 233, 0.04)
+  border 1px solid rgba(14, 165, 233, 0.15)
+  border-radius 10px
+  padding 9px 12px
+  font-family 'CodeFont'
+  font-size 12px
+  color var(--outerspace)
+  width 100%
+  outline none
+  box-sizing border-box
+  -webkit-app-region no-drag
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.customInput:focus
+  border-color rgba(14, 165, 233, 0.5)
+  background rgba(14, 165, 233, 0.06)
+
+.addCustomTokenButtonWrap
+  padding 8px 14px
+
+.customTokensListItemSub
+  font-size 11px
+  color var(--outerspace05)
+
+.customTokensListItemTitle
+  font-size 13px
+  font-weight 400
+  color var(--outerspace)
+
+.customTokensListItemChain
+  font-size 11px
+  color var(--outerspace04)
+
+.customTokensListItemChainLabel
+  font-size 10px
+  color var(--outerspace03)
+
+.quitLightPayButton
+  height 38px
+  padding 0 16px
+  border-radius 10px
+  border 1px solid rgba(255, 75, 100, 0.2)
+  background transparent
+  color var(--bad)
+  font-size 13px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  transition 0.15s all
+
+.quitLightPayButton:hover
+  background rgba(255, 75, 100, 0.07)
+  border-color rgba(255, 75, 100, 0.45)

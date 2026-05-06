@@ -1,0 +1,830 @@
+// ============================================================
+// LightPay Electric Blue Lightning Theme
+// Deep Space × Electric Blue × Lightning Strike
+// ============================================================
+
+// ─── SpaceMono (accent/decorative mono) ──────────────────────
+@font-face
+  font-family 'AccentFont'
+  font-weight 400 700
+  src url('/resources/fonts/SpaceMono/SpaceMono-Regular.woff2') format('woff2')
+
+// ─── JetBrains Mono (code/addresses) ─────────────────────────
+@font-face
+  font-family 'CodeFont'
+  font-weight 300
+  src url('/resources/fonts/JetBrainsMono/JetBrainsMono-Light.woff2') format('woff2')
+
+@font-face
+  font-family 'CodeFont'
+  font-weight 400
+  src url('/resources/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2')
+
+@font-face
+  font-family 'CodeFont'
+  font-weight 500
+  src url('/resources/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2') format('woff2')
+
+@font-face
+  font-family 'CodeFont'
+  font-weight 700
+  src url('/resources/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2') format('woff2')
+
+// ─── Inter (UI text) ─────────────────────────────────────────
+@font-face
+  font-family 'MainFont'
+  font-weight 300
+  src url('/resources/fonts/Inter/Inter-Light.woff2') format('woff2')
+
+@font-face
+  font-family 'MainFont'
+  font-weight 400
+  src url('/resources/fonts/Inter/Inter-Regular.woff2') format('woff2')
+
+@font-face
+  font-family 'MainFont'
+  font-weight 500
+  src url('/resources/fonts/Inter/Inter-Medium.woff2') format('woff2')
+
+@font-face
+  font-family 'MainFont'
+  font-weight 700
+  src url('/resources/fonts/Inter/Inter-Bold.woff2') format('woff2')
+
+// ─── CSS Design Tokens ───────────────────────────────────────
+
+:root
+  /* ── LightPay Electric Blue Lightning Theme ── */
+  --bg0            rgb(3, 5, 15)
+  --bg1            rgb(6, 9, 22)
+  --bg2            rgb(10, 14, 35)
+  --bg3            rgb(15, 20, 48)
+  --bg4            rgb(20, 28, 60)
+
+  --electric       rgb(14, 165, 233)
+  --electricBright rgb(56, 189, 248)
+  --electricDark   rgb(2, 132, 199)
+  --electricFaint  rgba(14, 165, 233, 0.08)
+  --electricGlow   rgba(14, 165, 233, 0.18)
+  --electricBorder rgba(14, 165, 233, 0.2)
+  --electricFocus  rgba(14, 165, 233, 0.45)
+
+  --bolt           rgb(250, 204, 21)
+  --boltFaint      rgba(250, 204, 21, 0.12)
+
+  --lightning      rgb(125, 211, 252)
+  --lightningFaint rgba(125, 211, 252, 0.08)
+
+  --text0          rgb(224, 242, 254)
+  --text1          rgba(186, 230, 253, 0.75)
+  --text2          rgba(186, 230, 253, 0.45)
+  --text3          rgba(186, 230, 253, 0.22)
+
+  --good           rgb(34, 197, 94)
+  --goodFaint      rgba(34, 197, 94, 0.12)
+  --good0          rgba(34, 197, 94, 0)
+  --good01         rgba(34, 197, 94, 0.1)
+  --good02         rgba(34, 197, 94, 0.2)
+  --good04         rgba(34, 197, 94, 0.4)
+  --goodUp         rgb(74, 222, 128)
+  --goodDark       rgb(22, 163, 74)
+  --goodShade      rgb(21, 128, 61)
+  --goodHighlight  rgba(74, 222, 128, 0.15)
+  --goodOver       rgba(0, 60, 30, 1)
+
+  --bad            rgb(239, 68, 68)
+  --badFaint       rgba(239, 68, 68, 0.12)
+  --badUp          rgb(248, 113, 113)
+  --badDark        rgb(185, 28, 28)
+
+  --warn           rgb(251, 191, 36)
+  --warnFaint      rgba(251, 191, 36, 0.12)
+
+  --hardware       rgba(125, 211, 252, 1)
+  --hardware2      rgba(186, 230, 253, 1)
+  --smart          rgba(56, 189, 248, 1)
+  --smart04        rgba(56, 189, 248, 0.4)
+  --smart02        rgba(56, 189, 248, 0.2)
+  --smartShade     rgba(14, 165, 233, 1)
+  --hot            rgba(248, 113, 113, 1)
+
+  /* legacy names mapped to new palette */
+  --phase          var(--bg0)
+  --phaseLight     var(--bg1)
+  --phaseShade     rgb(2, 3, 10)
+  --outerspace     var(--text0)
+  --shader         rgba(3, 5, 15, 0.85)
+
+  --accent1        var(--electric)
+  --accent2        rgb(148, 163, 184)
+  --accent3        rgb(139, 92, 246)
+  --accent4        rgb(239, 68, 68)
+  --accent5        rgb(34, 197, 94)
+  --accent6        rgb(168, 85, 247)
+  --accent7        rgb(14, 165, 233)
+  --accent8        rgb(56, 189, 248)
+  --accent9        rgb(99, 102, 241)
+  --accent10       rgb(6, 182, 212)
+
+  /* NO shadows — electric glow borders replace them */
+  --cardDrop       none
+  --cardGlow       none
+  --hoverGlow      none
+
+  /* LightPay unique */
+  --accentPrimary  var(--electric)
+  --accentLight    var(--electricBright)
+  --accentDark     var(--electricDark)
+  --accentGlow     var(--electricGlow)
+  --surfacePrimary var(--bg1)
+  --surfaceSecondary var(--bg2)
+
+  /* lp-* prefix variants (backward compat) */
+  --lp-bg-deep      var(--bg0)
+  --lp-bg-base      var(--bg1)
+  --lp-bg-card      var(--bg2)
+  --lp-bg-raised    var(--bg3)
+  --lp-bg-hover     rgba(14, 165, 233, 0.06)
+  --lp-bg-active    rgba(14, 165, 233, 0.12)
+
+  --lp-neon         var(--electric)
+  --lp-neon-bright  var(--electricBright)
+  --lp-blue         var(--electricDark)
+  --lp-blue-deep    rgb(2, 100, 170)
+  --lp-blue-ultra   rgb(1, 50, 100)
+
+  --lp-neon-01      rgba(14, 165, 233, 0.1)
+  --lp-neon-02      rgba(14, 165, 233, 0.2)
+  --lp-neon-03      rgba(14, 165, 233, 0.3)
+  --lp-neon-05      rgba(14, 165, 233, 0.5)
+  --lp-neon-08      rgba(14, 165, 233, 0.8)
+  --lp-blue-01      rgba(2, 132, 199, 0.1)
+  --lp-blue-02      rgba(2, 132, 199, 0.2)
+
+  --lp-border       var(--electricBorder)
+  --lp-border-mid   rgba(14, 165, 233, 0.3)
+  --lp-border-bright rgba(56, 189, 248, 0.55)
+  --lp-border-glow  rgba(56, 189, 248, 0.7)
+
+  --lp-text         var(--text0)
+  --lp-text-sec     var(--text1)
+  --lp-text-dim     var(--text2)
+  --lp-text-neon    var(--electric)
+
+  --lp-good         var(--good)
+  --lp-good-01      var(--good01)
+  --lp-good-03      rgba(34, 197, 94, 0.3)
+  --lp-warn         var(--warn)
+  --lp-warn-01      var(--warnFaint)
+  --lp-bad          var(--bad)
+  --lp-bad-01       var(--badFaint)
+  --lp-bad-03       rgba(239, 68, 68, 0.3)
+
+  --overlayA        rgba(3, 5, 15, 0.97)
+  --overlayB        rgba(6, 9, 22, 0.95)
+
+// ─── Body-level design tokens ────────────────────────────────
+
+body
+  // Elevation — NO shadows, use borders
+  --cardDrop none
+  --cardGlow none
+  --hoverGlow none
+
+  // Transitions — Material ease
+  --standardFaster .08s cubic-bezier(0.4, 0, 0.2, 1) all
+  --standardFast .18s cubic-bezier(0.4, 0, 0.2, 1) all
+  --standard .28s cubic-bezier(0.4, 0, 0.2, 1) all
+  --standardVibe .42s cubic-bezier(0.4, 0, 0.2, 1) all
+  --standardSlow .56s cubic-bezier(0.4, 0, 0.2, 1) all
+  --standardSlower .84s cubic-bezier(0.4, 0, 0.2, 1) all
+  --standardSlowest 1.4s cubic-bezier(0.4, 0, 0.2, 1) all
+  --slowRocket 2.2s cubic-bezier(0.34, 1.56, 0.64, 1) all
+
+  --cubic cubic-bezier(0.4, 0, 0.2, 1)
+
+  font-feature-settings 'ss04', 'zero'
+
+// ─── Global base ─────────────────────────────────────────────
+
+html, body
+  background var(--bg0)
+  color var(--text0)
+
+::selection
+  background-color rgba(14, 165, 233, 0.3)
+  color var(--text0)
+
+::-webkit-scrollbar
+  width 4px
+  height 4px
+
+::-webkit-scrollbar-track
+  background transparent
+
+::-webkit-scrollbar-thumb
+  background rgba(14, 165, 233, 0.35)
+  border-radius 2px
+
+::-webkit-scrollbar-thumb:hover
+  background rgba(14, 165, 233, 0.6)
+
+// ─── Card base ───────────────────────────────────────────────
+
+.card
+  background var(--bg2)
+  border 1px solid var(--electricBorder)
+  border-radius 10px
+
+// ─── Button primary ──────────────────────────────────────────
+
+.btn-primary, .button-primary
+  background var(--electric)
+  color var(--bg0)
+  border 1px solid transparent
+
+  &:hover
+    background var(--electricBright)
+
+// ─── Overlay gradient ────────────────────────────────────────
+
+.lightpayOverlay
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  pointer-events none
+  z-index 9999999999999998
+
+.vaultOverlay
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  background linear-gradient(155deg, var(--overlayA) 0%, var(--overlayB) 100%)
+  z-index 9999999999999999
+  pointer-events none
+
+body::before
+  content ''
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  pointer-events none
+  z-index 0
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 0%, rgba(14, 165, 233, 0.04), transparent 70%),
+    radial-gradient(ellipse 70% 45% at 90% 8%, rgba(56, 189, 248, 0.03), transparent 70%),
+    radial-gradient(ellipse 90% 60% at 85% 95%, rgba(14, 165, 233, 0.04), transparent 75%),
+    radial-gradient(ellipse 80% 50% at 8% 92%, rgba(56, 189, 248, 0.03), transparent 70%),
+    radial-gradient(ellipse 120% 45% at 50% 50%, rgba(14, 165, 233, 0.02), transparent 60%)
+  animation vaultPulse 8s ease-in-out infinite
+
+// ─── Shared light/dark palette ────────────────────────────────
+
+.light, .dark
+  --hardware var(--lightning)
+  --hardware2 var(--text0)
+  --smart var(--electricBright)
+  --smart04 rgba(56, 189, 248, 0.4)
+  --smart02 rgba(56, 189, 248, 0.2)
+  --smartShade var(--electric)
+  --hot rgba(248, 113, 113, 1)
+  --shader rgba(3, 5, 15, 0.75)
+  --phase var(--bg0)
+  --phaseLight var(--bg2)
+  --phaseShade rgb(2, 3, 10)
+
+  // ─── Green good ──────────────────────────────────────────────
+  --goodHighlighter rgb(74, 222, 128)
+  --goodHighlight rgba(74, 222, 128, 0.15)
+  --goodLight rgb(74, 222, 128)
+  --goodOver rgba(0, 60, 30, 1)
+  --good rgb(34, 197, 94)
+  --goodUp rgb(74, 222, 128)
+  --goodShade rgb(21, 128, 61)
+  --good0 rgba(34, 197, 94, 0)
+  --good01 rgba(34, 197, 94, 0.1)
+  --good02 rgba(34, 197, 94, 0.2)
+  --good03 rgba(34, 197, 94, 0.3)
+  --good04 rgba(34, 197, 94, 0.4)
+  --good06 rgba(34, 197, 94, 0.6)
+  --goodDark rgba(22, 163, 74, 1)
+
+  // ─── Red error ───────────────────────────────────────────────
+  --badOver rgb(60, 0, 10)
+  --bad rgb(239, 68, 68)
+  --bad0 rgba(239, 68, 68, 0)
+  --bad01 rgba(239, 68, 68, 0.1)
+  --bad04 rgba(239, 68, 68, 0.4)
+  --bad06 rgba(239, 68, 68, 0.6)
+
+  // ─── Electric pending ────────────────────────────────────────
+  --pendingOver rgb(0, 15, 45)
+  --pending var(--electricBright)
+  --pending04 rgba(56, 189, 248, 0.4)
+  --pendingShade var(--electric)
+  --pendingShade2 var(--electricDark)
+
+  // ─── Amber warning ───────────────────────────────────────────
+  --warning var(--warn)
+
+  --foreverwhite rgba(224, 242, 254, 1)
+  --moonHighlight rgba(248, 113, 113, 0.3)
+  --moonOver rgba(80, 0, 10, 1)
+  --moon rgba(248, 113, 113, 1)
+  --moonDark rgba(185, 28, 28, 1)
+  --moon06 rgba(248, 113, 113, 0.6)
+  --moonLight rgba(252, 165, 165, 1)
+  --mint rgba(34, 197, 94, 1)
+  --mintOver rgba(0, 60, 30, 1)
+
+  // ─── Accent palette — electric blue variants ─────────────────
+  --accent1 rgb(14, 165, 233)    // Mainnet — Electric blue
+  --accent2 rgb(250, 204, 21)    // Testnets — Lightning yellow
+  --accent3 rgb(125, 211, 252)   // Default — Lightning sky
+  --accent4 rgb(239, 68, 68)     // Optimism — Red
+  --accent5 rgb(34, 197, 94)     // Gnosis — Green
+  --accent6 rgb(14, 165, 233)    // Polygon — Electric
+  --accent7 rgb(56, 189, 248)    // Arbitrum — Sky
+  --accent8 rgb(14, 165, 233)    // Other — Electric blue
+
+// ─── Light mode ──────────────────────────────────────────────
+
+.light
+  --v #0a2a4a
+  --outerspace01 rgba(14, 165, 233, 0.1)
+  --outerspace02 rgba(14, 165, 233, 0.2)
+  --outerspace03 rgba(14, 165, 233, 0.3)
+  --outerspace05 rgba(14, 165, 233, 0.5)
+  --outerspace06 rgba(14, 165, 233, 0.6)
+  --outerspace07 rgba(14, 165, 233, 0.7)
+  --outerspace08 rgba(14, 165, 233, 0.8)
+  --outerspace09 rgba(14, 165, 233, 0.9)
+  --outerspace rgba(2, 132, 199, 1)
+
+  --nebula #083050
+  --outerspaceLight #0e4a72
+  --outerspacePulse #093860
+  --outerspacePhase rgba(1, 30, 70, 1)
+  --outerspaceDark #020810
+  --spacewhite rgba(224, 242, 254, 1)
+
+  --ghostX02 rgba(14, 165, 233, 0.2)
+  --ghostX04 rgba(14, 165, 233, 0.4)
+  --ghostX09 rgba(14, 165, 233, 0.9)
+  --ghostX rgba(14, 165, 233, 1)
+  --ghostY rgba(56, 189, 248, 1)
+  --ghostZ0 rgba(56, 189, 248, 0)
+  --ghostZ05 rgba(56, 189, 248, 0.5)
+  --ghostZ08 rgba(56, 189, 248, 0.8)
+  --ghostZ rgba(56, 189, 248, 1)
+  --ghostAZ rgba(125, 211, 252, 1)
+  --ghostA05 rgba(125, 211, 252, 0.5)
+  --ghostA rgba(125, 211, 252, 1)
+  --ghostB0 rgba(186, 230, 253, 0)
+  --ghostB05 rgba(186, 230, 253, 0.5)
+  --ghostB rgba(186, 230, 253, 1)
+  --ghostC0 rgba(224, 242, 254, 0)
+  --ghostC rgba(224, 242, 254, 1)
+  --ghostD rgba(240, 249, 255, 1)
+
+  --moon rgb(239, 68, 68)
+  --moonDark rgba(185, 28, 28, 1)
+  --moonLight rgba(248, 113, 113, 1)
+  --moonOver rgba(254, 226, 226, 1)
+
+  --goodHighlighter rgb(74, 222, 128)
+  --goodHighlight rgba(74, 222, 128, 0.15)
+  --good rgb(34, 197, 94)
+  --goodOver rgba(220, 252, 231, 1)
+  --goodUp rgb(74, 222, 128)
+  --goodDark rgb(22, 163, 74)
+  --good0 rgba(34, 197, 94, 0)
+  --good01 rgba(34, 197, 94, 0.1)
+  --good02 rgba(34, 197, 94, 0.18)
+  --good03 rgba(34, 197, 94, 0.28)
+  --good04 rgba(34, 197, 94, 0.4)
+  --good06 rgba(34, 197, 94, 0.6)
+  --badOver rgba(254, 226, 226, 1)
+  --bad rgba(239, 68, 68, 1)
+  --bad0 rgba(239, 68, 68, 0)
+
+  ::selection
+    background-color rgba(14, 165, 233, 0.2)
+    color var(--bg0)
+
+  --overlayA rgba(3, 5, 15, 0.04)
+  --overlayB rgba(14, 165, 233, 0.04)
+
+  --thinner rgba(0, 30, 70, .02)
+  --thin rgba(0, 30, 70, .04)
+  --thick rgba(0, 30, 70, .07)
+  --doubleThick rgba(0, 30, 70, .14)
+  --tripleThick rgba(0, 30, 70, .21)
+  --thick0 rgba(0, 30, 70, 0)
+
+  // Light accent overrides
+  --accent1 rgb(2, 132, 199)
+  --accent2 rgb(202, 138, 4)
+  --accent3 rgb(14, 165, 233)
+  --accent4 rgb(185, 28, 28)
+  --accent5 rgb(22, 163, 74)
+  --accent6 rgb(7, 89, 133)
+  --accent7 rgb(14, 165, 233)
+  --accent8 rgb(2, 132, 199)
+  --mint rgb(22, 163, 74)
+  --mintOver rgba(220, 252, 231, 1)
+
+// ─── Dark mode ───────────────────────────────────────────────
+
+.dark
+  --v #0e2040
+  --outerspace01 rgba(14, 165, 233, 0.1)
+  --outerspace02 rgba(14, 165, 233, 0.2)
+  --outerspace03 rgba(14, 165, 233, 0.3)
+  --outerspace04 rgba(14, 165, 233, 0.4)
+  --outerspace05 rgba(14, 165, 233, 0.5)
+  --outerspace06 rgba(14, 165, 233, 0.6)
+  --outerspace07 rgba(14, 165, 233, 0.7)
+  --outerspace08 rgba(14, 165, 233, 0.8)
+  --outerspace09 rgba(14, 165, 233, 0.9)
+  --outerspace rgb(224, 242, 254)
+  --nebula #04080f
+
+  --outerspaceLight #080c1a
+  --outerspacePulse #060a15
+  --outerspacePhase rgba(3, 5, 15, 1)
+  --outerspaceShader rgb(1, 2, 8)
+  --outerspaceDark #010208
+  --spacewhite rgba(6, 9, 22, 1)
+
+  // Dark ghost scale (deep dark tone steps)
+  --ghostX09 rgba(2, 3, 10, 0.9)
+  --ghostX04 rgba(2, 3, 10, 0.4)
+  --ghostX rgba(2, 3, 10, 1)
+  --ghostY rgba(3, 5, 15, 1)
+  --ghostZ0 rgba(6, 9, 22, 0)
+  --ghostZ05 rgba(6, 9, 22, 0.5)
+  --ghostZ08 rgba(6, 9, 22, 0.8)
+  --ghostZ rgba(6, 9, 22, 1)
+  --ghostAZ rgba(8, 12, 28, 1)
+  --ghostA05 rgba(8, 12, 28, 0.5)
+  --ghostA rgba(8, 12, 28, 1)
+  --ghostB0 rgba(10, 14, 35, 0)
+  --ghostB05 rgba(10, 14, 35, 0.2)
+  --ghostB rgba(10, 14, 35, 1)
+  --ghostC0 rgba(15, 20, 48, 0)
+  --ghostC rgba(15, 20, 48, 1)
+  --ghostD rgba(20, 28, 60, 1)
+
+  --moon rgba(248, 113, 113, 1)
+  --moonOver rgba(80, 10, 10, 1)
+
+  ::selection
+    background-color rgba(14, 165, 233, 0.3)
+    color var(--text0)
+
+  --overlayA rgba(3, 5, 15, 0.05)
+  --overlayB rgba(14, 165, 233, 0.04)
+
+  --thinner rgba(0, 0, 8, .1)
+  --thin rgba(0, 0, 8, .2)
+  --thick rgba(0, 0, 8, .3)
+  --doubleThick rgba(0, 0, 8, .45)
+  --tripleThick rgba(0, 0, 8, .55)
+  --thick0 rgba(0, 0, 8, 0)
+
+// ─── LightPay accent palette ─────────────────────────────────
+
+.light, .dark
+  /* LightPay accent palette */
+  --accentPrimary var(--electric)
+  --accentLight var(--electricBright)
+  --accentDark var(--electricDark)
+  --accentGlow var(--electricGlow)
+  --surfacePrimary var(--bg0)
+  --surfaceSecondary var(--bg2)
+
+// ─── Card animation ──────────────────────────────────────────
+
+@keyframes vaultCardShow
+  0%
+    opacity 0
+    transform translateY(10px) scale(0.98)
+  55%
+    opacity 1
+    transform translateY(-1px) scale(1.001)
+  100%
+    opacity 1
+    transform translateY(0) scale(1)
+
+.vaultCardShow
+  z-index 3000001
+  animation vaultCardShow 320ms cubic-bezier(0.4, 0, 0.2, 1) both
+  animation-delay 0s
+
+.vaultCardHide
+  opacity 0
+  pointer-events none
+
+// ─── Glitch effects ──────────────────────────────────────────
+
+.distort
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  display flex
+  justify-content center
+  align-items center
+  color var(--outerspace)
+
+.line
+  display none
+
+.lastLine
+  display block
+  opacity 1
+
+.distortOn
+  .line
+    display block
+    will-change clip-path
+  .line:not(:first-child)
+    position absolute
+  .line:nth-child(1)
+    animation clip 3000ms -300ms linear infinite, glitch1 1000ms -228ms linear infinite
+  .line:nth-child(2)
+    animation clip 3000ms -600ms linear infinite, glitch2 1000ms -927ms linear infinite
+
+// ─── Utility ─────────────────────────────────────────────────
+
+.suspend
+  *
+    animation-play-state paused !important
+
+.clip
+  *
+    transition none !important
+
+@import './Native/style'
+@import './Components'
+
+// ─── LightPay card / badge / divider utilities ────────────────
+
+.lightpayCard
+  background var(--bg2)
+  border 1px solid var(--electricBorder)
+  border-radius 10px
+  padding 14px
+
+.lightpayBadge
+  display inline-flex
+  align-items center
+  gap 4px
+  padding 2px 8px
+  border-radius 10px
+  font-size 10px
+  font-weight 600
+  text-transform uppercase
+  letter-spacing 0.05em
+
+.lightpayBadgePrimary
+  background rgba(14, 165, 233, 0.1)
+  color var(--electric)
+  border 1px solid rgba(14, 165, 233, 0.2)
+
+.lightpayBadgeSuccess
+  background var(--good01)
+  color var(--good)
+  border 1px solid rgba(34, 197, 94, 0.3)
+
+.lightpayBadgeWarn
+  background var(--warnFaint)
+  color var(--warn)
+
+.lightpayDivider
+  width 100%
+  height 1px
+  background linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.25) 50%, transparent 100%)
+  margin 8px 0
+
+// ─── LP utility classes ───────────────────────────────────────
+
+.lpCard
+  background var(--bg2)
+  border 1px solid var(--electricBorder)
+  border-radius 8px
+
+.lpCardActive
+  border-color rgba(56, 189, 248, 0.55)
+  background var(--bg3)
+
+.lpNeonText
+  color var(--electric)
+  font-weight 600
+
+.lpLightningBorder
+  border 1px solid rgba(14, 165, 233, 0.3)
+  animation lightningPulse 3s ease-in-out infinite
+
+.lpGlowBorder
+  border 1px solid rgba(56, 189, 248, 0.55)
+
+.lpDivider
+  width 100%
+  height 1px
+  background linear-gradient(90deg, transparent 0%, var(--electric) 50%, transparent 100%)
+  opacity 0.25
+  margin 6px 0
+
+.lpBadge
+  display inline-flex
+  align-items center
+  padding 2px 8px
+  border-radius 10px
+  font-size 10px
+  font-weight 600
+  letter-spacing 0.05em
+
+.lpBadgePrimary
+  background rgba(14, 165, 233, 0.1)
+  color var(--electric)
+  border 1px solid rgba(14, 165, 233, 0.2)
+
+.lpBadgeSuccess
+  background var(--good01)
+  color var(--good)
+  border 1px solid rgba(34, 197, 94, 0.3)
+
+.lpBadgeWarn
+  background var(--warnFaint)
+  color var(--warn)
+
+.lpBadgeDanger
+  background var(--badFaint)
+  color var(--bad)
+  border 1px solid rgba(239, 68, 68, 0.3)
+
+// ─── Keyframes ───────────────────────────────────────────────
+
+@keyframes lightningPulse
+  0%, 100%
+    border-color rgba(14, 165, 233, 0.2)
+  50%
+    border-color rgba(56, 189, 248, 0.6)
+
+@keyframes electricFlicker
+  0%, 95%, 100%
+    opacity 1
+  96%
+    opacity 0.85
+  97%
+    opacity 1
+  98%
+    opacity 0.9
+
+@keyframes boltStrike
+  0%
+    transform scaleX(0)
+    opacity 0
+  50%
+    opacity 1
+  100%
+    transform scaleX(1)
+    opacity 0.6
+
+@keyframes electricGlow
+  0%, 100%
+    filter brightness(1)
+  50%
+    filter brightness(1.2)
+
+@keyframes lightpayFadeIn
+  from
+    opacity 0
+    transform translateY(-4px)
+  to
+    opacity 1
+    transform translateY(0)
+
+@keyframes lightpaySlideIn
+  from
+    opacity 0
+    transform translateX(-8px)
+  to
+    opacity 1
+    transform translateX(0)
+
+@keyframes spin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)
+
+@keyframes networkPulse
+  0%, 100%
+    opacity 1
+  50%
+    opacity 0.4
+
+@keyframes lightningStrike
+  0%
+    opacity 0
+  10%
+    opacity 1
+  20%
+    opacity 0.3
+  30%
+    opacity 1
+  100%
+    opacity 0
+
+@keyframes vaultPulse
+  0%, 100%
+    opacity 0.6
+  50%
+    opacity 1
+
+@keyframes vaultSlide
+  0%
+    opacity 0
+    transform translateY(12px) scale(0.97)
+  60%
+    opacity 1
+    transform translateY(-2px) scale(1.002)
+  100%
+    opacity 1
+    transform translateY(0) scale(1)
+
+@keyframes vaultFadeIn
+  0%
+    opacity 0
+  100%
+    opacity 1
+
+@keyframes spinnerRing
+  0%
+    transform rotate(0deg)
+  100%
+    transform rotate(360deg)
+
+@keyframes shake
+  0%
+    transform translate3d(0px, 0px, 0)
+  25%
+    transform translate3d(-2px, -1px, 0)
+  50%
+    transform translate3d(2px, 1px, 0)
+  75%
+    transform translate3d(-1px, 0px, 0) rotate(0.5deg)
+  100%
+    transform translate3d(1px, -1px, 0) rotate(-0.5deg)
+
+@keyframes glitch1
+  0%
+    transform translateX(0)
+  80%
+    transform translateX(0)
+    color var(--outerspace)
+  85%
+    transform translateX(-3px)
+    color var(--good)
+  90%
+    transform translateX(0px)
+    color var(--bad)
+  95%
+    transform translateX(3px)
+    color var(--outerspace)
+  100%
+    transform translateX(0)
+
+@keyframes glitch2
+  0%
+    transform translateX(0)
+  80%
+    transform translateX(0)
+    color var(--outerspace)
+  85%
+    transform translateX(5px)
+    color var(--good)
+  90%
+    transform translateX(5px)
+    color var(--bad)
+  95%
+    transform translateX(3px)
+    color var(--outerspace)
+  100%
+    transform translateX(0)
+
+@keyframes clip
+  0%
+    clip-path polygon(0 100%, 100% 100%, 100% 120%, 0 120%)
+  100%
+    clip-path polygon(0 -20%, 100% -20%, 100% 0%, 0 0)

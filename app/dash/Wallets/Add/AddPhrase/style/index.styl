@@ -1,0 +1,95 @@
+// LightPay VAULT — Add by Mnemonic Phrase
+
+.addPhrase
+  padding 20px
+  display flex
+  flex-direction column
+  gap 14px
+
+.addPhraseTitle
+  font-size 18px
+  font-weight 500
+  color rgb(224,242,254)
+
+.addPhraseTextarea
+  background rgba(14,165,233,0.04)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 14px
+  padding 14px
+  font-family 'CodeFont'
+  font-size 13px
+  font-weight 400
+  color rgb(224,242,254)
+  width 100%
+  min-height 80px
+  outline none
+  resize none
+  box-sizing border-box
+  -webkit-app-region no-drag
+  line-height 1.8
+  letter-spacing 0.04em
+
+.addPhraseTextarea:focus
+  border-color rgba(14,165,233,0.4)
+
+.addPhraseTextarea::placeholder
+  color rgba(186,230,253,0.4)
+  font-size 12px
+  letter-spacing 0.02em
+
+.addPhraseWordCount
+  font-size 11px
+  font-family 'CodeFont'
+  color rgba(186,230,253,0.4)
+  text-align right
+
+.addPhraseWordCountValid
+  color rgb(14,165,233)
+
+.addPhraseWarning
+  background rgba(251, 146, 60, 0.08)
+  border 1px solid rgba(251, 146, 60, 0.25)
+  border-radius 10px
+  padding 10px 14px
+  font-size 11px
+  color var(--warning)
+  line-height 1.55
+
+.addPhrasePassword
+  background rgba(14,165,233,0.04)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 12px
+  padding 11px 14px
+  font-size 14px
+  font-weight 300
+  color rgb(224,242,254)
+  width 100%
+  outline none
+  box-sizing border-box
+  -webkit-app-region no-drag
+  letter-spacing 0.08em
+
+.addPhrasePassword:focus
+  border-color rgba(14,165,233,0.4)
+
+.addPhraseStrength
+  height 3px
+  border-radius 2px
+  background var(--ghostD)
+  overflow hidden
+
+.addPhraseStrengthBar
+  height 100%
+  border-radius 2px
+
+.addPhraseStrengthWeak
+  background var(--bad)
+  width 25%
+
+.addPhraseStrengthFair
+  background var(--warning)
+  width 55%
+
+.addPhraseStrengthStrong
+  background rgb(14,165,233)
+  width 100%

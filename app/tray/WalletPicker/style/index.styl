@@ -1,0 +1,282 @@
+@import '../AccountController/style'
+
+// ─── Electric Blue Design: AccountSelector ───────────────────────────────────
+// Primary: electric blue rgb(14,165,233) | Backgrounds: dark theme
+// Transition: 0.28s cubic-bezier(0.4,0,0.2,1)
+
+.walletSelector
+  position absolute
+  top 80px
+  right 8px
+  bottom 40px
+  left 8px
+  border-radius 16px
+  z-index 999
+  display flex
+  align-items center
+  overflow hidden
+  justify-content center
+  transform translateY(0px)
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+
+  .accountSelectorScroll
+    width 100%
+    max-height 100%
+    border-radius 14px
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+    overflow-y scroll
+    overflow-x hidden
+    scrollbar-width none
+
+    &::-webkit-scrollbar
+      display none
+
+    .accountSelectorScrollWrap
+      width 100%
+      padding 48px 6px 48px 6px
+      box-sizing border-box
+      will-change scroll-position
+      z-index 999
+      pointer-events none
+
+      .noDevices
+        width 100%
+        display flex
+        justify-content center
+        align-items center
+        flex-direction column
+        font-weight 300
+        font-size 15px
+        position relative
+        z-index 100
+        padding 24px
+        color rgba(186, 230, 253, 0.4)
+
+        .introLogo
+          padding-bottom 38px
+
+          svg
+            fill rgb(14, 165, 233)
+
+        .getStarted
+          margin-top 30px
+          box-sizing border-box
+          border-radius 12px
+          padding 20px
+          font-size 13px
+          margin 20px
+          text-align center
+          font-weight 300
+          background rgb(10, 14, 35)
+          color rgba(186, 230, 253, 0.7)
+          line-height 24px
+          border 1px solid rgba(14, 165, 233, 0.18)
+
+          .getStartedPlus
+            display inline-block
+            position relative
+            top 4px
+            border 2px solid rgba(14, 165, 233, 0.6)
+            width 43px
+            height 22px
+            border-radius 11px
+            text-align center
+            margin 0px 5px 0px 5px
+            box-sizing border-box
+            color rgb(14, 165, 233)
+
+            span
+              position relative
+              top -3px
+              left 2px
+              font-size 17px
+
+        .featureBox
+          display flex
+          justify-content center
+          align-items center
+          flex-direction column
+          margin-top 30px
+
+          .featureBoxText
+            font-size 13px
+            font-weight 400
+            letter-spacing 4px
+            color rgba(186, 230, 253, 0.4)
+
+          .featureBoxSubtext
+            margin-top 8px
+            font-size 12px
+            font-family 'CodeFont'
+            font-weight 200
+            justify-content center
+            opacity 0.7
+
+// ─── Horizontal account carousel items ───────────────────────────────────────
+
+.walletSelectorCard
+  flex-shrink 0
+  width 68px
+  display flex
+  flex-direction column
+  align-items center
+  gap 6px
+  padding 8px 6px
+  border-radius 14px
+  border 1px solid rgba(14, 165, 233, 0)
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+  cursor pointer
+
+.walletSelectorCard:hover
+  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.2)
+
+.walletSelectorCardActive
+  background rgba(14, 165, 233, 0.1)
+  border-color rgba(14, 165, 233, 0.4)
+
+.walletSelectorAvatar
+  width 40px
+  height 40px
+  border-radius 50%
+  overflow hidden
+  border 2px solid rgba(14, 165, 233, 0.25)
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+  img
+    width 100%
+    height 100%
+    object-fit cover
+
+.walletSelectorCardActive .walletSelectorAvatar
+  border-color rgba(14, 165, 233, 0.7)
+
+.walletSelectorLabel
+  font-size 10px
+  font-weight 300
+  color rgba(186, 230, 253, 0.4)
+  text-align center
+  max-width 64px
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+  letter-spacing 0.02em
+
+// ─── Panel filter bar ────────────────────────────────────────────────────────
+
+@keyframes appear
+  0%
+    filter blur(10px)
+    opacity 0
+
+  100%
+    filter blur(0px)
+    opacity 1
+
+.walletSearchMain
+  position fixed
+  top 0px
+  left 0px
+  right 0px
+  height 48px
+  z-index 99
+  overflow hidden
+  animation appear 1s cubic-bezier(0.4, 0, 0.2, 1)
+  background rgb(6, 9, 22)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+
+.walletSearchBar
+  position sticky
+  top 0px
+  left 0px
+  right 0px
+  height 48px
+  width 100%
+  z-index 99
+  overflow hidden
+  animation appear 1s cubic-bezier(0.4, 0, 0.2, 1)
+  background rgb(6, 9, 22)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+
+.walletSearchIcon
+  position absolute
+  top 4px
+  left 0
+  bottom 0
+  width 48px
+  display flex
+  justify-content center
+  align-items center
+  color rgba(14, 165, 233, 0.7)
+
+.walletSearchInput
+  position absolute
+  top 0
+  left 30px
+  bottom 0
+  right 30px
+
+  input, input:hover, input:focus
+    width 100%
+    height 100%
+    border none
+    outline none
+    text-align center
+    background transparent
+    color rgb(224, 242, 254)
+    font-size 15px
+    font-family 'MainFont'
+    font-weight 300
+
+.walletSearchClear
+  position absolute
+  top 8px
+  right 3px
+  bottom 8px
+  width 40px
+  display flex
+  justify-content center
+  align-items center
+  color rgba(186, 230, 253, 0.7)
+  cursor pointer
+  border-radius 20px
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+  *
+    pointer-events none
+
+.walletSearchClear:hover
+  background rgba(14, 165, 233, 0.08)
+  border 1px solid rgba(14, 165, 233, 0.2)
+
+// ─── Selector open state ──────────────────────────────────────────────────────
+
+.walletSelectorOpen
+  transform translateY(-14px)
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+  z-index 999999999
+  pointer-events none
+  *
+    pointer-events none
+
+// ─── New account button ───────────────────────────────────────────────────────
+
+.addWalletBtn
+  display flex
+  padding 16px
+  color rgb(14, 165, 233)
+  font-weight 400
+  font-size 13px
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+  cursor pointer
+  border-radius 10px
+  border 1px solid rgba(14, 165, 233, 0)
+
+  &:hover
+    background rgba(14, 165, 233, 0.06)
+    border-color rgba(14, 165, 233, 0.2)
+
+  .newAccountIcon
+    padding-right 10px

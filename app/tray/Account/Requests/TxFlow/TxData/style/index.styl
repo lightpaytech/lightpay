@@ -1,0 +1,80 @@
+// ─── TxData — VAULT design ───────────────────────────────────────────────────
+
+// Section label — uppercase meta
+._flowLabel
+  position relative
+  font-size 11px
+  text-transform uppercase
+  letter-spacing 0.08em
+  padding 16px 0px 8px 18px
+  font-family 'MainFont'
+  font-weight 500
+  color var(--outerspace05)
+  display flex
+  align-items center
+
+// Raw calldata code block
+._flowDataValue
+  font-size 11px
+  font-weight 400
+  font-family 'CodeFont'
+  display flex
+  justify-content center
+  align-items center
+  border-radius 10px
+  -webkit-app-region no-drag
+  transition all 0.18s ease
+  pointer-events auto
+  transform translate3d(0, 0, 0)
+  padding 12px
+  background var(--ghostX)
+  color var(--outerspace07)
+  word-break break-all
+  white-space pre-wrap
+
+  svg
+    position relative
+    top 0
+    padding 0px 3px 0px 4px
+
+  span
+    word-spacing 0px
+
+._flowDataValue:hover
+  background var(--ghostA)
+  cursor pointer
+
+// Method label — emerald
+._flowDataMethod
+  text-transform uppercase
+  font-size 15px
+  letter-spacing 0.06em
+  font-weight 400
+  color var(--good)
+  font-family 'MainFont'
+
+// Contract label — moon/amber
+._flowDataContract
+  text-transform uppercase
+  font-size 15px
+  letter-spacing 0.06em
+  font-weight 400
+  color var(--bad)
+  font-family 'MainFont'
+
+// "View raw" toggle link
+._flowDataRaw
+  font-size 11px
+  font-family 'MainFont'
+  color var(--outerspace04)
+  cursor pointer
+  text-decoration none
+  transition color 0.15s ease
+  padding 4px 0px
+  display inline-block
+
+._flowDataRaw:hover
+  color var(--good)
+
+._flowData:hover
+  z-index 1000001

@@ -1,0 +1,269 @@
+// ─── TxValue — VAULT design ──────────────────────────────────────────────────
+
+@keyframes shake
+  0%
+    transform translate3d(0px, 0px, 0) rotate(-0.4deg) scale(1)
+  25%
+    transform translate3d(-0.7px, -1px, 0) rotate(0.4deg) scale(1.01)
+  50%
+    transform translate3d(0.7px, 1px, 0) rotate(-0.4deg) scale(1.02)
+  75%
+    transform translate3d(-0.7px, 0.3px, 0) rotate(0.2deg) scale(1.01)
+  100%
+    transform translate3d(0.7px, 0.7px, 0) rotate(-0.4deg) scale(1)
+
+// Sending value container — prominent, centered, clear separation below
+.sendAmount
+  min-height 50px
+  display flex
+  justify-content center
+  align-items center
+  padding 20px 14px
+  text-align center
+  font-size 32px
+  font-weight 500
+  font-family 'CodeFont'
+  color rgb(224, 242, 254)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+
+// ETH symbol — electric blue tint, smaller
+.sendAmountSymbol
+  font-size 14px
+  font-family 'CodeFont'
+  font-weight 500
+  color rgb(14, 165, 233)
+  margin-right 6px
+  position relative
+  top -2px
+  opacity 0.85
+
+// Primary ETH amount
+.sendAmountValue
+  font-size 32px
+  font-weight 500
+  font-family 'CodeFont'
+  color rgb(224, 242, 254)
+  position relative
+  top 0
+
+// USD equivalent line
+.sendAmountUSD
+  font-size 14px
+  color var(--outerspace06)
+  font-family 'MainFont'
+  font-weight 400
+  margin-top 2px
+
+// ─── _flowMain card ────────────────────────────────────────────────────────────
+
+._flowMain
+  position relative
+  z-index 100001
+  background var(--ghostAZ)
+  margin 0px 6px 16px 6px
+  border-radius 26px
+  overflow hidden
+  border-bottom 2px solid rgba(14, 165, 233, 0.2)
+  padding 0
+
+  ._flowDataInner
+    position relative
+    margin 0px 0px
+    overflow hidden
+
+    ._txMainBackground
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0
+      opacity 0.05
+      display none
+
+    ._flowDataValues
+      font-size 17px
+      font-weight 400
+      border-radius 20px
+      -webkit-app-region no-drag
+one
+      transform translate3d(0, 0, 0)
+      font-family 'MainFont'
+      display flow-root
+      padding 3px 3px 1px 3px
+      background var(--ghostA)
+      margin 6px
+
+      svg
+        position relative
+        top 0
+        padding 0px 3px 0px 4px
+
+      ._txMainValuesRow
+        display flex
+        height 70px
+
+      ._txMainValuesColumn
+        display flex
+        flex-direction column
+        height 100%
+        margin-right 5px
+
+      ._txMainValuesColumn:last-child
+        margin-right 0px
+
+      ._flowTransfer
+        margin-top 0px
+        display flex
+        justify-content center
+        align-items stretch
+        border-radius 12px
+        overflow hidden
+        font-weight 300
+
+        ._flowTransferPart
+          flex-grow 1
+          display flex
+          justify-content center
+          align-items center
+          border-radius 12px
+          background var(--ghostA)
+          margin-right 5px
+
+        ._flowTransferPart:last-child
+          margin-right 0px
+
+      ._flowTransferSymbol
+        font-size 14px
+        font-weight 500
+        font-family 'CodeFont'
+        color rgb(14, 165, 233)
+        margin-right 5px
+        position relative
+        top -1px
+
+      ._flowTransferAmount
+        font-size 32px
+        font-weight 500
+        font-family 'CodeFont'
+        color rgb(224, 242, 254)
+        position relative
+        top -1px
+
+      ._flowTransferEq
+        font-size 14px
+        color var(--outerspace06)
+        margin-left 4px
+
+      ._flowTransferEqSym
+        font-size 12px
+        color var(--outerspace06)
+
+      ._flowTransferEqAmt
+        font-size 14px
+        color var(--outerspace06)
+
+      ._flowDataVal
+        font-size 14px
+        line-height 22px
+        display flex
+        justify-content center
+        align-items center
+        border-radius 17px
+        -webkit-app-region no-drag
+one
+        transform translate3d(0, 0, 0)
+        font-family 'MainFont'
+        padding 12px
+        margin-top 1px
+        background var(--ghostA)
+        border-bottom 1px solid rgba(14, 165, 233, 0.18)
+
+        svg
+          position relative
+          top 0
+          padding 0px 3px 0px 4px
+
+      ._txMainValueClickable
+        transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+        cursor pointer
+        margin-bottom 0px
+        position relative
+        z-index 3
+
+        *
+          position relative
+          z-index 2
+          pointer-events none
+
+      ._txMainValueClickable:hover
+        background var(--ghostB)
+        transform translateY(-1px)
+        border-bottom 1px solid rgba(14, 165, 233, 0.4)
+        position relative
+        z-index 300000
+
+      ._txMainValueClickable:active
+        background var(--ghostB)
+        transform translateY(0px)
+
+  ._txMainTagFee
+    position relative
+    z-index 100001
+    overflow hidden
+    font-size 11px
+    font-weight 400
+    text-transform uppercase
+    letter-spacing 0.08em
+    text-align center
+    display flex
+    align-items center
+    justify-content center
+    height 52px
+    margin-top 1px
+    border-radius 16px
+    background var(--ghostA)
+    border-bottom 1px solid rgba(14, 165, 233, 0.18)
+    color var(--outerspace05)
+
+  ._flowTag
+    position relative
+    z-index 100001
+    overflow hidden
+    font-size 11px
+    font-weight 400
+    text-transform uppercase
+    letter-spacing 0.08em
+    text-align center
+    padding 8px 0px 8px 0px
+    margin-top 1px
+
+  ._flowTagWarn
+    color var(--bad)
+
+  ._txMainTagBad
+    color var(--bad)
+
+  ._txMainTagGood
+    color var(--good)
+
+._flowContinueBtn
+  margin-top 64px
+  background var(--ghostA)
+  border-radius 14px
+  height 60px
+  cursor pointer
+  display flex
+  justify-content center
+  align-items center
+  text-transform uppercase
+  font-family 'MainFont'
+  letter-spacing 0.08em
+  font-weight 400
+  font-size 14px
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  border 1px solid rgba(14, 165, 233, 0.18)
+
+._flowContinueBtn:hover
+  background var(--ghostB)
+  border-color rgba(14, 165, 233, 0.4)
+  transform translateY(-1px)

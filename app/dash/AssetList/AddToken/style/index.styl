@@ -1,0 +1,313 @@
+// ─── Add Token Page Top ───────────────────────────────────────────────────────
+
+.addAssetTop
+  display flex
+  justify-content center
+  align-items center
+  flex-direction column
+
+.addAssetTitle
+  padding 32px 0px 24px 0px
+  font-size 20px
+  font-weight 300
+  color rgb(224,242,254)
+  text-align center
+
+// ─── Add Token Form Wrapper ───────────────────────────────────────────────────
+
+.addAsset
+  font-size 14px
+  position relative
+  z-index 3
+  word-break break-word
+  width 100%
+  box-sizing border-box
+  padding-bottom 24px
+
+// ─── New Token View (chain selection step) ────────────────────────────────────
+
+.newTokenView
+  min-height 100%
+  width 100%
+  display flex
+  justify-content center
+  align-items center
+  flex-direction column
+
+.newTokenChainSelectTitle
+  padding-bottom 32px
+  display flex
+  justify-content center
+  align-items center
+  flex-direction column
+
+.newTokenErrorTitle
+  text-align center
+  font-size 13px
+  font-weight 300
+  box-sizing border-box
+  margin-bottom 16px
+  color var(--bad)
+
+// ─── Chain address display (mono) ─────────────────────────────────────────────
+
+.newTokenChainAddress
+  font-family 'CodeFont'
+  font-size 13px
+  color rgba(186,230,253,0.7)
+  letter-spacing 0.04em
+
+  svg
+    margin 4px 5px
+
+// ─── Chain selector ───────────────────────────────────────────────────────────
+
+.newTokenChainSelectChain
+  width 100%
+
+.newTokenChainSelectSubtitle
+  margin-top 4px
+  font-size 10px
+  font-weight 400
+  text-transform uppercase
+  letter-spacing 0.08em
+  color rgba(186,230,253,0.7)
+
+.newTokenChainSelectFooter
+  margin-top 32px
+  margin-bottom 32px
+  font-size 10px
+  font-weight 400
+  text-align center
+  text-transform uppercase
+  letter-spacing 0.08em
+  color rgba(186,230,253,0.7)
+
+  .newTokenEnableChainLink
+    color var(--good)
+    margin-left 4px
+    display inline-block
+    cursor pointer
+    transition 0.15s ease color
+
+  .newTokenEnableChainLink:hover
+    color var(--goodOver)
+
+// ─── Form field row layout ────────────────────────────────────────────────────
+
+.tokenRow
+  width 100%
+  display flex
+  justify-content space-between
+  padding 0px 5px 20px 5px
+  box-sizing border-box
+
+.tokenRow:last-child
+  padding 0px 5px 0px 5px
+
+// ─── Field width helpers ──────────────────────────────────────────────────────
+
+.tokenName
+  width 100%
+  text-align left
+
+.tokenAddress
+  width 100%
+
+.tokenLogoUri
+  width 100%
+  text-align left
+
+.tokenChainId
+  width calc(35% - 5px)
+
+.tokenDecimals
+  width calc(50% - 5px)
+  text-align left
+
+.tokenSymbol
+  width calc(50% - 5px)
+  text-align left
+
+.tokenExplorer
+  width 100%
+
+.tokenRpc
+  width 100%
+
+// ─── Input Label ─────────────────────────────────────────────────────────────
+
+.tokenInputLabel
+  font-size 10px
+  text-transform uppercase
+  font-weight 500
+  letter-spacing 0.1em
+  padding 10px 0px 4px 4px
+  color rgba(186,230,253,0.7)
+
+  input
+    margin-bottom 4px
+
+// ─── Token Input ─────────────────────────────────────────────────────────────
+
+.tokenInput
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 8px
+  outline none
+  text-align left
+  font-size 13px
+  width 100%
+  box-sizing border-box
+  padding 10px 12px
+  font-weight 400
+  color rgb(224,242,254)
+  margin-top 4px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  font-family 'MainFont'
+
+  &.dropdown
+    margin-top 17px
+    padding 0px
+
+.tokenInput:focus
+  border-color rgb(14,165,233)
+  background rgb(6,9,22)
+  outline none
+
+.tokenInput::placeholder
+  color rgba(186,230,253,0.4)
+
+.tokenInputDim
+  color rgba(186,230,253,0.7) !important
+
+// ─── Contract Address Input (mono, full-width) ────────────────────────────────
+
+.tokenInputAddress
+  font-family 'CodeFont'
+  font-size 12px
+  font-weight 400
+  letter-spacing 0.04em
+
+// ─── "Set Address" / "Lookup" Button ─────────────────────────────────────────
+
+.tokenSetAddress
+  font-size 12px
+  text-transform uppercase
+  letter-spacing 0.08em
+  font-weight 500
+  padding 10px 24px
+  background transparent
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 8px
+  color var(--good)
+  cursor pointer
+  margin-top 10px
+  display inline-flex
+  align-items center
+  gap 6px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.tokenSetAddress:hover
+  background rgba(14,165,233,0.08)
+  border-color rgba(14,165,233,0.4)
+
+// ─── Token Preview Card (after lookup) ───────────────────────────────────────
+
+.assetPreviewCard
+  background rgba(14,165,233,0.04)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 12px
+  padding 14px
+  display flex
+  align-items center
+  gap 12px
+  margin-top 12px
+
+  .tokenPreviewIcon
+    width 40px
+    height 40px
+    border-radius 50%
+    overflow hidden
+    background rgb(10,14,35)
+    border 1px solid rgba(14,165,233,0.2)
+    flex-shrink 0
+
+    img
+      width 100%
+      height 100%
+      object-fit cover
+
+  .tokenPreviewInfo
+    flex 1
+    min-width 0
+
+  .tokenPreviewName
+    font-size 14px
+    font-weight 400
+    color rgb(224,242,254)
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+
+  .tokenPreviewSymbol
+    font-family 'CodeFont'
+    font-size 11px
+    color rgba(186,230,253,0.7)
+    letter-spacing 0.06em
+    text-transform uppercase
+    margin-top 2px
+
+  .tokenPreviewDecimals
+    font-family 'CodeFont'
+    font-size 11px
+    color rgba(186,230,253,0.7)
+    margin-top 2px
+
+// ─── Add Token Submit Button ─────────────────────────────────────────────────
+
+.addAssetSubmit
+  background rgb(6,9,22)
+  margin auto
+  height 48px
+  border-radius 10px
+  font-weight 500
+  box-sizing border-box
+  padding 12px 24px
+  text-align center
+  display flex
+  justify-content center
+  align-items center
+  gap 8px
+  font-size 13px
+  text-transform uppercase
+  letter-spacing 0.08em
+  border 1px solid transparent
+  pointer-events none
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+  span
+    opacity 0.35
+
+  svg
+    flex-shrink 0
+
+.addAssetSubmit:hover
+  background rgb(6,9,22)
+
+// Enabled state — electric blue gradient
+.addAssetSubmitReady
+  background linear-gradient(135deg, rgba(2,132,199,0.9) 0%, rgba(14,165,233,0.9) 100%)
+  border-color rgba(14,165,233,0.5)
+  color rgb(3,5,15)
+  cursor pointer
+  pointer-events auto
+  outline none
+
+  span
+    pointer-events none
+    opacity 1
+
+.addAssetSubmitReady:hover
+  background linear-gradient(135deg, rgba(2,132,199,1) 0%, rgba(14,165,233,1) 100%)
+  border-color rgba(14,165,233,0.7)

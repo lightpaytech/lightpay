@@ -1,0 +1,64 @@
+// VAULT — Account Preferences Expanded
+
+.prefExpanded
+  padding 14px
+
+.prefExpandedSection
+  background rgb(10, 14, 35)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 14px
+  overflow hidden
+  margin-bottom 8px
+
+.prefExpandedSectionTitle
+  padding 12px 14px 8px
+  font-size 10px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color var(--outerspace04)
+  border-bottom 1px solid rgba(14, 165, 233, 0.06)
+
+.prefExpandedRow
+  padding 12px 14px
+  display flex
+  align-items center
+  justify-content space-between
+  border-bottom 1px solid rgba(14, 165, 233, 0.06)
+
+.prefExpandedRow:last-child
+  border-bottom none
+
+.prefExpandedLabel
+  font-size 13px
+  color var(--outerspace08)
+
+.prefExpandedToggle
+  width 36px
+  height 20px
+  border-radius 10px
+  cursor pointer
+  position relative
+  transition 0.22s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.prefExpandedToggle:after
+  content ''
+  position absolute
+  top 2px
+  width 16px
+  height 16px
+  border-radius 50%
+  background white
+  transition 0.22s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.prefExpandedToggleOff
+  background var(--ghostD)
+
+.prefExpandedToggleOff:after
+  left 2px
+
+.prefExpandedToggleOn
+  background rgb(14, 165, 233)
+
+.prefExpandedToggleOn:after
+  left calc(100% - 18px)

@@ -1,0 +1,1350 @@
+// ─── Electric Blue Design: AccountController ──────────────────────────────────
+// Primary: electric blue rgb(14,165,233) | Backgrounds: dark theme
+// Transition: 0.28s cubic-bezier(0.4,0,0.2,1) | Radius: 16px cards / 12px inputs / 10px buttons
+
+@keyframes slideUp
+  0%
+    opacity 0
+  100%
+    opacity 1
+
+@keyframes headShake
+  0%
+    transform translateX(0)
+  6.5%
+    transform translateX(-6px) rotateY(-9deg)
+  18.5%
+    transform translateX(5px) rotateY(7deg)
+  31.5%
+    transform translateX(-3px) rotateY(-5deg)
+  43.5%
+    transform translateX(2px) rotateY(3deg)
+  50%
+    transform translateX(0)
+
+.headShake
+  animation-duration 1s
+  animation-fill-mode both
+  animation-timing-function ease-in-out
+  animation-name headShake
+  transform translateZ(0)
+
+// ─── Fade transitions ─────────────────────────────────────────────────────────
+
+.standardFade-enter
+  opacity 0
+
+.standardFade-enter.standardFade-enter-active
+  opacity 1
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.standardFade-leave
+  opacity 1
+
+.standardFade-leave.standardFade-leave-active
+  opacity 0
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+// ─── Signer (account card) ────────────────────────────────────────────────────
+
+.signer
+  position relative
+  z-index 3001
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all, 0s linear height
+  will-change transform
+  transform translate3d(0, 0, 0)
+  pointer-events auto
+  box-sizing border-box
+  z-index 10000000
+
+  .signerContainer
+    position relative
+    z-index 3002
+    padding 0px 0px 5px 0px
+
+  // ── Full address overlay ──────────────────────────────────────────────────
+
+  .signerDetailsFullAddress
+    position absolute
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
+    top 0
+    left 0px
+    right 0px
+    bottom 0px
+    cursor pointer
+    pointer-events auto
+    *
+      pointer-events none
+
+    .signerDetailsFullAddressCopied
+      display flex
+      align-items center
+      justify-content center
+      font-size 14px
+      font-weight 500
+      color rgb(14, 165, 233)
+      span
+        margin-left 8px
+
+    .signerDetailsFullAddressText
+      display flex
+      align-items center
+      max-width fit-content
+      font-family 'CodeFont'
+      font-size 12px
+      font-weight 200
+      margin-top 4px
+      pointer-events auto
+      border-radius 1px
+      position relative
+      cursor pointer
+      color rgba(186, 230, 253, 0.4)
+
+  // ── Signer details (name / address) ──────────────────────────────────────
+
+  .signerDetails
+    position absolute
+    display flex
+    justify-content center
+    flex-direction column
+    top 0
+    left 60px
+    right 120px
+    bottom 0px
+    pointer-events none
+
+    .signerDetailsENSName
+      font-family 'CodeFont'
+      letter-spacing -1px
+      font-size 13px
+      font-weight 300
+      margin-top 5px
+      pointer-events auto
+      max-width fit-content
+      color rgb(224, 242, 254)
+
+    .signerDetailsName
+      font-family 'MainFont'
+      font-size 15px
+      font-weight 400
+      margin-top 4px
+      pointer-events none
+      color rgb(224, 242, 254)
+
+    .signerDetailsAddressCopy
+      margin-left 10px
+      display flex
+      align-items center
+      padding 0px 6px 0px 0px
+      border-radius 12px
+      display none
+
+    .signerDetailsAddress
+      display flex
+      align-items center
+      max-width fit-content
+      font-family 'CodeFont'
+      font-size 12px
+      font-weight 200
+      margin-top 2px
+      pointer-events auto
+      padding 0px 0px 2px 1px
+      border-radius 12px
+      position relative
+      cursor pointer
+      left -1px
+      transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+      color rgba(186, 230, 253, 0.4)
+      *
+        pointer-events none
+
+      .signerDetailsAddressDivide
+        position relative
+        padding 0px 1px 0px 2px
+
+    .signerDetailsAddress:hover
+      color rgb(14, 165, 233)
+
+  // ── Address area ──────────────────────────────────────────────────────────
+
+  .signerAddress
+    font-family 'CodeFont'
+
+    .transactionToAddressLargeWrap
+      position absolute
+      bottom 15px
+      left 66px
+      height 40px
+      width 164px
+      z-index 5
+
+    .transactionToAddressLarge
+      position absolute
+      bottom 0px
+      left 0px
+      max-width 100%
+      font-weight 300
+      display flex
+      font-size 12px
+      font-weight 200
+      opacity 1
+      color rgba(186, 230, 253, 0.4)
+
+      .transactionToAddressLargeEllipsis
+        padding 2px 1px
+
+    .transactionToAddressLarge:hover
+      background rgba(14, 165, 233, 0.06)
+      border-radius 6px
+
+    .transactionToAddressCopy
+      display flex
+      justify-content center
+      align-items center
+      font-size 8px
+      letter-spacing 1px
+      opacity 1
+      pointer-events none
+      text-transform uppercase
+      font-weight 400
+      letter-spacing 1px
+      font-family 'MainFont'
+      color rgba(186, 230, 253, 0.4)
+      border-radius 10px
+      transform translateY(0px)
+      bottom 30px
+      opacity 0
+
+    .transactionToAddressFull
+      position absolute
+      top 3px
+      right 0
+      bottom 0
+      left 0
+      display flex
+      justify-content center
+      align-items center
+      font-size 12px
+      font-weight 300
+      z-index 80
+      cursor pointer
+      *
+        pointer-events none
+
+      .transactionToAddressFullCopied
+        position absolute
+        right 18px
+        top 25px
+        left 18px
+        font-family 'MainFont'
+        text-align center
+        color rgb(14, 165, 233)
+
+        svg
+          position relative
+          top 0px
+          margin-left 11px
+
+    .transactionToAddressENS
+      transform translateY(-11px)
+      font-weight 300
+
+    .transactionToAddressFullHidden
+      opacity 0
+      pointer-events none
+
+  // ── Signer top card ───────────────────────────────────────────────────────
+
+  .signerTop
+    position relative
+    opacity 1
+    z-index 3030000
+    border-radius 16px
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all, background 0.2s linear
+    z-index 9999000
+    height 74px
+    background rgb(6, 9, 22)
+    margin 0px 0px 6px 0px
+    border 1px solid rgba(14, 165, 233, 0.18)
+    cursor pointer
+    overflow hidden
+
+    div
+      z-index 3004
+
+    // ── Notification statusIndicator ──────────────────────────────────────────
+
+    .accountNotificationBadge
+      position absolute
+      top 19px
+      right 64px
+      width 38px
+      height 39px
+      padding-left 2px
+      box-sizing border-box
+      border-top-left-radius 13px
+      border-bottom-left-radius 13px
+      border-top-right-radius 8px
+      border-bottom-right-radius 8px
+      display flex
+      justify-content center
+      align-items center
+      -webkit-app-region no-drag
+      transform translate3d(0, 0, 0)
+      background rgb(6, 9, 22)
+      color rgba(186, 230, 253, 0.4)
+      font-size 16px
+      font-weight 400
+      transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+      border 1px solid rgba(14, 165, 233, 0.18)
+      z-index 999999999
+      pointer-events none
+
+      span
+        position relative
+        z-index 4000
+
+    .accountNotificationBadgeReady
+      color rgb(224, 242, 254)
+      background rgb(10, 14, 35)
+      border-color rgba(14, 165, 233, 0.2)
+
+    .accountNotificationBadgeActive
+      border-bottom none
+      span
+        color rgb(3, 5, 15)
+
+    .accountNotificationBadgeActive::before
+      content ''
+      position absolute
+      z-index 3
+      inset 0px
+      background rgb(14, 165, 233)
+      border-top-left-radius 13px
+      border-bottom-left-radius 13px
+      border-top-right-radius 8px
+      border-bottom-right-radius 8px
+      border-bottom 2px solid rgba(14, 165, 233, 0.6)
+
+    // ── Address area within signerTop ───────────────────────────────────────
+
+    .transactionToAddress
+      .transactionToAddressLarge
+        svg
+          color rgb(224, 242, 254)
+
+    // ── Select button (left/right arrows) ──────────────────────────────────
+
+    .signerSelect
+      position absolute
+      top 16px
+      right 10px
+      z-index 300000
+      border-radius 12px
+      height 44px
+      width 95px
+      -webkit-app-region no-drag
+      transform translate3d(0, 0, 0)
+      background rgba(14, 165, 233, 0.08)
+      border 1px solid rgba(14, 165, 233, 0.18)
+      cursor pointer
+
+      .signerSelectButton
+        position absolute
+        top 3px
+        right 3px
+        bottom 2px
+        z-index 300000
+        border-radius 10px
+        width 48px
+        background rgb(6, 9, 22)
+        display flex
+        justify-content center
+        align-items center
+        border-top-right-radius 10px
+        border-bottom-right-radius 10px
+        border-top-left-radius 8px
+        border-bottom-left-radius 8px
+        padding-right 4px
+        box-sizing border-box
+        border 1px solid rgba(14, 165, 233, 0.18)
+        transform translateY(0px)
+        cursor pointer
+        transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+        *
+          pointer-events none
+
+      .signerSelectButton:hover
+        background rgb(10, 14, 35)
+        transform translateY(-1px)
+        border-color rgba(14, 165, 233, 0.4)
+
+      .signerSelectButton:active
+        background rgb(10, 14, 35)
+        transform translateY(0px)
+
+      .signerSelectIconWrap
+        padding 1px 0px 0px 2px
+        pointer-events none
+
+        div, svg
+          pointer-events none
+
+        .accountActive
+          color rgb(14, 165, 233)
+
+      .signerSelectIcon
+        transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+        pointer-events none
+
+    // ── Drag grabber handle ─────────────────────────────────────────────────
+
+    .accountGrabber
+      position absolute
+      top 5px
+      bottom 5px
+      right 110px
+      width 19px
+      color rgba(14, 165, 233, 0.3)
+      cursor grab
+      z-index 5000000000000000
+      padding-top 9px
+      opacity 1
+      transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+      svg
+        position relative
+        left -8px
+
+      svg, div
+        pointer-events none
+
+    .accountGrabber:active
+      cursor grabbing
+
+    // ── Status indicator strip ──────────────────────────────────────────────
+
+    .accountIndicator
+      position absolute
+      top 20px
+      left 7px
+      bottom 20px
+      box-sizing border-box
+      border-radius 2px
+      width 4px
+      background rgba(14, 165, 233, 0.15)
+      pointer-events none
+
+    .accountIndicatorGood
+      background rgb(14, 165, 233)
+
+    .accountIndicatorLocked
+      background var(--bad)
+
+    // ── Signer type / icon column ───────────────────────────────────────────
+
+    .deviceType
+      position absolute
+      top 0px
+      left 0px
+      bottom 0px
+      width 64px
+      z-index 3400
+      transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+      -webkit-app-region no-drag
+      box-sizing border-box
+      z-index 300000
+      pointer-events none
+
+      .signerTypeStatusBadge
+        position absolute
+        top 13px
+        left 10px
+        width 18px
+        height 18px
+        color var(--bad)
+        border-radius 50%
+        display flex
+        justify-content center
+        align-items center
+        pointer-events none
+
+      .signerTypeStatusBadgeDisconnected
+        color rgba(186, 230, 253, 0.4)
+        display none
+
+      .signerTypeStatusBadgeLocked
+        color var(--bad)
+        top 12px
+        left 11px
+
+      .signerSelectIconWrap
+        position absolute
+        top 3px
+        left 14px
+        width 41px
+        bottom 0px
+        display flex
+        justify-content center
+        align-items center
+
+        div, svg
+          pointer-events none
+
+      .signerIconTrezor
+        transform translateY(-3px)
+
+      .signerIconLedger
+        transform translateY(-1px)
+
+      .signerImage
+        position absolute
+        top 50%
+        left 50%
+        height 34px
+        width 34px
+        margin-top -9px
+        margin-left -9px
+        opacity 1
+        transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+        img
+          height 38px
+
+        svg
+          color rgba(186, 230, 253, 0.7)
+
+        .trezorImage
+          height 35px
+          margin-top -6px
+
+      .signerText
+        position absolute
+        top 44px
+        left 0
+        right 0
+        height 20px
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        text-transform uppercase
+        font-size 11px
+        line-height 10px
+        font-weight 300
+        letter-spacing 2px
+        color rgba(186, 230, 253, 0.4)
+        opacity 1
+        transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+        margin-left 2px
+        display none
+
+  .signerTop:hover
+    background rgb(10, 14, 35)
+    border-color rgba(14, 165, 233, 0.4)
+    .signerSelect
+      .signerSelectButton
+        background rgb(10, 14, 35)
+
+  .signerTopNoHover
+    pointer-events none !important
+    *
+      pointer-events none !important
+
+  // ── Account list expand panel ─────────────────────────────────────────────
+
+  .walletListWrap
+    position absolute
+    top 100px
+    left 0
+    right 0
+    height 0px
+    background rgb(10, 14, 35)
+    z-index 3015
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+    border-bottom-left-radius 16px
+    border-bottom-right-radius 16px
+    overflow hidden
+    border 1px solid rgba(14, 165, 233, 0.18)
+    border-top none
+    transform translateZ(0)
+    display none
+
+    .accountList
+      position absolute
+      left 0
+      right 0
+      bottom 0
+      height 330px
+      z-index 3018
+      overflow hidden
+      padding 15px 0px 10px 0px
+
+      .settingsMenu
+        background rgb(6, 9, 22)
+        display flex
+        justify-content center
+        flex-direction column
+        align-items center
+        position absolute
+        left 0
+        right 0
+        bottom 0
+        height 50px
+        transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+        opacity 1
+        pointer-events auto
+        .settingsMenuSelect
+          position relative
+          height 12px
+          width 105px
+          box-sizing border-box
+          .settingsMenuMark
+            height 12px
+            position absolute
+            transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+            .settingsMenuMarkLine
+              position absolute
+              background rgba(14, 165, 233, 0.6)
+              height 2px
+              top 0px
+              left 7px
+              right 7px
+              border-radius 1px
+        .settingsMenuItems
+          box-sizing border-box
+          height 33px
+          width 105px
+          display flex
+          .settingsMenuItem
+            position relative
+            box-sizing border-box
+            z-index 1230
+            width 35px
+            height 33px
+            color rgba(186, 230, 253, 0.4)
+            transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+            .settingsMenuItemIcon
+              top 0
+              right 0
+              bottom 0px
+              left 0
+              position absolute
+              z-index 1234
+              padding 10px 10px
+          .settingsMenuItemSelected, .settingsMenuItem:hover
+            color rgb(14, 165, 233)
+
+      .accountListItems
+        background rgb(10, 14, 35)
+        height 280px
+        min-height 280px
+        width 100%
+        display flex
+        justify-content flex-start
+        align-items center
+        flex-direction column
+        position relative
+        z-index 3
+        transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+        transform translateY(-200px)
+        pointer-events none
+
+        .walletListItem
+          background rgb(10, 14, 35)
+          width calc(100% - 40px)
+          height 55px
+          min-height 55px
+          border-bottom 1px solid rgba(14, 165, 233, 0.08)
+          display flex
+          justify-content space-between
+          align-items center
+          padding 0px 20px 0px 20px
+          font-family 'CodeFont'
+          font-size 12px
+          font-weight 200
+          color rgba(186, 230, 253, 0.4)
+          position relative
+          z-index 4
+          transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+          .accountListItemCheck
+            color rgba(186, 230, 253, 0.4)
+            margin-bottom 3px
+
+          .accountListItemAddress
+            svg
+              margin 0px 4px 0px 4px
+
+        .walletListItem:last-child
+          border-bottom none
+
+        .walletListItemActive
+          background rgb(6, 9, 22)
+          color rgb(224, 242, 254)
+          border-radius 10px
+          border 1px solid rgba(14, 165, 233, 0.4)
+          position relative
+          z-index 10
+          .accountListItemCheck
+            color rgb(14, 165, 233)
+
+      .accountPageToggle
+        padding-top 20px
+        height 20px
+        min-height 20px
+        padding-bottom 10px
+        width 100%
+        display flex
+        justify-content center
+        align-items center
+        font-family 'CodeFont'
+        position relative
+        z-index 2
+        transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+        opacity 0
+        pointer-events none
+        transform translateY(-200px)
+
+        .walletPageCurrent
+          border-radius 3px
+          height 27px
+          width 27px
+          display flex
+          justify-content center
+          align-items center
+          font-size 18px
+          color rgb(14, 165, 233)
+
+        .walletPageBtn
+          border-radius 3px
+          height 27px
+          width 27px
+          display flex
+          justify-content center
+          align-items center
+          box-sizing border-box
+          transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+        .accountPageButtonLeft
+          padding-right 1px
+
+        .accountPageButtonRight
+          padding-left 1px
+
+        .walletPageBtn:hover
+          background rgba(14, 165, 233, 0.08)
+          border-radius 8px
+
+  // ── Account action menu strip ─────────────────────────────────────────────
+
+  .walletNavBar
+    position absolute
+    top 64px
+    right 0px
+    left 0px
+    border-radius 10px
+    z-index 3005
+    overflow-x hidden
+    overflow-y hidden
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all, 0.1s linear background
+    will-change transform
+    background rgb(10, 14, 35)
+    z-index 9999003
+    height 40px
+    border 1px solid rgba(14, 165, 233, 0.18)
+    animation-delay 0.2s
+
+    .accountMenuLeft
+      position absolute
+      top 0px
+      left 0px
+      bottom 0px
+      display flex
+      .walletNavItem
+        border-right 1px solid rgba(14, 165, 233, 0.12)
+      .walletNavItem:first-child
+        padding-left 4px
+
+    .accountMenuRight
+      position absolute
+      top 0px
+      right 0px
+      bottom 0px
+      .walletNavItem
+        border-left 1px solid rgba(14, 165, 233, 0.12)
+      .walletNavItem:last-child
+        padding-right 4px
+
+    .walletNavItem
+      height 40px
+      width 40px
+      display flex
+      justify-content center
+      align-items center
+      cursor pointer
+      transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+      div, svg
+        pointer-events none
+
+    .walletNavItem:hover
+      background rgba(14, 165, 233, 0.08)
+      color rgb(14, 165, 233)
+
+  // ── Signer middle panel ───────────────────────────────────────────────────
+
+  .walletSignerMid
+    position absolute
+    top calc(22px + 83px)
+    right 0px
+    bottom 7px
+    left 0px
+    border-radius 10px
+    z-index 3005
+    overflow-x hidden
+    overflow-y hidden
+    opacity 1
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all, 0.1s linear background
+    will-change transform
+    background rgb(10, 14, 35)
+    z-index 9999003
+    border 1px solid rgba(14, 165, 233, 0.18)
+    animation-delay 0.4s
+
+    > div
+      transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+      opacity 0
+
+    .signerMidMenu
+      background rgba(14, 165, 233, 0.04)
+      border-bottom 1px solid rgba(14, 165, 233, 0.12)
+      height 50px
+      display flex
+      flex-direction column
+      justify-content center
+      align-items center
+
+      .deviceMenuItems
+        height 25px
+        display flex
+        justify-content center
+        align-items center
+        margin-top 5px
+
+        .deviceMenuItem
+          height 30px
+          width 40px
+          display flex
+          justify-content center
+          align-items center
+          transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+      .deviceMenuSelect
+        height 10px
+        width 80px
+        position relative
+
+        .deviceMenuMarker
+          position absolute
+          left 0px
+          height 2px
+          width 20px
+          margin 0px 10px
+          background rgb(14, 165, 233)
+          border-radius 1px
+
+    .walletSignerNode
+      display flex
+      justify-content center
+      align-items center
+      font-size 12px
+      font-weight 200
+      height 40px
+      border-top 1px solid rgba(14, 165, 233, 0.08)
+      color rgba(186, 230, 253, 0.4)
+
+  // ── Events log ───────────────────────────────────────────────────────────
+
+  .signerEvents
+    height 200px
+    overflow scroll
+    background rgba(3, 5, 15, 0.6)
+    width 100%
+
+  // ── Select directional arrows ─────────────────────────────────────────────
+
+  .signerSelectDown
+    transform rotate(180deg)
+    .signerSelectArrows
+      .signerSelectArrow
+        svg
+          color rgba(186, 230, 253, 0.4)
+
+  .signerSelectLeft
+    left 3px
+
+  .signerSelectRight
+    right 3px
+
+  .signerSelectDown.signerSelectLeft
+    left -50px
+    opacity 0
+
+  .signerSelectDown.signerSelectRight
+    right -50px
+    opacity 0
+
+  .signerReady
+    font-size 12px
+    font-weight 200
+    width 100%
+
+  // ── Open signer state ─────────────────────────────────────────────────────
+
+  .openSigner
+    pointer-events none
+    .signerTop
+      cursor auto
+      position relative
+      border-bottom 1px solid rgba(14, 165, 233, 0.18)
+      top -5px
+      .signerSelect
+        pointer-events auto !important
+        .signerSelectButton
+          pointer-events auto !important
+
+    .signerTop:hover
+      background rgb(6, 9, 22) !important
+      .signerSelect
+        .signerSelectButton
+          pointer-events auto !important
+          background rgb(6, 9, 22)
+        .signerSelectButton:hover
+          background rgb(10, 14, 35)
+
+  .signerSelectDown.signerSelectRight
+    right 0
+
+  .signerSelectDown.signerSelectLeft
+    left 0
+
+  .walletListWrap
+    height 60px
+
+// ─── Settings context override ────────────────────────────────────────────────
+
+.signerInSettings
+  .signerTop
+    .addressSelect
+      transform translateY(0px)
+      pointer-events auto
+  .walletListWrap
+    height 130px
+    transform translateY(0px)
+    will-change height
+
+// ─── Account expand state ─────────────────────────────────────────────────────
+
+.signerAccountExpand
+  .addressSelectArrow:first-child
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+    svg
+      transform rotate(-180deg)
+  .addressSelectArrow:last-child
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+    svg
+      transform rotate(180deg)
+  .walletListWrap
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+    height 425px
+    .accountList
+      .accountListItems
+        pointer-events auto
+        transform translateY(0px)
+      .accountPageToggle
+        opacity 1
+        pointer-events auto
+        transform translateY(0px)
+      .settingsMenu
+        opacity 0
+        pointer-events none
+        transform translateY(50px)
+
+// ─── Verify text ─────────────────────────────────────────────────────────────
+
+.signerVerifyText
+  font-size 15px
+  font-weight 400
+  text-align center
+  display flex
+  justify-content center
+  align-items center
+  height 70px
+  padding 0px 30px
+  color rgb(224, 242, 254)
+
+// ─── Module row / button ──────────────────────────────────────────────────────
+
+.sectionRow
+  height 30px
+  margin-bottom 4px
+  display flex
+  align-items center
+
+  input
+    z-index 200
+    user-select auto
+    background rgb(10, 14, 35)
+    outline none
+    border 1px solid rgba(14, 165, 233, 0.18)
+    margin-left 8px
+    height 100%
+    color rgb(224, 242, 254)
+    border-radius 12px
+    padding 0px 8px
+    font-size 13px
+    font-weight 300
+    transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+    &:focus
+      border-color rgba(14, 165, 233, 0.4)
+
+.sectionBtn
+  width 100%
+  height 40px
+  background rgb(10, 14, 35)
+  border-radius 10px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  color rgb(224, 242, 254)
+  display flex
+  justify-content center
+  align-items center
+  font-weight 400
+  font-size 13px
+  box-sizing border-box
+  text-transform uppercase
+  transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
+
+  svg
+    position relative
+
+  span
+    padding-left 4px
+
+  *
+    pointer-events none
+
+.sectionBtn.signerVerifyInProgress
+  background rgb(6, 9, 22)
+  color rgba(186, 230, 253, 0.4)
+  border-color rgba(14, 165, 233, 0.08)
+
+.sectionBtn:hover:not(.signerVerifyInProgress)
+  cursor pointer
+  background rgb(6, 9, 22)
+  border-color rgba(14, 165, 233, 0.4)
+
+.sectionBtnDanger
+  color var(--bad)
+  border-color rgba(244, 63, 94, 0.2)
+
+.sectionBtnPrimary
+  color rgb(14, 165, 233)
+  border-color rgba(14, 165, 233, 0.4)
+
+.sectionBtnLocked
+  color rgba(186, 230, 253, 0.4)
+  border-color rgba(14, 165, 233, 0.08)
+
+.sectionBtnLocked:hover
+  background rgb(10, 14, 35)
+  border-color rgba(14, 165, 233, 0.18)
+
+// ─── Account controller — signerDetails/signerName classes ─────────────────
+
+.signerDetails
+  padding 12px 14px
+  display flex
+  flex-direction column
+  gap 2px
+
+.signerDetailsAddress
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186, 230, 253, 0.4)
+  letter-spacing 0.06em
+
+.signerDetailsAddressDivide
+  color rgba(186, 230, 253, 0.4)
+  margin 0 3px
+
+.signerDetailsAddressPart
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186, 230, 253, 0.4)
+
+.signerDetailsENSName
+  font-size 13px
+  font-weight 400
+  color rgb(14, 165, 233)
+
+.signerDetailsFullAddress
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186, 230, 253, 0.4)
+  letter-spacing 0.05em
+  word-break break-all
+  cursor pointer
+  transition 0.15s all
+
+.signerDetailsFullAddress:hover
+  color rgb(224, 242, 254)
+
+.signerDetailsFullAddressCopied
+  color rgb(14, 165, 233)
+
+.signerDetailsFullAddressText
+  font-family 'CodeFont'
+  font-size 11px
+  letter-spacing 0.04em
+
+.signerDetailsName
+  font-size 14px
+  font-weight 400
+  color rgb(224, 242, 254)
+
+.signerAddress
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186, 230, 253, 0.4)
+  letter-spacing 0.05em
+
+.signerName
+  font-size 14px
+  font-weight 400
+  color rgb(224, 242, 254)
+
+.signerNameText
+  font-size 14px
+  font-weight 400
+  color rgb(224, 242, 254)
+
+.signerNameTextENS
+  color rgb(14, 165, 233)
+
+.iconUnderline
+  height 2px
+  background rgb(14, 165, 233)
+  border-radius 1px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.signerSelect
+  padding 10px 14px
+
+.signerSelectButton
+  height 36px
+  border-radius 10px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  color rgba(186, 230, 253, 0.7)
+  font-size 12px
+  cursor pointer
+  display flex
+  align-items center
+  justify-content center
+  gap 6px
+  transition 0.15s all
+
+.signerSelectButton:hover
+  border-color rgba(14, 165, 233, 0.4)
+  color rgb(14, 165, 233)
+
+// Account selector scrollwrap
+.accountSelectorScroll
+  width 100%
+  max-height 100%
+  border-radius 14px
+  overflow-y scroll
+  -ms-overflow-style none
+  scrollbar-width none
+
+.accountSelectorScroll::-webkit-scrollbar
+  display none
+
+.accountSelectorScrollWrap
+  width 100%
+
+.accountGrabber
+  height 4px
+  width 36px
+  background rgba(14, 165, 233, 0.2)
+  border-radius 2px
+  margin 8px auto 0
+  cursor grab
+
+.accountTypeSelect
+  padding 8px 14px
+  font-size 11px
+  color rgba(186, 230, 253, 0.4)
+  text-transform uppercase
+  letter-spacing 0.08em
+  font-weight 500
+
+.accountViewText
+  font-size 13px
+  color rgba(186, 230, 253, 0.4)
+  padding 2px 0
+
+.deviceType
+  font-size 10px
+  font-weight 500
+  padding 2px 8px
+  border-radius 20px
+  letter-spacing 0.04em
+  text-transform uppercase
+  margin-left 4px
+
+.signerTypeHot
+  background rgba(251, 146, 60, 0.1)
+  color var(--warning)
+  border 1px solid rgba(251, 146, 60, 0.25)
+
+.address
+  font-family 'CodeFont'
+  font-size 11px
+  color rgba(186, 230, 253, 0.4)
+  letter-spacing 0.04em
+
+.walletViewMenu
+  background rgb(10, 14, 35)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 16px 16px 0 0
+  padding 0 16px
+  height 52px
+  display flex
+  align-items center
+  gap 8px
+
+.walletViewBack
+  width 36px
+  height 36px
+  border-radius 10px
+  display flex
+  align-items center
+  justify-content center
+  cursor pointer
+  color rgba(186, 230, 253, 0.4)
+  transition 0.15s all
+  flex-shrink 0
+
+.walletViewBack:hover
+  background rgba(14, 165, 233, 0.08)
+  color rgb(14, 165, 233)
+
+.walletViewTitle
+  font-size 14px
+  font-weight 400
+  color rgb(224, 242, 254)
+  letter-spacing 0.02em
+
+.walletViewMain
+  flex 1
+  overflow-y auto
+  overflow-x hidden
+
+.walletMainScroll
+  overflow-y scroll
+  overflow-x hidden
+  height 100%
+  -ms-overflow-style none
+  scrollbar-width none
+
+.walletMainScroll::-webkit-scrollbar
+  display none
+
+.walletMainSlide
+  position relative
+  width 100%
+  padding-bottom 90px
+
+.walletModulesExpand
+  background rgb(3, 5, 15)
+  z-index 2001
+  margin-bottom 30px
+
+.walletStatusDot
+  width 6px
+  height 6px
+  border-radius 50%
+  flex-shrink 0
+
+.walletStatusGood
+  background var(--good)
+
+.walletStatusBad
+  background var(--bad)
+
+.walletStatusPending
+  background var(--pending)
+
+// ─── Signer Status "Not OK" ───────────────────────────────────────────────────
+
+.signerStatusNotOk
+  position absolute
+  inset 0
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  gap 10px
+  padding 0 16px
+  background rgb(6, 9, 22)
+
+.signerStatusNotOkInner
+  display flex
+  align-items center
+  gap 10px
+  width 100%
+
+.signerStatusNotOkDot
+  width 8px
+  height 8px
+  border-radius 50%
+  background var(--pending)
+  flex-shrink 0
+  animation vaultPulse 1.4s ease-in-out infinite
+
+.signerStatusNotOkText
+  font-size 13px
+  font-weight 400
+  color rgba(186, 230, 253, 0.4)
+  letter-spacing 0.01em
+  text-transform capitalize
+
+.signerStatusNotOkLoader
+  width 100%
+  height 2px
+  background rgba(14, 165, 233, 0.15)
+  border-radius 1px
+  overflow hidden
+  position relative
+
+.signerStatusNotOkLoaderBar
+  position absolute
+  left -60%
+  top 0
+  bottom 0
+  width 60%
+  background linear-gradient(90deg, transparent, var(--pending), transparent)
+  border-radius 1px
+  animation signerStatusScan 1.8s ease-in-out infinite
+
+@keyframes signerStatusScan
+  0%
+    left -60%
+  100%
+    left 110%

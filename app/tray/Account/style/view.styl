@@ -1,0 +1,117 @@
+.walletView
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  background var(--ghostA)
+  z-index 4
+  display flex
+  justify-content center
+  align-items center
+  transition var(--standard)
+  overflow hidden
+
+  .walletViewMenu
+    position absolute
+    top 0
+    right 0
+    left 0
+    height 52px
+    background var(--ghostB)
+    border-bottom 1px solid rgba(14, 165, 233, 0.18)
+    box-sizing border-box
+    z-index 59999999
+    display flex
+    align-items center
+    padding 0 16px
+
+    .walletViewTitle
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0px
+      display flex
+      justify-content center
+      align-items center
+      text-transform uppercase
+      letter-spacing 0.08em
+      font-size 14px
+      font-weight 400
+      pointer-events none
+      font-family 'MainFont'
+      color var(--outerspace)
+
+      .accountViewIcon
+        pointer-events none
+        transform translate3d(0, 0, 0)
+        position relative
+        top 2px
+
+      .accountViewText
+        font-size 12px
+        letter-spacing 0.08em
+
+    .walletViewBack
+      width 36px
+      height 36px
+      border-radius 10px
+      display flex
+      justify-content center
+      align-items center
+      -webkit-app-region no-drag
+      transition var(--standardFast)
+      pointer-events auto
+      transform translate3d(0, 0, 0)
+      cursor pointer
+      box-sizing border-box
+      color var(--outerspace08)
+      flex-shrink 0
+
+      *
+        pointer-events none
+
+    .walletViewBack:hover
+      background rgba(14, 165, 233, 0.06)
+      color var(--good)
+
+  .accountViewTop
+    background var(--ghostB)
+    border-bottom 1px solid rgba(14, 165, 233, 0.18)
+    padding 0 16px
+    height 52px
+    display flex
+    align-items center
+    box-sizing border-box
+
+  .walletViewTitle
+    font-size 14px
+    font-weight 400
+    margin-left 12px
+    letter-spacing 0.02em
+    color var(--outerspace)
+
+  .walletViewScroll
+    height calc(100% - 52px)
+    overflow-y auto
+
+  .walletViewMain
+    position absolute
+    top 0px
+    right 0px
+    left 0px
+    bottom 0px
+    animation-delay 0.08s
+    z-index 3
+    padding-top 30px
+
+.walletView::before
+  content ''
+  position absolute
+  top 0px
+  left 0px
+  right 0px
+  height 40px
+  background linear-gradient(var(--ghostB) 30%, rgba(3, 5, 15, 0))
+  z-index 90

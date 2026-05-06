@@ -1,0 +1,305 @@
+// ─── Custom Tokens List ───────────────────────────────────────────────────────
+
+.customTokens
+
+  // ─── Section Header ─────────────────────────────────────────────────────────
+
+  .customTokensTitle
+    font-size 14px
+    font-weight 400
+    height 48px
+    display flex
+    justify-content space-between
+    padding 0px 14px
+    align-items center
+    border-bottom 1px solid rgba(14,165,233,0.18)
+    color rgb(224,242,254)
+
+    // "+ Add Token" pill
+    .customTokensAddToken
+      background transparent
+      border 1px solid rgba(14,165,233,0.18)
+      height 28px
+      border-radius 8px
+      display flex
+      justify-content center
+      align-items center
+      font-size 11px
+      padding 0px 12px
+      letter-spacing 0.08em
+      font-weight 500
+      text-transform uppercase
+      color var(--good)
+      cursor pointer
+      transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+      *
+        pointer-events none
+
+    .customTokensAddToken:hover
+      background rgba(14,165,233,0.08)
+      border-color rgba(14,165,233,0.4)
+
+  // ─── Footer ─────────────────────────────────────────────────────────────────
+
+  .customTokensFooter
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    height 56px
+    font-family 'MainFont'
+    font-size 16px
+    font-weight 400
+    display flex
+    justify-content center
+    align-items center
+    color rgba(186,230,253,0.7)
+
+  // ─── Token List ──────────────────────────────────────────────────────────────
+
+  .customTokensList
+    padding 14px
+    display flex
+    flex-direction column
+    gap 8px
+    z-index 2
+
+  .customTokensListNoTokens
+    position absolute
+    top 140px
+    left 5px
+    right 5px
+    bottom 0px
+    display flex
+    font-size 14px
+    font-weight 300
+    justify-content center
+    align-items center
+    text-transform uppercase
+    letter-spacing 0.08em
+    font-family 'MainFont'
+    color rgba(186,230,253,0.7)
+
+  // ─── Token List Item ─────────────────────────────────────────────────────────
+
+  .customTokensListItem
+    position relative
+    background rgb(6,9,22)
+    border 1px solid rgba(14,165,233,0.18)
+    border-radius 14px
+    overflow hidden
+    transition 0.25s cubic-bezier(0.4, 0, 0.2, 1) all
+    box-sizing border-box
+
+  .customTokensListItem:hover
+    border-color rgba(14,165,233,0.4)
+
+    // ─── List Item Title Row ───────────────────────────────────────────────────
+
+    .customTokensListItemTitle
+      display flex
+      justify-content space-between
+      align-items center
+      height 52px
+      box-sizing border-box
+      padding 8px 12px
+
+      // Expand/collapse chevron
+      .customTokensListItemExpand
+        text-align center
+        width 28px
+        height 28px
+        margin-left 8px
+        border-radius 8px
+        cursor pointer
+        padding 6px
+        box-sizing border-box
+        background transparent
+        border 1px solid rgba(14,165,233,0.18)
+        transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+        transform rotate(-180deg)
+        flex-shrink 0
+        *
+          pointer-events none
+
+      .customTokensListItemExpand:hover
+        background rgba(14,165,233,0.08)
+        border-color rgba(14,165,233,0.4)
+
+      .customTokensListItemExpandActive
+        transform rotate(0deg)
+
+      // Token name + icon group
+      .customTokensListItemName
+        display flex
+        justify-content flex-start
+        align-items center
+        gap 10px
+        flex 1
+        min-width 0
+
+        img:before
+          content attr(alt)
+          position absolute
+          top 0
+          bottom 0
+          left 0
+          right 0
+          border-radius 50%
+          background rgb(10,14,35)
+          color rgb(224,242,254)
+          display flex
+          justify-content center
+          align-items center
+          font-size 10px
+          font-weight 400
+          letter-spacing -0.5px
+
+        img
+          position relative
+          height 32px
+          width 32px
+          border-radius 50%
+          flex-shrink 0
+          border 1px solid rgba(14,165,233,0.2)
+          background rgb(10,14,35)
+          overflow hidden
+          object-fit cover
+
+        .customTokensListItemText
+          display flex
+          flex-direction column
+          align-items flex-start
+          justify-content flex-start
+          min-width 0
+
+        .customTokensListItemSymbol
+          font-family 'CodeFont'
+          font-size 13px
+          font-weight 400
+          letter-spacing 0.06em
+          text-transform uppercase
+          color rgb(224,242,254)
+          line-height 1.2
+          white-space nowrap
+          overflow hidden
+          text-overflow ellipsis
+
+        .customTokensListItemSub
+          font-size 11px
+          font-weight 300
+          font-family 'MainFont'
+          color rgba(186,230,253,0.7)
+          line-height 1.2
+          margin-top 2px
+          white-space nowrap
+          overflow hidden
+          text-overflow ellipsis
+
+      // Chain info right side
+      .customTokensListItemChain
+        display flex
+        justify-content center
+        align-items center
+        gap 4px
+        flex-shrink 0
+
+    // ─── Chain Label ─────────────────────────────────────────────────────────
+
+    .customTokensListItemChainLabel
+      font-size 10px
+      text-transform uppercase
+      letter-spacing 0.08em
+      font-weight 500
+      color rgba(186,230,253,0.7)
+
+    // ─── Contract Address Pill ────────────────────────────────────────────────
+
+    .customTokensListItemAddress
+      display flex
+      justify-content center
+      align-items center
+      font-size 11px
+      height 26px
+      margin 0px 10px
+      border-radius 8px
+      font-family 'CodeFont'
+      background rgba(14,165,233,0.05)
+      border 1px solid rgba(14,165,233,0.18)
+      padding 0px 8px
+      cursor pointer
+      letter-spacing 0.03em
+      color rgba(186,230,253,0.7)
+      transition 0.15s ease all
+      *
+        pointer-events none
+
+    .customTokensListItemAddress:hover
+      background rgba(14,165,233,0.1)
+      border-color rgba(14,165,233,0.4)
+      color rgb(224,242,254)
+
+    // ─── Expanded Action Row ──────────────────────────────────────────────────
+
+    .customTokensListItemBottom
+      height 44px
+      display flex
+      align-items center
+      padding 0px 10px
+      gap 6px
+      border-top 1px solid rgba(14,165,233,0.18)
+
+      .customTokensListItemButton
+        display flex
+        justify-content center
+        align-items center
+        flex 1
+        height 28px
+        box-sizing border-box
+        border-radius 8px
+        cursor pointer
+        text-transform uppercase
+        letter-spacing 0.06em
+        font-size 11px
+        font-weight 500
+        background transparent
+        border 1px solid transparent
+        transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+        *
+          pointer-events none
+
+      .customTokensListItemButton:hover
+        background rgb(10,14,35)
+
+      .editButton
+        color var(--good)
+        border-color rgba(14,165,233,0.2)
+
+      .editButton:hover
+        background rgba(14,165,233,0.08)
+        border-color rgba(14,165,233,0.4)
+
+      .removeButton
+        color var(--bad)
+        border-color rgba(244, 63, 94, 0.15)
+
+      .removeButton:hover
+        background rgba(244, 63, 94, 0.08)
+        border-color rgba(244, 63, 94, 0.4)
+
+  // ─── Expanded Item State ─────────────────────────────────────────────────────
+
+  .customTokensListItemExpanded
+    border-color rgba(14,165,233,0.4)
+
+  // ─── Chain / Decimal statusIndicator ─────────────────────────────────────────
+
+  .customTokensListItemChainDecimal
+    display flex
+    justify-content center
+    align-items center
+    font-family 'CodeFont'
+    font-size 12px
+    font-weight 400
+    color rgba(186,230,253,0.7)
+    gap 4px

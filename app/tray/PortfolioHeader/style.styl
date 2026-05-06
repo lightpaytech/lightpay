@@ -1,0 +1,108 @@
+// LightPay — Portfolio Header
+
+@keyframes spin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)
+
+.portfolioHeader
+  width 100%
+  padding 10px 16px 8px
+  background rgb(6,9,22)
+  border-bottom 1px solid rgba(14,165,233,0.12)
+  cursor pointer
+  transition background 0.15s ease
+  position relative
+  &:hover
+    background rgba(14,165,233,0.04)
+
+.portfolioHeaderMain
+  display flex
+  align-items center
+  gap 8px
+
+.portfolioLabel
+  font-size 10px
+  font-weight 600
+  color rgba(14,165,233,0.6)
+  text-transform uppercase
+  letter-spacing 0.1em
+  flex 1
+
+.portfolioValue
+  font-size 20px
+  font-weight 700
+  color rgb(56,189,248)
+  letter-spacing -0.02em
+
+.portfolioChange
+  font-size 11px
+  font-weight 600
+  display flex
+  align-items center
+  gap 2px
+  padding 2px 6px
+  border-radius 4px
+
+.portfolioChangePositive
+  color rgb(34,197,94)
+  background rgba(34,197,94,0.08)
+  border 1px solid rgba(34,197,94,0.2)
+  font-size 11px
+  font-weight 600
+  display flex
+  align-items center
+  gap 2px
+  padding 2px 8px
+  border-radius 20px
+
+.portfolioChangeNegative
+  color rgb(239,68,68)
+  background rgba(239,68,68,0.08)
+  border 1px solid rgba(239,68,68,0.2)
+  font-size 11px
+  font-weight 600
+  display flex
+  align-items center
+  gap 2px
+  padding 2px 8px
+  border-radius 20px
+
+.portfolioRefresh
+  background none
+  border 1px solid rgba(14,165,233,0.18)
+  cursor pointer
+  color rgba(14,165,233,0.5)
+  font-size 14px
+  padding 2px 6px
+  border-radius 4px
+  transition all 0.15s ease
+  &:hover
+    color rgb(14,165,233)
+    border-color rgba(14,165,233,0.4)
+  &.portfolioRefreshSpin
+    animation spin 1s linear infinite
+
+.portfolioDetail
+  margin-top 8px
+  padding-top 8px
+  border-top 1px solid rgba(14,165,233,0.12)
+
+.portfolioDetailRow
+  display flex
+  justify-content space-between
+  align-items center
+  margin-bottom 4px
+
+.portfolioDetailLabel
+  font-size 10px
+  color rgba(186,230,253,0.4)
+
+.portfolioDetailValue
+  font-size 10px
+  color rgba(186,230,253,0.7)
+
+.portfolioAddress
+  font-family monospace
+  font-size 10px

@@ -1,0 +1,954 @@
+@keyframes arrowSlide
+  0%
+    opacity 0
+    transform translateY(5px)
+  20%
+    opacity 1
+  40%
+    opacity 0
+    transform translateY(-15px)
+  100%
+    opacity 0
+
+@keyframes arrowSlideSingle
+  0%
+    opacity 0
+    transform translateY(3px)
+  50%
+    opacity 1
+  100%
+    opacity 0
+    transform translateY(-3px)
+
+@keyframes headShake
+  0%
+    transform translateX(0)
+  6.5%
+    transform translateX(-6px) rotateY(-9deg)
+  18.5%
+    transform translateX(5px) rotateY(7deg)
+  31.5%
+    transform translateX(-3px) rotateY(-5deg)
+  43.5%
+    transform translateX(2px) rotateY(3deg)
+  50%
+    transform translateX(0)
+
+.headShake
+  animation-duration 1s
+  animation-fill-mode both
+  animation-timing-function ease-in-out
+  animation-name headShake
+  transform translateZ(0)
+
+.standardFade-enter
+  opacity 0
+
+.standardFade-enter.standardFade-enter-active
+  opacity 1
+  transition var(--standard)
+
+.standardFade-leave
+  opacity 1
+
+.standardFade-leave.standardFade-leave-active
+  opacity 0
+  transition var(--standard)
+
+.footerModule
+  position absolute
+  bottom 0px
+  left 0px
+  right 0px
+  min-height 40px
+  z-index 99999999
+  transition var(--standard)
+
+  .footerWrap
+    width 100%
+    display flow-root
+
+.signer
+  position relative
+  z-index 3001
+  transition var(--standard)
+  will-change transform
+  transform translate3d(0, 0, 0)
+  pointer-events auto
+  box-sizing border-box
+  z-index 10000000
+
+  .signerContainer
+    position relative
+    z-index 3002
+    padding 0px 0px 5px 0px
+
+// ─── Account controller strip ────────────────────────────────────────────────
+
+.walletHeader
+  padding 14px
+  background var(--ghostB)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+  box-sizing border-box
+
+.walletHeaderTop
+  height 56px
+  display flex
+  align-items center
+
+.walletAvatar
+  width 36px
+  height 36px
+  border-radius 50%
+  border 2px solid rgba(14, 165, 233, 0.4)
+  overflow hidden
+  flex-shrink 0
+
+.walletAccountName
+  font-size 15px
+  font-weight 400
+  color var(--outerspace)
+  letter-spacing 0.01em
+
+.walletAccountAddr
+  font-family 'CodeFont'
+  font-size 11px
+  color var(--outerspace06)
+  letter-spacing 0.08em
+
+// ─── Main account panel ───────────────────────────────────────────────────────
+
+.walletMain
+  position absolute
+  top 140px
+  right 7px
+  bottom 40px
+  left 7px
+  z-index 3
+  display flex
+  justify-content center
+  align-items center
+  border-radius 16px
+  transition var(--standard)
+  overflow hidden
+
+  .walletModulesExpand
+    background var(--ghostA)
+    z-index 2001
+    margin-bottom 30px
+    height 100%
+
+    .moduleExpanded
+      z-index 20000
+
+      .walletModuleInner
+        position relative
+
+    .walletModule
+      position relative !important
+
+  .walletMainScroll
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    overflow-y scroll
+    overflow-x hidden
+    transform translate3d(0, 0, 0)
+    border-radius 16px
+
+  .walletMainSlide
+    position relative
+    width 100%
+    transform translate3d(0, 0, 0)
+    transition var(--standardSlow)
+    transition-delay 0.32s
+    padding-bottom 90px
+    pointer-events none
+    z-index 999
+
+  .signerAddress
+    font-size 10px
+    font-family 'CodeFont'
+    letter-spacing 0px
+    position absolute
+    top 0px
+    left 0px
+    bottom 0px
+    right 0px
+    padding-top 0px
+    transform translateZ(0)
+
+    .transactionToAddressLargeWrap
+      position absolute
+      top 14px
+      left 61px
+      height 40px
+      width 140px
+      cursor pointer
+      z-index 5
+
+    .transactionToAddressLarge
+      position absolute
+      top 0px
+      left 0px
+      right 0px
+      bottom 0px
+      display flex
+      font-size 17px
+      opacity 1
+      pointer-events none
+      cursor pointer
+
+      svg
+        color var(--outerspace08)
+
+    .transactionToAddressCopy
+      display flex
+      justify-content center
+      align-items center
+      font-size 8px
+      letter-spacing 1px
+      opacity 1
+      pointer-events none
+      text-transform uppercase
+      font-weight 400
+      letter-spacing 1px
+      font-family 'MainFont'
+      color var(--outerspace08)
+      border-radius 10px
+      transform translateY(0px)
+      bottom 30px
+      opacity 0
+
+    .transactionToAddressFull
+      position absolute
+      top 2px
+      right 0
+      bottom 0
+      left 0
+      display flex
+      justify-content center
+      align-items center
+      font-size 13.5px
+      font-weight 300
+      pointer-events none
+      z-index 8
+      cursor pointer
+
+      .transactionToAddressFullCopied
+        position absolute
+        right 18px
+        top 22px
+
+        svg
+          position relative
+          top -1px
+          margin-left 22px
+
+    .transactionToAddressENS
+      transform translateY(7px)
+
+    .transactionToAddressFullHidden
+      opacity 0
+
+  .clickGuard
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    right 0
+    z-index 4000
+    border-radius 16px
+
+  .walletListWrap
+    position absolute
+    top 100px
+    left 0
+    right 0
+    height 0px
+    background var(--ghostB)
+    z-index 3015
+    transition var(--standardFast)
+    border-bottom-left-radius 16px
+    border-bottom-right-radius 16px
+    overflow hidden
+    border 1px solid rgba(14, 165, 233, 0.18)
+    transform translateZ(0)
+    display none
+
+    .accountList
+      position absolute
+      left 0
+      right 0
+      bottom 0
+      height 330px
+      z-index 3018
+      overflow hidden
+      padding 15px 0px 10px 0px
+
+      .settingsMenu
+        background linear-gradient(var(--ghostB), var(--ghostD))
+        display flex
+        justify-content center
+        flex-direction column
+        align-items center
+        position absolute
+        left 0
+        right 0
+        bottom 0
+        height 50px
+        transition var(--standardSlow)
+        opacity 1
+        pointer-events auto
+        .settingsMenuSelect
+          position relative
+          height 12px
+          width 105px
+          box-sizing border-box
+          .settingsMenuMark
+            height 12px
+            position absolute
+            transition var(--standard)
+            .settingsMenuMarkLine
+              position absolute
+              background outerspace
+              height 2px
+              top 0px
+              left 7px
+              right 7px
+              border-radius 1px
+        .settingsMenuItems
+          box-sizing border-box
+          height 33px
+          width 105px
+          display flex
+          .settingsMenuItem
+            position relative
+            box-sizing border-box
+            z-index 1230
+            width 35px
+            height 33px
+            color var(--outerspace08)
+            .settingsMenuItemIcon
+              top 0
+              right 0
+              bottom 0px
+              left 0
+              position absolute
+              z-index 1234
+              padding 14px 14px
+          .settingsMenuItemSelected, .settingsMenuItem:hover
+            color var(--outerspace)
+
+      .accountListItems
+        background var(--ghostB)
+        height 280px
+        min-height 280px
+        width 100%
+        display flex
+        justify-content flex-start
+        align-items center
+        flex-direction column
+        position relative
+        z-index 3
+        transition var(--standardSlow)
+        transform translateY(-200px)
+        pointer-events none
+
+        .walletListItem
+          background var(--ghostB)
+          width calc(100% - 40px)
+          height 55px
+          min-height 55px
+          border-bottom 1px solid rgba(14, 165, 233, 0.18)
+          display flex
+          justify-content space-between
+          align-items center
+          padding 0px 20px 0px 20px
+          font-family 'CodeFont'
+          color var(--outerspace08)
+          position relative
+          z-index 4
+
+          .accountListItemCheck
+            color var(--outerspace01)
+            margin-bottom 3px
+
+          .accountListItemAddress
+            svg
+              margin 0px 4px 0px 4px
+
+        .walletListItem:last-child
+          border-bottom none
+
+        .walletListItemActive
+          background var(--ghostC)
+          color var(--outerspace)
+          border-radius 16px
+          border 1px solid rgba(14, 165, 233, 0.4)
+          position relative
+          z-index 10
+          .accountListItemCheck
+            color var(--good)
+
+      .accountPageToggle
+        padding-top 20px
+        height 20px
+        min-height 20px
+        padding-bottom 14px
+        width 100%
+        display flex
+        justify-content center
+        align-items center
+        font-family 'CodeFont'
+        position relative
+        z-index 2
+        transition var(--standardSlow)
+        opacity 0
+        pointer-events none
+        transform translateY(-200px)
+
+        .walletPageCurrent
+          border-radius 8px
+          height 27px
+          width 27px
+          display flex
+          justify-content center
+          align-items center
+          font-size 18px
+
+        .walletPageBtn
+          border-radius 8px
+          height 27px
+          width 27px
+          display flex
+          justify-content center
+          align-items center
+          box-sizing border-box
+
+        .accountPageButtonLeft
+          padding-right 1px
+
+        .accountPageButtonRight
+          padding-left 1px
+
+        .walletPageBtn:hover
+          background rgba(14, 165, 233, 0.06)
+
+  .walletNavBar
+    position absolute
+    top 64px
+    right 0px
+    left 0px
+    border-radius 0px
+    z-index 9999003
+    overflow-x hidden
+    overflow-y hidden
+    transition var(--standard), 0.1s linear background
+    will-change transform
+    background var(--ghostA)
+    height 48px
+    border-bottom 1px solid rgba(14, 165, 233, 0.18)
+
+    .accountMenuLeft
+      position absolute
+      top 0px
+      left 0px
+      bottom 0px
+      display flex
+      .walletNavItem
+        border-right 1px solid rgba(14, 165, 233, 0.18)
+      .walletNavItem:first-child
+        padding-left 4px
+
+    .accountMenuRight
+      position absolute
+      top 0px
+      right 0px
+      bottom 0px
+      .walletNavItem
+        border-left 1px solid rgba(14, 165, 233, 0.18)
+      .walletNavItem:last-child
+        padding-right 4px
+
+    .walletNavItem
+      height 48px
+      width 48px
+      display flex
+      justify-content center
+      align-items center
+      cursor pointer
+      border-radius 0
+      transition var(--standardFast)
+
+      div, svg
+        pointer-events none
+
+    .walletNavItem:hover
+      color var(--good)
+      opacity 1
+
+    .walletNavItemActive
+      color var(--good)
+      border-bottom 2px solid var(--good)
+
+  .walletSignerMid
+    position absolute
+    top calc(22px + 83px)
+    right 0px
+    bottom 7px
+    left 0px
+    border-radius 16px
+    z-index 9999003
+    overflow-x hidden
+    overflow-y hidden
+    opacity 1
+    transition var(--standard), 0.1s linear background
+    will-change transform
+    background var(--ghostB)
+    border 1px solid rgba(14, 165, 233, 0.18)
+    animation-delay 0.4s
+
+    > div
+      transition var(--standard)
+      opacity 0
+
+    .signerMidMenu
+      background rgba(14, 165, 233, 0.06)
+      height 50px
+      display flex
+      flex-direction column
+      justify-content center
+      align-items center
+
+      .deviceMenuItems
+        height 25px
+        display flex
+        justify-content center
+        align-items center
+        margin-top 5px
+
+        .deviceMenuItem
+          height 30px
+          width 40px
+          display flex
+          justify-content center
+          align-items center
+
+      .deviceMenuSelect
+        height 10px
+        width 80px
+        position relative
+
+        .deviceMenuMarker
+          position absolute
+          left 0px
+          height 2px
+          width 20px
+          margin 0px 10px
+          background var(--good)
+
+    .walletSignerNode
+      display flex
+      justify-content center
+      align-items center
+      font-size 12px
+      height 40px
+      border-top 1px solid rgba(14, 165, 233, 0.18)
+
+  .signerEvents
+    height 200px
+    overflow scroll
+    background rgba(0, 0, 50, 0.1)
+    width 100%
+
+  .signerSelectDown
+    transform rotate(180deg)
+    .signerSelectArrows
+      .signerSelectArrow
+        svg
+          color var(--ghostC)
+
+  .signerSelectLeft
+    left 3px
+
+  .signerSelectRight
+    right 3px
+
+  .signerSelectDown.signerSelectLeft
+    left -50px
+    opacity 0
+
+  .signerSelectDown.signerSelectRight
+    right -50px
+    opacity 0
+
+  .signerReady
+    font-size 12px
+    width 100%
+
+.walletModule
+  position absolute
+  top 0
+  left 2px
+  right 2px
+  transform translate3d(0, 0, 0)
+  transition var(--standardFast)
+  pointer-events auto
+  padding-bottom 7px
+
+.moduleExpanded
+  min-height 100%
+  .walletModuleInner
+    background none
+    border-radius none
+
+.actionsPreview:hover
+  .requestsPreviewArrow
+    transform translateX(0px)
+
+.actionsPreview
+  height 52px
+  position relative
+  font-size 11px
+  text-transform uppercase
+  letter-spacing 0.08em
+  font-family 'MainFont'
+  font-weight 500
+  box-sizing border-box
+  border-radius 16px
+  cursor pointer
+  overflow hidden
+  background var(--ghostAZ)
+
+  *
+    pointer-events none
+
+  .requestsPreviewOverlay
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    z-index 200
+    pointer-events none
+    transition var(--standardFast)
+    background linear-gradient(90deg, var(--overlayA), var(--overlayB))
+    border-radius 16px
+
+  .requestPreviewContent
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    display flex
+    align-items center
+    justify-content space-between
+    cursor pointer
+    z-index 200
+    padding 16px 0px 16px 20px
+    box-sizing border-box
+    overflow hidden
+    border-radius 16px
+
+    .requestPreviewContentTitle
+      display flex
+      align-items center
+
+    .requestPreviewContentArrow
+      display flex
+      align-items center
+      padding-right 20px
+      transition var(--standard)
+
+      div
+        max-width 13px
+
+  .requestsPreviewArrow
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0px
+    transform translateX(-440px)
+    transition var(--standard)
+
+    .actionsPreviewArrow
+      position absolute
+      background var(--ghostA)
+      left 0px
+      margin -157px
+      width 367px
+      height 367px
+      transform rotate(45deg)
+      margin-left 0px
+      border-radius 16px
+      pointer-events none
+      z-index 100
+      filter blur(8px)
+
+  span
+    margin-right 8px
+
+  .requestsBadgeOverlay
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    background linear-gradient(-35deg, var(--overlayA) 0%, var(--overlayB) 100%)
+    z-index 999
+    pointer-events none
+
+.walletModuleInner
+  position absolute
+  top 0
+  left 0px
+  right 0px
+  bottom 7px
+  transform translate3d(0, 0, 0)
+  padding 0px 6px
+  border-radius 16px
+
+  .walletModuleCard
+    position relative
+    border-radius 16px
+    background var(--ghostAZ)
+    border 1px solid rgba(14, 165, 233, 0.18)
+
+  .sectionTitle:before
+    content ''
+    position absolute
+    bottom -2px
+    right 16px
+    left 16px
+    height 1px
+    background var(--ghostA)
+
+  .moduleHeaderBlank
+    height 6px
+
+  .sectionTitle
+    position relative
+    font-size 11px
+    text-transform uppercase
+    letter-spacing 0.08em
+    padding 16px 90px 10px 20px
+    height 42px
+    font-family 'MainFont'
+    font-weight 500
+    box-sizing border-box
+    display flex
+    align-items center
+    color var(--outerspace06)
+    margin-bottom 10px
+
+    span
+      margin-right 8px
+
+    .moduleHeaderClose
+      background var(--bad)
+      color var(--moonOver)
+      width 20px
+      height 20px
+      border-radius 10px
+      position absolute
+      right 11px
+      top 9px
+      bottom 0
+      display flex
+      justify-content center
+      align-items center
+      cursor pointer
+      *
+        pointer-events none
+
+    .moduleHeaderLoading
+      position absolute
+      left 6px
+      top 1px
+      bottom 0
+      display flex
+      justify-content center
+      align-items center
+
+    .moduleHeaderLoadingLoader
+      border-radius 50%
+      width 12px
+      height 12px
+      margin 12px auto
+      font-size 10px
+      position relative
+      text-indent -9999em
+      border-top 3px solid var(--ghostA)
+      border-right 3px solid var(--ghostA)
+      border-bottom 3px solid var(--ghostA)
+      border-left 3px solid var(--good)
+      transform translateZ(0)
+      animation load 0.5s infinite linear
+      will-change transform
+
+  .sectionTitle:before
+    background none
+
+  .moduleHeaderBorderless
+    border-bottom none
+
+  .moduleComingSoon
+    padding 14px 0px 20px 0px
+    display flex
+    justify-content center
+    color var(--ghostA)
+    font-weight 300
+    font-size 24px
+
+  .sectionContent
+    padding 14px
+
+  .sectionFooter
+    padding 14px
+
+  .moduleMainSettings
+    font-size 11px
+    text-transform uppercase
+    letter-spacing 0.08em
+    font-weight 400
+
+  .sectionFooterBtn
+    position absolute
+    bottom 0px
+    width 100%
+    cursor pointer
+    text-align center
+    font-size 12px
+    text-transform uppercase
+    border-top 1px solid rgba(14, 165, 233, 0.18)
+    box-sizing border-box
+    font-weight 300
+    letter-spacing 1px
+    padding 12px
+    height 42px
+    text-align center
+    box-sizing border-box
+    background var(--ghostB)
+    z-index 400000
+    transition var(--standardFast)
+
+  .sectionFooterBtn:hover
+    background rgba(14, 165, 233, 0.06)
+    color var(--good)
+
+.signerVerifyText
+  font-size 15px
+  text-align center
+  display flex
+  justify-content center
+  align-items center
+  height 70px
+  padding 0px 30px
+
+.sectionRow
+  height 30px
+  margin-bottom 4px
+  display flex
+  align-items center
+
+  input
+    z-index 200
+    user-select auto
+    background var(--ghostC)
+    outline none
+    border 1px solid rgba(14, 165, 233, 0.18)
+    margin-left 8px
+    height 100%
+    color var(--outerspace)
+    border-radius 8px
+    padding 0px 8px
+    transition var(--standardFast)
+
+  input:focus
+    border-color rgba(14, 165, 233, 0.4)
+    outline none
+
+.sectionBtn
+  width 100%
+  height 40px
+  background var(--ghostAZ)
+  border-radius 10px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  color var(--outerspace)
+  display flex
+  justify-content center
+  align-items center
+  font-weight 400
+  font-size 13px
+  box-sizing border-box
+  text-transform uppercase
+  transition var(--standardFast)
+
+  svg
+    position relative
+
+  span
+    padding-left 4px
+
+  *
+    pointer-events none
+
+.sectionBtn.signerVerifyInProgress
+  background var(--ghostC)
+  color var(--outerspace04)
+
+.sectionBtn:hover:not(.signerVerifyInProgress)
+  cursor pointer
+  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.4)
+  color var(--good)
+
+.sectionBtnDanger
+  color var(--bad)
+
+.sectionBtnPrimary
+  color var(--good)
+
+.sectionBtnLocked
+  color var(--ghostD)
+
+.sectionBtnLocked:hover
+  background var(--ghostB)
+
+@import '../Assets/style'
+@import '../Collection/style'
+@import '../AccessList/style'
+@import '../Requests/style'
+@import '../Preferences/style'
+@import '../KeyDevice/style'
+@import '../Portfolio/style'
+@import '../../Watchlist/style'
+
+@import '../AccessList/DappsExpanded/style'
+@import '../AccessList/DappsPreview/style'
+@import '../Assets/Balance/style'
+@import '../Assets/BalancesExpanded/style'
+@import '../Collection/InventoryCollection/style'
+@import '../Collection/InventoryExpanded/style'
+
+@import '../Verify/style'
+@import '../History/style'
+@import '../EmptyState/style'
+@import '../Preferences/SettingsExpanded/style'
+@import '../KeyDevice/SignerPreview/style'
+
+@import './view'
+@import '../Collection/InventoryPreview/style'
+@import '../Assets/BalancesPreview/style'
+@import '../NetworkList/ChainsPreview/style'
+@import '../Preferences/SettingsPreview/style'
+@import '../Requests/SigFlow/style'
+@import '../Requests/AccessFlow/style'
+@import '../Requests/TypedSignFlow/style'
+@import '../Requests/EnsActions/style'
+@import '../Requests/TxFlow/TxMainNew/style'

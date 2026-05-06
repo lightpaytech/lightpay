@@ -1,0 +1,103 @@
+.modalDialog
+  font-family 'MainFont'
+  font-weight 300
+
+.modalOverlay
+  position fixed
+  inset 0
+  background rgba(3,5,15,0.85)
+  overlayBg-filter blur(6px)
+  z-index 99999999
+  display flex
+  align-items center
+  justify-content center
+
+.modalBox
+  background rgb(10,14,35)
+  border 1px solid rgba(14,165,233,0.2)
+  border-radius 18px
+  padding 24px
+  width 320px
+
+.modalTitle
+  font-size 17px
+  font-weight 500
+  color rgb(224,242,254)
+  margin-bottom 10px
+  text-align center
+  padding-bottom 10px
+  border-bottom 1px solid rgba(14,165,233,0.15)
+
+.modalBody
+  font-size 13px
+  color rgba(186,230,253,0.7)
+  line-height 1.6
+  text-align center
+  margin-bottom 20px
+
+.modalText
+  font-size 20px
+  padding 0px 42px 42px 42px
+  font-weight 300
+
+.modalActions
+  display flex
+  gap 8px
+
+.modalBtnOptions
+  display flex
+  justify-content center
+  align-items center
+
+.modalCancel
+  flex 1
+  height 42px
+  background rgba(14,165,233,0.05)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 11px
+  color rgba(186,230,253,0.7)
+  font-size 13px
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.modalCancel:hover
+  border-color rgba(14,165,233,0.4)
+  color rgb(224,242,254)
+
+.modalDanger
+  flex 1
+  height 42px
+  background rgba(255, 75, 100, 0.1)
+  border 1px solid rgba(255, 75, 100, 0.3)
+  border-radius 11px
+  color rgb(255, 75, 100)
+  font-size 13px
+  font-weight 500
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.modalDanger:hover
+  background rgba(255, 75, 100, 0.18)
+  border-color rgba(255, 75, 100, 0.55)
+
+.modalBtn
+  margin 8px
+  padding 0px 16px
+  height 42px
+  font-weight 300
+  background rgb(14,165,233)
+  color rgb(3,5,15)
+  border-radius 11px
+  display flex
+  justify-content center
+  align-items center
+  border 1px solid rgba(14,165,233,0.5)
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+  *
+    pointer-events none
+
+.modalBtn:hover
+  background rgb(56,189,248)
+  border-color rgba(56,189,248,0.6)

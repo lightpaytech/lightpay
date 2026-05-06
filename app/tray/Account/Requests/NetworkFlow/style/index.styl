@@ -1,0 +1,144 @@
+// VAULT: Add Network (Chain) Request card
+// Network name + chain ID + RPC + warning box
+.requestChainInner
+  display flex
+  justify-content center
+  align-items center
+  flex-direction column
+  transform translateZ(0px)
+  padding 40px 0px 40px 0px
+  margin 16px 4px
+  // VAULT: flat left edge for accent bar, rounded right
+  border-radius 0 16px 16px 0
+  width calc(100% - 16px)
+  box-sizing border-box
+  // VAULT: dark card background
+  background var(--ghostB)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-left 4px solid var(--good)
+  font-family 'MainFont'
+
+// VAULT: origin dapp — small, muted caps
+.requestChainOrigin
+  font-size 12px
+  font-weight 300
+  color var(--outerspace06)
+  letter-spacing 0.05em
+  width 100%
+  text-align center
+  transform translateZ(0px)
+  direction rtl
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
+  margin 20px 0px 5px 0px
+  text-transform uppercase
+
+.requestChainOrigin18
+  font-size 18px
+
+.requestChainOrigin12
+  font-size 12px
+
+// VAULT: "Add network" sub-label — emerald
+.requestChainOriginSub
+  width 100%
+  font-size 12px
+  font-weight 300
+  text-transform uppercase
+  letter-spacing 0.05em
+  width 100%
+  text-align center
+  margin 0px 0px 20px 0px
+  color var(--good)
+
+// VAULT: network name — large centered heading
+.requestChainName
+  width calc(100% - 10px)
+  margin 0px 0px 4px 0px
+  box-sizing border-box
+  border-radius 12px
+  text-align center
+  background transparent
+  font-weight 500
+  font-size 20px
+  color var(--outerspace)
+  padding 10px 0px
+
+// VAULT: chain ID row — CodeFont with emerald accent
+.requestChainId
+  font-size 13px
+  font-family 'CodeFont'
+  color var(--good)
+  text-align center
+  margin-bottom 16px
+  letter-spacing 0.02em
+
+// VAULT: RPC URL row — CodeFont, truncated, muted
+.requestChainRpc
+  font-size 12px
+  font-family 'CodeFont'
+  color var(--outerspace05)
+  text-align center
+  max-width calc(100% - 32px)
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+  margin-bottom 20px
+  padding 0px 16px
+  box-sizing border-box
+
+// VAULT: key-value detail rows
+.requestChainDetail
+  width calc(100% - 32px)
+  display flex
+  justify-content space-between
+  align-items center
+  padding 8px 0px
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
+  box-sizing border-box
+  margin 0px 16px
+
+  &:last-of-type
+    border-bottom none
+
+  .requestChainDetailKey
+    font-size 11px
+    font-weight 400
+    color var(--outerspace05)
+    text-transform uppercase
+    letter-spacing 0.05em
+
+  .requestChainDetailValue
+    font-size 12px
+    font-family 'CodeFont'
+    color var(--outerspace08)
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+    max-width 60%
+
+// VAULT: warning box — amber bg, border, icon + text
+.requestChainWarning
+  width calc(100% - 32px)
+  margin 20px 16px 0px 16px
+  box-sizing border-box
+  background rgba(251, 191, 36, 0.08)
+  border 1px solid rgb(251, 191, 36)
+  border-radius 10px
+  padding 10px 14px
+  display flex
+  align-items flex-start
+  gap 8px
+
+  .requestChainWarningIcon
+    color var(--warning)
+    flex-shrink 0
+    margin-top 1px
+
+  .requestChainWarningText
+    font-size 12px
+    font-weight 400
+    color var(--warning)
+    line-height 1.5
+    letter-spacing 0.01em

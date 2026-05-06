@@ -1,0 +1,116 @@
+// LightPay VAULT — Notify Window
+@import '../../../resources/base'
+
+html, body
+  margin 0
+  border 0
+  font-family 'MainFont'
+  font-weight 300
+  -webkit-app-region drag
+  overflow hidden
+  color var(--outerspace)
+  background var(--ghostA)
+
+div
+  user-select none
+  cursor default
+
+.dark
+  --ghostA rgb(3, 5, 15)
+  --ghostB rgb(6, 9, 22)
+  --ghostC rgb(10, 14, 35)
+  --good rgb(14, 165, 233)
+  --goodUp rgb(56, 189, 248)
+  --good01 rgba(14, 165, 233, 0.1)
+  --good02 rgba(14, 165, 233, 0.2)
+  --good04 rgba(14, 165, 233, 0.4)
+  --bad rgb(244, 63, 94)
+  --overlayA rgba(14, 165, 233, 0.03)
+  --overlayB rgba(14, 165, 233, 0.04)
+
+// ─── Notify root ─────────────────────────────────────────────
+.notify
+  position fixed
+  inset 0
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding 20px
+
+// ─── Notification card ───────────────────────────────────────
+.alertBox
+  background rgb(6, 9, 22)
+  border 1px solid rgba(14, 165, 233, 0.18)
+  border-radius 20px
+  padding 28px
+  max-width 480px
+  width 100%
+  animation vaultSlide 0.32s cubic-bezier(0.4, 0, 0.2, 1) both
+
+// ─── Card header ─────────────────────────────────────────────
+.alertTitle
+  font-size 20px
+  font-weight 500
+  color rgb(224, 242, 254)
+  margin-bottom 12px
+  text-align center
+  letter-spacing -0.01em
+
+// ─── Card body ───────────────────────────────────────────────
+.alertBody
+  font-size 14px
+  color rgba(186, 230, 253, 0.7)
+  line-height 1.65
+  text-align center
+  margin-bottom 20px
+
+.alertLink
+  color rgb(14, 165, 233)
+  text-decoration underline
+  cursor pointer
+  transition var(--standardFast)
+
+.alertLink:hover
+  color rgb(56, 189, 248)
+
+// ─── Action buttons ──────────────────────────────────────────
+.notifyActions
+  display flex
+  gap 10px
+
+.notifyPrimary
+  flex 1
+  height 46px
+  background rgb(14, 165, 233)
+  border 1px solid rgba(14, 165, 233, 0.4)
+  border-radius 12px
+  color rgb(3, 5, 15)
+  font-family 'MainFont'
+  font-size 14px
+  font-weight 500
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  letter-spacing 0.02em
+
+.notifyPrimary:hover
+  background rgb(56, 189, 248)
+  border-color rgba(56, 189, 248, 0.5)
+
+.notifySecondary
+  height 46px
+  padding 0 18px
+  border-radius 12px
+  border 1px solid rgba(14, 165, 233, 0.18)
+  background transparent
+  color rgba(186, 230, 253, 0.7)
+  font-family 'MainFont'
+  font-size 14px
+  font-weight 400
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.notifySecondary:hover
+  border-color rgba(14, 165, 233, 0.4)
+  color rgb(14, 165, 233)
+  background rgba(14, 165, 233, 0.06)

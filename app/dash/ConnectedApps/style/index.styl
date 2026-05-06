@@ -1,0 +1,343 @@
+// VAULT Dapps Panel
+
+// Usage counter tile
+.sliceTileUsage
+  width 100%
+  height 100%
+  display flex
+  font-size 10px
+  justify-content center
+  align-items center
+  text-transform uppercase
+  font-weight 400
+
+  .sliceTileUsageCount
+    font-size 17px
+    margin-right 7px
+    border-radius 16px
+    display flex
+    justify-content center
+    align-items center
+
+// Dapp card — main list item
+.lpOrigin
+  cursor pointer
+  display flex
+  justify-content space-between
+  align-items center
+  position relative
+  height 60px
+  box-sizing border-box
+  font-size 14px
+  font-weight 400
+  margin 6px
+  border-radius 16px
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.18)
+  padding 14px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+  *
+    pointer-events none
+
+  .lpOriginIcon
+    width 40px
+    height 40px
+    border-radius 12px
+    overflow hidden
+    flex-shrink 0
+    background rgb(10,14,35)
+    display flex
+    align-items center
+    justify-content center
+
+  .sliceOriginTitle
+    padding 0px 12px 1px 12px
+    color rgb(224,242,254)
+    font-weight 400
+    font-size 14px
+    flex 1
+    direction rtl
+    text-overflow ellipsis
+    overflow hidden
+    text-align left
+    white-space nowrap
+
+  .lpOriginUrl
+    font-family 'CodeFont'
+    font-size 11px
+    color rgba(186,230,253,0.4)
+    text-overflow ellipsis
+    overflow hidden
+    white-space nowrap
+    max-width 140px
+    text-align right
+
+.lpOrigin:hover
+  background rgba(14,165,233,0.06)
+  border-color rgba(14,165,233,0.4)
+  transform translateY(-1px)
+
+// Empty state — no dapp connected
+.sliceOriginNoDapp
+  display flex
+  justify-content center
+  align-items center
+  position relative
+  text-transform uppercase
+  box-sizing border-box
+  height 52px
+  font-size 10px
+  letter-spacing 2px
+  font-weight 400
+  margin 6px
+  border-radius 16px
+  background rgb(3,5,15)
+  border 1px dashed rgba(14,165,233,0.18)
+  color rgba(186,230,253,0.4)
+
+  *
+    pointer-events none
+
+// "View all" link
+.viewAllOrigin
+  display flex
+  justify-content center
+  align-items center
+  height 10px
+  padding 5px
+  text-transform uppercase
+  font-size 10px
+  font-weight 300
+  color var(--good)
+  cursor pointer
+  letter-spacing 1px
+  transition 0.15s ease color
+
+  *
+    pointer-events none
+
+.viewAllOrigin:hover
+  color var(--goodLight)
+
+// Active connection indicator dot
+.sliceOriginIndicator
+  color rgb(224,242,254)
+  cursor pointer
+  position absolute
+  top 50%
+  margin-top -5px
+  left 16px
+  width 10px
+  height 10px
+  border-radius 50%
+  display flex
+  justify-content center
+  align-items center
+  background var(--good)
+
+  *
+    pointer-events none
+
+.sliceOriginIndicatorOff
+  background var(--ghostY)
+
+.sliceOriginIndicatorActive
+  background var(--goodHighlight)
+
+// Pending request statusIndicator
+.lpOriginReqs
+  margin-right 8px
+  display flex
+  justify-content center
+  align-items center
+  background rgba(14,165,233,0.1)
+  border 1px solid rgba(14,165,233,0.2)
+  border-radius 10px
+  padding 2px 8px
+  gap 4px
+
+  .sliceOriginReqsNumber
+    font-size 14px
+    font-weight 500
+    color var(--good)
+
+  .sliceOriginReqsLabel
+    margin-top 2px
+    font-size 8px
+    text-transform uppercase
+    font-weight 500
+    color rgba(186,230,253,0.4)
+    letter-spacing 0.5px
+
+// Chain swap — origin header
+.originSwapOrigin
+  height 120px
+  width 100%
+  font-size 20px
+  font-weight 300
+  display flex
+  align-items center
+  justify-content center
+
+  .originSwapOriginText
+    margin-left 10px
+
+.originSwapTitle
+  width 100%
+  display flex
+  justify-content center
+  text-transform uppercase
+  font-size 12px
+  font-weight 500
+  padding-bottom 6px
+  letter-spacing 1px
+  padding-left 1px
+
+// Chain selection list
+.originSwapChainList
+  background rgb(3,5,15)
+  border-radius 16px
+  padding 4px
+
+  .lpOriginChain
+    position relative
+    display flex
+    justify-content flex-start
+    align-items center
+    height 60px
+    margin 4px
+    border-radius 14px
+    cursor pointer
+    background rgb(6,9,22)
+    border 1px solid rgba(14,165,233,0.18)
+    font-size 18px
+    font-weight 400
+    transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+  .lpOriginChain:hover
+    background rgba(14,165,233,0.06)
+    border-color rgba(14,165,233,0.4)
+    transform translateY(-1px)
+
+  .lpOriginChain:active
+    background rgb(6,9,22)
+    transform translateY(0px)
+
+  .originChainItemIcon
+    padding 1px 16px 0px 16px
+
+    *
+      cursor pointer
+
+  .originChainItemCheck
+    position absolute
+    bottom 11px
+    right 11px
+    height 32px
+    width 32px
+    display flex
+    justify-content center
+    align-items center
+    background rgba(14,165,233,0.1)
+    border 1px solid rgba(14,165,233,0.2)
+    border-radius 10px
+
+  .originChainItemActive
+    color var(--good)
+
+// ─── ConnectedApps additional classes ────────────────────────────────────────
+
+.lpOriginChain
+  display flex
+  align-items center
+  gap 6px
+  font-size 11px
+  color rgba(186,230,253,0.4)
+  padding 4px 0
+
+.originTitle
+  padding 12px 14px 4px
+  display flex
+  align-items center
+  gap 8px
+
+.originTitleText
+  font-size 14px
+  font-weight 500
+  color rgb(224,242,254)
+
+.sliceOriginReqsLabel
+  font-size 10px
+  font-weight 500
+  letter-spacing 0.06em
+  text-transform uppercase
+  color rgba(186,230,253,0.4)
+
+.sliceOriginReqsNumber
+  font-family 'CodeFont'
+  font-size 13px
+  color rgb(224,242,254)
+
+.sliceOriginTitle
+  font-size 13px
+  font-weight 400
+  color rgb(224,242,254)
+
+.sliceTileChainId
+  font-family 'CodeFont'
+  font-size 10px
+  color rgba(186,230,253,0.4)
+  padding 2px 6px
+  background var(--ghostD)
+  border-radius 4px
+
+.connectionLevel
+  display flex
+  align-items center
+  gap 6px
+  padding 6px 14px
+
+.connectionOptionDetails
+  padding 10px 14px
+  font-size 13px
+  color rgba(186,230,253,0.7)
+  line-height 1.55
+
+.connectionOptionDetailsInset
+  padding-left 20px
+  font-size 12px
+  color rgba(186,230,253,0.7)
+
+.connectionOptionStatusIndicator
+  width 8px
+  height 8px
+  border-radius 50%
+  flex-shrink 0
+
+.connectionOptionStatusIndicatorGood
+  background var(--good)
+
+.connectionOptionStatusIndicatorBad
+  background var(--bad)
+
+.connectionOptionStatusIndicatorPending
+  background var(--pending)
+
+.connectionOptionStatusText
+  font-size 12px
+  color rgba(186,230,253,0.7)
+
+.connectionOptionToggle
+  width 36px
+  height 20px
+  border-radius 10px
+  cursor pointer
+  position relative
+  transition 0.22s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.newTokenEnableChainLink
+  color var(--good)
+  cursor pointer
+  text-decoration underline
+  text-underline-offset 2px

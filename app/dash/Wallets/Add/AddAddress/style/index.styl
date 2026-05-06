@@ -1,0 +1,75 @@
+// LightPay VAULT — Add by Address
+
+.addByAddress
+  padding 20px
+  display flex
+  flex-direction column
+  gap 14px
+
+.addByAddressTitle
+  font-size 18px
+  font-weight 500
+  color rgb(224,242,254)
+
+.addByAddressSubtitle
+  font-size 13px
+  color rgba(186,230,253,0.7)
+  line-height 1.55
+
+.addByAddressInput
+  background rgba(14,165,233,0.04)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 12px
+  padding 12px 14px
+  font-family 'CodeFont'
+  font-size 12px
+  color rgb(224,242,254)
+  width 100%
+  outline none
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  box-sizing border-box
+  -webkit-app-region no-drag
+
+.addByAddressInput:focus
+  border-color rgba(14,165,233,0.4)
+
+.addByAddressInput::placeholder
+  color rgba(186,230,253,0.4)
+
+.addByAddressNote
+  font-size 11px
+  color rgba(186,230,253,0.4)
+  line-height 1.55
+  display flex
+  align-items flex-start
+  gap 6px
+
+.addByAddressNoteIcon
+  color rgba(251, 146, 60, 0.8)
+  flex-shrink 0
+  margin-top 1px
+
+.addByAddressSubmit
+  height 46px
+  background linear-gradient(135deg, rgb(2,132,199), rgb(14,165,233))
+  border-radius 12px
+  display flex
+  align-items center
+  justify-content center
+  color white
+  font-size 14px
+  font-weight 500
+  cursor pointer
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  border-bottom 2px solid rgba(14,165,233,0.3)
+
+.addByAddressSubmit:hover
+  transform translateY(-1px)
+  border-bottom-color rgb(14,165,233)
+
+.addByAddressSubmitDisabled
+  background var(--ghostD)
+  color rgba(186,230,253,0.4)
+  cursor not-allowed
+  transform none
+  border-bottom none

@@ -1,0 +1,192 @@
+// LightPay VAULT — Price Alerts (unique feature)
+
+.priceAlerts
+  padding 14px
+
+.priceAlertsHeader
+  display flex
+  align-items center
+  justify-content space-between
+  margin-bottom 14px
+
+.priceAlertsTitle
+  font-size 16px
+  font-weight 500
+  color var(--outerspace)
+
+.priceAlertsCurrentPrice
+  font-size 12px
+  color var(--outerspace06)
+  font-family 'CodeFont'
+
+.priceAlertsPrice
+  color var(--good)
+  font-weight 500
+
+.priceAlertsAdd
+  background var(--ghostB)
+  border 1px solid rgba(99, 102, 241, 0.1)
+  border-radius 14px
+  padding 14px
+  margin-bottom 12px
+  display flex
+  flex-direction column
+  gap 10px
+
+.priceAlertsAddLabel
+  font-size 10px
+  font-weight 500
+  letter-spacing 0.08em
+  text-transform uppercase
+  color var(--outerspace05)
+
+.priceAlertsAddRow
+  display flex
+  gap 8px
+  align-items center
+
+.priceAlertsSelect
+  background var(--ghostC)
+  border 1px solid rgba(99, 102, 241, 0.14)
+  border-radius 8px
+  padding 8px 10px
+  font-size 12px
+  font-weight 400
+  color var(--outerspace08)
+  outline none
+  cursor pointer
+  font-family 'MainFont'
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  -webkit-app-region no-drag
+
+.priceAlertsSelect:focus
+  border-color rgba(99, 102, 241, 0.4)
+
+.priceAlertsInputWrap
+  flex 1
+  position relative
+  display flex
+  align-items center
+
+.priceAlertsInputPrefix
+  position absolute
+  left 10px
+  font-size 13px
+  color var(--outerspace06)
+  font-family 'CodeFont'
+  pointer-events none
+
+.priceAlertsInput
+  width 100%
+  background rgba(99, 102, 241, 0.04)
+  border 1px solid rgba(99, 102, 241, 0.14)
+  border-radius 8px
+  padding 8px 10px 8px 20px
+  font-size 13px
+  font-family 'CodeFont'
+  font-weight 400
+  color var(--outerspace)
+  outline none
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  box-sizing border-box
+  -webkit-app-region no-drag
+
+.priceAlertsInput:focus
+  border-color rgba(99, 102, 241, 0.42)
+
+.priceAlertsAddBtn
+  padding 8px 14px
+  background linear-gradient(135deg, rgb(79, 70, 229), rgb(99, 102, 241))
+  border-radius 8px
+  font-size 12px
+  font-weight 500
+  color white
+  cursor pointer
+  white-space nowrap
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.priceAlertsAddBtn:hover
+
+.priceAlertsError
+  font-size 11px
+  color var(--bad)
+
+.priceAlertsList
+  display flex
+  flex-direction column
+  gap 6px
+  margin-bottom 12px
+
+.priceAlertsEmpty
+  font-size 12px
+  color var(--outerspace04)
+  text-align center
+  padding 20px 0
+
+.priceAlertItem
+  background var(--ghostB)
+  border 1px solid rgba(99, 102, 241, 0.08)
+  border-radius 12px
+  padding 12px 14px
+  display flex
+  align-items center
+  justify-content space-between
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.priceAlertItem:hover
+  border-color rgba(99, 102, 241, 0.2)
+
+.priceAlertItemTriggered
+  border-color rgba(99, 102, 241, 0.4)
+  background rgba(99, 102, 241, 0.05)
+
+.priceAlertItemAsset
+  font-size 12px
+  font-weight 500
+  font-family 'CodeFont'
+  color var(--outerspace)
+  margin-bottom 3px
+
+.priceAlertItemCondition
+  font-size 11px
+  font-family 'CodeFont'
+  color var(--outerspace06)
+
+.priceAlertItemDirection
+  color var(--outerspace07)
+  text-transform lowercase
+
+.priceAlertItemRight
+  display flex
+  align-items center
+  gap 8px
+
+.priceAlertItemBadge
+  font-size 10px
+  font-weight 500
+  padding 3px 8px
+  border-radius 20px
+  background rgba(99, 102, 241, 0.12)
+  color var(--good)
+  border 1px solid rgba(99, 102, 241, 0.3)
+
+.priceAlertItemRemove
+  width 24px
+  height 24px
+  border-radius 6px
+  display flex
+  align-items center
+  justify-content center
+  color var(--outerspace04)
+  cursor pointer
+  transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) all
+
+.priceAlertItemRemove:hover
+  background rgba(244, 63, 94, 0.08)
+  color var(--bad)
+
+.priceAlertsNote
+  font-size 11px
+  color var(--outerspace04)
+  line-height 1.55
+  padding 0 2px

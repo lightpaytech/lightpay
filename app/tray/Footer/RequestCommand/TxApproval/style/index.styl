@@ -1,0 +1,158 @@
+// ─── TxApproval — Electric Blue design ────────────────────────────────────────
+
+.requestNoticeApproval
+  height auto
+
+.requestNoticeInnerApproval
+  display block
+  padding 8px 2px
+  box-sizing border-box
+
+// Warning banner
+.flowWarning
+  overflow hidden
+  border-radius 12px
+  border 1px solid rgba(251, 146, 60, 0.2)
+  background rgba(251, 146, 60, 0.04)
+
+  .approveTransactionWarningBody
+    word-wrap break-word
+    word-break break-all
+
+    .approveTransactionWarningTitle
+      text-align center
+      font-size 14px
+      letter-spacing 0.04em
+      text-transform uppercase
+      font-weight 500
+      font-family 'MainFont'
+      display flex
+      justify-content space-between
+      align-items center
+      transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+      height 52px
+      width 100%
+      padding 10px 20px
+      color rgb(224, 242, 254)
+
+      .approveTransactionWarningIcon
+        color var(--bad)
+
+    .approveTransactionWarningMessage
+      display flex
+      align-items center
+      justify-content center
+      padding 30px
+      text-align justify
+      text-align-last center
+      font-family 'MainFont'
+      font-weight 300
+      height 83px
+      font-size 14px
+      color rgba(186, 230, 253, 0.7)
+
+// ─── Approval container ───────────────────────────────────────────────────────
+
+._flowApproval
+  font-size 12px
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  font-family 'MainFont'
+  transform translateY(0px)
+  text-transform uppercase
+  font-weight 300
+  border-radius 24px
+  border-top-right-radius 0px
+  border-top-left-radius 0px
+  z-index 99999999
+  height 45px
+  padding-bottom 8px
+  pointer-events auto
+
+  .requestApproveFee
+    .requestApproveFeeButton
+      pointer-events auto
+
+// ─── Action button row ────────────────────────────────────────────────────────
+
+._flowBtn
+  background rgb(10, 14, 35)
+  box-sizing border-box
+  height 60px
+  margin 1px
+  flex 1
+  cursor pointer
+  display flex
+  justify-content center
+  align-items center
+  padding-top 3px
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  font-family 'MainFont'
+  transform translateY(0px)
+  text-transform uppercase
+  letter-spacing 0.04em
+  flex-grow 1
+  border-radius 10px
+  font-size 13px
+  font-weight 400
+  border 1px solid rgba(14, 165, 233, 0.18)
+
+._flowBtn:hover
+  background rgb(6, 9, 22)
+  transform translateY(-1px)
+  border-color rgba(14, 165, 233, 0.4)
+
+._flowBtn:active
+  background rgb(10, 14, 35)
+  transform translateY(1px)
+
+// ─── APPROVE button — electric blue primary CTA ───────────────────────────────
+
+._flowBtnPrimary
+  flex 1
+  height 50px
+  background rgb(14, 165, 233)
+  border-radius 14px
+  color rgb(3, 5, 15)
+  font-size 15px
+  font-weight 500
+  letter-spacing 0.02em
+  border 0 none
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  cursor pointer
+  display flex
+  justify-content center
+  align-items center
+
+._flowBtnPrimary:hover
+  background rgb(56, 189, 248)
+  transform translateY(-1px)
+
+._flowBtnPrimary:active
+  transform translateY(0px)
+  background rgb(14, 165, 233)
+
+// ─── REJECT button — destructive, subtle ─────────────────────────────────────
+
+._flowBtnDanger
+  width 50px
+  height 50px
+  border-radius 14px
+  border 1px solid rgba(244, 63, 94, 0.3)
+  background transparent
+  color var(--bad)
+  display flex
+  justify-content center
+  align-items center
+  cursor pointer
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  font-size 13px
+  font-weight 500
+
+._flowBtnDanger:hover
+  background rgba(244, 63, 94, 0.08)
+  border-color rgba(244, 63, 94, 0.6)
+  transform translateY(-1px)
+
+._flowBtnDanger:active
+  transform translateY(0px)
+  background rgba(244, 63, 94, 0.12)

@@ -1,0 +1,823 @@
+// ─── Chain List Container ────────────────────────────────────────────────────
+
+.networkList
+  padding 14px
+  display flex
+  flex-direction column
+  gap 8px
+
+// ─── Individual Chain Row ────────────────────────────────────────────────────
+
+.networkRow
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.18)
+  border-radius 14px
+  overflow hidden
+  transition all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+
+.networkRow:hover
+  border-color rgba(14,165,233,0.4)
+
+.networkRowHeader
+  padding 12px 14px
+  display flex
+  align-items center
+  gap 12px
+  cursor pointer
+  *
+    pointer-events none
+
+.networkRowExpanded
+  border-color rgba(14,165,233,0.4)
+
+// ─── Chain Color Strip ───────────────────────────────────────────────────────
+
+.networkColorStrip
+  width 4px
+  align-self stretch
+  border-radius 4px 0 0 4px
+  flex-shrink 0
+
+// ─── Chain Icon ──────────────────────────────────────────────────────────────
+
+.networkIcon
+  width 28px
+  height 28px
+  border-radius 50%
+  object-fit contain
+  background rgb(10,14,35)
+  padding 3px
+  flex-shrink 0
+
+// ─── Chain Name ──────────────────────────────────────────────────────────────
+
+.networkName
+  font-size 14px
+  font-weight 400
+  color rgb(224,242,254)
+  flex 1
+  min-width 0
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+
+// ─── Chain Status Dot ────────────────────────────────────────────────────────
+
+.networkStatus
+  width 8px
+  height 8px
+  border-radius 50%
+  flex-shrink 0
+
+.networkStatusOk
+  background rgb(34,197,94)
+
+.networkStatusOff
+  background rgba(186,230,253,0.2)
+
+.networkStatusErr
+  background rgb(239,68,68)
+
+// ─── Chain ON/OFF Toggle ─────────────────────────────────────────────────────
+
+.networkToggle
+  width 36px
+  height 20px
+  border-radius 10px
+  border none
+  cursor pointer
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  position relative
+  flex-shrink 0
+  outline none
+
+.networkToggleOff
+  background rgba(186,230,253,0.1)
+
+.networkToggleOn
+  background rgb(14,165,233)
+
+.networkToggleDot
+  position absolute
+  top 2px
+  width 16px
+  height 16px
+  border-radius 50%
+  background white
+  transition transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  pointer-events none
+
+.networkToggleOff .networkToggleDot
+  left 2px
+
+.networkToggleOn .networkToggleDot
+  left calc(100% - 18px)
+
+// ─── Chain ID Badge ──────────────────────────────────────────────────────────
+
+.networkIdBadge
+  position relative
+  height 20px
+  border-radius 12px
+  margin-left 8px
+  background rgb(10,14,35)
+  display flex
+  justify-content center
+  align-items center
+  cursor pointer
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  padding 0px 8px 0px 6px
+  font-family 'CodeFont'
+  font-size 12px
+  color rgba(186,230,253,0.4)
+  *
+    pointer-events none
+
+  .chainIdBadgeIcon
+    color rgb(14,165,233)
+    margin-right 6px
+
+// ─── Chain Settings Button ───────────────────────────────────────────────────
+
+.networkSettings
+  height 24px
+  width 24px
+  border-radius 8px
+  background rgb(10,14,35)
+  display flex
+  justify-content center
+  align-items center
+  cursor pointer
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  flex-shrink 0
+  *
+    pointer-events none
+
+  svg
+    color rgba(186,230,253,0.4)
+    transition color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+.networkSettings:hover
+  background rgba(14,165,233,0.1)
+  border-color rgba(14,165,233,0.4)
+  svg
+    color rgb(14,165,233)
+
+// ─── Section Heading ─────────────────────────────────────────────────────────
+
+.networkBreak
+  padding 16px 14px 6px 14px
+  font-size 10px
+  text-transform uppercase
+  letter-spacing 0.12em
+  font-weight 500
+  color rgba(186,230,253,0.4)
+
+.networkBreak:first-child
+  padding-top 4px
+
+// ─── Add Network Button ──────────────────────────────────────────────────────
+
+.networkAdd
+  padding 16px 0px 8px 0px
+
+  .networkAddButton
+    font-size 12px
+    height 40px
+    background transparent
+    border 1px solid rgba(14,165,233,0.18)
+    border-radius 10px
+    padding 0px 16px
+    box-sizing border-box
+    display flex
+    justify-content center
+    align-items center
+    gap 8px
+    text-transform uppercase
+    letter-spacing 0.08em
+    font-weight 400
+    color rgba(186,230,253,0.7)
+    cursor pointer
+    transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+    *
+      pointer-events none
+
+  .networkAddButton:hover
+    background rgba(14,165,233,0.06)
+    border-color rgba(14,165,233,0.4)
+    color rgb(14,165,233)
+
+// ─── Connection Levels ───────────────────────────────────────────────────────
+
+.connectionLevels
+  position relative
+  z-index 1
+  width 100%
+
+  .connectionLevel
+    position relative
+
+  .connectionTitle
+    height 26px
+    display flex
+    justify-content space-between
+    align-items center
+    font-size 10px
+    text-transform uppercase
+    padding 0px 14px
+    letter-spacing 0.08em
+    font-weight 500
+    color rgba(186,230,253,0.4)
+
+// ─── Slice Container (network connection cards) ──────────────────────────────
+
+.sliceContainer
+  background rgb(6,9,22)
+  border 1px solid rgba(14,165,233,0.18)
+  position relative
+  margin 0px 6px 8px 6px
+  border-radius 14px
+  padding 3px 0px
+  font-size 14px
+  font-weight 300
+  transition all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+
+.sliceContainer:last-child
+  margin-bottom 0px
+
+  .sliceContainerClose
+    cursor pointer
+    height 16px
+    display flex
+    justify-content center
+    align-items center
+    border-radius 8px
+    color rgba(186,230,253,0.4)
+    transition color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+    div
+      pointer-events none
+      position relative
+      margin 0px 18px
+      top 2px
+
+  .sliceContainerClose:hover
+    color rgb(239,68,68)
+
+  .sliceTileCenter
+    justify-content center
+
+  .lpTile
+    cursor pointer
+    display flex
+    justify-content space-between
+    align-items center
+    transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+    background transparent
+    position relative
+    border-radius 12px
+    height 52px
+    box-sizing border-box
+    font-size 12px
+    font-weight 300
+    *
+      pointer-events none
+
+  .lpTile:first-child
+    margin 0px 3px 0px 3px
+
+  .sliceTileHighlight
+    background rgba(14,165,233,0.04)
+
+  .sliceTileClickable:hover
+    background rgba(14,165,233,0.06)
+
+  .sliceTileClickable:active
+    transform translateY(0px)
+
+// ─── Slice Tile Labels ───────────────────────────────────────────────────────
+
+.sliceTileConnectionName
+  padding 1px 20px 0px 20px
+  color rgb(224,242,254)
+  text-transform uppercase
+  font-size 11px
+  font-weight 500
+  letter-spacing 0.08em
+
+.sliceTileBlock
+  display flex
+  align-items center
+  padding-right 11px
+  font-family 'CodeFont'
+  font-size 12px
+  font-weight 300
+  position relative
+  top 1px
+
+  .sliceTileBlockIcon
+    color rgb(14,165,233)
+    padding-right 5px
+
+  .sliceTileChainId
+    padding-right 15px
+    color rgba(186,230,253,0.4)
+
+// ─── Status Indicators ───────────────────────────────────────────────────────
+
+.lpTileIndicator
+  position absolute
+  top 50%
+  margin-top -4px
+  left 13px
+  width 8px
+  height 8px
+  border-radius 50%
+  background rgb(34,197,94)
+  *
+    pointer-events none
+
+.sliceTileIndicatorLarge
+  margin-left 8px
+  margin-top 4px
+  width 10px
+  height 10px
+  border-radius 50%
+  *
+    pointer-events none
+
+.sliceTileIndicatorActive
+  background rgb(56,189,248)
+
+.lpTileGood
+  background rgb(34,197,94)
+
+.sliceTileIndicatorPending
+  background rgb(251,191,36)
+
+.sliceTileIndicatorWarning
+  background rgb(251,191,36)
+
+.lpTileBad
+  background rgb(239,68,68)
+
+// ─── Change Chain Button ─────────────────────────────────────────────────────
+
+.sliceTileChangeChain
+  color rgba(186,230,253,0.4)
+  cursor pointer
+  position absolute
+  top 0px
+  right 0px
+  bottom 0px
+  width 41px
+  display flex
+  justify-content center
+  align-items center
+  border-radius 0 12px 12px 0
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  *
+    pointer-events none
+
+.sliceTileChangeChain:hover
+  background rgba(14,165,233,0.08)
+  color rgb(14,165,233)
+
+.sliceTileChangeConnected
+  background rgba(14,165,233,0.06)
+  color rgb(14,165,233)
+
+// ─── Chain ID inline ─────────────────────────────────────────────────────────
+
+.sliceChainId
+  display flex
+  justify-content center
+  align-items center
+  font-family 'CodeFont'
+  font-size 12px
+  color rgba(186,230,253,0.4)
+  margin 10px
+
+  .sliceChainIdIcon
+    margin-right 6px
+
+.sliceChainIdNumber
+  font-size 12px
+  font-weight 400
+  font-family 'CodeFont'
+
+// ─── Connection Option ───────────────────────────────────────────────────────
+
+.connectionOption
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  padding 8px 14px
+  margin 2px
+
+  .connectionOptionToggle
+    width 100%
+    display flex
+    justify-content space-between
+    align-items center
+    height 25px
+
+  .connectionOptionDetails
+    transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+    opacity 1
+    z-index 40
+    position relative
+    margin-top 0px
+    pointer-events none
+    padding 8px 0px
+
+    .connectionOptionDetailsInset
+      height 25px
+      width 100%
+      display flex
+      justify-content space-between
+      align-items center
+      text-transform uppercase
+      font-size 11px
+      letter-spacing 0.06em
+      font-weight 500
+      z-index 40
+
+      .connectionOptionStatus
+        display flex
+        align-items center
+        height 25px
+        gap 8px
+
+        .connectionOptionStatusIndicator
+          height 20px
+          margin-top 5px
+          margin-right 14px
+          display flex
+          align-items center
+          div
+            width 8px
+            height 8px
+            border-radius 50%
+
+        .connectionOptionStatusIndicatorGood
+          background rgb(34,197,94)
+
+        .connectionOptionStatusIndicatorBad
+          background rgb(239,68,68)
+
+        .connectionOptionStatusIndicatorPending
+          background rgb(251,191,36)
+
+        .connectionOptionStatusIndicatorWarning
+          background rgb(251,191,36)
+
+        .connectionOptionStatusText
+          height 20px
+          margin-top 5px
+          display flex
+          align-items center
+          color rgba(186,230,253,0.7)
+          font-size 11px
+
+      .signerOptionSetWrap
+        height 25px
+
+      .signerOptionSet
+        display flex
+        height 22px
+        margin-top 4px
+        border-radius 11px
+        letter-spacing 0.06em
+        justify-content center
+        align-items center
+        padding 0px 3px
+        background rgb(10,14,35)
+
+        .signerOptionSetButton
+          display flex
+          justify-content center
+          align-items center
+          height 20px
+          width 25px
+          border-radius 10px
+          transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+          svg
+            color rgb(224,242,254)
+            opacity 0.3
+            transition opacity 0.15s ease
+
+      .signerOptionSet:hover
+        .signerOptionSetButton
+          svg
+            opacity 0.5
+          svg:hover
+            opacity 1
+            color rgb(14,165,233)
+
+// ─── Mainnet Toggle Lock ─────────────────────────────────────────────────────
+
+.mainnetToggleLock
+  position absolute
+  right 16px
+  top 0
+  margin-top 22px
+  height 20px
+  width 40px
+  border-radius 12px
+  background rgb(10,14,35)
+  display flex
+  justify-content center
+  align-items center
+
+  svg
+    color rgba(186,230,253,0.4)
+
+// ─── Custom RPC Input (collapsed/expanded) ───────────────────────────────────
+
+.linkCustomInput
+  margin-top 0px
+  margin-bottom 0px
+  height 0px
+  opacity 0
+  position relative
+  padding-top 0px
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+  background rgba(14,165,233,0.04)
+  border 1px solid rgba(14,165,233,0.15)
+  border-radius 8px
+  overflow hidden
+
+  input
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0px
+    outline none
+    border none
+    width 100%
+    text-align left
+    font-family 'CodeFont'
+    font-size 12px
+    background transparent
+    padding 10px 12px
+    font-weight 400
+    color rgb(224,242,254)
+    letter-spacing 0.02em
+
+.connectionCustomInputOn
+  margin-top 10px
+  margin-bottom 2px
+  height 38px
+  opacity 1
+
+// ─── Chain Config Panel ──────────────────────────────────────────────────────
+
+.networkConfig
+  padding 10px 12px
+  margin 4px 6px
+  border-radius 10px
+  position relative
+  z-index 10
+  background rgb(3,5,15)
+  border 1px solid rgba(14,165,233,0.18)
+
+  .chainConfigRow
+    position relative
+    display flex
+    justify-content space-between
+    gap 6px
+    margin-bottom 8px
+
+    .chainIdInput
+      width 80px
+
+    .chainSymbolInput
+      width 102px
+      text-transform uppercase
+
+    input
+      position relative
+      height 32px
+      background rgba(14,165,233,0.04)
+      border 1px solid rgba(14,165,233,0.18)
+      border-radius 8px
+      box-sizing border-box
+      font-size 12px
+      font-weight 400
+      font-family 'CodeFont'
+      color rgb(224,242,254)
+      padding 0px 10px
+      outline none
+      transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+    input:focus
+      border-color rgba(14,165,233,0.4)
+      background rgba(14,165,233,0.06)
+
+  .chainConfigRow:last-child
+    margin-bottom 0px
+
+.networkData
+  padding 10px
+
+.networkConfigSave
+  cursor pointer
+  padding 8px
+  color rgb(14,165,233)
+
+.networkMore
+  cursor pointer
+  padding 8px
+  color rgba(186,230,253,0.4)
+
+// ─── Chain currency inline display ───────────────────────────────────────────
+
+.networkCurrencyItem
+  display flex
+  justify-content center
+  align-items center
+  position relative
+  border-radius 12px
+  gap 6px
+
+.networkCurrencySymbol
+  font-size 13px
+  font-weight 400
+  font-family 'CodeFont'
+  color rgb(224,242,254)
+
+.networkCurrencyAt
+  color rgb(14,165,233)
+  font-size 12px
+  font-weight 400
+
+// ─── Info container ──────────────────────────────────────────────────────────
+
+.infoContainer
+  position relative
+  margin 8px 10px 10px 10px
+  border-radius 12px
+  font-size 14px
+  font-weight 300
+
+// ─── Local Settings shell ────────────────────────────────────────────────────
+
+.localSettings
+  position absolute
+  top 0px
+  right 0px
+  bottom 0px
+  left 0px
+  display flex
+  justify-content center
+  flex-direction column
+  transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+
+  .localSettingsWrapFadeTop
+    position absolute
+    top 0
+    left 0
+    right 0
+    height 80px
+    pointer-events none
+    z-index 5
+
+  .localSettingsWrapFadeBot
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    height 80px
+    pointer-events none
+    z-index 5
+
+  .localSettingsWrap
+    overflow-x hidden
+    overflow-y scroll
+    position relative
+    z-index 2
+
+  .localSettingsTitle
+    position relative
+    display flex
+    align-items flex-start
+    height 30px
+    font-size 24px
+    font-weight 300
+    padding 0px 17px 17px 17px
+    margin 67px 0px 0px 0px
+    color rgb(224,242,254)
+
+    .localSettingsTitleText
+      margin-top -5px
+
+.phaseNetworkLine
+  position relative
+  height 84px
+
+// ─── Signer / permission items ───────────────────────────────────────────────
+
+.signerPermissionNetwork
+  padding 0
+
+.signerSetting
+  display flex
+  justify-content center
+  align-items center
+  padding 0px 0px 20px 0px
+  flex-direction column
+
+// ─── App Info footer ─────────────────────────────────────────────────────────
+
+.lpAppInfo
+  font-size 14px
+  font-weight 300
+  z-index 20
+  padding-bottom 50px
+
+  .appInfoIcon
+    height 30px
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
+
+    .appInfoHandle
+      width 30px
+      height 4px
+      border-radius 2px
+      background rgba(186,230,253,0.1)
+
+  .appInfoLine
+    left 0
+    right 0
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
+    color rgba(186,230,253,0.7)
+
+  .appInfoViewLicense
+    width 100%
+    text-align center
+    font-size 11px
+    text-transform uppercase
+    font-weight 400
+    letter-spacing 0.08em
+    margin-top 24px
+    color rgba(186,230,253,0.4)
+    cursor pointer
+
+  .appInfoViewLicense:hover
+    color rgba(186,230,253,0.7)
+
+  .appInfoLineReset
+    margin-top 15px
+    margin-left 4px
+    text-align center
+    font-size 11px
+    text-transform uppercase
+    font-weight 400
+    letter-spacing 0.06em
+    line-height 30px
+
+    .appInfoLineResetConfirm
+      color rgb(224,242,254)
+      span
+        margin-left 15px
+
+    .appInfoLineResetButton
+      cursor pointer
+
+    .appInfoLineResetButton:hover
+      color rgb(239,68,68)
+
+    .appInfoLineResetConfirmButton
+      color rgb(224,242,254)
+      cursor pointer
+
+    .appInfoLineResetConfirmButton:hover
+      color rgb(239,68,68)
+
+  .appInfoLineVersion
+    font-family 'CodeFont'
+    font-size 13px
+    color rgba(186,230,253,0.7)
+
+  .appInfoLineInstanceId
+    color rgba(186,230,253,0.4)
+    cursor pointer
+    font-family 'CodeFont'
+    font-size 11px
+    margin-top 50px
+    margin-bottom 52px
+    text-transform uppercase
+    letter-spacing 0.08em
+
+  .appInfoLineInstanceId:hover
+    color rgba(186,230,253,0.7)
+
+  .instanceIdCopied
+    text-transform uppercase
+    color rgb(14,165,233)
+
+@import '../Chain/style/index.styl'
