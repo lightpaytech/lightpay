@@ -10,7 +10,7 @@
   padding 32px 0px 24px 0px
   font-size 20px
   font-weight 300
-  color rgb(224,242,254)
+  color rgb(15, 23, 42)
   text-align center
 
 // ─── Add Token Form Wrapper ───────────────────────────────────────────────────
@@ -54,7 +54,7 @@
 .newTokenChainAddress
   font-family 'CodeFont'
   font-size 13px
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
   letter-spacing 0.04em
 
   svg
@@ -71,7 +71,7 @@
   font-weight 400
   text-transform uppercase
   letter-spacing 0.08em
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
 
 .newTokenChainSelectFooter
   margin-top 32px
@@ -81,7 +81,7 @@
   text-align center
   text-transform uppercase
   letter-spacing 0.08em
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
 
   .newTokenEnableChainLink
     color var(--good)
@@ -143,16 +143,17 @@
   font-weight 500
   letter-spacing 0.1em
   padding 10px 0px 4px 4px
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
 
   input
+    background rgb(255, 255, 255)
     margin-bottom 4px
 
 // ─── Token Input ─────────────────────────────────────────────────────────────
 
 .tokenInput
-  background rgb(6,9,22)
-  border 1px solid rgba(14,165,233,0.18)
+  background rgb(240, 245, 255)
+  border 1px solid rgba(14, 165, 233, 0.30)
   border-radius 8px
   outline none
   text-align left
@@ -161,7 +162,7 @@
   box-sizing border-box
   padding 10px 12px
   font-weight 400
-  color rgb(224,242,254)
+  color rgb(15, 23, 42)
   margin-top 4px
   transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
   font-family 'MainFont'
@@ -171,15 +172,15 @@
     padding 0px
 
 .tokenInput:focus
-  border-color rgb(14,165,233)
-  background rgb(6,9,22)
+  border-color rgba(14, 165, 233, 0.15)
+  background rgb(240, 245, 255)
   outline none
 
 .tokenInput::placeholder
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.55)
 
 .tokenInputDim
-  color rgba(186,230,253,0.7) !important
+  color rgba(15, 23, 42, 0.7) !important
 
 // ─── Contract Address Input (mono, full-width) ────────────────────────────────
 
@@ -198,7 +199,7 @@
   font-weight 500
   padding 10px 24px
   background transparent
-  border 1px solid rgba(14,165,233,0.18)
+  border 1px solid rgba(14, 165, 233, 0.18)
   border-radius 8px
   color var(--good)
   cursor pointer
@@ -209,14 +210,14 @@
   transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
 
 .tokenSetAddress:hover
-  background rgba(14,165,233,0.08)
-  border-color rgba(14,165,233,0.4)
+  background rgba(255, 255, 255, 0.08)
+  border-color rgba(14, 165, 233, 0.40)
 
 // ─── Token Preview Card (after lookup) ───────────────────────────────────────
 
 .assetPreviewCard
-  background rgba(14,165,233,0.04)
-  border 1px solid rgba(14,165,233,0.18)
+  background rgba(255, 255, 255, 0.04)
+  border 1px solid rgba(14, 165, 233, 0.18)
   border-radius 12px
   padding 14px
   display flex
@@ -229,8 +230,8 @@
     height 40px
     border-radius 50%
     overflow hidden
-    background rgb(10,14,35)
-    border 1px solid rgba(14,165,233,0.2)
+    background rgb(224, 235, 252)
+    border 1px solid rgba(14, 165, 233, 0.20)
     flex-shrink 0
 
     img
@@ -245,7 +246,7 @@
   .tokenPreviewName
     font-size 14px
     font-weight 400
-    color rgb(224,242,254)
+    color rgb(15, 23, 42)
     white-space nowrap
     overflow hidden
     text-overflow ellipsis
@@ -253,7 +254,7 @@
   .tokenPreviewSymbol
     font-family 'CodeFont'
     font-size 11px
-    color rgba(186,230,253,0.7)
+    color rgba(15, 23, 42, 0.7)
     letter-spacing 0.06em
     text-transform uppercase
     margin-top 2px
@@ -261,13 +262,13 @@
   .tokenPreviewDecimals
     font-family 'CodeFont'
     font-size 11px
-    color rgba(186,230,253,0.7)
+    color rgba(15, 23, 42, 0.7)
     margin-top 2px
 
 // ─── Add Token Submit Button ─────────────────────────────────────────────────
 
 .addAssetSubmit
-  background rgb(6,9,22)
+  background rgb(240, 245, 255)
   margin auto
   height 48px
   border-radius 10px
@@ -287,19 +288,19 @@
   transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
 
   span
-    opacity 0.35
+    opacity 0.5
 
   svg
     flex-shrink 0
 
 .addAssetSubmit:hover
-  background rgb(6,9,22)
+  background rgb(240, 245, 255)
 
 // Enabled state — electric blue gradient
 .addAssetSubmitReady
   background linear-gradient(135deg, rgba(2,132,199,0.9) 0%, rgba(14,165,233,0.9) 100%)
-  border-color rgba(14,165,233,0.5)
-  color rgb(3,5,15)
+  border-color rgba(14, 165, 233, 0.50)
+  color white
   cursor pointer
   pointer-events auto
   outline none
@@ -310,4 +311,4 @@
 
 .addAssetSubmitReady:hover
   background linear-gradient(135deg, rgba(2,132,199,1) 0%, rgba(14,165,233,1) 100%)
-  border-color rgba(14,165,233,0.7)
+  border-color rgba(14, 165, 233, 0.70)

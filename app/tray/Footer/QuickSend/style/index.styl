@@ -1,12 +1,19 @@
 // LightPay Electric Blue — Quick Send Panel
 
+.dark
+  .quickSendPanel
+    background rgb(240, 245, 255)
+
+.light
+  .quickSendPanel
+    background rgb(240, 245, 255)
+
 .quickSendPanel
   position absolute
   bottom 100%
   left 0
   right 0
-  background rgb(6, 9, 22)
-  border 1px solid rgba(14, 165, 233, 0.2)
+  border 1px solid rgba(14, 165, 233, 0.20)
   border-bottom none
   border-radius 16px 16px 0 0
   z-index 9999999
@@ -30,7 +37,7 @@
 .quickSendTitle
   font-size 14px
   font-weight 500
-  color rgb(224, 242, 254)
+  color rgb(15, 23, 42)
   letter-spacing 0.01em
 
 .quickSendClose
@@ -41,7 +48,7 @@
   display flex
   align-items center
   justify-content center
-  color rgba(186, 230, 253, 0.7)
+  color rgba(15, 23, 42, 0.7)
   cursor pointer
   transition 0.15s cubic-bezier(0.4, 0, 0.2, 1) all
 
@@ -66,16 +73,24 @@
   font-weight 500
   letter-spacing 0.08em
   text-transform uppercase
-  color rgba(186, 230, 253, 0.7)
+  color rgba(15, 23, 42, 0.7)
+
+.dark
+  .quickSendInput
+    background rgb(224, 235, 252)
+
+.light
+  .quickSendInput
+    background rgb(224, 235, 252)
 
 .quickSendInput
-  background rgb(10, 14, 35)
-  border 1px solid rgba(14, 165, 233, 0.2)
+  background rgb(255, 255, 255)
+  border 1px solid rgba(14, 165, 233, 0.30)
   border-radius 10px
   padding 10px 12px
   font-size 13px
   font-weight 300
-  color rgb(224, 242, 254)
+  color rgb(15, 23, 42)
   outline none
   transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
   width 100%
@@ -83,10 +98,10 @@
   -webkit-app-region no-drag
 
 .quickSendInput:focus
-  border-color rgba(14, 165, 233, 0.4)
+  border-color rgba(14, 165, 233, 0.40)
 
 .quickSendInput::placeholder
-  color rgba(186, 230, 253, 0.4)
+  color rgba(15, 23, 42, 0.55)
 
 .quickSendInputMono
   font-family 'CodeFont'
@@ -104,7 +119,7 @@
 .quickSendCurrency
   font-size 13px
   font-weight 500
-  color rgba(186, 230, 253, 0.7)
+  color rgba(15, 23, 42, 0.7)
   font-family 'CodeFont'
   min-width 32px
 
@@ -122,8 +137,8 @@
   font-size 14px
   font-weight 500
   letter-spacing 0.02em
-  color rgba(186, 230, 253, 0.4)
-  background rgba(14, 165, 233, 0.06)
+  color rgba(15, 23, 42, 0.6)
+  background rgba(255, 255, 255, 0.06)
   border 1px solid rgba(14, 165, 233, 0.18)
   transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
   cursor not-allowed
@@ -131,7 +146,7 @@
 .quickSendSubmitReady
   background rgb(14, 165, 233)
   border-color transparent
-  color rgb(3, 5, 15)
+  color white
   cursor pointer
 
 .quickSendSubmitReady:hover
@@ -147,26 +162,36 @@
   height 28px
   border-radius 8px
   border 1px solid rgba(14, 165, 233, 0.18)
-  background rgb(10, 14, 35)
   display flex
   align-items center
   justify-content center
   font-size 12px
-  color rgba(186, 230, 253, 0.7)
+  color rgba(15, 23, 42, 0.7)
   cursor pointer
   transition 0.18s cubic-bezier(0.4, 0, 0.2, 1) all
   -webkit-app-region no-drag
   z-index 10000000
 
+.dark
+  .quickSendToggle
+    background rgb(224, 235, 252)
+  .quickSendToggle:hover
+    background rgb(240, 245, 255)
+
+.light
+  .quickSendToggle
+    background rgb(224, 235, 252)
+  .quickSendToggle:hover
+    background rgb(210, 225, 248)
+
 .quickSendToggle:hover
-  border-color rgba(14, 165, 233, 0.4)
+  border-color rgba(14, 165, 233, 0.40)
   color rgb(14, 165, 233)
-  background rgb(6, 9, 22)
 
 .quickSendToggleActive
-  border-color rgba(14, 165, 233, 0.4)
+  border-color rgba(14, 165, 233, 0.40)
   color rgb(14, 165, 233)
-  background rgba(14, 165, 233, 0.08)
+  background rgba(255, 255, 255, 0.08)
 
 // ─── No Account State ─────────────────────────────────────────────────────────
 
@@ -182,8 +207,8 @@
   width 44px
   height 44px
   border-radius 14px
-  background rgba(14, 165, 233, 0.08)
-  border 1px solid rgba(14, 165, 233, 0.2)
+  background rgba(255, 255, 255, 0.08)
+  border 1px solid rgba(14, 165, 233, 0.20)
   display flex
   align-items center
   justify-content center
@@ -193,11 +218,11 @@
 .quickSendNoAccountText
   font-size 14px
   font-weight 500
-  color rgb(224, 242, 254)
+  color rgb(15, 23, 42)
 
 .quickSendNoAccountSub
   font-size 12px
-  color rgba(186, 230, 253, 0.7)
+  color rgba(15, 23, 42, 0.7)
   line-height 1.5
 
 .quickSendNoAccountActions
@@ -222,7 +247,7 @@
 
 .quickSendNoAccountBtnPrimary
   background rgb(14, 165, 233)
-  color rgb(3, 5, 15)
+  color white
 
 .quickSendNoAccountBtnPrimary:hover
   background rgb(56, 189, 248)
@@ -230,13 +255,13 @@
 
 .quickSendNoAccountBtnSecondary
   background transparent
-  border 1px solid rgba(14, 165, 233, 0.2)
-  color rgba(186, 230, 253, 0.7)
+  border 1px solid rgba(14, 165, 233, 0.20)
+  color rgba(15, 23, 42, 0.7)
 
 .quickSendNoAccountBtnSecondary:hover
-  border-color rgba(14, 165, 233, 0.4)
-  color rgb(224, 242, 254)
-  background rgba(14, 165, 233, 0.05)
+  border-color rgba(14, 165, 233, 0.40)
+  color rgb(15, 23, 42)
+  background rgba(255, 255, 255, 0.05)
 
 // From-account label in send header
 .quickSendFromAccount
@@ -255,7 +280,7 @@
 
 .quickSendFromName
   font-size 11px
-  color rgba(186, 230, 253, 0.7)
+  color rgba(15, 23, 42, 0.7)
   overflow hidden
   text-overflow ellipsis
   white-space nowrap

@@ -59,19 +59,20 @@ class TxMain extends React.Component {
 
     const { primaryColor, icon } = this.store('main.networksMeta.ethereum', networkId)
     const originName = this.store('main.origins', req.origin, 'name')
+    const safeColor = (primaryColor && /^[a-zA-Z0-9]+$/.test(primaryColor)) ? primaryColor : 'electric'
     return (
       <div className='_flowMain' style={{ animationDelay: 0.1 * this.props.i + 's' }}>
         <div className='_flowDataInner'>
           <div
             className='_txMainBackground'
-            style={{ background: `linear-gradient(135deg, var(--${primaryColor}) 0%, transparent 100%)` }}
+            style={{ background: `linear-gradient(135deg, var(--${safeColor}) 0%, transparent 100%)` }}
           />
           <RequestItem
             req={req}
             account={accountId}
             handlerId={req.handlerId}
             title={`${networkName} Transaction`}
-            color={primaryColor ? `var(--${primaryColor})` : ``}
+            color={primaryColor ? `var(--${safeColor})` : 'var(--electric)'}
             img={icon}
             headerMode={true}
           >

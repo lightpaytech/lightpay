@@ -12,13 +12,13 @@
     justify-content space-between
     padding 0px 14px
     align-items center
-    border-bottom 1px solid rgba(14,165,233,0.18)
-    color rgb(224,242,254)
+    border-bottom 1px solid rgba(14, 165, 233, 0.18)
+    color rgb(15, 23, 42)
 
     // "+ Add Token" pill
     .customTokensAddToken
       background transparent
-      border 1px solid rgba(14,165,233,0.18)
+      border 1px solid rgba(14, 165, 233, 0.18)
       height 28px
       border-radius 8px
       display flex
@@ -36,8 +36,8 @@
         pointer-events none
 
     .customTokensAddToken:hover
-      background rgba(14,165,233,0.08)
-      border-color rgba(14,165,233,0.4)
+      background rgba(255, 255, 255, 0.08)
+      border-color rgba(14, 165, 233, 0.40)
 
   // ─── Footer ─────────────────────────────────────────────────────────────────
 
@@ -53,7 +53,7 @@
     display flex
     justify-content center
     align-items center
-    color rgba(186,230,253,0.7)
+    color rgba(15, 23, 42, 0.7)
 
   // ─── Token List ──────────────────────────────────────────────────────────────
 
@@ -78,21 +78,21 @@
     text-transform uppercase
     letter-spacing 0.08em
     font-family 'MainFont'
-    color rgba(186,230,253,0.7)
+    color rgba(15, 23, 42, 0.7)
 
   // ─── Token List Item ─────────────────────────────────────────────────────────
 
   .customTokensListItem
     position relative
-    background rgb(6,9,22)
-    border 1px solid rgba(14,165,233,0.18)
+    background rgb(240, 245, 255)
+    border 1px solid rgba(14, 165, 233, 0.18)
     border-radius 14px
     overflow hidden
     transition 0.25s cubic-bezier(0.4, 0, 0.2, 1) all
     box-sizing border-box
 
   .customTokensListItem:hover
-    border-color rgba(14,165,233,0.4)
+    border-color rgba(14, 165, 233, 0.40)
 
     // ─── List Item Title Row ───────────────────────────────────────────────────
 
@@ -115,7 +115,7 @@
         padding 6px
         box-sizing border-box
         background transparent
-        border 1px solid rgba(14,165,233,0.18)
+        border 1px solid rgba(14, 165, 233, 0.18)
         transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
         transform rotate(-180deg)
         flex-shrink 0
@@ -123,8 +123,8 @@
           pointer-events none
 
       .customTokensListItemExpand:hover
-        background rgba(14,165,233,0.08)
-        border-color rgba(14,165,233,0.4)
+        background rgba(255, 255, 255, 0.08)
+        border-color rgba(14, 165, 233, 0.40)
 
       .customTokensListItemExpandActive
         transform rotate(0deg)
@@ -146,8 +146,8 @@
           left 0
           right 0
           border-radius 50%
-          background rgb(10,14,35)
-          color rgb(224,242,254)
+          background rgb(224, 235, 252)
+          color rgb(15, 23, 42)
           display flex
           justify-content center
           align-items center
@@ -161,8 +161,8 @@
           width 32px
           border-radius 50%
           flex-shrink 0
-          border 1px solid rgba(14,165,233,0.2)
-          background rgb(10,14,35)
+          border 1px solid rgba(14, 165, 233, 0.20)
+          background rgb(224, 235, 252)
           overflow hidden
           object-fit cover
 
@@ -179,7 +179,7 @@
           font-weight 400
           letter-spacing 0.06em
           text-transform uppercase
-          color rgb(224,242,254)
+          color rgb(15, 23, 42)
           line-height 1.2
           white-space nowrap
           overflow hidden
@@ -189,7 +189,7 @@
           font-size 11px
           font-weight 300
           font-family 'MainFont'
-          color rgba(186,230,253,0.7)
+          color rgba(15, 23, 42, 0.7)
           line-height 1.2
           margin-top 2px
           white-space nowrap
@@ -211,7 +211,7 @@
       text-transform uppercase
       letter-spacing 0.08em
       font-weight 500
-      color rgba(186,230,253,0.7)
+      color rgba(15, 23, 42, 0.7)
 
     // ─── Contract Address Pill ────────────────────────────────────────────────
 
@@ -224,20 +224,20 @@
       margin 0px 10px
       border-radius 8px
       font-family 'CodeFont'
-      background rgba(14,165,233,0.05)
-      border 1px solid rgba(14,165,233,0.18)
+      background rgba(255, 255, 255, 0.05)
+      border 1px solid rgba(14, 165, 233, 0.18)
       padding 0px 8px
       cursor pointer
       letter-spacing 0.03em
-      color rgba(186,230,253,0.7)
+      color rgba(15, 23, 42, 0.7)
       transition 0.15s ease all
       *
         pointer-events none
 
     .customTokensListItemAddress:hover
       background rgba(14,165,233,0.1)
-      border-color rgba(14,165,233,0.4)
-      color rgb(224,242,254)
+      border-color rgba(14, 165, 233, 0.40)
+      color rgb(15, 23, 42)
 
     // ─── Expanded Action Row ──────────────────────────────────────────────────
 
@@ -247,7 +247,7 @@
       align-items center
       padding 0px 10px
       gap 6px
-      border-top 1px solid rgba(14,165,233,0.18)
+      border-top 1px solid rgba(14, 165, 233, 0.18)
 
       .customTokensListItemButton
         display flex
@@ -269,15 +269,15 @@
           pointer-events none
 
       .customTokensListItemButton:hover
-        background rgb(10,14,35)
+        background rgb(224, 235, 252)
 
       .editButton
         color var(--good)
-        border-color rgba(14,165,233,0.2)
+        border-color rgba(14, 165, 233, 0.20)
 
       .editButton:hover
-        background rgba(14,165,233,0.08)
-        border-color rgba(14,165,233,0.4)
+        background rgba(255, 255, 255, 0.08)
+        border-color rgba(14, 165, 233, 0.40)
 
       .removeButton
         color var(--bad)
@@ -290,7 +290,7 @@
   // ─── Expanded Item State ─────────────────────────────────────────────────────
 
   .customTokensListItemExpanded
-    border-color rgba(14,165,233,0.4)
+    border-color rgba(14, 165, 233, 0.40)
 
   // ─── Chain / Decimal statusIndicator ─────────────────────────────────────────
 
@@ -301,5 +301,5 @@
     font-family 'CodeFont'
     font-size 12px
     font-weight 400
-    color rgba(186,230,253,0.7)
+    color rgba(15, 23, 42, 0.7)
     gap 4px

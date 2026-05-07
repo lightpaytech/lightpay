@@ -110,7 +110,7 @@
       transform translateY(-1px)
 
     .moduleItemButton:active
-      background rgba(14, 165, 233, 0.06)
+      background rgba(255, 255, 255, 0.06)
       transform translateY(0px)
 
   .signerBalanceButton
@@ -138,7 +138,7 @@
   .signerBalanceButton:hover
     background rgba(14, 165, 233, 0.1)
     color var(--good)
-    border-color rgba(14, 165, 233, 0.4)
+    border-color rgba(14, 165, 233, 0.40)
 
   .signerBalanceTotalText
     position absolute
@@ -216,7 +216,7 @@
   box-sizing border-box
 
   &:hover
-    background rgba(14, 165, 233, 0.06)
+    background rgba(255, 255, 255, 0.06)
     cursor pointer
 
   @keyframes sheenLoad
@@ -265,7 +265,7 @@
       border-radius 50%
       position absolute
       background var(--outerspace)
-      color var(--ghostA)
+      color rgb(15, 23, 42)
       display flex
       justify-content center
       align-items center
@@ -325,7 +325,7 @@
     height 12px
     padding 0px 0px 0px 2px
     border-radius 8px
-    color var(--outerspace05)
+    color rgba(14, 165, 233, 0.65)
 
   // Value — right (CodeFont)
   .assetTokenValue
@@ -406,7 +406,7 @@
   top 0
   left 0
   right 0
-one
+  bottom 0
 
 .signerBalanceSliderShadow
   position relative
@@ -440,8 +440,8 @@ one
   margin 8px 6px
 
 .signerBalanceAddToken:hover
-  border-color rgba(14, 165, 233, 0.5)
-  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.50)
+  background rgba(255, 255, 255, 0.06)
   color var(--good)
 
 // ── Module loading spinner ───────────────────────────────────────────────────
@@ -528,7 +528,7 @@ one
   justify-content center
   color var(--outerspace04)
   cursor pointer
-0.15s all
+  transition 0.15s all
 
 .removeButton:hover
   background rgba(244, 63, 94, 0.08)

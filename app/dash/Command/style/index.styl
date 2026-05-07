@@ -4,7 +4,7 @@
 .cmdOverlay
   position fixed
   inset 0
-  background rgba(3,5,15,0.85)
+  background rgba(248, 250, 255,0.85)
   backdrop-filter blur(8px)
   -webkit-backdrop-filter blur(8px)
   z-index 9000000
@@ -15,8 +15,8 @@
 
 // Command box container
 .cmdBox
-  background rgb(6,9,22)
-  border 1px solid rgba(14,165,233,0.25)
+  background rgb(240, 245, 255)
+  border 1px solid rgba(14, 165, 233, 0.25)
   border-radius 20px
   width 380px
   max-width calc(100vw - 40px)
@@ -29,7 +29,7 @@
   display flex
   align-items center
   padding 16px 20px
-  border-bottom 1px solid rgba(14,165,233,0.18)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
   gap 12px
 
   .commandSearchIcon
@@ -46,11 +46,11 @@
     font-family 'MainFont'
     font-size 16px
     font-weight 300
-    color rgb(224,242,254)
+    color rgb(15, 23, 42)
     -webkit-app-region no-drag
 
     &::placeholder
-      color rgba(186,230,253,0.3)
+      color rgba(15, 23, 42, 0.55)
 
   .commandSearchClear
     color rgba(14,165,233,0.5)
@@ -60,7 +60,7 @@
     transition all 0.15s ease
 
     &:hover
-      color rgb(224,242,254)
+      color rgb(15, 23, 42)
 
 // Results list
 .cmdResults
@@ -85,7 +85,7 @@
   font-weight 500
   letter-spacing 1.5px
   text-transform uppercase
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.55)
   padding 10px 12px 4px 12px
 
 // Individual result item
@@ -106,65 +106,65 @@
     width 30px
     height 30px
     border-radius 8px
-    background rgba(14,165,233,0.08)
-    border 1px solid rgba(14,165,233,0.18)
+    background rgba(255, 255, 255, 0.08)
+    border 1px solid rgba(14, 165, 233, 0.18)
     display flex
     align-items center
     justify-content center
     flex-shrink 0
-    color rgba(186,230,253,0.4)
+    color rgba(15, 23, 42, 0.55)
 
   .commandResultItemLabel
     font-size 14px
     font-weight 400
-    color rgb(224,242,254)
+    color rgb(15, 23, 42)
     flex 1
 
   .commandResultItemSub
     font-size 11px
-    color rgba(186,230,253,0.4)
+    color rgba(15, 23, 42, 0.55)
     font-family 'CodeFont'
 
   .commandResultItemShortcut
     font-family 'CodeFont'
     font-size 11px
-    color rgba(186,230,253,0.4)
-    background rgb(10,14,35)
+    color rgba(15, 23, 42, 0.55)
+    background rgb(224, 235, 252)
     border-radius 5px
     padding 2px 6px
 
 .cmdItem:hover
-  background rgba(14,165,233,0.05)
+  background rgba(255, 255, 255, 0.05)
 
 .cmdItemActive
-  background rgba(14,165,233,0.08)
-  border 1px solid rgba(14,165,233,0.18)
+  background rgba(255, 255, 255, 0.08)
+  border 1px solid rgba(14, 165, 233, 0.18)
 
   .commandResultItemIcon
     background rgba(14,165,233,0.12)
-    border-color rgba(14,165,233,0.4)
+    border-color rgba(14, 165, 233, 0.40)
     color rgb(14,165,233)
 
 // Empty state
 .cmdEmpty
   padding 32px 20px
   text-align center
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.55)
   font-size 13px
 
 // Footer hint bar
 .cmdFooter
   padding 8px 16px
-  border-top 1px solid rgba(14,165,233,0.18)
+  border-top 1px solid rgba(14, 165, 233, 0.18)
   display flex
   align-items center
   gap 12px
   font-size 11px
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.55)
   font-family 'CodeFont'
 
   .commandFooterKey
-    background rgb(10,14,35)
+    background rgb(224, 235, 252)
     border-radius 4px
     padding 2px 5px
     font-size 10px
@@ -203,8 +203,8 @@
     -webkit-app-region no-drag
     pointer-events auto
     transform translate3d(0, 0, 0)
-    background rgb(6,9,22)
-    border 1px solid rgba(14,165,233,0.18)
+    background rgb(240, 245, 255)
+    border 1px solid rgba(14, 165, 233, 0.18)
     position absolute
     cursor pointer
 
@@ -212,8 +212,8 @@
       pointer-events none
 
   .commandItem:hover
-    background rgba(14,165,233,0.05)
-    border-color rgba(14,165,233,0.4)
+    background rgba(255, 255, 255, 0.05)
+    border-color rgba(14, 165, 233, 0.40)
 
   .commandItemBack
     left 14px

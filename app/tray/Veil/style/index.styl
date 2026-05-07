@@ -2,6 +2,14 @@
 // Deepest layer overlay with electric blue tinted glass effect
 // Transition: 0.28s cubic-bezier(0.4,0,0.2,1)
 
+.dark
+  .overlayBg
+    background rgba(248, 250, 255, 0.92)
+
+.light
+  .overlayBg
+    background rgba(240, 245, 255, 0.5)
+
 .overlayBg
   position absolute
   top 80px
@@ -11,7 +19,6 @@
   z-index 1
   pointer-events none
   transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
-  background rgba(3, 5, 15, 0.92)
   border-radius 16px
   border 1px solid rgba(14, 165, 233, 0.08)
 

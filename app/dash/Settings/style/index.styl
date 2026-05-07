@@ -1,76 +1,98 @@
 // LightPay VAULT — Settings Screen
 
-.prefSetting
-  background var(--ghostB)
-  border 1px solid rgba(14, 165, 233, 0.09)
-  border-radius 14px
-  overflow hidden
-  margin-bottom 8px
-  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
-
-.prefSetting:hover
-  border-color rgba(14, 165, 233, 0.18)
-
 .localSettings
-  padding 14px
+  padding 18px 16px 80px 16px
+  display flex
+  flex-direction column
+  gap 0
+  position relative
+  z-index 10
+
+.localSettings .localSettingsWrap
   display flex
   flex-direction column
   gap 0
 
-.localSettingsWrap
-  display flex
-  flex-direction column
-  gap 8px
+.localSettings .prefSetting
+  background rgb(255, 255, 255)
+  border 1px solid rgba(14, 165, 233, 0.22)
+  border-radius 14px
+  overflow visible
+  margin-bottom 10px
+  transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
+  padding 14px 16px
 
-// Setting row
-.signerPermissionControls
-  padding 13px 16px
+.localSettings .prefSetting:hover
+  border-color rgba(14, 165, 233, 0.40)
+
+.localSettings .prefSetting .signerPermissionControls
+  padding 0 0 4px 0
   display flex
   align-items center
   gap 12px
+  min-height 28px
+  justify-content space-between
 
-.signerPermissionSetting
+.localSettings .prefSetting .signerPermissionSetting
   flex 1
-  font-size 13px
-  font-weight 400
-  color var(--outerspace08)
+  font-size 14px
+  font-weight 500
+  color rgb(15, 23, 42)
   position relative
 
-.signerPermissionControls + .signerPermissionControls
-  border-top 1px solid rgba(14, 165, 233, 0.06)
+.localSettings .prefSetting .signerPermissionDetails
+  font-size 12px
+  font-weight 300
+  color rgba(15, 23, 42, 0.65)
+  line-height 1.5
+  padding-top 6px
+  display block
 
 // Toggle switch
 .signerPermissionToggle
-  width 40px
-  height 22px
-  border-radius 11px
+  width 44px
+  height 24px
+  border-radius 12px
   flex-shrink 0
   position relative
   cursor pointer
   transition 0.22s cubic-bezier(0.4, 0, 0.2, 1) all
+  border 1px solid rgba(14, 165, 233, 0.22)
+  box-sizing border-box
+  padding 0
 
 .signerPermissionToggle:after
   content ''
   position absolute
-  top 3px
-  width 16px
-  height 16px
+  top 50%
+  width 18px
+  height 18px
   border-radius 50%
-  background white
+  background rgb(255, 255, 255)
+  box-shadow 0 1px 3px rgba(15, 23, 42, 0.20), 0 0 0 1px rgba(15, 23, 42, 0.05)
   transition 0.22s cubic-bezier(0.4, 0, 0.2, 1) all
+  transform translateY(-50%)
 
 .signerPermissionToggleOff
-  background var(--ghostD)
+  background rgb(224, 235, 252)
 
 .signerPermissionToggleOff:after
-  left 3px
+  left 2px
 
 .signerPermissionToggleOn
-  background var(--good)
-  border 1px solid rgba(14, 165, 233, 0.4)
+  background rgb(14, 165, 233)
+  border-color rgb(14, 165, 233)
 
 .signerPermissionToggleOn:after
-  left calc(100% - 19px)
+  left calc(100% - 20px)
+  box-shadow 0 1px 4px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(15, 23, 42, 0.05)
+
+.signerPermissionToggle:hover
+  border-color rgba(14, 165, 233, 0.50)
+
+.signerPermissionToggleOn:hover
+  background rgb(2, 132, 199)
+  border-color rgb(2, 132, 199)
 
 // Shortcut configurator
 .shortcutCmd
@@ -112,13 +134,13 @@
   outline none
 
 .settingsDropdown:focus
-  border-color rgba(14, 165, 233, 0.5)
-  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.50)
+  background rgba(255, 255, 255, 0.06)
 
 // Input in settings
 .settingsInput
-  background rgba(14, 165, 233, 0.04)
-  border 1px solid rgba(14, 165, 233, 0.15)
+  background rgb(255, 255, 255)
+  border 1px solid rgba(14, 165, 233, 0.30)
   border-radius 10px
   padding 9px 12px
   font-family 'CodeFont'
@@ -131,8 +153,8 @@
   -webkit-app-region no-drag
 
 .settingsInput:focus
-  border-color rgba(14, 165, 233, 0.5)
-  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.50)
+  background rgb(255, 255, 255)
 
 // Reset button (dangerous)
 .settingsResetBtn
@@ -181,7 +203,7 @@
   flex 1
   height 40px
   background var(--ghostC)
-  border 1px solid rgba(14, 165, 233, 0.1)
+  border 1px solid rgba(14, 165, 233, 0.10)
   border-radius 10px
   color var(--outerspace07)
   font-size 13px

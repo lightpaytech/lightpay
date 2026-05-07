@@ -9,13 +9,20 @@
 .portfolioHeader
   width 100%
   padding 10px 16px 8px
-  background rgb(6,9,22)
-  border-bottom 1px solid rgba(14,165,233,0.12)
+  border-bottom 1px solid rgba(14, 165, 233, 0.12)
   cursor pointer
   transition background 0.15s ease
   position relative
   &:hover
-    background rgba(14,165,233,0.04)
+    background rgba(255, 255, 255, 0.03)
+
+.dark
+  .portfolioHeader
+    background rgb(240, 245, 255)
+
+.light
+  .portfolioHeader
+    background rgb(240,245,255)
 
 .portfolioHeaderMain
   display flex
@@ -25,7 +32,7 @@
 .portfolioLabel
   font-size 10px
   font-weight 600
-  color rgba(14,165,233,0.6)
+  color rgba(15, 23, 42, 0.45)
   text-transform uppercase
   letter-spacing 0.1em
   flex 1
@@ -33,7 +40,7 @@
 .portfolioValue
   font-size 20px
   font-weight 700
-  color rgb(56,189,248)
+  color rgb(15, 23, 42)
   letter-spacing -0.02em
 
 .portfolioChange
@@ -71,23 +78,23 @@
 
 .portfolioRefresh
   background none
-  border 1px solid rgba(14,165,233,0.18)
+  border 1px solid rgba(14, 165, 233, 0.18)
   cursor pointer
-  color rgba(14,165,233,0.5)
+  color rgba(15, 23, 42, 0.35)
   font-size 14px
   padding 2px 6px
   border-radius 4px
   transition all 0.15s ease
   &:hover
     color rgb(14,165,233)
-    border-color rgba(14,165,233,0.4)
+    border-color rgba(14, 165, 233, 0.40)
   &.portfolioRefreshSpin
     animation spin 1s linear infinite
 
 .portfolioDetail
   margin-top 8px
   padding-top 8px
-  border-top 1px solid rgba(14,165,233,0.12)
+  border-top 1px solid rgba(14, 165, 233, 0.12)
 
 .portfolioDetailRow
   display flex
@@ -97,11 +104,11 @@
 
 .portfolioDetailLabel
   font-size 10px
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.6)
 
 .portfolioDetailValue
   font-size 10px
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
 
 .portfolioAddress
   font-family monospace

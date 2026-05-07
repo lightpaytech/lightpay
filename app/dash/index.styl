@@ -26,29 +26,65 @@ div
 ::-webkit-scrollbar-thumb:hover
   background rgba(14, 165, 233, 0.4)
 
-// ─── VAULT dark mode overrides ────────────────────────────────
-.dark
-  --ghostX rgb(3, 5, 15)
-  --ghostX04 rgba(3, 5, 15, 0.4)
-  --ghostX09 rgba(3, 5, 15, 0.9)
-  --ghostY rgb(6, 9, 22)
-  --ghostZ rgb(6, 9, 22)
-  --ghostZ0 rgba(6, 9, 22, 0)
-  --ghostZ05 rgba(6, 9, 22, 0.5)
-  --ghostZ08 rgba(6, 9, 22, 0.8)
-  --ghostAZ rgb(10, 14, 35)
-  --ghostA rgb(3, 5, 15)
-  --ghostA05 rgba(3, 5, 15, 0.5)
-  --ghostB rgb(6, 9, 22)
-  --ghostB0 rgba(6, 9, 22, 0)
-  --ghostB05 rgba(6, 9, 22, 0.2)
-  --ghostC rgb(10, 14, 35)
-  --ghostC0 rgba(10, 14, 35, 0)
-  --ghostD rgb(14, 20, 48)
+// ─── VAULT light mode overrides ───────────────────────────────
+.light
+  --ghostX rgb(248, 250, 255)
+  --ghostX04 rgba(248, 250, 255, 0.4)
+  --ghostX09 rgba(248, 250, 255, 0.9)
+  --ghostY rgb(240, 245, 255)
+  --ghostZ rgb(240, 245, 255)
+  --ghostZ0 rgba(240, 245, 255, 0)
+  --ghostZ05 rgba(240, 245, 255, 0.5)
+  --ghostZ08 rgba(240, 245, 255, 0.8)
+  --ghostAZ rgb(224, 235, 252)
+  --ghostA rgb(248, 250, 255)
+  --ghostA05 rgba(14, 165, 233, 0.05)
+  --ghostB rgb(240, 245, 255)
+  --ghostB0 rgba(240, 245, 255, 0)
+  --ghostB05 rgba(240, 245, 255, 0.2)
+  --ghostC rgb(224, 235, 252)
+  --ghostC0 rgba(224, 235, 252, 0)
+  --ghostD rgb(210, 225, 248)
   --good rgb(14, 165, 233)
   --goodUp rgb(56, 189, 248)
   --goodShade rgb(2, 132, 199)
-  --goodDark rgb(6, 9, 22)
+  --goodDark rgb(186, 230, 253)
+  --goodOver rgb(7, 89, 133)
+  --good0 rgba(14, 165, 233, 0)
+  --good01 rgba(14, 165, 233, 0.1)
+  --good02 rgba(14, 165, 233, 0.2)
+  --good03 rgba(14, 165, 233, 0.3)
+  --good04 rgba(14, 165, 233, 0.4)
+  --good06 rgba(14, 165, 233, 0.6)
+  --bad rgb(220, 38, 38)
+  --bad01 rgba(220, 38, 38, 0.1)
+  --bad04 rgba(220, 38, 38, 0.4)
+  --overlayA rgba(14, 165, 233, 0.05)
+  --overlayB rgba(14, 165, 233, 0.04)
+
+// ─── VAULT dark mode overrides ────────────────────────────────
+.dark
+  --ghostX rgb(248, 250, 255)
+  --ghostX04 rgba(248, 250, 255, 0.4)
+  --ghostX09 rgba(248, 250, 255, 0.9)
+  --ghostY rgb(240, 245, 255)
+  --ghostZ rgb(240, 245, 255)
+  --ghostZ0 rgba(240, 245, 255, 0)
+  --ghostZ05 rgba(240, 245, 255, 0.5)
+  --ghostZ08 rgba(240, 245, 255, 0.8)
+  --ghostAZ rgb(224, 235, 252)
+  --ghostA rgb(248, 250, 255)
+  --ghostA05 rgba(248, 250, 255, 0.5)
+  --ghostB rgb(240, 245, 255)
+  --ghostB0 rgba(240, 245, 255, 0)
+  --ghostB05 rgba(240, 245, 255, 0.2)
+  --ghostC rgb(224, 235, 252)
+  --ghostC0 rgba(224, 235, 252, 0)
+  --ghostD rgb(210, 225, 248)
+  --good rgb(14, 165, 233)
+  --goodUp rgb(56, 189, 248)
+  --goodShade rgb(2, 132, 199)
+  --goodDark rgb(240, 245, 255)
   --goodOver rgb(224, 242, 254)
   --good0 rgba(14, 165, 233, 0)
   --good01 rgba(14, 165, 233, 0.1)
@@ -59,7 +95,7 @@ div
   --bad rgb(255, 75, 100)
   --bad01 rgba(255, 75, 100, 0.1)
   --bad04 rgba(255, 75, 100, 0.4)
-  --overlayA rgba(3, 5, 15, 0.05)
+  --overlayA rgba(248, 250, 255, 0.05)
   --overlayB rgba(14, 165, 233, 0.04)
 
 @keyframes showFooter
@@ -159,7 +195,7 @@ div
 
     .clearOriginsButton:hover
       background var(--ghostC)
-      border-color rgba(14, 165, 233, 0.4)
+      border-color rgba(14, 165, 233, 0.40)
       color var(--good)
       transform translateY(-1px)
 
@@ -295,7 +331,7 @@ div
 
       .addWalletCloseBtn:hover
         background var(--ghostC)
-        border-color rgba(14, 165, 233, 0.4)
+        border-color rgba(14, 165, 233, 0.40)
         color var(--good)
 
     .accountTypeSelect
@@ -308,7 +344,7 @@ div
       align-items center
       cursor pointer
       background var(--ghostB)
-      border 1px solid rgba(14, 165, 233, 0.1)
+      border 1px solid rgba(14, 165, 233, 0.10)
       font-size 15px
       transform translateY(0px)
       transition 0.22s cubic-bezier(0.4, 0, 0.2, 1) all
@@ -326,7 +362,7 @@ div
     .accountTypeSelect:hover
       transform translateY(-1px)
       background var(--ghostC)
-      border-color rgba(14, 165, 233, 0.4)
+      border-color rgba(14, 165, 233, 0.40)
       z-index 200
 
     .accountTypeSelect:active
@@ -368,7 +404,7 @@ div
       font-weight 400
       letter-spacing 0.1em
       text-transform uppercase
-      border 1px solid rgba(14, 165, 233, 0.1)
+      border 1px solid rgba(14, 165, 233, 0.10)
       color var(--outerspace05)
 
     .signersMid
@@ -401,7 +437,7 @@ div
 
 .customTokensListNoTokens
   font-size 12px
-  color var(--outerspace04)
+  color var(--outerspace06)
   text-align center
   padding 16px 14px
 
@@ -460,7 +496,7 @@ div
 
 .networkBreakLayer
   height 1px
-  background rgba(14, 165, 233, 0.06)
+  background rgba(255, 255, 255, 0.06)
   margin 6px 0
 
 .networkSwitchBtn
@@ -479,8 +515,8 @@ div
   transition 0.15s all
 
 .networkSwitchBtn:hover
-  background rgba(14, 165, 233, 0.06)
-  border-color rgba(14, 165, 233, 0.4)
+  background rgba(255, 255, 255, 0.06)
+  border-color rgba(14, 165, 233, 0.40)
 
 .statusInputInner
   display flex
@@ -500,7 +536,7 @@ div
   align-items center
   justify-content center
   gap 8px
-  border 1px solid rgba(14, 165, 233, 0.4)
+  border 1px solid rgba(14, 165, 233, 0.40)
 
 .mainDappLoading
   display flex
@@ -625,8 +661,8 @@ div
   margin-top 8px
 
 .requestFeatureButton:hover
-  background rgba(14, 165, 233, 0.06)
-  border-color rgba(14, 165, 233, 0.4)
+  background rgba(255, 255, 255, 0.06)
+  border-color rgba(14, 165, 233, 0.40)
 
 .discordLink
   display inline-flex
@@ -680,7 +716,7 @@ div
   font-weight 500
   letter-spacing 0.08em
   text-transform uppercase
-  color var(--outerspace04)
+  color var(--outerspace06)
   padding 14px 16px 8px
 
 .dashFooter
@@ -706,9 +742,9 @@ div
   transition 0.15s all
 
 .dashFooterButton:hover
-  border-color rgba(14, 165, 233, 0.4)
+  border-color rgba(14, 165, 233, 0.40)
   color var(--good)
-  background rgba(14, 165, 233, 0.06)
+  background rgba(255, 255, 255, 0.06)
 
 .main
   position absolute
@@ -725,7 +761,7 @@ div
   height 26px
   padding 0 10px
   border-radius 7px
-  border 1px solid rgba(14, 165, 233, 0.2)
+  border 1px solid rgba(14, 165, 233, 0.20)
   background transparent
   color var(--good)
   font-size 11px
@@ -736,8 +772,8 @@ div
   transition 0.15s all
 
 .editButton:hover
-  background rgba(14, 165, 233, 0.06)
-  border-color rgba(14, 165, 233, 0.4)
+  background rgba(255, 255, 255, 0.06)
+  border-color rgba(14, 165, 233, 0.40)
 
 .commandTitle
   font-size 14px
@@ -755,7 +791,7 @@ div
   transition 0.15s background
 
 .commandItem:hover
-  background rgba(14, 165, 233, 0.04)
+  background rgba(255, 255, 255, 0.04)
 
 .commandItemBack
   display flex
@@ -782,8 +818,8 @@ div
   background rgba(255, 75, 100, 0.06)
 
 .customInput
-  background rgba(14, 165, 233, 0.04)
-  border 1px solid rgba(14, 165, 233, 0.15)
+  background rgb(255, 255, 255)
+  border 1px solid rgba(14, 165, 233, 0.30)
   border-radius 10px
   padding 9px 12px
   font-family 'CodeFont'
@@ -796,8 +832,8 @@ div
   transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
 
 .customInput:focus
-  border-color rgba(14, 165, 233, 0.5)
-  background rgba(14, 165, 233, 0.06)
+  border-color rgba(14, 165, 233, 0.50)
+  background rgb(255, 255, 255)
 
 .addCustomTokenButtonWrap
   padding 8px 14px

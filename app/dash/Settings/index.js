@@ -231,18 +231,15 @@ class Settings extends Component {
 
           <div className='devicePerm prefSetting' style={{ zIndex: 206 }}>
             <div className='signerPermissionControls'>
-              <div className='signerPermissionSetting'>Colorway</div>
+              <div className='signerPermissionSetting'>Theme</div>
               <Dropdown
-                syncValue={this.store('main.colorway')}
-                onChange={(value) => link.send('tray:action', 'setColorway', value)}
-                options={[
-                  { text: 'Dark', value: 'dark' },
-                  { text: 'Light', value: 'light' }
-                ]}
+                syncValue={'light'}
+                onChange={() => link.send('tray:action', 'setColorway', 'light')}
+                options={[{ text: 'Ice Blue', value: 'light' }]}
               />
             </div>
             <div className='signerPermissionDetails'>
-              <span>Set LightPay&apos;s visual theme</span>
+              <span>LightPay&apos;s ice-blue theme is always on</span>
             </div>
           </div>
 

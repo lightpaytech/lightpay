@@ -30,7 +30,7 @@ link.rpc('getState', (err, state) => {
 
   store.observer(() => {
     document.body.classList.remove('dark', 'light')
-    document.body.classList.add('clip', store('main.colorway'))
+    document.body.classList.add('clip', 'light')
     setTimeout(() => {
       document.body.classList.remove('clip')
     }, 100)

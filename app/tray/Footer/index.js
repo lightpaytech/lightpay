@@ -20,8 +20,7 @@ class Footer extends React.Component {
   constructor(...args) {
     super(...args)
     this.state = {
-      allowInput: true,
-      showQuickSend: false
+      allowInput: true
     }
     this.footerRef = React.createRef()
   }
@@ -203,21 +202,14 @@ class Footer extends React.Component {
   }
   render() {
     const footerHeight = this.store('windows.panel.footer.height')
-    const { showQuickSend } = this.state
+    const showQuickSend = this.store('windows.panel.quickSendOpen')
     return (
       <div className='footerModule' style={{ height: footerHeight + 'px' }}>
         <div ref={this.footerRef} className='footerWrap' style={{ position: 'relative' }}>
           {showQuickSend && (
-            <QuickSend onClose={() => this.setState({ showQuickSend: false })} />
+            <QuickSend onClose={() => link.send('tray:action', 'toggleQuickSend')} />
           )}
           {this.renderFooter()}
-          <div
-            className={'quickSendToggle' + (showQuickSend ? ' quickSendToggleActive' : '')}
-            onClick={() => this.setState({ showQuickSend: !showQuickSend })}
-            title='Quick Send'
-          >
-            {'⬆'}
-          </div>
         </div>
       </div>
     )

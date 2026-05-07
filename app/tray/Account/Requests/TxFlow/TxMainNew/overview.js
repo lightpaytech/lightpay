@@ -124,7 +124,7 @@ const TxOverview = ({
             onClick={() => {
               link.send('nav:update', 'panel', { data: { step: 'viewData' } })
             }}
-            style={{ background: valueColor }}
+            style={{ background: valueColor || 'var(--electric)' }}
           >
             <div className='_flowDescription'>
               <RequestHeader chain={networkName} chainColor={chainColor}>

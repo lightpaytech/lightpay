@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Restore from 'react-restore'
 import link from '../../../resources/link'
 
 // LightPay Price Alerts — unique feature for setting token price notifications
@@ -68,34 +69,53 @@ function AlertItem({ alert, onRemove }) {
   )
 }
 
-function PriceAlerts({ alerts = [], address }) {
-  const handleAdd = ({ token, above, below }) => {
-    link.send('tray:action', 'setPriceAlert', address, token, { above, below })
-  }
+class PriceAlerts extends React.Component {
+  render() {
+    const address = this.store('selected.current')
+    const raw = (address && this.store('main.priceAlerts', address)) || {}
+    const alerts = Object.keys(raw)
+      .filter((token) => raw[token])
+      .map((token) => ({ id: token, token, ...raw[token] }))
 
-  const handleRemove = (alertId) => {
-    link.send('tray:action', 'removePriceAlert', address, alertId)
-  }
+    const handleAdd = ({ token, above, below }) => {
+      if (!address || !token) return
+      link.send('tray:action', 'setPriceAlert', address, token, { above, below })
+    }
 
-  return (
-    <div className='priceAlerts'>
-      <div className='priceAlertsHeader'>
-        <span className='priceAlertsTitle'>Price Alerts</span>
-        <span className='priceAlertsCount'>{alerts.length} active</span>
+    const handleRemove = (alertId) => {
+      if (!address) return
+      link.send('tray:action', 'removePriceAlert', address, alertId)
+    }
+
+    if (!address) {
+      return (
+        <div className='priceAlerts'>
+          <div className='alertEmpty'>Select an account to manage price alerts.</div>
+        </div>
+      )
+    }
+
+    return (
+      <div className='priceAlerts'>
+        <div className='priceAlertsHeader'>
+          <span className='priceAlertsTitle'>Price Alerts</span>
+          <span className='priceAlertsCount'>{alerts.length} active</span>
+        </div>
+        <AlertForm onAdd={handleAdd} />
+        <div className='alertList'>
+          {alerts.length === 0 ? (
+            <div className='alertEmpty'>No active price alerts. Add one above.</div>
+          ) : (
+            alerts.map((alert) => (
+              <AlertItem key={alert.id} alert={alert} onRemove={handleRemove} />
+            ))
+          )}
+        </div>
       </div>
-      <AlertForm onAdd={handleAdd} />
-      <div className='alertList'>
-        {alerts.length === 0 ? (
-          <div className='alertEmpty'>No active price alerts. Add one above.</div>
-        ) : (
-          alerts.map(alert => (
-            <AlertItem key={alert.id} alert={alert} onRemove={handleRemove} />
-          ))
-        )}
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default PriceAlerts
 PriceAlerts.displayName = 'PriceAlerts'
+
+export default Restore.connect(PriceAlerts)

@@ -514,7 +514,7 @@ const INITIAL_SELECTED_STATE = {
 function buildInitialState() {
   return {
     windows: {
-      panel: { show: false, nav: [], footer: { height: 40 } },
+      panel: { show: false, nav: [], footer: { height: 40 }, quickSendOpen: false },
       dash:  { show: false, nav: [], footer: { height: 40 } },
       frames: []
     },

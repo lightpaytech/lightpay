@@ -60,7 +60,7 @@
 
   .requestFeatureButton:hover
     background var(--ghostC)
-    border-color rgba(14, 165, 233, 0.4)
+    border-color rgba(14, 165, 233, 0.40)
     color var(--good)
     transform translateY(-1px)
 
@@ -130,7 +130,7 @@
     .extIconSnip:hover
       transform translateY(-2px)
       background var(--ghostC)
-      border-color rgba(14, 165, 233, 0.4)
+      border-color rgba(14, 165, 233, 0.40)
 
     .extIconSnip:active
       transform translateY(0px)
@@ -162,7 +162,7 @@
 .dashModule:hover
   transform translateY(-1px)
   background var(--ghostC)
-  border-color rgba(14, 165, 233, 0.4)
+  border-color rgba(14, 165, 233, 0.40)
   z-index 200
   position relative
 
@@ -250,7 +250,7 @@
   z-index 2000
   border-radius 16px
   background var(--ghostB)
-  border 1px solid rgba(14, 165, 233, 0.1)
+  border 1px solid rgba(14, 165, 233, 0.10)
 
   .signerPermissionControls
     display flex
@@ -278,7 +278,7 @@
     font-weight 400
     border-radius 6px
     font-size 11px
-    border 1px solid rgba(14, 165, 233, 0.2)
+    border 1px solid rgba(14, 165, 233, 0.20)
     color var(--outerspace)
     height 28px
     background var(--ghostC)
@@ -378,43 +378,45 @@
 
 .addCustomAssetBtn:hover
   background var(--ghostC)
-  border-color rgba(14, 165, 233, 0.4)
+  border-color rgba(14, 165, 233, 0.40)
   color var(--good)
 
 // ─── VAULT toggle — primary (large) ─────────────────────────
 .devicePermToggle
   position relative
-  background var(--bad)
-  height 20px
-  width 40px
+  background rgb(224, 235, 252)
+  height 24px
+  width 44px
   margin-right 6px
   margin-left 12px
   margin-top 4px
-  border-radius 10px
+  border-radius 12px
   transition 0.24s cubic-bezier(0.4, 0, 0.2, 1) all
-  transform translateZ(0)
   cursor pointer
-  border 1px solid rgba(0, 0, 0, 0.2)
+  border 1px solid rgba(14, 165, 233, 0.22)
+  box-sizing border-box
+  padding 0
 
   .signerPermissionToggleSwitch
     position absolute
-    top 2px
+    top 50%
     left 2px
-    bottom 2px
-    width 16px
-    border-radius 8px
+    width 18px
+    height 18px
+    border-radius 50%
     transition 0.24s cubic-bezier(0.4, 0, 0.2, 1) all
-    background var(--ghostD)
-    transform translateZ(0)
+    background rgb(255, 255, 255)
+    box-shadow 0 1px 3px rgba(15, 23, 42, 0.20), 0 0 0 1px rgba(15, 23, 42, 0.05)
+    transform translateY(-50%)
     pointer-events none
 
   .signerPermissionToggleSwitchLocked
     position absolute
-    top 0px
-    left 0px
-    bottom 0px
-    right 0px
-    border-radius 10px
+    top 0
+    left 0
+    bottom 0
+    right 0
+    border-radius 12px
     display flex
     align-items center
     justify-content center
@@ -430,7 +432,7 @@
     svg
       transition 0.24s cubic-bezier(0.4, 0, 0.2, 1) all
       opacity 0
-      color var(--ghostD)
+      color rgb(15, 23, 42)
 
   .signerPermissionToggleSwitchLocked:hover
     .signerPermissionToggleSwitch
@@ -440,51 +442,57 @@
       opacity 1
 
 .signerPermissionToggleOn
-  background var(--good)
-  border-color rgba(14, 165, 233, 0.4)
+  background rgb(14, 165, 233)
+  border-color rgb(14, 165, 233)
 
   .signerPermissionToggleSwitch
-    position absolute
-    transform translateX(20px)
+    left calc(100% - 20px)
+    box-shadow 0 1px 4px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(15, 23, 42, 0.05)
 
 .devicePermToggle:hover
-  .signerPermissionToggleSwitch
-    background var(--ghostC)
+  border-color rgba(14, 165, 233, 0.50)
+
+.signerPermissionToggleOn:hover
+  background rgb(2, 132, 199)
+  border-color rgb(2, 132, 199)
 
 // ─── VAULT toggle — small ────────────────────────────────────
 .devicePermToggleSmall
   position relative
-  background var(--bad)
-  height 14px
-  width 30px
-  border-radius 7px
+  background rgb(224, 235, 252)
+  height 18px
+  width 32px
+  border-radius 9px
   transition 0.24s cubic-bezier(0.4, 0, 0.2, 1) all
-  transform translateZ(0)
   margin-top 2px
   margin-right 4px
   cursor pointer
-  border 1px solid rgba(0, 0, 0, 0.2)
+  border 1px solid rgba(14, 165, 233, 0.22)
+  box-sizing border-box
 
   .signerPermissionToggleSwitch
     position absolute
-    top 2px
+    top 50%
     left 2px
-    bottom 2px
-    width 10px
-    border-radius 5px
+    width 12px
+    height 12px
+    border-radius 50%
     transition 0.24s cubic-bezier(0.4, 0, 0.2, 1) all
-    background var(--ghostD)
-    transform translateZ(0)
+    background rgb(255, 255, 255)
+    box-shadow 0 1px 2px rgba(15, 23, 42, 0.20)
+    transform translateY(-50%)
     pointer-events none
 
 .signerPermissionToggleSmallOn
-  background var(--good)
-  border-color rgba(14, 165, 233, 0.4)
+  background rgb(14, 165, 233)
+  border-color rgb(14, 165, 233)
 
   .signerPermissionToggleSwitch
-    position absolute
-    transform translateX(16px)
+    left calc(100% - 14px)
 
 .devicePermToggleSmall:hover
-  .signerPermissionToggleSwitch
-    background var(--ghostC)
+  border-color rgba(14, 165, 233, 0.50)
+
+.signerPermissionToggleSmallOn:hover
+  background rgb(2, 132, 199)
+  border-color rgb(2, 132, 199)

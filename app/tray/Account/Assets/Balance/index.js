@@ -45,10 +45,10 @@ class Balance extends React.Component {
             <RingIcon
               img={symbol.toUpperCase() !== 'ETH' && !isTestnet && !ethMatch && logoURI}
               alt={symbol.toUpperCase()}
-              color={chainColor ? `var(--${chainColor})` : ''}
+              color={chainColor ? `var(--${chainColor})` : 'var(--electric)'}
             />
           </div>
-          <div className='signerBalanceChain' style={{ color: chainColor ? `var(--${chainColor})` : '' }}>
+          <div className='signerBalanceChain' style={{ color: chainColor ? `var(--${chainColor})` : 'var(--electric)' }}>
             {networkName}
           </div>
           <div className='assetTokenName'>{name}</div>

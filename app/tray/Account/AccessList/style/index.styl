@@ -43,7 +43,7 @@
     border-bottom none
 
   &:hover
-    background rgba(14, 165, 233, 0.05)
+    background rgba(255, 255, 255, 0.05)
     cursor pointer
 
   .signerPermissionControls
@@ -146,72 +146,81 @@
 // ── Permission toggle (full size) ─────────────────────────────────────────────
 .devicePermToggle
   position relative
-  background var(--ghostD)
-  height 20px
-  width 40px
+  background rgb(224, 235, 252)
+  height 24px
+  width 44px
   border-radius 12px
   transition var(--standard)
-  transform translateZ(0)
   margin-top 4px
   cursor pointer
+  border 1px solid rgba(14, 165, 233, 0.22)
+  box-sizing border-box
+  padding 0
 
   .signerPermissionToggleSwitch
     position absolute
-    top 2px
+    top 50%
     left 2px
-    bottom 2px
-    width 16px
+    width 18px
+    height 18px
     border-radius 50%
     transition var(--standard)
-    background var(--ghostD)
-    transform translateZ(0)
+    background rgb(255, 255, 255)
+    box-shadow 0 1px 3px rgba(15, 23, 42, 0.20), 0 0 0 1px rgba(15, 23, 42, 0.05)
+    transform translateY(-50%)
     pointer-events none
 
 .signerPermissionToggleOn
-  background var(--good)
+  background rgb(14, 165, 233)
+  border-color rgb(14, 165, 233)
 
   .signerPermissionToggleSwitch
-    position absolute
-    transform translateX(20px)
-    background var(--outerspace)
+    left calc(100% - 20px)
+    box-shadow 0 1px 4px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(15, 23, 42, 0.05)
 
 .devicePermToggle:hover
-  .signerPermissionToggleSwitch
-    background var(--ghostD)
+  border-color rgba(14, 165, 233, 0.50)
+
+.signerPermissionToggleOn:hover
+  background rgb(2, 132, 199)
+  border-color rgb(2, 132, 199)
 
 // ── Permission toggle (small) ─────────────────────────────────────────────────
 .devicePermToggleSmall
   position relative
-  background var(--ghostD)
-  height 14px
-  width 30px
-  border-radius 12px
+  background rgb(224, 235, 252)
+  height 18px
+  width 32px
+  border-radius 9px
   transition var(--standard)
-  transform translateZ(0)
   margin-top 2px
   margin-right 4px
   cursor pointer
+  border 1px solid rgba(14, 165, 233, 0.22)
+  box-sizing border-box
 
   .signerPermissionToggleSwitch
     position absolute
-    top 2px
+    top 50%
     left 2px
-    bottom 2px
-    width 10px
+    width 12px
+    height 12px
     border-radius 50%
     transition var(--standard)
-    background var(--ghostC)
-    transform translateZ(0)
+    background rgb(255, 255, 255)
+    box-shadow 0 1px 2px rgba(15, 23, 42, 0.20)
+    transform translateY(-50%)
     pointer-events none
 
 .signerPermissionToggleSmallOn
-  background var(--good)
+  background rgb(14, 165, 233)
+  border-color rgb(14, 165, 233)
 
   .signerPermissionToggleSwitch
-    position absolute
-    transform translateX(16px)
-    background var(--outerspace)
+    left calc(100% - 14px)
 
 .devicePermToggleSmall:hover
-  .signerPermissionToggleSwitch
-    background var(--ghostD)
+  border-color rgba(14, 165, 233, 0.45)
+
+.signerPermissionToggleSmallOn:hover
+  background rgb(2, 132, 199)

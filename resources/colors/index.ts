@@ -33,7 +33,8 @@ function toHex(color: number) {
 }
 
 export function getColor(key: keyof ColorwayPalette, colorway: Colorway) {
-  const color = colorways[colorway][key]
+  const palette = colorways[colorway] || colorways[Colorway.light]
+  const color = palette[key] || palette.accent1
   return { ...color, hex: `#${toHex(color.r)}${toHex(color.g)}${toHex(color.b)}` }
 }
 

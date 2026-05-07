@@ -7,8 +7,15 @@
     opacity 0.4
 
 .networkHealthBar
-  background rgb(3,5,15)
-  border-top 1px solid rgba(14,165,233,0.1)
+  border-top 1px solid rgba(14, 165, 233, 0.10)
+
+.dark
+  .networkHealthBar
+    background rgb(240, 245, 255)
+
+.light
+  .networkHealthBar
+    background rgb(240,245,255)
 
 .networkHealthSummary
   display flex
@@ -18,7 +25,7 @@
   gap 8px
   transition background 0.15s ease
   &:hover
-    background rgba(14,165,233,0.04)
+    background rgba(255, 255, 255, 0.04)
 
 .networkHealthIndicator
   display flex
@@ -44,20 +51,20 @@
 
 .networkHealthLabel
   font-size 11px
-  color rgba(186,230,253,0.5)
+  color rgba(15, 23, 42, 0.65)
   font-weight 500
 
 .networkHealthCount
   font-size 11px
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.6)
 
 .networkHealthChevron
   font-size 9px
-  color rgba(186,230,253,0.3)
+  color rgba(15, 23, 42, 0.5)
 
 .networkHealthDetail
   padding 6px 16px 10px
-  border-top 1px solid rgba(14,165,233,0.1)
+  border-top 1px solid rgba(14, 165, 233, 0.10)
 
 .networkHealthRow
   display flex
@@ -67,7 +74,7 @@
   border-radius 4px
   transition background 0.15s ease
   &:hover
-    background rgba(14,165,233,0.04)
+    background rgba(255, 255, 255, 0.04)
 
 .healthDot
   width 7px
@@ -87,13 +94,13 @@
 .networkHealthName
   flex 1
   font-size 11px
-  color rgba(186,230,253,0.6)
+  color rgba(15, 23, 42, 0.6)
 
 .networkHealthLatency
   font-size 10px
-  color rgba(186,230,253,0.5)
+  color rgba(15, 23, 42, 0.5)
 
 .networkHealthEmpty
   font-size 11px
-  color rgba(186,230,253,0.3)
+  color rgba(15, 23, 42, 0.6)
   padding 4px 0

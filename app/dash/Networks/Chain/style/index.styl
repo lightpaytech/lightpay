@@ -6,7 +6,7 @@
   padding 32px 20px 24px 20px
   font-size 20px
   font-weight 300
-  color rgb(224,242,254)
+  color rgb(15, 23, 42)
   text-align center
 
 // ─── Add Chain Form Wrapper ──────────────────────────────────────────────────
@@ -26,8 +26,8 @@
   display flex
   margin-top 6px
   margin-bottom 6px
-  background rgba(14,165,233,0.04)
-  border 1px solid rgba(14,165,233,0.18)
+  background rgba(255, 255, 255, 0.04)
+  border 1px solid rgba(14, 165, 233, 0.18)
   border-radius 12px
   padding 4px
 
@@ -98,17 +98,17 @@
   display flex
   align-items center
   justify-content space-between
-  border 1px solid rgba(14,165,233,0.18)
+  border 1px solid rgba(14, 165, 233, 0.18)
   border-radius 20px
   text-transform uppercase
   letter-spacing 0.08em
   width 150px
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
   transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
 
 .networkRowTestnet:hover
-  border-color rgba(14,165,233,0.4)
-  color rgb(224,242,254)
+  border-color rgba(14, 165, 233, 0.40)
+  color rgb(15, 23, 42)
 
 .networkRowRemove
   padding 8px 0px
@@ -121,7 +121,7 @@
   font-weight 500
   letter-spacing 0.1em
   padding 10px 0px 4px 4px
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.4)
 
 // ─── Primary / Secondary Section Labels ──────────────────────────────────────
 
@@ -129,14 +129,14 @@
   font-size 11px
   letter-spacing 0.06em
   text-transform uppercase
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.4)
   font-weight 500
 
 // ─── Expanded Panel Container ────────────────────────────────────────────────
 
 .networkExpandBody
   padding 12px 14px
-  border-top 1px solid rgba(14,165,233,0.18)
+  border-top 1px solid rgba(14, 165, 233, 0.18)
   display flex
   flex-direction column
   gap 10px
@@ -144,8 +144,8 @@
 // ─── VAULT RPC / Explorer / Symbol Input ─────────────────────────────────────
 
 .networkInput
-  background rgba(14,165,233,0.04)
-  border 1px solid rgba(14,165,233,0.18)
+  background rgb(255, 255, 255)
+  border 1px solid rgba(14, 165, 233, 0.30)
   border-radius 8px
   outline none
   text-align left
@@ -155,21 +155,21 @@
   box-sizing border-box
   padding 10px 12px
   font-weight 400
-  color rgb(224,242,254)
+  color rgb(15, 23, 42)
   margin-top 4px
   transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
   letter-spacing 0.02em
 
 .networkInput:focus
-  border-color rgba(14,165,233,0.4)
-  background rgba(14,165,233,0.06)
+  border-color rgba(14, 165, 233, 0.40)
+  background rgb(255, 255, 255)
   outline none
 
 .networkInput::placeholder
-  color rgba(186,230,253,0.2)
+  color rgba(15, 23, 42, 0.55)
 
 .networkInputDim
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.4)
 
 // Short symbol / chain-id variant
 .networkInputShort
@@ -204,7 +204,7 @@
   font-size 11px
   text-transform uppercase
   letter-spacing 0.06em
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
   font-weight 400
 
 // ─── Field Display (read-only) ───────────────────────────────────────────────
@@ -212,19 +212,19 @@
 .networkFieldDisplay
   padding 8px 12px
   margin-top 4px
-  background rgba(14,165,233,0.03)
-  border 1px solid rgba(14,165,233,0.18)
+  background rgba(255, 255, 255, 0.03)
+  border 1px solid rgba(14, 165, 233, 0.18)
   border-radius 8px
   font-family 'CodeFont'
   font-size 12px
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
   text-align left
   letter-spacing 0.02em
 
 // ─── Submit / Save Button ────────────────────────────────────────────────────
 
 .addNetworkSubmit
-  background rgb(10,14,35)
+  background rgb(224, 235, 252)
   width 100%
   margin-top 20px
   margin-bottom 16px
@@ -251,7 +251,7 @@
 
 .addChainSubmitEnabled
   background rgba(14,165,233,0.12)
-  border-color rgba(14,165,233,0.4)
+  border-color rgba(14, 165, 233, 0.40)
   color rgb(14,165,233)
   opacity 1
   cursor pointer
@@ -262,7 +262,7 @@
 
 .addChainSubmitEnabled:hover
   background rgba(14,165,233,0.2)
-  border-color rgba(14,165,233,0.5)
+  border-color rgba(14, 165, 233, 0.50)
 
 // ─── Chain Preview (collapsed row) ──────────────────────────────────────────
 
@@ -272,11 +272,11 @@
   align-items center
   gap 12px
   cursor pointer
-  border-bottom 1px solid rgba(14,165,233,0.18)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
   transition background 0.2s cubic-bezier(0.4, 0, 0.2, 1)
 
 .networkPreview:hover
-  background rgba(14,165,233,0.04)
+  background rgba(255, 255, 255, 0.04)
 
 .networkPreviewColor
   width 10px
@@ -288,7 +288,7 @@
   flex 1
   font-size 14px
   font-weight 400
-  color rgb(224,242,254)
+  color rgb(15, 23, 42)
 
 .networkPreviewStatus
   width 8px
@@ -308,12 +308,12 @@
 // ─── Chain Expanded ──────────────────────────────────────────────────────────
 
 .networkExpanded
-  background rgb(10,14,35)
-  border-top 1px solid rgba(14,165,233,0.18)
+  background rgb(224, 235, 252)
+  border-top 1px solid rgba(14, 165, 233, 0.18)
 
 .networkExpandedSection
   padding 12px 16px
-  border-bottom 1px solid rgba(14,165,233,0.18)
+  border-bottom 1px solid rgba(14, 165, 233, 0.18)
 
 .networkExpandedSection:last-child
   border-bottom none
@@ -323,19 +323,19 @@
   font-weight 500
   letter-spacing 0.08em
   text-transform uppercase
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.4)
   margin-bottom 6px
   display block
 
 .networkExpandedInput
-  background rgba(14,165,233,0.04)
-  border 1px solid rgba(14,165,233,0.18)
+  background rgb(255, 255, 255)
+  border 1px solid rgba(14, 165, 233, 0.30)
   border-radius 10px
   padding 9px 12px
   font-family 'CodeFont'
   font-size 11px
   font-weight 400
-  color rgb(224,242,254)
+  color rgb(15, 23, 42)
   width 100%
   outline none
   transition all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
@@ -343,10 +343,10 @@
   -webkit-app-region no-drag
 
 .networkExpandedInput:focus
-  border-color rgba(14,165,233,0.4)
+  border-color rgba(14, 165, 233, 0.40)
 
 .networkExpandedInput::placeholder
-  color rgba(186,230,253,0.2)
+  color rgba(15, 23, 42, 0.55)
 
 .networkExpandedInputShort
   width 50%
@@ -364,7 +364,7 @@
   display flex
   align-items center
   justify-content center
-  color rgb(3,5,15)
+  color white
   font-size 13px
   font-weight 500
   cursor pointer
@@ -374,8 +374,8 @@
   background rgb(56,189,248)
 
 .networkExpandedSaveDisabled
-  background rgb(10,14,35)
-  color rgba(186,230,253,0.2)
+  background rgb(224, 235, 252)
+  color rgba(15, 23, 42, 0.4)
   cursor not-allowed
 
 .networkExpandedRemove
@@ -422,7 +422,7 @@
 
 .networkConnectionLabel
   font-size 11px
-  color rgba(186,230,253,0.7)
+  color rgba(15, 23, 42, 0.7)
   font-family 'CodeFont'
 
 .networkConnectionBadge
@@ -441,7 +441,7 @@
 .networkConnectionBadgeSecondary
   background rgba(14,165,233,0.1)
   color rgb(14,165,233)
-  border 1px solid rgba(14,165,233,0.25)
+  border 1px solid rgba(14, 165, 233, 0.25)
 
 // ─── New Chain form ──────────────────────────────────────────────────────────
 
@@ -454,7 +454,7 @@
 .networkNewTitle
   font-size 16px
   font-weight 500
-  color rgb(224,242,254)
+  color rgb(15, 23, 42)
   margin-bottom 4px
 
 .networkNewField
@@ -467,7 +467,7 @@
   font-weight 500
   letter-spacing 0.08em
   text-transform uppercase
-  color rgba(186,230,253,0.4)
+  color rgba(15, 23, 42, 0.4)
 
 .networkNewSubmit
   height 44px
@@ -476,7 +476,7 @@
   display flex
   align-items center
   justify-content center
-  color rgb(3,5,15)
+  color white
   font-size 14px
   font-weight 500
   cursor pointer
@@ -505,5 +505,5 @@
   flex-shrink 0
 
 .networkColorSwatchSelected
-  border-color white
+  border-color var(--ghostA)
   transform scale(1.15)

@@ -5,12 +5,12 @@ import link from '../../../../../resources/link'
 class ThemeChooser extends React.Component {
   constructor(...args) {
     super(...args)
-    this.state = { selected: 'dark' }
+    this.state = { selected: 'light' }
   }
 
   selectTheme(theme) {
     this.setState({ selected: theme })
-    link.send('tray:action', 'setColorway', theme)
+    link.send('tray:action', 'setColorway', 'light')
   }
 
   render() {
@@ -25,46 +25,22 @@ class ThemeChooser extends React.Component {
           </svg>
         </div>
 
-        <div className='onboardTitle'>Pick a look</div>
-        <div className='onboardSubtitle'>Choose the style that suits you — swap it later in Settings whenever you like.</div>
+        <div className='onboardTitle'>Ice Blue Theme</div>
+        <div className='onboardSubtitle'>LightPay ships with a single, calm ice-blue theme so things stay easy on the eyes.</div>
 
         <div className='themeChooserGrid'>
-          <div
-            className={'themeChooserOption' + (selected === 'dark' ? ' themeChooserOptionActive' : '')}
-            onClick={() => this.selectTheme('dark')}
-          >
-            <div className='themeChooserPreview themeChooserPreviewDark'>
-              <div className='themeChooserPreviewBar' />
-              <div className='themeChooserPreviewCard' />
-              <div className='themeChooserPreviewCard themeChooserPreviewCardShort' />
-            </div>
-            <div className='themeChooserOptionLabel'>Dark</div>
-            {selected === 'dark' && (
-              <div className='themeChooserCheck'>
-                <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M2 6L5 9L10 3' stroke='currentColor' strokeWidth='1.75' strokeLinecap='round' strokeLinejoin='round' />
-                </svg>
-              </div>
-            )}
-          </div>
-
-          <div
-            className={'themeChooserOption' + (selected === 'light' ? ' themeChooserOptionActive' : '')}
-            onClick={() => this.selectTheme('light')}
-          >
+          <div className={'themeChooserOption themeChooserOptionActive'}>
             <div className='themeChooserPreview themeChooserPreviewLight'>
               <div className='themeChooserPreviewBar' />
               <div className='themeChooserPreviewCard' />
               <div className='themeChooserPreviewCard themeChooserPreviewCardShort' />
             </div>
-            <div className='themeChooserOptionLabel'>Light</div>
-            {selected === 'light' && (
-              <div className='themeChooserCheck'>
-                <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path d='M2 6L5 9L10 3' stroke='currentColor' strokeWidth='1.75' strokeLinecap='round' strokeLinejoin='round' />
-                </svg>
-              </div>
-            )}
+            <div className='themeChooserOptionLabel'>Ice Blue</div>
+            <div className='themeChooserCheck'>
+              <svg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M2 6L5 9L10 3' stroke='currentColor' strokeWidth='1.75' strokeLinecap='round' strokeLinejoin='round' />
+              </svg>
+            </div>
           </div>
         </div>
       </div>

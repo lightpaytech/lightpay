@@ -70,8 +70,8 @@ class PortfolioChart extends React.Component {
     const chart = buildSparklinePath(trendData, chartW, chartH)
 
     const isUp = trendData.length > 1 && trendData[trendData.length - 1] >= trendData[0]
-    const lineColor = isUp ? 'rgba(16,185,129,0.9)' : 'rgba(244,63,94,0.9)'
-    const fillColor = isUp ? 'rgba(16,185,129,0.08)' : 'rgba(244,63,94,0.06)'
+    const lineColor = isUp ? 'rgba(16,185,129,1)' : 'rgba(239,68,68,1)'
+    const fillColor = isUp ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.12)'
     const changeColor = isUp ? 'var(--good)' : 'var(--bad)'
     const changeSign = isUp ? '▲' : '▼'
 

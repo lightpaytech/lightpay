@@ -57,7 +57,7 @@ link.rpc('getFrameId', (err, frameId) => {
 
     store.observer(() => {
       document.body.classList.remove('dark', 'light')
-      document.body.classList.add('clip', store('main.colorway'))
+      document.body.classList.add('clip', 'light')
       setTimeout(() => {
         document.body.classList.remove('clip')
       }, COLORWAY_TRANSITION_MS)

@@ -1067,6 +1067,13 @@ module.exports = {
   },
 
   /**
+   * Toggles the Quick Send panel in the tray footer.
+   */
+  toggleQuickSend: (u) => {
+    u('windows.panel.quickSendOpen', (v) => !v)
+  },
+
+  /**
    * Sets the dash window state, resetting nav when hiding.
    */
   setDash: (u, update) => {
@@ -1448,6 +1455,7 @@ module.exports = {
    * Retrieves the stored portfolio value for an account address.
    */
   getPortfolioValue: (address) => {
+    if (!address) return { usd: 0, updatedAt: 0 }
     return store(STORE_PATH_PORTFOLIO, address.toLowerCase()) || { usd: 0, updatedAt: 0 }
   },
 
@@ -1455,22 +1463,30 @@ module.exports = {
    * Stores a USD portfolio value snapshot for an account address.
    */
   setPortfolioValue: (u, address, value) => {
+    if (!address) return
     u(STORE_PATH_PORTFOLIO, address.toLowerCase(), () => ({ usd: value, updatedAt: Date.now() }))
   },
 
   /**
    * Creates or overwrites a price alert for a token held by an account.
    */
-  setPriceAlert: (u, address, tokenAddress, { above, below, chainId }) => {
-    u(STORE_PATH_PRICE_ALERTS, address.toLowerCase(), tokenAddress, () => ({ above, below, chainId, createdAt: Date.now(), triggered: false }))
+  setPriceAlert: (u, address, tokenAddress, opts = {}) => {
+    if (!address || !tokenAddress) return
+    const { above = null, below = null, chainId = null } = opts
+    u(STORE_PATH_PRICE_ALERTS, address.toLowerCase(), tokenAddress, () => ({
+      above,
+      below,
+      chainId,
+      createdAt: Date.now(),
+      triggered: false
+    }))
   },
 
   /**
    * Triggers a portfolio re-fetch for the given account address.
    */
   refreshPortfolio: (u, address) => {
-    // Portfolio refresh is handled by the externalData module
-    // This action just sets a flag to trigger a re-fetch
+    if (!address) return
     u('main.portfolioValues', address.toLowerCase(), 'refreshing', () => true)
   },
 
@@ -1478,6 +1494,7 @@ module.exports = {
    * Removes a price alert for a specific token symbol on an account.
    */
   removePriceAlert: (u, address, tokenSymbol) => {
+    if (!address || !tokenSymbol) return
     u('main.priceAlerts', address.toLowerCase(), tokenSymbol, () => null)
   },
 
@@ -1485,6 +1502,7 @@ module.exports = {
    * Clears the transaction history for an account address.
    */
   clearTxHistory: (u, address) => {
+    if (!address) return
     u('main.txHistory', address.toLowerCase(), () => [])
   },
 

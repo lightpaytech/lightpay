@@ -12,8 +12,8 @@
   text-align center
   opacity 1
   border-radius 16px
-  background rgb(6, 9, 22)
-  border-top 2px solid rgb(14, 165, 233)
+  background rgb(240, 245, 255)
+  border-top 2px solid rgba(14, 165, 233, 0.15)
 
   ::selection
     background rgba(14, 165, 233, 0.3)
@@ -35,7 +35,7 @@
     letter-spacing 0.08em
     font-weight 500
     cursor pointer
-    background rgb(10, 14, 35)
+    background rgb(224, 235, 252)
     border 1px solid rgba(14, 165, 233, 0.16)
     color var(--good)
     transition 0.18s ease all
@@ -44,8 +44,8 @@
       pointer-events none
 
   .alertCloseBtn:hover
-    background rgb(10, 14, 35)
-    border-color rgba(14, 165, 233, 0.4)
+    background rgb(224, 235, 252)
+    border-color rgba(14, 165, 233, 0.40)
 
   // ─── Notification box wrapper ──────────────────────────────
   .alertWrap
@@ -57,7 +57,7 @@
     left 6px
     right 6px
     transition var(--standard)
-    background rgb(6, 9, 22)
+    background rgb(240, 245, 255)
     border 1px solid rgba(14, 165, 233, 0.08)
     display flex
     justify-content center
@@ -77,7 +77,7 @@
       position absolute
       top 0px
       right 0px
-      color rgba(186, 230, 253, 0.7)
+      color rgba(15, 23, 42, 0.7)
       z-index 3
       height 40px
       width 40px
@@ -104,7 +104,7 @@
         position relative
         z-index 3
         margin-bottom 32px
-        color rgb(224, 242, 254)
+        color rgb(15, 23, 42)
         letter-spacing 0.01em
 
       .alertSubtitle
@@ -138,7 +138,7 @@
         width 100%
         box-sizing border-box
         padding 20px
-        color rgb(224, 242, 254)
+        color rgb(15, 23, 42)
         line-height 1.6
 
         .alertBodyLine
@@ -160,10 +160,10 @@
         .alertBodyUpdate
           padding 10px 12px
           margin-bottom 8px
-          background rgba(14, 165, 233, 0.08)
+          background rgba(255, 255, 255, 0.08)
           color rgb(14, 165, 233)
           border-radius 10px
-          border 1px solid rgba(14, 165, 233, 0.2)
+          border 1px solid rgba(14, 165, 233, 0.20)
           margin-top 40px
           font-size 13px
           font-weight 400
@@ -171,14 +171,14 @@
         .alertBodyBlock
           padding 10px
           margin-bottom 8px
-          background rgb(10, 14, 35)
+          background rgb(224, 235, 252)
           border-radius 12px
-          border 1px solid rgba(14, 165, 233, 0.1)
+          border 1px solid rgba(14, 165, 233, 0.10)
 
         .alertBodyBlockLarge
           padding 28px
           font-size 15px
-          background rgb(10, 14, 35)
+          background rgb(224, 235, 252)
 
         .alertLink
           text-decoration underline
@@ -192,13 +192,13 @@
         .alertBodyHash
           font-size 12px
           font-family 'CodeFont'
-          background rgb(10, 14, 35)
+          background rgb(224, 235, 252)
           line-height 20px
           padding 16px
           border-radius 12px
           border 1px solid rgba(14, 165, 233, 0.12)
           margin-top 10px
-          color rgba(186, 230, 253, 0.7)
+          color rgba(15, 23, 42, 0.7)
           min-height 52px
           max-height 52px
           overflow hidden
@@ -209,11 +209,11 @@
           margin-top 4px
           font-size 22px
           font-weight 500
-          color rgb(224, 242, 254)
+          color rgb(15, 23, 42)
 
         .alertBodyQuestion
           padding-top 36px
-          color rgba(186, 230, 253, 0.7)
+          color rgba(15, 23, 42, 0.7)
 
       // ─── Checkbox rows ───────────────────────────────────
       .alertCheckRow
@@ -233,7 +233,7 @@
           min-width 28px
           min-height 28px
           border-radius 8px
-          background rgb(10, 14, 35)
+          background rgb(224, 235, 252)
           border 1px solid rgba(14, 165, 233, 0.18)
           margin-right 10px
           box-sizing border-box
@@ -252,15 +252,15 @@
             color rgb(14, 165, 233)
 
         .alertCheckbox:hover
-          background rgb(10, 14, 35)
-          border-color rgba(14, 165, 233, 0.4)
+          background rgb(224, 235, 252)
+          border-color rgba(14, 165, 233, 0.40)
 
         .alertCheckLabel
           text-align left
           font-size 13px
           line-height 1.5
           width 210px
-          color rgb(224, 242, 254)
+          color rgb(15, 23, 42)
 
       // ─── Action buttons (deny / proceed row) ─────────────
       .alertActions
@@ -278,7 +278,7 @@
           justify-content center
           align-items center
           box-sizing border-box
-          background rgb(6, 9, 22)
+          background rgb(240, 245, 255)
           height 44px
           border-radius 12px
           border 1px solid rgba(14, 165, 233, 0.14)
@@ -286,7 +286,7 @@
           font-weight 500
           letter-spacing 0.05em
           text-transform uppercase
-          color rgb(224, 242, 254)
+          color rgb(15, 23, 42)
           cursor pointer
           transition 0.2s cubic-bezier(0.4, 0, 0.2, 1) all
 
@@ -299,17 +299,17 @@
             padding-bottom 1px
 
         .alertActionBtn:hover
-          background rgb(10, 14, 35)
+          background rgb(224, 235, 252)
           border-color rgba(14, 165, 233, 0.28)
-          color rgb(224, 242, 254)
+          color rgb(15, 23, 42)
 
         .alertGoBtn
           color rgb(14, 165, 233)
 
         .alertGoBtn:hover
-          border-color rgba(14, 165, 233, 0.5)
+          border-color rgba(14, 165, 233, 0.50)
           color rgb(56, 189, 248)
-          background rgba(14, 165, 233, 0.06)
+          background rgba(255, 255, 255, 0.06)
 
         .alertActionDeny
           border-top-left-radius 12px
@@ -325,9 +325,9 @@
           border-bottom-right-radius 12px
 
         .alertActionProceed:hover
-          border-color rgba(14, 165, 233, 0.4)
+          border-color rgba(14, 165, 233, 0.40)
           color rgb(14, 165, 233)
-          background rgba(14, 165, 233, 0.06)
+          background rgba(255, 255, 255, 0.06)
 
         .alertActionSingle
           left 50%
@@ -335,7 +335,7 @@
           border-radius 12px
           height 48px
           width 100%
-          background rgb(6, 9, 22)
+          background rgb(240, 245, 255)
           border 1px solid rgba(14, 165, 233, 0.18)
 
     // ─── Intro / onboarding instruction list ───────────────
@@ -348,7 +348,7 @@
       border-radius 6px
       text-align left
       line-height 18px
-      color rgba(186, 230, 253, 0.7)
+      color rgba(15, 23, 42, 0.7)
 
       .introInstructionItem
         margin-bottom 20px
@@ -362,9 +362,9 @@
         border-radius 10px
         padding 16px
         font-weight 400
-        background rgba(14, 165, 233, 0.06)
+        background rgba(255, 255, 255, 0.06)
         border 1px solid rgba(14, 165, 233, 0.18)
-        color rgb(224, 242, 254)
+        color rgb(15, 23, 42)
 
         div
           font-size 14px
