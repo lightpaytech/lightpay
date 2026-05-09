@@ -10,6 +10,7 @@ const config = {
   appId: 'com.lightpay.app',
   productName: 'LightPay',
   artifactName: '${productName}-${version}-${os}-${arch}.${ext}',
+  npmRebuild: false,
   mac: {
     target: {
       target: 'dmg',

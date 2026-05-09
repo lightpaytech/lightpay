@@ -6,10 +6,14 @@ const config = {
   ...baseConfig,
   electronVersion: '34.0.0',
   appId: 'com.lightpay.app',
+  // Native modules are pre-built via `npx @electron/rebuild --parallel 1` so
+  // electron-builder doesn't need to rerun the rebuild — its parallel rebuild
+  // races on the gyp .deps directory creation on macOS clang.
+  npmRebuild: false,
   mac: {
     target: {
       target: 'mas',
-      arch: 'universal'
+      arch: 'arm64'
     },
     hardenedRuntime: false,
     gatekeeperAssess: false,
