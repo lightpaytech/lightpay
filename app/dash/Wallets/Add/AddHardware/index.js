@@ -39,32 +39,26 @@ class AddHardware extends React.Component {
             <div className='addAccountItemSummary'>{`Unlock your ${this.deviceName} to get started`}</div>
           </div>
           <div className='addAccountItemDevices'>
-            {tethered.length ? (
-              tethered.map((signer, i) => {
-                return (
-                  <div key={i + signer.id} className='addAccountItemOptionSetupLightPay'>
-                    {signer ? (
-                      <Signer {...signer} inSetup={true} />
-                    ) : (
-                      <>
-                        <div className='addAccountItemOptionTitle'>{this.state.status}</div>
-                        {this.state.error ? (
-                          <div className='addWalletSubmitBtn' onMouseDown={() => this.restart()}>
-                            try again
-                          </div>
-                        ) : null}
-                      </>
-                    )}
-                  </div>
-                )
-              })
-            ) : (
-              <>
-                <div className='addAccountItemDevice'>
-                  <div className='addAccountItemDeviceTitle'>No Devices Found</div>
-                </div>
-              </>
-            )}
+            {tethered.length
+              ? tethered.map((signer, i) => {
+                  return (
+                    <div key={i + signer.id} className='addAccountItemOptionSetupLightPay'>
+                      {signer ? (
+                        <Signer {...signer} inSetup={true} />
+                      ) : (
+                        <>
+                          <div className='addAccountItemOptionTitle'>{this.state.status}</div>
+                          {this.state.error ? (
+                            <div className='addWalletSubmitBtn' onMouseDown={() => this.restart()}>
+                              try again
+                            </div>
+                          ) : null}
+                        </>
+                      )}
+                    </div>
+                  )
+                })
+              : null}
           </div>
           <div
             className='addAccountItemFooter'
