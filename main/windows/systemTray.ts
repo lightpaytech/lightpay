@@ -21,7 +21,11 @@ export class SystemTray {
 
   init(mainWindow: BrowserWindow) {
     // Electron Tray can only be instantiated when the app is ready
-    this.electronTray = new ElectronTray(path.join(__dirname, isMacOS ? './IconTemplate.png' : './Icon.png'))
+    // Use the colored Icon.png on macOS — naming a file *Template.png triggers
+    // macOS's NSImage template behavior, which strips color and renders the
+    // entire opaque region as a solid white/black silhouette. The LightPay
+    // circular logo is colorful by design, so we ship the full-color variant.
+    this.electronTray = new ElectronTray(path.join(__dirname, './Icon.png'))
     this.electronTray.on('click', (_event: KeyboardEvent, bounds: Rectangle) => {
       const mainWindowBounds = mainWindow.getBounds()
       const currentDisplay = screen.getDisplayMatching(bounds)
