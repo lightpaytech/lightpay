@@ -21,19 +21,20 @@
   border-radius 16px
   z-index 999
   display flex
-  align-items center
+  flex-direction column
+  align-items stretch
+  justify-content flex-start
   overflow hidden
-  justify-content center
   transform translateY(0px)
   transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
   border 1px solid rgba(14, 165, 233, 0.18)
 
   .accountSelectorScroll
+    flex 1
     width 100%
-    max-height 100%
     border-radius 14px
     transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
-    overflow-y scroll
+    overflow-y auto
     overflow-x hidden
     scrollbar-width none
 
@@ -42,11 +43,13 @@
 
     .accountSelectorScrollWrap
       width 100%
-      padding 48px 6px 48px 6px
+      padding 60px 0 16px 0
       box-sizing border-box
       will-change scroll-position
       z-index 999
-      pointer-events none
+      display flex
+      flex-direction column
+      gap 0
 
       .noDevices
         width 100%
@@ -274,14 +277,36 @@
   border 1px solid rgba(14, 165, 233, 0.20)
 
 // ─── Selector open state ──────────────────────────────────────────────────────
+// When open, the WalletPanel (.walletMain, z-index 3) renders below the selector.
+// The selector spans top:80px→bottom:40px with a solid bg, so leaving it opaque
+// would cover the panel entirely. Make it transparent and let only the selected
+// signer row (which has its own .signerTop background) remain visible at top.
 
 .walletSelectorOpen
   transform translateY(-14px)
   transition 0.28s cubic-bezier(0.4, 0, 0.2, 1) all
   z-index 999999999
   pointer-events none
+  background transparent
+  border-color transparent
+  overflow visible
   *
     pointer-events none
+
+  // Drop search-bar reservation so the selected signer sits flush at the top
+  .accountSelectorScroll
+    overflow visible
+
+    .accountSelectorScrollWrap
+      padding 0
+
+.dark
+  .walletSelector.walletSelectorOpen
+    background transparent
+
+.light
+  .walletSelector.walletSelectorOpen
+    background transparent
 
 // ─── New account button ───────────────────────────────────────────────────────
 
