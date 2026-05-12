@@ -134,15 +134,19 @@ export default {
    */
   create: (frame: LightPay) => {
     // Start with zero dimensions; `place()` will set the real size immediately.
-    const frameInstance: FrameInstance = createWindow('frameInstance', {
+    const isMacOS = process.platform === 'darwin'
+    const frameOpts: Electron.BrowserWindowConstructorOptions = {
       x: 0,
       y: 0,
       width: 0,
       height: 0,
       titleBarStyle: 'hidden',
-      trafficLightPosition: { x: 10, y: 9 },
       icon: path.join(__dirname, './AppIcon.png')
-    })
+    }
+    if (isMacOS) {
+      frameOpts.trafficLightPosition = { x: 10, y: 9 }
+    }
+    const frameInstance: FrameInstance = createWindow('frameInstance', frameOpts)
 
     frameInstance.loadURL(
       isDev ? 'http://localhost:1234/dapp/index.dev.html' : `file://${process.env.BUNDLE_LOCATION}/dapp.html`

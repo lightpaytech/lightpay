@@ -60,7 +60,13 @@ const app = {
   }
 }
 const systemTrayEventHandlers: SystemTrayEventHandlers = {
-  click: () => {},
+  // On Windows, a left-click on the tray icon should toggle the wallet window;
+  // on macOS the left-click already opens the menu so this stays a no-op.
+  click: () => {
+    if (!isMacOS) {
+      app.toggle()
+    }
+  },
   clickHide: () => app.hide(),
   clickShow: () => app.show()
 }
@@ -419,15 +425,18 @@ class Dash {
 
 class Onboard {
   constructor() {
-    initWindow('onboard', {
+    const onboardOpts: Electron.BrowserWindowConstructorOptions = {
       x: 0,
       y: 0,
       width: 0,
       height: 0,
       titleBarStyle: 'hidden',
-      trafficLightPosition: { x: 10, y: 9 },
       icon: path.join(__dirname, './AppIcon.png')
-    })
+    }
+    if (isMacOS) {
+      onboardOpts.trafficLightPosition = { x: 10, y: 9 }
+    }
+    initWindow('onboard', onboardOpts)
   }
 
   public hide() {
@@ -488,12 +497,12 @@ class Notify {
       width: 0,
       height: 0,
       titleBarStyle: 'hidden',
-      trafficLightPosition: { x: 10, y: 9 },
       icon: path.join(__dirname, './AppIcon.png')
     }
 
     if (isMacOS) {
       notifyOpts.type = 'panel'
+      notifyOpts.trafficLightPosition = { x: 10, y: 9 }
     }
 
     initWindow('notify', notifyOpts)

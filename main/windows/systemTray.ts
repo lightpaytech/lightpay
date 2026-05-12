@@ -25,7 +25,13 @@ export class SystemTray {
     // macOS's NSImage template behavior, which strips color and renders the
     // entire opaque region as a solid white/black silhouette. The LightPay
     // circular logo is colorful by design, so we ship the full-color variant.
-    this.electronTray = new ElectronTray(path.join(__dirname, './Icon.png'))
+    // On Windows, prefer the 256x256 AppIcon.png which Electron will scale
+    // down crisply for the system tray.
+    const trayIconPath = isMacOS
+      ? path.join(__dirname, './Icon.png')
+      : path.join(__dirname, './AppIcon.png')
+    this.electronTray = new ElectronTray(trayIconPath)
+    this.electronTray.setToolTip('LightPay')
     this.electronTray.on('click', (_event: KeyboardEvent, bounds: Rectangle) => {
       const mainWindowBounds = mainWindow.getBounds()
       const currentDisplay = screen.getDisplayMatching(bounds)
